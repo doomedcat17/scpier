@@ -6,7 +6,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.HashMap;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class ScpDataProviderTest {
 
@@ -16,7 +15,7 @@ class ScpDataProviderTest {
 
     @Test
     void testaaa() {
-        HashMap<String, String> content = scpDataProvider.getScpData("301");
+        HashMap<String, String> content = scpDataProvider.getScpData("796");
         for (String key: content.keySet()) {
             System.out.println(key+": "+content.get(key));
         }

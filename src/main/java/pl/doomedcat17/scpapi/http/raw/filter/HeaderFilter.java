@@ -3,13 +3,14 @@ package pl.doomedcat17.scpapi.http.raw.filter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class HeaderFilter {
+public class HeaderFilter { //TODO change classname
+
+    private Pattern firstPattern = Pattern.compile("(<strong>)");
+    private Pattern secondPattern = Pattern.compile("(<\\/strong>)");
+    private Pattern thirdPattern = Pattern.compile("(<\\/p>)");
 
     public String[] getHeaderFromLine(String line) {
-        Pattern firstPattern = Pattern.compile("(<strong>)");
-        Pattern secondPattern = Pattern.compile("(</strong>)");
-        Pattern thirdPattern = Pattern.compile("(</p>)");
-        Matcher firstMatcher = firstPattern.matcher(line);
+        Matcher firstMatcher = firstPattern.matcher(line); //TODO code refactor
         Matcher secondMatcher = secondPattern.matcher(line);
         Matcher thirdMatcher = thirdPattern.matcher(line);
         if (firstMatcher.find() && secondMatcher.find() && thirdMatcher.find()) {
@@ -25,7 +26,7 @@ public class HeaderFilter {
     }
 
     private String changeHeaderTitle(String originalTitle) {
-        String title = "";
+        String title = originalTitle;
         switch (originalTitle) {
             case "Item #:":
                 title = "objectName";
@@ -40,7 +41,9 @@ public class HeaderFilter {
                 title = "objectSpecialContainmentProcedures";
                 break;
             default:
-                title = originalTitle.substring(0, originalTitle.length()-1);
+                if (originalTitle.charAt(originalTitle.length()-1) == ':') {
+                    title = originalTitle.substring(0, originalTitle.length() - 1);
+                }
         }
         return title;
     }
