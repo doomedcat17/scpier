@@ -1,8 +1,7 @@
-package pl.doomedcat17.scpapi.http.raw.filter;
+package pl.doomedcat17.scpapi.raw.filter;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import pl.doomedcat17.scpapi.raw.content.filters.UlListFilter;
 
 class UlListFilterTest {
 

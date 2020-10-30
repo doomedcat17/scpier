@@ -1,4 +1,4 @@
-package pl.doomedcat17.scpapi.http.raw;
+package pl.doomedcat17.scpapi.raw.http;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;

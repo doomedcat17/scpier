@@ -1,4 +1,4 @@
-package pl.doomedcat17.scpapi.http.raw;
+package pl.doomedcat17.scpapi.raw;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ class ScpDataProviderTest {
 
     @Test
     void testaaa() {
-        HashMap<String, String> content = scpDataProvider.getScpData("048");
+        HashMap<String, String> content = scpDataProvider.getScpData("040");
         for (String key: content.keySet()) {
             System.out.println(key+": "+content.get(key));
         }

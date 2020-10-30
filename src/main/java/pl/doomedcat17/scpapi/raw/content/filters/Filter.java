@@ -1,4 +1,6 @@
-package pl.doomedcat17.scpapi.http.raw.filter;
+package pl.doomedcat17.scpapi.raw.content.filters;
+
+import pl.doomedcat17.scpapi.raw.content.filters.pattern.PatternBox;
 
 import java.util.regex.Matcher;
 
@@ -32,14 +34,6 @@ public abstract class Filter {
                 cleanedText = emEndMatcher.replaceAll("");
             }
         }
-        StringBuilder stringBuilder = new StringBuilder(cleanedText);
-        if (stringBuilder.charAt(0) == '\n' || text.charAt(0) == ' ') {
-            stringBuilder.replace(0, 1, "");
-        }
-        if (stringBuilder.charAt(stringBuilder.length()-1) == ' ' || stringBuilder.charAt(stringBuilder.length()-1) == ' ') {
-            int length = stringBuilder.length();
-            stringBuilder.replace(length-1, length, "");
-        }
-        return stringBuilder.toString();
+        return cleanedText.trim();
     }
 }

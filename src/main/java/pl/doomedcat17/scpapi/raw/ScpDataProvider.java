@@ -1,8 +1,9 @@
-package pl.doomedcat17.scpapi.http.raw;
+package pl.doomedcat17.scpapi.raw;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import pl.doomedcat17.scpapi.http.raw.filter.HtmlContentFilter;
+import pl.doomedcat17.scpapi.raw.http.WebContentProvider;
+import pl.doomedcat17.scpapi.raw.content.HtmlContentFilter;
 
 import java.util.HashMap;
 

@@ -1,4 +1,4 @@
-package pl.doomedcat17.scpapi.http.raw.filter;
+package pl.doomedcat17.scpapi.raw.content.filters;
 
 import java.util.regex.Matcher;
 
@@ -27,6 +27,7 @@ public class BlockQuoteFilter extends Filter {
         String[] output = new String[2];
         output[0] = "";
         output[1] = clear(stringBuilder.toString());
+        stringBuilder.insert(0, '\n');
         return output;
     }
 

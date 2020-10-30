@@ -1,4 +1,4 @@
-package pl.doomedcat17.scpapi.http.raw.filter;
+package pl.doomedcat17.scpapi.raw.content.filters.pattern;
 
 import lombok.Getter;
 
@@ -15,11 +15,11 @@ public class PatternBox {
 
     private final Pattern LI_START_PATTERN = Pattern.compile("(<li>)");
 
-    private final Pattern LI_END_MATCHER = Pattern.compile("(<\\/li>)");
+    private final Pattern LI_END_PATTERN= Pattern.compile("(<\\/li>)");
 
     private final Pattern UL_START_PATTERN = Pattern.compile("(<ul>)");
 
-    private final Pattern UL_END_MATCHER = Pattern.compile("(<\\/ul>)");
+    private final Pattern UL_END_PATTERN = Pattern.compile("(<\\/ul>)");
 
     private final Pattern STRONG_START_PATTERN = Pattern.compile("(<strong>)");
 

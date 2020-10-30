@@ -1,6 +1,9 @@
-package pl.doomedcat17.scpapi.http.raw.filter;
+package pl.doomedcat17.scpapi.raw.content;
 
 import pl.doomedcat17.scpapi.exceptions.MatchNotFoundException;
+import pl.doomedcat17.scpapi.raw.content.filters.*;
+import pl.doomedcat17.scpapi.raw.content.filters.pattern.PatternBox;
+
 import java.util.regex.Matcher;
 
 public class LineMatcher {

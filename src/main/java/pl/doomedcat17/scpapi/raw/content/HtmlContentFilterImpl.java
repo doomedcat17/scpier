@@ -1,9 +1,12 @@
-package pl.doomedcat17.scpapi.http.raw.filter;
+package pl.doomedcat17.scpapi.raw.content;
 
 import org.springframework.stereotype.Component;
 import pl.doomedcat17.scpapi.exceptions.MatchNotFoundException;
+import pl.doomedcat17.scpapi.raw.content.filters.Filter;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -30,12 +33,11 @@ public class HtmlContentFilterImpl implements HtmlContentFilter {
     public HashMap<String, String> filterHtmlContent(String htmlContent) {
         HashMap<String, String> filteredContent = new HashMap<>();
         htmlContent = cutHtml(htmlContent);
-        String[] lines = htmlContent.split("\n");
+        String[] lines = clearLines(htmlContent.split("\n"));
         String lastKey = "";
         for (int i = 0; i < lines.length; i++) {
             try {
-                String line = lines[i].trim();
-                if (line.isEmpty()) continue;
+                String line = lines[i];
                 Filter filter = lineMatcher.matchFilter(line);
                 String[] content = filter.getContent(lines, i);
                 if (content[0].equals(lastKey) || content[0].isEmpty()) {
@@ -52,6 +54,17 @@ public class HtmlContentFilterImpl implements HtmlContentFilter {
             }
         }
         return filteredContent;
+    }
+
+    private String[] clearLines(String[] lines) {
+        List<String> stringList = new ArrayList<>();
+        for (String line: lines) {
+            line = line.trim();
+            if (!line.isEmpty()) stringList.add(line);
+        }
+        String[] outputLines = new String[stringList.size()];
+        outputLines = stringList.toArray(outputLines);
+        return outputLines;
     }
 
 
