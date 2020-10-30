@@ -34,6 +34,11 @@ public abstract class Filter {
                 cleanedText = emEndMatcher.replaceAll("");
             }
         }
-        return cleanedText.trim();
+        if (cleanedText.charAt(0) == '\n') {
+            StringBuilder sb = new StringBuilder(cleanedText.trim());
+            sb.insert(0, '\n');
+            cleanedText = sb.toString();
+        } else cleanedText = cleanedText.trim();
+        return cleanedText;
     }
 }

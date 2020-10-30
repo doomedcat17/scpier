@@ -15,6 +15,7 @@ public class BlockQuoteFilter extends Filter {
             if (paragraphStartMatcher.find()) {
                 if (paragraphEndMatcher.find()) {
                     String content = line.substring(paragraphStartMatcher.end(), paragraphEndMatcher.start());
+                    stringBuilder.append('\n');
                     stringBuilder.append(content);
                 }
             }  else if (blockquoteEndMatcher.find()) {
@@ -27,7 +28,6 @@ public class BlockQuoteFilter extends Filter {
         String[] output = new String[2];
         output[0] = "";
         output[1] = clear(stringBuilder.toString());
-        stringBuilder.insert(0, '\n');
         return output;
     }
 

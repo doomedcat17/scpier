@@ -15,7 +15,7 @@ class ScpDataProviderTest {
 
     @Test
     void testaaa() {
-        HashMap<String, String> content = scpDataProvider.getScpData("040");
+        HashMap<String, String> content = scpDataProvider.getScpData("120");
         for (String key: content.keySet()) {
             System.out.println(key+": "+content.get(key));
         }
