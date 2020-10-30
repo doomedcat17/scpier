@@ -19,8 +19,8 @@ class UlListFilterTest {
 
     @Test
     void shouldGetUlContent() {
-        String content = ulListFilter.getListContent(lines, 0);
-        System.out.println(content);
+        String[] content = ulListFilter.getContent(lines, 0);
+        System.out.println(content[1]);
     }
 
 }
