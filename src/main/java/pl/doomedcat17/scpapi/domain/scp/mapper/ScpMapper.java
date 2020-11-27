@@ -1,86 +1,43 @@
 package pl.doomedcat17.scpapi.domain.scp.mapper;
 
 import lombok.extern.slf4j.Slf4j;
-import org.jsoup.nodes.Element;
-import org.jsoup.nodes.TextNode;
 import org.jsoup.select.Elements;
 import pl.doomedcat17.scpapi.data.Appendix;
 import pl.doomedcat17.scpapi.data.ScpObject;
-import pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers.HtmlMapper;
-import pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers.HtmlMapperFactory;
-import pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers.Patterns;
-import pl.doomedcat17.scpapi.exceptions.MapperNotFoundException;
+import pl.doomedcat17.scpapi.domain.scp.http.page_content.PageContent;
+import pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers.ScpFieldsMapper;
+import pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers.ScpPattern;
+import pl.doomedcat17.scpapi.exceptions.ScpFieldNotFoundException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 public class ScpMapper {
 
-
-    public ScpObject mapToScp(Element content) {
-        Map<String, String> mappedData = new HashMap<>();
-        Elements data = content.children();
-        String lastTitle = "";
-        //TODO make appendix here
-        for (Element element : data) {
-            try {
-                HtmlMapper htmlMapper = HtmlMapperFactory.getHtmlMapper(element);
-                Map<String, String> elementData = htmlMapper.mapElement(element);
-                if (elementData.containsKey("title")) {
-                    mappedData.put(
-                            elementData.get("title"),
-                            elementData.get("content")
-                    );
-                    lastTitle = elementData.get("title");
-                } else {
-                    mappedData.put(
-                            lastTitle,
-                            mappedData.get(lastTitle) + elementData.get("content")
-                    );
-                }
-                return applyData(mappedData);
-            } catch (MapperNotFoundException e) {
-                log.info(e.getMessage());
-            }
-        }
-        return null;
+    public ScpObject mapToScp(PageContent pageContent) throws ScpFieldNotFoundException {
+        Elements data = pageContent.getContent().children();
+        ScpFieldsMapper scpFieldsMapper = new ScpFieldsMapper(data);
+        List<Appendix<String>> scpFields = scpFieldsMapper.getScpNameAndClass();
+        List<Appendix<?>> scpAppendices = scpFieldsMapper.getScpAppendices();
+        return applyData(scpFields, scpAppendices, pageContent.getSourceUrl());
     }
 
-    private ScpObject applyData(Map<String, String> mappedData) {
+    private ScpObject applyData(List<Appendix<String>> scpFields, List<Appendix<?>> scpAppendices, String source) throws ScpFieldNotFoundException {
         ScpObject scpObject = new ScpObject();
-        mappedData.keySet()
-                .forEach(key -> setScpField(scpObject, key, mappedData));
-        return null;
+        applyScpFields(scpObject, scpFields);
+        scpObject.setAppendices(scpAppendices);
+        scpObject.setSource(source);
+        return scpObject;
     }
-    //TODO refactor
-    private void setScpField(ScpObject scpObject, String key, Map<String, String> mappedData) {
-      /*  String value = mappedData.get(key);
-        switch (key) {
-            case Patterns.SCP_NAME_PATTERN:
-                scpObject.setObjectName(value);
-                break;
-            case Patterns.SCP_CLASS_PATTERN:
-                scpObject.setObjectClass(value);
-                break;
-            case Patterns.SCP_PROCEDURES_PATTERN:
-                scpObject.setContainmentProcedures(value);
-                break;
-            case Patterns.SCP_DESCRIPTION_PATTERN:
-                scpObject.setDescription(value);
-                break;
-            default:
-                if (scpObject.getAppendices() == null) {
-                    scpObject.setAppendices(new ArrayList<>());
-                }
-                List<Appendix<?>> appendices = scpObject.getAppendices();
-                Appendix<?> appendix = new Appendix<>();
-                scpObject.getAppendices()
-                        .add()
-        }
 
-       */
+    private void applyScpFields(ScpObject scpObject, List<Appendix<String>> scpFields) throws ScpFieldNotFoundException {
+        for (Appendix<String> field: scpFields) {
+            if (field.getTitle().equals(ScpPattern.OBJECT_NAME.engNormalized)) {
+                scpObject.setObjectName(field.getContent());
+            } else if (field.getTitle().equals(ScpPattern.OBJECT_CLASS.engNormalized)) {
+                scpObject.setObjectClass(field.getContent());
+            } else throw new ScpFieldNotFoundException("Scp field not found for '"+field.getTitle()+"'");
+        }
     }
+
 }

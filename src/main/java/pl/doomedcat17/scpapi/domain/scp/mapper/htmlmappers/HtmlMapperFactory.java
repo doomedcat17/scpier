@@ -5,7 +5,7 @@ import pl.doomedcat17.scpapi.exceptions.MapperNotFoundException;
 
 public class HtmlMapperFactory {
 
-    public static HtmlMapper getHtmlMapper(Element element) throws MapperNotFoundException {
+    public static HtmlMapper<?> getHtmlMapper(Element element) throws MapperNotFoundException {
         switch (element.tagName()) {
             case "strong":
             case "em":

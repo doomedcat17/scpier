@@ -2,84 +2,49 @@ package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
-import org.jsoup.parser.Parser;
 import org.junit.jupiter.api.Test;
-import pl.doomedcat17.scpapi.TestDataProvider;
-
-
-import java.util.Map;
+import pl.doomedcat17.scpapi.data.Appendix;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class LineMapperTest {
 
 
-    private HtmlMapper htmlMapper = new LineMapper();
+    private LineMapper lineMapper = new LineMapper();
 
     @Test
-    void shouldMapParagraphWithHeader() {
+    void shouldMapSimpleLine() {
         //given
-        Element contentElement = TestDataProvider.getSamplePageContent();
-        Element paragraphElement = contentElement.selectFirst("p");
+        Element simpleLine = Jsoup.parse("<p>Following initial investigations, multiple test subjects were allowed access to the score. In every case, the subjects mutilated themselves in order to use their own blood to finish the piece, resulting in subsequent symptoms of psychosis and massive trauma. Those subjects who managed to finish a section of the piece immediately committed suicide, declaring the piece to be \"impossible to complete\". Attempts to perform the music have resulted in a disagreeable cacophony, with each instrumental part having no correlation or harmony with the other instruments.</p>");
         //when
-        Map<String, String> actualMapping = htmlMapper.mapElement(paragraphElement);
+        Appendix<String> actualAppendix = lineMapper.mapElement(simpleLine);
         //then
-        assertAll(
-                () -> assertTrue(actualMapping.containsKey("title")),
-                () -> assertTrue(actualMapping.containsValue("SCP-012"))
-        );
+        assertEquals(simpleLine.text(), actualAppendix.getContent());
     }
 
     @Test
-    void shouldMapParagraphWithoutHeader() {
+    void shouldMapLineWithHeader() {
         //given
-        Element contentElement = TestDataProvider.getSamplePageContent();
-        Element paragraphElement = contentElement.children().get(contentElement.childrenSize()-2); //last <p> element
-        String expectedText = "Following initial investigations, multiple test subjects were allowed access to the score. In every case, the subjects mutilated themselves in order to use their own blood to finish the piece, resulting in subsequent symptoms of psychosis and massive trauma. Those subjects who managed to finish a section of the piece immediately committed suicide, declaring the piece to be \"impossible to complete\". Attempts to perform the music have resulted in a disagreeable cacophony, with each instrumental part having no correlation or harmony with the other instruments.";
+        Element lineWithHeader = Jsoup.parse("<p><strong>Description:</strong> SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete. The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma.</p>");
         //when
-        Map<String, String> actualMapping = htmlMapper.mapElement(paragraphElement);
+        Appendix<String> actualAppendix = lineMapper.mapElement(lineWithHeader);
         //then
-        assertAll(
-                () -> assertTrue(actualMapping.containsKey("content")),
-                () -> assertTrue(actualMapping.containsValue(expectedText))
-        );
+        assertAll(() -> assertEquals(lineWithHeader.text().substring(13), actualAppendix.getContent()),
+                  () -> assertEquals("Description", actualAppendix.getTitle()));
+
     }
 
     @Test
-    void shouldMapParagraphWithDeletedText() {
+    void shouldMapOnlyContent() {
         //given
-        Element paragraphElement = Jsoup
-                .parse("<p><span style=\"text-decoration: line-through;\">SCP-192-1 appears to absorb this radiation emission, although all testing performed so far on SCP-192-1 has shown it to be constructed out of regular materials for this kind of machine.</span></p>",
-                        "",
-                        Parser.xmlParser());
+        Element line = Jsoup.parse("<p><strong>Date:</strong> ██/██/████<br>" +
+                "<strong>Objects Observed:</strong> Bibles<br>" +
+                "<strong>Notes:</strong> Due to the wide variation in sizes of individual copies, estimates of the number of Bibles present ranged from 3 billion to 6 billion. The pile was searched for early copies of potential historical significance, but given the number of copies present an exhaustive search was not possible. The earliest copy located dated to 1607.</p>");
         //when
-        Map<String, String> actualMapping = htmlMapper.mapElement(paragraphElement);
+        Appendix<String> actualAppendix = lineMapper.mapElement(line);
         //then
-        assertAll(
-                () -> assertTrue(actualMapping.containsKey("content")),
-                () -> assertTrue(actualMapping.get("content").contains("[DELETED]"))
-        );
-        System.out.println(actualMapping.get("content"));
-    }
+        assertAll(() -> assertEquals(line.text(), actualAppendix.getContent()));
 
-    @Test
-    void shouldMapParagraphWithHeaderAndDeletedText() {
-        //given
-        Element paragraphElement = Jsoup
-                .parse("<p><strong>Special Containment Procedures:</strong> Reports of forest fires with unknown/unusual causes are to be constantly monitored, with an increased priority in regions with a history of SCP-3032 instances. [Consult Document 3032-Regions for further information]<br>" +
-                                "<span style=\"text-decoration: line-through;\">Identified instances of SCP-3032 outside of containment are to be neutralized via aerial-strike by local Armed Observation Posts</span> [See Incident Report 3032-01]. Once an instance of SCP-3032 has been identified, it is to be immediately reported to the nearest Biological Containment Site equipped for SCP-3032. Identified instances are to be kept under constant surveillance; should it enter an active state, the appropriate Site is to deploy anti-air guided missiles in order to neutralize the object before it enters Phase 7. Should object succeed in entering Phase 7, Foundation personnel are to be deployed to destroy any cones that have been released. A thin acid spray has been found to be the most effective method thus far for quick disposal of cones.</p>",
-                        "",
-                        Parser.xmlParser());
-        //when
-        Map<String, String> actualMapping = htmlMapper.mapElement(paragraphElement);
-        //then
-        assertAll(
-                () -> assertTrue(actualMapping.containsKey("title")),
-                () -> assertTrue(actualMapping.containsValue("Special Containment Procedures")),
-                () -> assertTrue(actualMapping.containsKey("content")),
-                () -> assertTrue(actualMapping.get("content").contains("[DELETED]"))
-        );
-        System.out.println(actualMapping.get("content"));
     }
 
 }

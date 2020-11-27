@@ -2,17 +2,17 @@ package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
-import java.util.HashMap;
-import java.util.Map;
+import pl.doomedcat17.scpapi.data.Appendix;
+import pl.doomedcat17.scpapi.data.ContentType;
 
 //TODO tests needed
-public class ListMapper implements HtmlMapper {
+public class ListMapper implements HtmlMapper<String> {
     @Override
-    public Map<String, String> mapElement(Element element) {
-        Map<String, String> elementData = new HashMap<>();
-        elementData.put("content", mapList(element, ""));
-        return elementData;
+    public Appendix<String> mapElement(Element element) {
+        Appendix<String> appendix = new Appendix<>();
+        appendix.setContent(mapList(element, ""));
+        appendix.setContentType(ContentType.TEXT);
+        return appendix;
     }
 
     private String mapList(Element element, String prefix) {

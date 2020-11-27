@@ -15,11 +15,8 @@ public class ScpObject {
 
     private String objectClass;
 
-    private String description;
-
-    private String containmentProcedures;
-
     private List<Appendix<?>> appendices;
 
     private String source;
+
 }

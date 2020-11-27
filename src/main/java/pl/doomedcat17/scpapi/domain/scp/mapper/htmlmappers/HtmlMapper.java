@@ -1,10 +1,9 @@
 package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 
 import org.jsoup.nodes.Element;
+import pl.doomedcat17.scpapi.data.Appendix;
 
-import java.util.Map;
+public interface HtmlMapper<T> {
 
-public interface HtmlMapper {
-
-    Map<String, String> mapElement(Element element);
+    Appendix<T> mapElement(Element element);
 }
