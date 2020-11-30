@@ -9,6 +9,4 @@ public class Patterns {
     public static final String SCP_DESCRIPTION_PATTERN = "Description:";
 
     public static final String SCP_PROCEDURES_PATTERN = "Special Containment Procedures:";
-
-    public static final String DELETED_TEXT_MARK = "[DELETED]";
 }

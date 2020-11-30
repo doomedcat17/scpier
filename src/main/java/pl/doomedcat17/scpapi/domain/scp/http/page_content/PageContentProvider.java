@@ -7,7 +7,7 @@ import pl.doomedcat17.scpapi.domain.scp.http.HTMLDocumentProviderImpl;
 import java.io.IOException;
 
 public class PageContentProvider {
-    //TODO handle exception
+    //TODO handle IO exception
     public PageContent getPageContent(String url) throws IOException {
         HTMLDocumentProvider htmlDocumentProvider = new HTMLDocumentProviderImpl();
         Document pageContent = htmlDocumentProvider.getWebpageContent(url);

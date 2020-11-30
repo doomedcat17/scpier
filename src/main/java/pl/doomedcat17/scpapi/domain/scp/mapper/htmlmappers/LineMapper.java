@@ -1,7 +1,6 @@
 package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import pl.doomedcat17.scpapi.data.Appendix;
 import pl.doomedcat17.scpapi.data.ContentType;
 
@@ -10,12 +9,7 @@ public class LineMapper implements HtmlMapper<String> {
     @Override
     public Appendix<String> mapElement(Element element) {
         Appendix<String> appendix = new Appendix<>();
-        Elements deletedTextElements = element.select("span[style*=\"text-decoration: line-through;\"]");
-        if (!deletedTextElements.isEmpty()) {
-            for (Element deletedText : deletedTextElements) {
-                deletedText.prepend(Patterns.DELETED_TEXT_MARK).append(Patterns.DELETED_TEXT_MARK);
-            }
-        }
+        DeletedContentMarker.markDeletedContent(element);
         if (isNotSimpleParagraph(element)) {
             String[] extractedData = extractTitleAndText(element);
             element.select("span");
@@ -28,6 +22,7 @@ public class LineMapper implements HtmlMapper<String> {
 
     private boolean isNotSimpleParagraph(Element element) {
         Element strongElement = element.selectFirst("strong");
+        //TODO common headings check (Addendum, Recovery Log, Document itp)
         if(strongElement != null) {
             if (strongElement.text().contains(Patterns.SCP_CLASS_PATTERN) ||
                     element.text().contains(Patterns.SCP_NAME_PATTERN) ||
