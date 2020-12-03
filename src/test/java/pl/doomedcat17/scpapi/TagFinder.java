@@ -1,10 +1,8 @@
 package pl.doomedcat17.scpapi;
 
 import org.jsoup.nodes.Element;
-import pl.doomedcat17.scpapi.data.Appendix;
 import pl.doomedcat17.scpapi.domain.scp.http.page_content.PageContent;
 import pl.doomedcat17.scpapi.domain.scp.http.page_content.PageContentProvider;
-import pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers.ListMapper;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -23,11 +21,9 @@ public class TagFinder {
             PageContent pageContent = pageContentProvider.getPageContent("http://www.scpwiki.com/scp-"+scpNumber.toString());
             Element element = pageContent.getContent();
             if (element.getAllElements().is(tag)) {
-                ListMapper listMapper = new ListMapper();
-                for (Element list: element.select(tag)) {
+                for (Element tagElement: element.select(tag)) {
                     System.out.println("SCP-"+scpNumber+'\n');
-                    Appendix<String> appendix = listMapper.mapElement(list);
-                    System.out.println(appendix.getContent());
+                    System.out.println(tagElement.html());
                 }
             }
         }

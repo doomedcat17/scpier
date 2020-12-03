@@ -11,13 +11,13 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Appendix<T> {
 
-    private String title;
+    private String title = "";
 
     private ContentType contentType = ContentType.TEXT;
 
     private T content;
 
-    private String parentTitle;
+    private String parentTitle = "";
 
     public boolean hasTitle() {
         return title != null;
