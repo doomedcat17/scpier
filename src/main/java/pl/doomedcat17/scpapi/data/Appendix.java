@@ -5,21 +5,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @AllArgsConstructor
 @Getter
 @Setter
 @NoArgsConstructor
-public class Appendix<T> {
+public class Appendix {
 
     private String title = "";
 
-    private ContentType contentType = ContentType.TEXT;
-
-    private T content;
-
-    private String parentTitle = "";
+    private List<ContentBox<?>> contents = new ArrayList<>();
 
     public boolean hasTitle() {
-        return title != null;
+        return !title.equals("");
+    }
+
+    public void addContentBox(ContentBox<?> contentBox) {
+        contents.add(contentBox);
     }
 }

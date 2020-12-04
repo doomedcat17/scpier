@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter @Setter
@@ -15,7 +16,7 @@ public class ScpObject {
 
     private String objectClass;
 
-    private List<Appendix<?>> appendices;
+    private List<Appendix> appendices;
 
     private String source;
 

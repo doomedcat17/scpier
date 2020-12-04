@@ -1,6 +1,7 @@
 package pl.doomedcat17.scpapi.domain.scp.http;
 
 import org.jsoup.nodes.Element;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import pl.doomedcat17.scpapi.TestDataProvider;
 
@@ -11,6 +12,7 @@ class HTMLDocumentProviderImplTest {
     HTMLDocumentProvider htmlDocumentProvider = new HTMLDocumentProviderImpl();
 
 
+    @Disabled
     @Test
     void shouldReturnScpDocument() {
         //given

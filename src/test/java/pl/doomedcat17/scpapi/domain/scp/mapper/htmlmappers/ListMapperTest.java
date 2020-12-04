@@ -3,14 +3,25 @@ package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.parser.Parser;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.doomedcat17.scpapi.data.Appendix;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ListMapperTest {
 
     private ListMapper listMapper = new ListMapper();
+
+    private List<Appendix<?>> appendices;
+
+    @BeforeEach
+    void init() {
+        appendices = new ArrayList<>();
+    }
 
 
     @Test
@@ -33,10 +44,10 @@ class ListMapperTest {
                 "• Increased transmission, due to traits described above.";
 
         //when
-        Appendix<String> actualAppendix = listMapper.mapElement(simpleUnorderedList);
+        listMapper.mapElement(simpleUnorderedList, appendices);
         //then
-        assertAll(() -> assertFalse(actualAppendix.hasTitle()),
-        () -> assertEquals(expectedContent, actualAppendix.getContent()));
+        assertAll(() -> assertFalse(appendices.get(0).hasTitle()),
+        () -> assertEquals(expectedContent, appendices.get(0).getContent()));
     }
     @Test
     void shouldMapUnorderedListWithNestedUnorderedList() {
@@ -53,10 +64,10 @@ class ListMapperTest {
                 "\t• Trial 7 - After putting on SCP-262 properly, Subject-722M attempts to turn the right arm sleeve inside-out as he removes his arm. Many disembodied voices cry in apparent pain. Subject-722M is instructed to continue inverting the sleeve. Multiple arms emanating from within the lining of SCP-262 reach out and attack Subject-722M. In an attempt to remove the coat, Subject 722M tries to retract his arm but in doing so, inverts the sleeve of the coat. A long cellulitic arm appears from the opposite inner lining, reaches around and up through the inverted sleeve, grasps Subject-722M's caught hand, and pulls violently, the force of which dislocates the subject's shoulder and amputates the arm at the elbow. With SCP-262 in typical position, all emanating arms retreat and audible wailing of voices cease. Subject-722M's wounds are treated, and his condition is inconsequential.";
 
         //when
-        Appendix<String> actualAppendix = listMapper.mapElement(simpleUnorderedList);
+        listMapper.mapElement(simpleUnorderedList, appendices);
         //then
-        assertAll(() -> assertFalse(actualAppendix.hasTitle()),
-                () -> assertEquals(expectedContent, actualAppendix.getContent()));
+        assertAll(() -> assertFalse(appendices.get(0).hasTitle()),
+                () -> assertEquals(expectedContent, appendices.get(0).getContent()));
     }
     @Test
     void shouldMapUnorderedListWithNestedOrderedList() {
@@ -73,10 +84,10 @@ class ListMapperTest {
                 "\t• Trial 7 - After putting on SCP-262 properly, Subject-722M attempts to turn the right arm sleeve inside-out as he removes his arm. Many disembodied voices cry in apparent pain. Subject-722M is instructed to continue inverting the sleeve. Multiple arms emanating from within the lining of SCP-262 reach out and attack Subject-722M. In an attempt to remove the coat, Subject 722M tries to retract his arm but in doing so, inverts the sleeve of the coat. A long cellulitic arm appears from the opposite inner lining, reaches around and up through the inverted sleeve, grasps Subject-722M's caught hand, and pulls violently, the force of which dislocates the subject's shoulder and amputates the arm at the elbow. With SCP-262 in typical position, all emanating arms retreat and audible wailing of voices cease. Subject-722M's wounds are treated, and his condition is inconsequential.";
 
         //when
-        Appendix<String> actualAppendix = listMapper.mapElement(simpleUnorderedList);
+        listMapper.mapElement(simpleUnorderedList, appendices);
         //then
-        assertAll(() -> assertFalse(actualAppendix.hasTitle()),
-                () -> assertEquals(expectedContent, actualAppendix.getContent()));
+        assertAll(() -> assertFalse(appendices.get(0).hasTitle()),
+                () -> assertEquals(expectedContent, appendices.get(0).getContent()));
     }
 
     @Test
@@ -173,10 +184,10 @@ class ListMapperTest {
                 "\t\t\t• No attempts to find the origin of the clone within the tunnels have ever been successful. The clone invariably finds its way to the coffin, though it usually appears to be wandering aimlessly.";
 
         //when
-        Appendix<String> actualAppendix = listMapper.mapElement(simpleUnorderedList);
+        listMapper.mapElement(simpleUnorderedList, appendices);
         //then
-        assertAll(() -> assertFalse(actualAppendix.hasTitle()),
-                () -> assertEquals(expectedContent, actualAppendix.getContent()));
+        assertAll(() -> assertFalse(appendices.get(0).hasTitle()),
+                () -> assertEquals(expectedContent, appendices.get(0).getContent()));
     }
 
 
@@ -221,10 +232,10 @@ class ListMapperTest {
                 "16. 30-cm-tall \"demonic\" humanoid. Right arm held on with duct tape, left arm missing.";
 
         //when
-        Appendix<String> actualAppendix = listMapper.mapElement(simpleOrderedList);
+        listMapper.mapElement(simpleOrderedList, appendices);
         //then
-        assertAll(() -> assertFalse(actualAppendix.hasTitle()),
-                () -> assertEquals(expectedContent, actualAppendix.getContent()));
+        assertAll(() -> assertFalse(appendices.get(0).hasTitle()),
+                () -> assertEquals(expectedContent, appendices.get(0).getContent()));
     }
 
     @Test
@@ -301,10 +312,10 @@ class ListMapperTest {
                 "16. 30-cm-tall \"demonic\" humanoid. Right arm held on with duct tape, left arm missing.";
 
         //when
-        Appendix<String> actualAppendix = listMapper.mapElement(simpleOrderedList);
+        listMapper.mapElement(simpleOrderedList, appendices);
         //then
-        assertAll(() -> assertFalse(actualAppendix.hasTitle()),
-                () -> assertEquals(expectedContent, actualAppendix.getContent()));
+        assertAll(() -> assertFalse(appendices.get(0).hasTitle()),
+                () -> assertEquals(expectedContent, appendices.get(0).getContent()));
 
     }
 
@@ -362,10 +373,10 @@ class ListMapperTest {
                 "16. 30-cm-tall \"demonic\" humanoid. Right arm held on with duct tape, left arm missing.";
 
         //when
-        Appendix<String> actualAppendix = listMapper.mapElement(simpleOrderedList);
+        listMapper.mapElement(simpleOrderedList, appendices);
         //then
-        assertAll(() -> assertFalse(actualAppendix.hasTitle()),
-                () -> assertEquals(expectedContent, actualAppendix.getContent()));
+        assertAll(() -> assertFalse(appendices.get(0).hasTitle()),
+                () -> assertEquals(expectedContent, appendices.get(0).getContent()));
 
     }
 
@@ -449,10 +460,10 @@ class ListMapperTest {
                 "\t• No attempts to find the origin of the clone within the tunnels have ever been successful. The clone invariably finds its way to the coffin, though it usually appears to be wandering aimlessly.";
 
         //when
-        Appendix<String> actualAppendix = listMapper.mapElement(unorderedList);
+        listMapper.mapElement(unorderedList, appendices);
         //then
-        assertAll(() -> assertFalse(actualAppendix.hasTitle()),
-                () -> assertEquals(expectedContent, actualAppendix.getContent()));
+        assertAll(() -> assertFalse(appendices.get(0).hasTitle()),
+                () -> assertEquals(expectedContent, appendices.get(0).getContent()));
     }
 
 

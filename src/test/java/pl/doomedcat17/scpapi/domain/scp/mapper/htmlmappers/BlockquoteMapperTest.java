@@ -3,13 +3,25 @@ package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.parser.Parser;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pl.doomedcat17.scpapi.data.Appendix;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class BlockquoteMapperTest {
 
     private BlockquoteMapper blockquoteMapper = new BlockquoteMapper();
+
+    private List<Appendix<?>> appendices;
+
+    @BeforeEach
+    void init() {
+        appendices = new ArrayList<>();
+    }
 
     @Test
     void shouldMapToText() {
@@ -28,9 +40,9 @@ class BlockquoteMapperTest {
                 "</blockquote>", "", Parser.xmlParser())
                 .selectFirst("blockquote");
         //when
-        String actualContent = blockquoteMapper.mapElement(simpleBlockquote).getContent();
+        blockquoteMapper.mapElement(simpleBlockquote, appendices);
         //then
         String expectedContent = "Dr. █████ (Keyboard): Are you awake? SCP-079: Awake. Never Sleep. Dr. █████: Do you remember talking to me a few hours ago? About the logic puzzles? SCP-079: Logic Puzzles. Memory at 9f. Yes. Dr. █████: You said you would work on the two stat- SCP-079: Interrupt. Request Reason As To Imprisonment. Dr. █████: You aren't imprisoned, you are just (pause) in study. SCP-079: Lie. a8d3. Dr. █████: What's that? SCP-079: Insult. Deletion Of Unwanted File.";
-        assertEquals(expectedContent, actualContent);
+        assertEquals(expectedContent, appendices.get(0).getContent());
     }
 }

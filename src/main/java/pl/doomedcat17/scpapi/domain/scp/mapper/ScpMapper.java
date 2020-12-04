@@ -13,16 +13,16 @@ import java.util.List;
 
 @Slf4j
 public class ScpMapper {
-
+//TODO code refactor
     public ScpObject mapToScp(PageContent pageContent) throws ScpFieldNotFoundException {
         Elements data = pageContent.getContent().children();
         ScpFieldsMapper scpFieldsMapper = new ScpFieldsMapper(data);
-        List<Appendix<String>> scpFields = scpFieldsMapper.getScpNameAndClass();
-        List<Appendix<?>> scpAppendices = scpFieldsMapper.getScpAppendices();
+        List<Appendix> scpFields = scpFieldsMapper.getScpNameAndClass();
+        List<Appendix> scpAppendices = scpFieldsMapper.getScpAppendices();
         return applyData(scpFields, scpAppendices, pageContent.getSourceUrl());
     }
 
-    private ScpObject applyData(List<Appendix<String>> scpFields, List<Appendix<?>> scpAppendices, String source) throws ScpFieldNotFoundException {
+    private ScpObject applyData(List<Appendix> scpFields, List<Appendix> scpAppendices, String source) throws ScpFieldNotFoundException {
         ScpObject scpObject = new ScpObject();
         applyScpFields(scpObject, scpFields);
         scpObject.setAppendices(scpAppendices);
@@ -30,8 +30,8 @@ public class ScpMapper {
         return scpObject;
     }
 
-    private void applyScpFields(ScpObject scpObject, List<Appendix<String>> scpFields) throws ScpFieldNotFoundException {
-        for (Appendix<String> field: scpFields) {
+    private void applyScpFields(ScpObject scpObject, List<Appendix> scpFields) throws ScpFieldNotFoundException {
+        for (Appendix field: scpFields) {
             if (field.getTitle().equals(ScpPattern.OBJECT_NAME.engNormalized)) {
                 scpObject.setObjectName(field.getContent());
             } else if (field.getTitle().equals(ScpPattern.OBJECT_CLASS.engNormalized)) {

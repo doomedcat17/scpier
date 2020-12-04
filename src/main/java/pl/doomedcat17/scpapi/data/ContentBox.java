@@ -6,9 +6,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @AllArgsConstructor
-@Getter @Setter
-public class TableAppendix extends Appendix<String[][]> {
+@Getter
+@Setter
+@NoArgsConstructor
+public class ContentBox<T> {
 
+    private ContentType contentType = ContentType.TEXT;
 
-
+    private T content;
 }
