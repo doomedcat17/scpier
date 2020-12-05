@@ -25,4 +25,8 @@ public class Appendix {
     public void addContentBox(ContentBox<?> contentBox) {
         contents.add(contentBox);
     }
+
+    public ContentBox<?> getLastContentBox() {
+        return contents.get(contents.size() - 1);
+    }
 }

@@ -13,7 +13,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TableMapperTest {
-
+/*
     private TableMapper tableMapper = new TableMapper();
 
     private List<Appendix<?>> appendices;
@@ -70,5 +70,7 @@ class TableMapperTest {
         System.out.println(appendices.get(0).getContent());
 
     }
+
+ */
 
 }

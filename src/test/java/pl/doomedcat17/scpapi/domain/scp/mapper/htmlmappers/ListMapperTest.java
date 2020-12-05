@@ -3,26 +3,14 @@ package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.parser.Parser;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pl.doomedcat17.scpapi.data.Appendix;
-
-import java.util.ArrayList;
-import java.util.List;
+import pl.doomedcat17.scpapi.data.ContentType;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ListMapperTest {
+class ListMapperTest extends MapperTest {
 
     private ListMapper listMapper = new ListMapper();
-
-    private List<Appendix<?>> appendices;
-
-    @BeforeEach
-    void init() {
-        appendices = new ArrayList<>();
-    }
-
 
     @Test
     void shouldMapSimpleUnorderedList() {
@@ -44,11 +32,14 @@ class ListMapperTest {
                 "• Increased transmission, due to traits described above.";
 
         //when
-        listMapper.mapElement(simpleUnorderedList, appendices);
+        listMapper.mapElement(simpleUnorderedList, scpObject);
         //then
-        assertAll(() -> assertFalse(appendices.get(0).hasTitle()),
-        () -> assertEquals(expectedContent, appendices.get(0).getContent()));
+        assertAll(() -> assertEquals(ContentType.TEXT_LIST,scpObject.getLastAppendix().getLastContentBox().getContentType()),
+        () -> assertEquals(expectedContent, scpObject.getLastAppendix().getLastContentBox().getContent()));
     }
+
+    /*
+
     @Test
     void shouldMapUnorderedListWithNestedUnorderedList() {
         //given
@@ -465,6 +456,8 @@ class ListMapperTest {
         assertAll(() -> assertFalse(appendices.get(0).hasTitle()),
                 () -> assertEquals(expectedContent, appendices.get(0).getContent()));
     }
+
+     */
 
 
 }

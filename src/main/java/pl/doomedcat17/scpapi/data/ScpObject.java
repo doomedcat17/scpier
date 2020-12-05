@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -16,9 +17,23 @@ public class ScpObject {
 
     private String objectClass;
 
-    private List<Appendix> appendices;
+    private List<Appendix> appendices = new ArrayList<>();
+
+    private List<Image> images = new ArrayList<>();
 
     private String source;
+
+    public void addImage(Image image) {
+        images.add(image);
+    }
+
+    public void addAppendix(Appendix appendix) {
+        appendices.add(appendix);
+    }
+
+    public Appendix getLastAppendix() {
+        return appendices.get(appendices.size() - 1);
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -4,13 +4,12 @@ import org.jsoup.nodes.Element;
 import pl.doomedcat17.scpapi.data.Appendix;
 import pl.doomedcat17.scpapi.data.ContentBox;
 import pl.doomedcat17.scpapi.data.ContentType;
-
-import java.util.List;
+import pl.doomedcat17.scpapi.data.ScpObject;
 
 public class LineMapper implements HtmlMapper {
 //TODO more tests needed
     @Override
-    public void mapElement(Element element, List<Appendix> scpAppendices) {
+    public void mapElement(Element element, ScpObject scpObject) {
         Appendix appendix = new Appendix();
         DeletedContentMarker.markDeletedContent(element);
         if (isNotSimpleParagraph(element)) {
@@ -18,17 +17,16 @@ public class LineMapper implements HtmlMapper {
             element.select("span");
             appendix.setTitle(extractedData[0]);
             appendix.addContentBox(new ContentBox<>(ContentType.TEXT, extractedData[1]));
-            scpAppendices.add(appendix);
+            scpObject.addAppendix(appendix);
         } else {
             ContentBox<String> contentBox = new ContentBox<>();
             contentBox.setContent(element.text().trim());
-            scpAppendices.get(scpAppendices.size() - 1).addContentBox(contentBox);
+            scpObject.getLastAppendix().addContentBox(contentBox);
         }
     }
 
     private boolean isNotSimpleParagraph(Element element) {
         Element strongElement = element.selectFirst("strong");
-        //TODO common headings check (Addendum, Recovery Log, Document itp)
         if(strongElement != null) {
             if (ScpPattern.containsValue(strongElement.text(), "eng")) {
                 return true;

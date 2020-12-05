@@ -3,20 +3,20 @@ package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
-import pl.doomedcat17.scpapi.data.Appendix;
 import pl.doomedcat17.scpapi.data.ContentBox;
 import pl.doomedcat17.scpapi.data.ContentType;
+import pl.doomedcat17.scpapi.data.ScpObject;
 
 import java.util.List;
 
 //TODO tests needed
 public class ListMapper implements HtmlMapper {
     @Override
-    public void mapElement(Element element, List<Appendix> scpAppendices) {
+    public void mapElement(Element element, ScpObject scpObject) {
         ContentBox<String> contentBox = new ContentBox<>();
         contentBox.setContent(mapList(element, "", element.tagName()).trim());
-        contentBox.setContentType(ContentType.TEXT);
-        scpAppendices.get(scpAppendices.size() - 1).addContentBox(contentBox);
+        contentBox.setContentType(ContentType.TEXT_LIST);
+        scpObject.getLastAppendix().addContentBox(contentBox);
     }
 
     private String mapList(Element element, String prefix, String listType) {
