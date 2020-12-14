@@ -1,0 +1,40 @@
+{
+  "sampleUnorderedList": {
+    "title": "Test title",
+    "contents": [
+      {
+        "contentType": "TEXT",
+        "content": "Test text inside box"
+      },
+      {
+        "contentType": "LIST_UL",
+        "content": [
+          {
+            "contentType": "TEXT",
+            "content": "Enhanced survivability in the bacterium's natural environment and similar environments;"
+          },
+          {
+            "contentType": "TEXT",
+            "content": "Full spectrum antibiotic resistance;"
+          },
+          {
+            "contentType": "TEXT",
+            "content": "Increased reproduction rate and consumption of available material;"
+          },
+          {
+            "contentType": "TEXT",
+            "content": "Development of a sporulation ability in gram-positive bacteria;"
+          },
+          {
+            "contentType": "TEXT",
+            "content": "Increased ability to uptake, hold, and share plasmids, particularly in gram-negative bacteria;"
+          },
+          {
+            "contentType": "TEXT",
+            "content": "Increased transmission, due to traits described above."
+          }
+        ]
+      }
+    ]
+  }
+}

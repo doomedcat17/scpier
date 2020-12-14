@@ -18,7 +18,7 @@ class LineMapperTest extends MapperTest {
             .getSampleElements("src/test/resources/html/test_data/lines/SampleLinesElements.html");
 
     private final Map<String, ScpObject> expectedOutputs = TestDataProvider
-            .getExpectedOutputs("src/test/resources/html/test_data/lines/expected_outputs.json");
+            .getExpectedScpOutputs("src/test/resources/html/test_data/lines/expected_outputs.json");
 
     @Test
     void shouldMapSimpleLine() {

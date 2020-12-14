@@ -6,11 +6,12 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import pl.doomedcat17.scpapi.data.Appendix;
+import pl.doomedcat17.scpapi.data.ContentBox;
 import pl.doomedcat17.scpapi.data.ScpObject;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
+import java.util.*;
 
 public class TestDataProvider {
 
@@ -47,11 +48,35 @@ public class TestDataProvider {
 
     }
 
-    public static Map<String, ScpObject> getExpectedOutputs(String path) {
+    public static Map<String, ScpObject> getExpectedScpOutputs(String path) {
         ObjectMapper objectMapper = new ObjectMapper();
         Map<String, ScpObject> outputs = null;
         try {
             outputs = objectMapper.readValue(new File(path), new TypeReference<Map<String, ScpObject>>() {
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return outputs;
+    }
+
+    public static Map<String, Appendix> getExpectedAppendixOutputs(String path) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, Appendix> outputs = null;
+        try {
+            outputs = objectMapper.readValue(new File(path), new TypeReference<Map<String, Appendix>>() {
+            });
+            outputs.forEach((key, value) -> {
+                value.getContents().forEach(contentBox -> {
+                    if (contentBox.getContent() instanceof ArrayList) {
+                        ((ArrayList) contentBox.getContent()).forEach(content -> {
+                            if (contentBox.getContent() instanceof LinkedHashMap) {
+                                ContentBox conerted = objectMapper.convertValue(LinkedHashSet.class, ContentBox.class);
+                            }
+                        });
+
+                    }
+                });
             });
         } catch (IOException e) {
             e.printStackTrace();
@@ -81,11 +106,15 @@ public class TestDataProvider {
             appendix = objectMapper
                     .readValue(
                             new File("src/test/resources/html/test_data/sample_appendix.json"),
-                            new TypeReference<Appendix>() {});
+                            new TypeReference<Appendix>() {
+                            });
         } catch (IOException e) {
             e.printStackTrace();
         }
         return appendix;
+    }
+
+    private void convertContentBox(ContentBox<List<LinkedHashMap>> contentBox) {
     }
 }
 

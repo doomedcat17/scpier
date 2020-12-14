@@ -1,10 +1,11 @@
 package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
-import org.jsoup.parser.Parser;
 import org.junit.jupiter.api.Test;
-import pl.doomedcat17.scpapi.data.ContentType;
+import pl.doomedcat17.scpapi.TestDataProvider;
+import pl.doomedcat17.scpapi.data.Appendix;
+
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,32 +13,21 @@ class ListMapperTest extends MapperTest {
 
     private ListMapper listMapper = new ListMapper();
 
-//    private Element sampleLists = TestDataProvider.getSampleElements();
+    private final Element sampleLists = TestDataProvider
+            .getSampleElements("src/test/resources/html/test_data/lists/SampleListsElements.html");
+
+    private final Map<String, Appendix> expectedOutputs = TestDataProvider
+            .getExpectedAppendixOutputs("src/test/resources/html/test_data/lists/expected_outputs.json");
 
     @Test
     void shouldMapSimpleUnorderedList() {
         //given
-        Element simpleUnorderedList = Jsoup.parse("<ul>\n" +
-                "<li>Enhanced survivability in the bacterium's natural environment and similar environments;</li>\n" +
-                "<li>Full spectrum antibiotic resistance;</li>\n" +
-                "<li>Increased reproduction rate and consumption of available material;</li>\n" +
-                "<li>Development of a sporulation ability in gram-positive bacteria;</li>\n" +
-                "<li>Increased ability to uptake, hold, and share plasmids, particularly in gram-negative bacteria;</li>\n" +
-                "<li>Increased transmission, due to traits described above.</li>\n" +
-                "</ul>","", Parser.xmlParser())
-                .selectFirst("ul");
-        String expectedContent = "• Enhanced survivability in the bacterium's natural environment and similar environments;\n" +
-                "• Full spectrum antibiotic resistance;\n" +
-                "• Increased reproduction rate and consumption of available material;\n" +
-                "• Development of a sporulation ability in gram-positive bacteria;\n" +
-                "• Increased ability to uptake, hold, and share plasmids, particularly in gram-negative bacteria;\n" +
-                "• Increased transmission, due to traits described above.";
-
+        Element simpleUnorderedList = sampleLists.getElementById("sampleUnorderedList");
+        addSampleAppendixToScpObject();
         //when
         listMapper.mapElement(simpleUnorderedList, scpObject);
         //then
-        assertAll(() -> assertEquals(ContentType.TEXT_LIST,scpObject.getLastAppendix().getLastContentBox().getContentType()),
-        () -> assertEquals(expectedContent, scpObject.getLastAppendix().getLastContentBox().getContent()));
+        assertEquals(expectedOutputs.get("sampleUnorderedList"), scpObject.getLastAppendix());
     }
 
     /*

@@ -2,6 +2,7 @@ package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
+import pl.doomedcat17.scpapi.data.Appendix;
 import pl.doomedcat17.scpapi.data.ContentBox;
 import pl.doomedcat17.scpapi.data.ContentType;
 import pl.doomedcat17.scpapi.data.ScpObject;
@@ -49,6 +50,14 @@ public abstract class HtmlMapper {
         if (contentBox.getContent() == null) {
             contentBox.setContent(text);
         } else contentBox.setContent(contentBox.getContent()+text);
+    }
+
+    public ScpObject getDummyScpObject() {
+       Appendix dummyAppendix = new Appendix();
+       dummyAppendix.setTitle("Dummy");
+       ScpObject dummyScp = new ScpObject();
+       dummyScp.addAppendix(dummyAppendix);
+       return dummyScp;
     }
 
 }
