@@ -5,13 +5,11 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import pl.doomedcat17.scpapi.data.*;
 import pl.doomedcat17.scpapi.exceptions.MapperNotFoundException;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
 //TODO tests needed
-public class DivMapper implements HtmlMapper{
+public class DivMapper extends HtmlMapper{
     @Override
     public void mapElement(Element element, ScpObject scpObject) {
         Appendix appendix = new Appendix();

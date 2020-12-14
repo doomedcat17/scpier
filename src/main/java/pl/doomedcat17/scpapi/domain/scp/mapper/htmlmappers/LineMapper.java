@@ -6,22 +6,21 @@ import pl.doomedcat17.scpapi.data.ContentBox;
 import pl.doomedcat17.scpapi.data.ContentType;
 import pl.doomedcat17.scpapi.data.ScpObject;
 
-public class LineMapper implements HtmlMapper {
+import java.util.List;
+
+public class LineMapper extends HtmlMapper {
 //TODO more tests needed
     @Override
     public void mapElement(Element element, ScpObject scpObject) {
         Appendix appendix = new Appendix();
         DeletedContentMarker.markDeletedContent(element);
         if (isNotSimpleParagraph(element)) {
-            String[] extractedData = extractTitleAndText(element);
-            element.select("span");
-            appendix.setTitle(extractedData[0]);
-            appendix.addContentBox(new ContentBox<>(ContentType.TEXT, extractedData[1]));
+            String title = extractTitle(element);
+            appendix.setTitle(title);
+            addContent(appendix, element);
             scpObject.addAppendix(appendix);
         } else {
-            ContentBox<String> contentBox = new ContentBox<>();
-            contentBox.setContent(element.text().trim());
-            scpObject.getLastAppendix().addContentBox(contentBox);
+            addContent(scpObject.getLastAppendix(), element);
         }
     }
 
@@ -37,16 +36,17 @@ public class LineMapper implements HtmlMapper {
     }
 
 
-    private String[] extractTitleAndText(Element element) {
-        String title = element
-                .selectFirst("strong")
+    private String extractTitle(Element element) {
+        Element strongElement = element.selectFirst("strong");
+        String title = strongElement
                 .text().trim();
-        String content = element
-                .text()
-                .substring(title.length())
-                .trim();
         if (title.charAt(title.length() - 1) == ':')
             title = title.substring(0, title.length() - 1); //remove : from the end of title
-        return new String[]{title, content};
+        strongElement.remove();
+        return title;
+    }
+    private void addContent(Appendix appendix, Element element) {
+        List<ContentBox<String>> contentBoxes = scrapText(element);
+        contentBoxes.forEach(appendix::addContentBox);
     }
 }

@@ -10,7 +10,8 @@ import pl.doomedcat17.scpapi.data.ScpObject;
 import java.util.List;
 
 //TODO tests needed
-public class ListMapper implements HtmlMapper {
+//TODO refactor code
+public class ListMapper extends HtmlMapper {
     @Override
     public void mapElement(Element element, ScpObject scpObject) {
         ContentBox<String> contentBox = new ContentBox<>();

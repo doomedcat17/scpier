@@ -7,6 +7,8 @@ public class DeletedContentMarker {
 
     public static final String DELETED_TEXT_MARK = "[DELETED]";
 
+    //TODO Deleted content as ContentBox
+
     public static void markDeletedContent(Element element) {
         Elements deletedTextElements = element.select("span[style*=\"text-decoration: line-through;\"]");
         if (!deletedTextElements.isEmpty()) {

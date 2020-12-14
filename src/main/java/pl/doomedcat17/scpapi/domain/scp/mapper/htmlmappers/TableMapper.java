@@ -7,8 +7,8 @@ import pl.doomedcat17.scpapi.data.ScpObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class TableMapper implements HtmlMapper {
+//TODO refactor code
+public class TableMapper extends HtmlMapper {
     @Override
     public void mapElement(Element element, ScpObject scpObject) {
         ContentBox<List<List<String>>> contentBox = new ContentBox<>();

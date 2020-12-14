@@ -1,17 +1,20 @@
 package pl.doomedcat17.scpapi;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import pl.doomedcat17.scpapi.data.Appendix;
+import pl.doomedcat17.scpapi.data.ScpObject;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Map;
 
 public class TestDataProvider {
 
     private static Document sampleScpDocument;
-
-    private static Element sampleLines;
 
     private static Element loadElementFormHTML(String path) {
         Element element = null;
@@ -27,7 +30,6 @@ public class TestDataProvider {
         return element;
     }
 
-
     public static Element getSamplePageContent() {
         if (sampleScpDocument == null) {
             try {
@@ -39,11 +41,51 @@ public class TestDataProvider {
         return sampleScpDocument.getElementById("page-content");
     }
 
-    public static Element getSampleLines() {
-        if (sampleLines == null) {
-            sampleLines = loadElementFormHTML("src/test/resources/html/test_data/SampleLinesElements.html").getElementById("elements");
+    public static Element getSampleElements(String path) {
+        return loadElementFormHTML(path)
+                .getElementById("elements");
+
+    }
+
+    public static Map<String, ScpObject> getExpectedOutputs(String path) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, ScpObject> outputs = null;
+        try {
+            outputs = objectMapper.readValue(new File(path), new TypeReference<Map<String, ScpObject>>() {
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return sampleLines;
+        return outputs;
+    }
+
+    public static ScpObject getSampleScpObject() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ScpObject scpObject = null;
+        try {
+            scpObject = objectMapper
+                    .readValue(
+                            new File("src/test/resources/html/test_data/sample_scp.json"),
+                            new TypeReference<ScpObject>() {
+                            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return scpObject;
+    }
+
+    public static Appendix getSampleAppendix() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        Appendix appendix = null;
+        try {
+            appendix = objectMapper
+                    .readValue(
+                            new File("src/test/resources/html/test_data/sample_appendix.json"),
+                            new TypeReference<Appendix>() {});
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return appendix;
     }
 }
 

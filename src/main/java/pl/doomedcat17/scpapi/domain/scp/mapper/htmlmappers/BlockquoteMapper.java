@@ -5,7 +5,7 @@ import pl.doomedcat17.scpapi.data.ContentBox;
 import pl.doomedcat17.scpapi.data.ContentType;
 import pl.doomedcat17.scpapi.data.ScpObject;
 
-public class BlockquoteMapper implements HtmlMapper {
+public class BlockquoteMapper extends HtmlMapper {
     @Override
     public void mapElement(Element element, ScpObject scpObject) {
         ContentBox<String> contentBox = new ContentBox<>();

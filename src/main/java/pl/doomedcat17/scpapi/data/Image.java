@@ -11,6 +11,4 @@ public class Image {
     private String source;
 
     private String caption;
-
-    private String parentTitle;
 }
