@@ -10,14 +10,21 @@ public class HtmlMapperFactory {
             case "strong":
             case "em":
             case "p":
+            case "a":
+            case "b":
+            case "li":
+            case "small":
+            case "span":
                 return new LineMapper();
-            case "div":
-                return new DivMapper();
+           /* case "div":
+                return new DivMapper(); */
             case "table":
                 return new TableMapper();
             case "ul":
-            case "li":
+            case "ol":
                 return new ListMapper();
+            case "blockquote":
+                return new BlockquoteMapper();
             default:
                 throw new MapperNotFoundException("Could not find mapper for " + element.tagName());
         }

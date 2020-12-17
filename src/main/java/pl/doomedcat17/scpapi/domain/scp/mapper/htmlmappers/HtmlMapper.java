@@ -1,63 +1,98 @@
 package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import pl.doomedcat17.scpapi.data.Appendix;
-import pl.doomedcat17.scpapi.data.ContentBox;
-import pl.doomedcat17.scpapi.data.ContentType;
+import pl.doomedcat17.scpapi.data.ContentNode;
+import pl.doomedcat17.scpapi.data.ContentNodeType;
 import pl.doomedcat17.scpapi.data.ScpObject;
+import pl.doomedcat17.scpapi.exceptions.MapperNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 public abstract class HtmlMapper {
 
-   public abstract void mapElement(Element element, ScpObject scpObject);
+    protected final String PAGE_CONTENT_ID = "page-content";
 
-   protected List<ContentBox<String>> scrapText(Element textElement) {
-       List<ContentBox<String>> contentBoxes = new ArrayList<>();
-       ContentBox<String> contentBox = new ContentBox<>();
-       for (Node node: textElement.childNodes()) {
-           if (node instanceof Element) {
-               Element element = (Element) node;
-               if (element.tagName().equals("br")) {
-                   addText(contentBox, "\n");
-               } else if (element.is("[style*=\"text-decoration: line-through;\"]")) {
-                   contentBoxes.add(contentBox);
-                   ContentBox<String> deletedText = new ContentBox<>(ContentType.TEXT_DELETED, element.text());
-                   contentBoxes.add(deletedText);
-                   contentBox = new ContentBox<>();
-               } else {
-                   addText(contentBox, element.text());
-               }
-           } else {
-               String text = node.toString();
-               if (!text.isBlank()) {
-                   addText(contentBox, text);
-               }
-           }
-       }
-       contentBoxes.add(contentBox);
-       trimContent(contentBoxes);
-       return contentBoxes;
-   }
+    public abstract Appendix mapElement(Element element);
 
-   private void trimContent(List<ContentBox<String>> contentBoxes) {
-       contentBoxes.forEach(contentBox -> contentBox.setContent(contentBox.getContent().trim()));
-   }
-
-    private void addText(ContentBox<String> contentBox, String text) {
-        if (contentBox.getContent() == null) {
-            contentBox.setContent(text);
-        } else contentBox.setContent(contentBox.getContent()+text);
+    protected List<ContentNode<String>> scrapText(Element textElement) {
+        List<ContentNode<String>> contentNodes = new ArrayList<>();
+        if (textElement.is("[style*=\"text-decoration: line-through;\"]")) {
+            contentNodes.add(new ContentNode<>(ContentNodeType.TEXT_DELETED, textElement.text()));
+        } else {
+            ContentNode<String> contentNode = new ContentNode<>(ContentNodeType.TEXT);
+            for (Node node : textElement.childNodes()) {
+                if (node instanceof Element) {
+                    Element element = (Element) node;
+                    if (element.tagName().equals("br")) {
+                        addText(contentNode, "\n");
+                    } else if (element.is("[style*=\"text-decoration: line-through;\"]")) {
+                        contentNodes.add(contentNode);
+                        ContentNode<String> deletedText = new ContentNode<>(ContentNodeType.TEXT_DELETED, element.text());
+                        contentNodes.add(deletedText);
+                        contentNode = new ContentNode<>();
+                    } else {
+                        addText(contentNode, element.text());
+                    }
+                } else {
+                    String text = node.toString();
+                    if (!text.isBlank()) {
+                        addText(contentNode, text);
+                    }
+                }
+            }
+            contentNodes.add(contentNode);
+            trimContent(contentNodes);
+        }
+        return contentNodes;
     }
 
-    public ScpObject getDummyScpObject() {
-       Appendix dummyAppendix = new Appendix();
-       dummyAppendix.setTitle("Dummy");
-       ScpObject dummyScp = new ScpObject();
-       dummyScp.addAppendix(dummyAppendix);
-       return dummyScp;
+    private void trimContent(List<ContentNode<String>> contentNodes) {
+        contentNodes.forEach(contentBox -> contentBox.setContent(contentBox.getContent().trim()));
+    }
+
+    private void addText(ContentNode<String> contentNode, String text) {
+        if (contentNode.getContent() == null) {
+            contentNode.setContent(text);
+        } else contentNode.setContent(contentNode.getContent() + text);
+    }
+
+    protected List<ContentNode<?>> extractContent(Element element) {
+        List<ContentNode<?>> contentNodes = new ArrayList<>();
+        for (Node node : element.childNodes()) {
+            try {
+                if (node instanceof Element) {
+                    Element childElement = (Element) node;
+                    HtmlMapper htmlMapper = HtmlMapperFactory.getHtmlMapper(childElement);
+                    Appendix appendix = htmlMapper.mapElement(childElement);
+                    contentNodes.add(appendix.getLastContentBox());
+                } else {
+                    String text = node.toString().trim();
+                    if (!text.isBlank()) {
+                        contentNodes.add(new ContentNode<>(ContentNodeType.TEXT, text));
+                    }
+                }
+            } catch (MapperNotFoundException e) {
+                log.info(e.getMessage());
+            }
+        }
+        return contentNodes;
+    }
+
+    protected boolean isNotSimpleElement(Element element) {
+        if (!element.parent().id().equals(PAGE_CONTENT_ID)) return false;
+        Element strongElement = element.selectFirst("strong");
+        if (strongElement != null) {
+            if (ScpPattern.containsValue(strongElement.text(), "eng")) {
+                return true;
+            } else {
+                return (strongElement.text().length() > 20);
+            }
+        } else return false;
     }
 
 }

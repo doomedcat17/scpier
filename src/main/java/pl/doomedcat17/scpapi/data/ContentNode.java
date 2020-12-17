@@ -9,27 +9,31 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ContentBox<T> {
+public class ContentNode<T> {
 
-    private ContentType contentType = ContentType.TEXT;
+    private ContentNodeType contentNodeType;
 
     private T content;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ContentBox)) return false;
+        if (!(o instanceof ContentNode)) return false;
 
-        ContentBox<?> that = (ContentBox<?>) o;
+        ContentNode<?> that = (ContentNode<?>) o;
 
-        if (getContentType() != that.getContentType()) return false;
+        if (getContentNodeType() != that.getContentNodeType()) return false;
         return getContent() != null ? getContent().equals(that.getContent()) : that.getContent() == null;
     }
 
     @Override
     public int hashCode() {
-        int result = getContentType() != null ? getContentType().hashCode() : 0;
+        int result = getContentNodeType() != null ? getContentNodeType().hashCode() : 0;
         result = 31 * result + (getContent() != null ? getContent().hashCode() : 0);
         return result;
+    }
+
+    public ContentNode(ContentNodeType contentNodeType) {
+        this.contentNodeType = contentNodeType;
     }
 }

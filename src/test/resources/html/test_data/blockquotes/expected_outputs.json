@@ -1,0 +1,18 @@
+{
+  "shouldMapSimpleBlockquote": [
+    {
+      "title": "",
+      "contents": [
+        {
+          "contentNodeType": "BLOCKQUOTE",
+          "content": [
+            {
+              "contentNodeType": "TEXT",
+              "content": "The Buzzard came again last night, larger than before. Its cry we heard first, the great gnashing of a terrible demon. It appears not like the mainland creatures, but something far worse, pulled from some devil's pit in eons past. The Buzzard tore through our defenses, and we had no choice but to flee to the sea, or take shelter in the earth and pray that it would not root us out. Every night that The Buzzard returns, he is more and we are less."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

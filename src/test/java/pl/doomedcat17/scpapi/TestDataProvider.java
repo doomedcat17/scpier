@@ -6,7 +6,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import pl.doomedcat17.scpapi.data.Appendix;
-import pl.doomedcat17.scpapi.data.ContentBox;
+import pl.doomedcat17.scpapi.data.ContentNode;
 import pl.doomedcat17.scpapi.data.ScpObject;
 
 import java.io.File;
@@ -44,44 +44,56 @@ public class TestDataProvider {
 
     public static Element getSampleElements(String path) {
         return loadElementFormHTML(path)
-                .getElementById("elements");
+                .getElementById("page-content");
 
     }
 
-    public static Map<String, ScpObject> getExpectedScpOutputs(String path) {
+    public static Map<String, List<Appendix>> getExpectedAppendicesOutputs(String path) {
         ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, ScpObject> outputs = null;
+        Map<String, List<Appendix>> outputs = null;
         try {
-            outputs = objectMapper.readValue(new File(path), new TypeReference<Map<String, ScpObject>>() {
+            outputs = objectMapper.readValue(new File(path), new TypeReference<Map<String, List<Appendix>>>() {
             });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return outputs;
-    }
-
-    public static Map<String, Appendix> getExpectedAppendixOutputs(String path) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, Appendix> outputs = null;
-        try {
-            outputs = objectMapper.readValue(new File(path), new TypeReference<Map<String, Appendix>>() {
-            });
-            outputs.forEach((key, value) -> {
-                value.getContents().forEach(contentBox -> {
-                    if (contentBox.getContent() instanceof ArrayList) {
-                        ((ArrayList) contentBox.getContent()).forEach(content -> {
-                            if (contentBox.getContent() instanceof LinkedHashMap) {
-                                ContentBox conerted = objectMapper.convertValue(LinkedHashSet.class, ContentBox.class);
-                            }
-                        });
-
+            for (Map.Entry<String, List<Appendix>> entry : outputs.entrySet()) {
+                for (Appendix appendix : entry.getValue()) {
+                    List<ContentNode<?>> contentNodes = appendix.getContents();
+                    for (int i = 0; i < contentNodes.size(); i++) {
+                        if (contentNodes.get(i).getContent() instanceof List) {
+                            contentNodes.set(i, mapContentNode(contentNodes.get(i)));
+                        }
                     }
-                });
-            });
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return outputs;
+    }
+
+    private static ContentNode<List<ContentNode<?>>> mapContentNode(ContentNode<?> contentNode) {
+        List<ContentNode<?>> mappedContentNodes = applyList((ArrayList<LinkedHashMap>) contentNode.getContent());
+        for (int i = 0; i < mappedContentNodes.size(); i++) {
+            if (mappedContentNodes.get(i).getContent() instanceof List) {
+                mappedContentNodes.set(i, mapContentNode(mappedContentNodes.get(i)));
+            }
+        }
+        ContentNode<List<ContentNode<?>>> listContentNode = new ContentNode<>();
+        listContentNode.setContentNodeType(contentNode.getContentNodeType());
+        listContentNode.setContent(mappedContentNodes);
+        return listContentNode;
+    }
+
+    private static List<ContentNode<?>> applyList(ArrayList<LinkedHashMap> contentNodes) {
+        List<ContentNode<?>> mappedContentNodes = new ArrayList<>();
+        contentNodes.forEach(node -> mappedContentNodes.add(applyHashMap(node)));
+        return mappedContentNodes;
+    }
+
+
+    private static ContentNode<?> applyHashMap(LinkedHashMap<String, String> linkedHashMap) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.convertValue(linkedHashMap, new TypeReference<ContentNode<?>>() {
+        });
     }
 
     public static ScpObject getSampleScpObject() {
@@ -112,9 +124,6 @@ public class TestDataProvider {
             e.printStackTrace();
         }
         return appendix;
-    }
-
-    private void convertContentBox(ContentBox<List<LinkedHashMap>> contentBox) {
     }
 }
 

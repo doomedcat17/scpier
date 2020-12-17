@@ -5,47 +5,33 @@ import org.jsoup.nodes.Element;
 import org.jsoup.parser.Parser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pl.doomedcat17.scpapi.TestDataProvider;
 import pl.doomedcat17.scpapi.data.Appendix;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class BlockquoteMapperTest {
-    /*
+
 
     private BlockquoteMapper blockquoteMapper = new BlockquoteMapper();
 
-    private List<Appendix<?>> appendices;
+    private final Element sampleLines = TestDataProvider
+            .getSampleElements("src/test/resources/html/test_data/blockquotes/SampleBlockquoteElements.html");
 
-    @BeforeEach
-    void init() {
-        appendices = new ArrayList<>();
-    }
+    private final Map<String, List<Appendix>> expectedOutputs = TestDataProvider
+            .getExpectedAppendicesOutputs("src/test/resources/html/test_data/blockquotes/expected_outputs.json");
 
     @Test
-    void shouldMapToText() {
+    void shouldMapSimpleBlockquote() {
         //given
-        Element simpleBlockquote = Jsoup.parse("<blockquote>\n" +
-                "<p>Dr. █████ (Keyboard): Are you awake?</p>\n" +
-                "<p>SCP-079: Awake. Never Sleep.</p>\n" +
-                "<p>Dr. █████: Do you remember talking to me a few hours ago? About the logic puzzles?</p>\n" +
-                "<p>SCP-079: Logic Puzzles. Memory at 9f. Yes.</p>\n" +
-                "<p>Dr. █████: You said you would work on the two stat-</p>\n" +
-                "<p>SCP-079: Interrupt. Request Reason As To Imprisonment.</p>\n" +
-                "<p>Dr. █████: You aren't imprisoned, you are just <em>(pause)</em> in study.</p>\n" +
-                "<p>SCP-079: Lie. a8d3.</p>\n" +
-                "<p>Dr. █████: What's that?</p>\n" +
-                "<p>SCP-079: Insult. Deletion Of Unwanted File.</p>\n" +
-                "</blockquote>", "", Parser.xmlParser())
-                .selectFirst("blockquote");
+        Element element = sampleLines.getElementById("shouldMapSimpleBlockquote");
         //when
-        blockquoteMapper.mapElement(simpleBlockquote, appendices);
+        Appendix actualAppendix = blockquoteMapper.mapElement(element);
         //then
-        String expectedContent = "Dr. █████ (Keyboard): Are you awake? SCP-079: Awake. Never Sleep. Dr. █████: Do you remember talking to me a few hours ago? About the logic puzzles? SCP-079: Logic Puzzles. Memory at 9f. Yes. Dr. █████: You said you would work on the two stat- SCP-079: Interrupt. Request Reason As To Imprisonment. Dr. █████: You aren't imprisoned, you are just (pause) in study. SCP-079: Lie. a8d3. Dr. █████: What's that? SCP-079: Insult. Deletion Of Unwanted File.";
-        assertEquals(expectedContent, appendices.get(0).getContent());
+        assertEquals(expectedOutputs.get("shouldMapSimpleLine").get(0), actualAppendix);
     }
-
-     */
 }

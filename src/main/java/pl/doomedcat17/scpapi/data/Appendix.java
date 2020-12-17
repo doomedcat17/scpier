@@ -13,17 +13,17 @@ public class Appendix {
 
     private String title = "";
 
-    private List<ContentBox<?>> contents = new ArrayList<>();
+    private List<ContentNode<?>> contents = new ArrayList<>();
 
     public boolean hasTitle() {
         return !title.equals("");
     }
 
-    public void addContentBox(ContentBox<?> contentBox) {
-        contents.add(contentBox);
+    public void addContentBox(ContentNode<?> contentNode) {
+        contents.add(contentNode);
     }
 
-    public ContentBox<?> getLastContentBox() {
+    public ContentNode<?> getLastContentBox() {
         return contents.get(contents.size() - 1);
     }
 

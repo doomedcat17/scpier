@@ -1,20 +1,22 @@
 package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 
 import org.jsoup.nodes.Element;
-import pl.doomedcat17.scpapi.data.ContentBox;
-import pl.doomedcat17.scpapi.data.ContentType;
-import pl.doomedcat17.scpapi.data.ScpObject;
+import pl.doomedcat17.scpapi.data.Appendix;
+import pl.doomedcat17.scpapi.data.ContentNode;
+import pl.doomedcat17.scpapi.data.ContentNodeType;
 
 import java.util.ArrayList;
 import java.util.List;
 //TODO refactor code
 public class TableMapper extends HtmlMapper {
     @Override
-    public void mapElement(Element element, ScpObject scpObject) {
-        ContentBox<List<List<String>>> contentBox = new ContentBox<>();
-        contentBox.setContent(mapTable(element));
-        contentBox.setContentType(ContentType.TABLE);
-        scpObject.getLastAppendix().addContentBox(contentBox);
+    public Appendix mapElement(Element element) {
+        Appendix appendix = new Appendix();
+        ContentNode<List<List<String>>> contentNode = new ContentNode<>();
+        contentNode.setContent(mapTable(element));
+        contentNode.setContentNodeType(ContentNodeType.TABLE);
+        appendix.addContentBox(contentNode);
+        return appendix;
     }
 
     private List<List<String>> mapTable(Element element) {
@@ -28,7 +30,6 @@ public class TableMapper extends HtmlMapper {
     private List<String> mapRow(Element row) {
         List<String> mappedRow = new ArrayList<>();
         for (Element element: row.children()) {
-            DeletedContentMarker.markDeletedContent(element);
             mappedRow.add(element.text().trim());
         }
         return mappedRow;

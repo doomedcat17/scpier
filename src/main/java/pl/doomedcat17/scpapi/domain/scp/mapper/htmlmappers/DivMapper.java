@@ -11,17 +11,21 @@ import java.util.List;
 //TODO tests needed
 public class DivMapper extends HtmlMapper{
     @Override
-    public void mapElement(Element element, ScpObject scpObject) {
-        Appendix appendix = new Appendix();
+    public Appendix mapElement(Element element) { //TODO implementation needed
+    /*    Appendix appendix = new Appendix();
         DeletedContentMarker.markDeletedContent(element);
-        mapContent(appendix, element, scpObject);
+        mapContent(appendix, element);
         if (appendix.hasTitle()) {
             scpObject.addAppendix(appendix);
         } else appendix.getContents()
                 .forEach(
                         contentBox ->
                                 scpObject.getLastAppendix().addContentBox(contentBox)
+
                 );
+
+     */
+        return null;
 
     }
 
@@ -40,7 +44,7 @@ public class DivMapper extends HtmlMapper{
         Element itemElement = element.selectFirst("top-left-box");
         appendix = new Appendix();
         appendix.setTitle(itemElement.selectFirst("item").text());
-        appendix.addContentBox(new ContentBox<>(ContentType.TEXT, itemElement.select("number")));
+        appendix.addContentBox(new ContentNode<>(ContentNodeType.TEXT, itemElement.select("number")));
         Element scpClasses = element.selectFirst("text-part");
         for (Element classElement: scpClasses.children()) {
             if (classElement.is("main-class")) {
@@ -49,7 +53,7 @@ public class DivMapper extends HtmlMapper{
                 scpClass.setTitle(ScpPattern.OBJECT_CLASS.engNormalized);
                 String className = containmentClassElement.selectFirst("class-text").text();
                 className = firstLetterToUpper(className).trim(); //class name first letter to uppercase
-                scpClass.addContentBox(new ContentBox<>(ContentType.TEXT, className));
+                scpClass.addContentBox(new ContentNode<>(ContentNodeType.TEXT, className));
                 scpObject.addAppendix(scpClass);
                 Element secondaryClassElement = classElement.selectFirst("second-class");
                 String secondaryClassName = secondaryClassElement.selectFirst("class-text").text().trim();
@@ -57,7 +61,7 @@ public class DivMapper extends HtmlMapper{
                     secondaryClassName = firstLetterToUpper(secondaryClassName);
                     Appendix secondaryClassAppendix = new Appendix();
                     secondaryClassAppendix.setTitle(ScpPattern.OBJECT_SECONDARY_CLASS.engNormalized);
-                    secondaryClassAppendix.addContentBox(new ContentBox<>(ContentType.TEXT, secondaryClassName));
+                    secondaryClassAppendix.addContentBox(new ContentNode<>(ContentNodeType.TEXT, secondaryClassName));
                 }
             } else {
                 String scpClassTitle = "";
@@ -71,7 +75,7 @@ public class DivMapper extends HtmlMapper{
                     scpClassName = firstLetterToUpper(scpClassName).trim();
                     Appendix scpClass = new Appendix();
                     scpClass.setTitle(scpClassTitle);
-                    scpClass.addContentBox(new ContentBox<>(ContentType.TEXT, scpClassName));
+                    scpClass.addContentBox(new ContentNode<>(ContentNodeType.TEXT, scpClassName));
                 }
             }
         }
@@ -81,7 +85,7 @@ public class DivMapper extends HtmlMapper{
         appendix.setTitle("Footnotes");
         Elements footnotes = element.select("footnote-footer");
         for (Element footnote: footnotes) {
-            appendix.addContentBox(new ContentBox<>(ContentType.TEXT, footnote.text().trim()));
+            appendix.addContentBox(new ContentNode<>(ContentNodeType.TEXT, footnote.text().trim()));
         }
 
     }
@@ -96,7 +100,7 @@ public class DivMapper extends HtmlMapper{
     private void mapDefaultDiv(Appendix appendix, Element element, ScpObject scpObject) {
         for (Element divChild: element.children()) {
             if (divChild.is("p") || divChild.is("strong")) {
-                appendix.addContentBox(new ContentBox<>(ContentType.TEXT, element.text().trim()));
+                appendix.addContentBox(new ContentNode<>(ContentNodeType.TEXT, element.text().trim()));
             } else if (divChild.is("div") && divChild.children().size() != 0) {
                 mapContent(appendix, element, scpObject);
             } else {
@@ -104,7 +108,6 @@ public class DivMapper extends HtmlMapper{
                 dummyScpObject.addAppendix(appendix);
                 try {
                     HtmlMapper htmlMapper = HtmlMapperFactory.getHtmlMapper(element);
-                    htmlMapper.mapElement(divChild, dummyScpObject);
                 } catch (MapperNotFoundException e) {
                     log.info(e.getMessage());
                 }

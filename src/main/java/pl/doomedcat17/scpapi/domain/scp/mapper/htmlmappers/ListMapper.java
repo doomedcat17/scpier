@@ -2,9 +2,9 @@ package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import pl.doomedcat17.scpapi.data.ContentBox;
-import pl.doomedcat17.scpapi.data.ContentType;
-import pl.doomedcat17.scpapi.data.ScpObject;
+import pl.doomedcat17.scpapi.data.Appendix;
+import pl.doomedcat17.scpapi.data.ContentNode;
+import pl.doomedcat17.scpapi.data.ContentNodeType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,34 +13,38 @@ import java.util.List;
 //TODO refactor code
 public class ListMapper extends HtmlMapper {
     @Override
-    public void mapElement(Element element, ScpObject scpObject) {
-        ContentBox<List<ContentBox<?>>> contentBox = new ContentBox<>();
+    public Appendix mapElement(Element element) {
+        Appendix appendix = new Appendix();
+        ContentNode<List<ContentNode<?>>> contentNode = new ContentNode<>();
         if (element.tagName().equals("ul")) {
-            contentBox.setContentType(ContentType.LIST_UL);
-        } else contentBox.setContentType(ContentType.LIST_OL);
-        contentBox.setContent(new ArrayList<>());
-        mapList(element, contentBox);
-        scpObject.getLastAppendix().addContentBox(contentBox);
+            contentNode.setContentNodeType(ContentNodeType.LIST_UL);
+        } else contentNode.setContentNodeType(ContentNodeType.LIST_OL);
+        contentNode.setContent(new ArrayList<>());
+        mapList(element, contentNode);
+        appendix.addContentBox(contentNode);
+        return appendix;
     }
 
-    private void mapList(Element element, ContentBox<List<ContentBox<?>>> contentBox) {
+    private void mapList(Element element, ContentNode<List<ContentNode<?>>> contentNode) {
         Elements children = element.children();
         children.forEach(
-                child -> contentBox.getContent().add(mapRow(child))
+                child -> contentNode.getContent().add(mapRow(child))
         );
     }
-    private ContentBox<?> mapRow(Element row) {
-        if (row.is("ul, ol")) {
-            ScpObject dummyScp = getDummyScpObject();
-            mapElement(row, dummyScp);
-            return dummyScp.getLastAppendix().getLastContentBox();
-        } else {
-            List<ContentBox<String>> textContentBoxes = scrapText(row);
-            if (textContentBoxes.size() > 1) {
-                return new ContentBox<>(ContentType.TEXT_ELEMENTS, textContentBoxes);
-            } else return new ContentBox<>(ContentType.TEXT, textContentBoxes.get(0));
-        }
 
+    private ContentNode<?> mapRow(Element row) {
+        if (row.is("ul, ol")) {
+            Appendix nestedAppendix = mapElement(row);
+            return nestedAppendix.getContents().get(0);
+
+        } else {
+            List<ContentNode<?>> contentNodes = extractContent(row);
+            if (contentNodes.size() == 1) {
+                return contentNodes.get(0);
+            } else {
+                return new ContentNode<>(ContentNodeType.ELEMENTS, contentNodes);
+            }
+        }
     }
 
 }

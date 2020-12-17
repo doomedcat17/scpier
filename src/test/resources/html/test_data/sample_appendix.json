@@ -2,7 +2,7 @@
   "title": "Test title",
   "contents": [
     {
-      "contentType": "TEXT",
+      "contentNodeType": "TEXT",
       "content": "Test text inside box"
     }
   ]

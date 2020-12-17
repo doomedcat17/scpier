@@ -3,6 +3,7 @@ package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 public enum ScpPattern {
     OBJECT_NAME("Item #"),
     OBJECT_CLASS("Object Class"),
+    CONTAINMENT_CLASS("Containment Class"),
     OBJECT_SECONDARY_CLASS("Secondary Class"),
     OBJECT_DISRUPT_CLASS("Disruption Class"),
     OBJECT_RISK_CLASS("Risk Class"),
