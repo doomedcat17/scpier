@@ -17,7 +17,10 @@ public class ScpProviderImpl implements ScpProviderService{
 
 
     @Override
-    public ScpObject getScpObject(int objectId) {
+    public ScpObject getScpObject(String objectId) {
+        StringBuilder objectIdBuilder = new StringBuilder(objectId);
+        while (objectIdBuilder.length() < 3) objectIdBuilder.insert(0, "0");
+        objectId = objectIdBuilder.toString();
         String source = SCP_URL+"scp-"+objectId;
         ScpObject scpObject = null;
         try {

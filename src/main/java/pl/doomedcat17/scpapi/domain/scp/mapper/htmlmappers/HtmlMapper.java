@@ -6,9 +6,7 @@ import org.jsoup.nodes.Node;
 import pl.doomedcat17.scpapi.data.Appendix;
 import pl.doomedcat17.scpapi.data.ContentNode;
 import pl.doomedcat17.scpapi.data.ContentNodeType;
-import pl.doomedcat17.scpapi.data.ScpObject;
 import pl.doomedcat17.scpapi.exceptions.MapperNotFoundException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +14,10 @@ import java.util.List;
 public abstract class HtmlMapper {
 
     protected final String PAGE_CONTENT_ID = "page-content";
+
+    private final int MIN_HEADER_LENGTH = 21;
+
+    private final int MAX_HEADER_LENGTH = 69;
 
     public abstract Appendix mapElement(Element element);
 
@@ -31,10 +33,10 @@ public abstract class HtmlMapper {
                     if (element.tagName().equals("br")) {
                         addText(contentNode, "\n");
                     } else if (element.is("[style*=\"text-decoration: line-through;\"]")) {
-                        contentNodes.add(contentNode);
+                        if (contentNode.getContent() != null) contentNodes.add(contentNode);
                         ContentNode<String> deletedText = new ContentNode<>(ContentNodeType.TEXT_DELETED, element.text());
                         contentNodes.add(deletedText);
-                        contentNode = new ContentNode<>();
+                        contentNode = new ContentNode<>(ContentNodeType.TEXT);
                     } else {
                         addText(contentNode, element.text());
                     }
@@ -45,7 +47,7 @@ public abstract class HtmlMapper {
                     }
                 }
             }
-            contentNodes.add(contentNode);
+            if (contentNode.getContent() != null) contentNodes.add(contentNode);
             trimContent(contentNodes);
         }
         return contentNodes;
@@ -69,7 +71,7 @@ public abstract class HtmlMapper {
                     Element childElement = (Element) node;
                     HtmlMapper htmlMapper = HtmlMapperFactory.getHtmlMapper(childElement);
                     Appendix appendix = htmlMapper.mapElement(childElement);
-                    contentNodes.add(appendix.getLastContentBox());
+                    contentNodes.addAll(appendix.getContents());
                 } else {
                     String text = node.toString().trim();
                     if (!text.isBlank()) {
@@ -90,7 +92,7 @@ public abstract class HtmlMapper {
             if (ScpPattern.containsValue(strongElement.text(), "eng")) {
                 return true;
             } else {
-                return (strongElement.text().length() > 20);
+                return (strongElement.text().length() >= MIN_HEADER_LENGTH && strongElement.text().length() <= MAX_HEADER_LENGTH);
             }
         } else return false;
     }

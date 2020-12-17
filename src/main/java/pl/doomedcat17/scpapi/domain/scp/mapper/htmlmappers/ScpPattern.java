@@ -12,6 +12,7 @@ public enum ScpPattern {
     SCP_ADDENDUM("Addendum"),
     SCP_DOCUMENT("Document"),
     SCP_RECOVERY("Recovery Log"),
+    SCP_TEST_LOG("Test log"),
     SCP_INCIDENT("Incident"),
     SCP_EXPERIMENT("Experiment Log"),
     SCP_REPORT("Report"),

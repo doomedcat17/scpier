@@ -12,27 +12,32 @@ public class TableMapper extends HtmlMapper {
     @Override
     public Appendix mapElement(Element element) {
         Appendix appendix = new Appendix();
-        ContentNode<List<List<String>>> contentNode = new ContentNode<>();
+        ContentNode<List<ContentNode<?>>> contentNode = new ContentNode<>();
         contentNode.setContent(mapTable(element));
         contentNode.setContentNodeType(ContentNodeType.TABLE);
         appendix.addContentBox(contentNode);
         return appendix;
     }
 
-    private List<List<String>> mapTable(Element element) {
-        Element table = element.selectFirst("tbody");
-        List<List<String>> tableList = new ArrayList<>();
-        for (Element tableRow: table.children()) {
-            tableList.add(mapRow(tableRow));
+    private List<ContentNode<?>> mapTable(Element element) {
+        Element tableBody = element.selectFirst("tbody");
+        if (tableBody != null) element = tableBody;
+        List<ContentNode<?>> tableRows = new ArrayList<>();
+        for (Element tableRow: element.children()) {
+            tableRows.add(mapRow(tableRow));
         }
-        return tableList;
+        return tableRows;
     }
-    private List<String> mapRow(Element row) {
-        List<String> mappedRow = new ArrayList<>();
-        for (Element element: row.children()) {
-            mappedRow.add(element.text().trim());
+
+    private ContentNode<List<ContentNode<?>>> mapRow(Element row) {
+        List<ContentNode<?>> rowCells = new ArrayList<>();
+        for (Element cell: row.children()) {
+            ContentNode<List<ContentNode<?>>> cellNode = new ContentNode<>(ContentNodeType.ELEMENTS);
+            cellNode.setContent(extractContent(cell));
+            rowCells.add(cellNode);
         }
-        return mappedRow;
+        return new ContentNode<>(ContentNodeType.ROW, rowCells);
     }
+
 
 }

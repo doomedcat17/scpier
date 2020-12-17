@@ -4,5 +4,5 @@ import pl.doomedcat17.scpapi.data.ScpObject;
 
 public interface ScpProviderService {
 
-    ScpObject getScpObject(int objectId);
+    ScpObject getScpObject(String objectId);
 }

@@ -10,7 +10,6 @@ import pl.doomedcat17.scpapi.data.ScpObject;
 import pl.doomedcat17.scpapi.exceptions.MapperNotFoundException;
 
 import java.util.Iterator;
-import java.util.List;
 
 @AllArgsConstructor
 @Slf4j

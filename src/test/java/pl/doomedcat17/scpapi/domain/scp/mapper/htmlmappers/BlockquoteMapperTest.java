@@ -32,6 +32,43 @@ class BlockquoteMapperTest {
         //when
         Appendix actualAppendix = blockquoteMapper.mapElement(element);
         //then
-        assertEquals(expectedOutputs.get("shouldMapSimpleLine").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldMapSimpleBlockquote").get(0), actualAppendix);
+    }
+
+    @Test
+    void shouldMapBlockquoteWithLongLine() {
+        //given
+        Element element = sampleLines.getElementById("shouldMapBlockquoteWithLongLine");
+        //when
+        Appendix actualAppendix = blockquoteMapper.mapElement(element);
+        //then
+        assertEquals(expectedOutputs.get("shouldMapBlockquoteWithLongLine").get(0), actualAppendix);
+    }
+    @Test
+    void shouldMapBlockquoteWithMultipleLines() {
+        //given
+        Element element = sampleLines.getElementById("shouldMapBlockquoteWithMultipleLines");
+        //when
+        Appendix actualAppendix = blockquoteMapper.mapElement(element);
+        //then
+        assertEquals(expectedOutputs.get("shouldMapBlockquoteWithMultipleLines").get(0), actualAppendix);
+    }
+    @Test
+    void shouldMapBlockquoteWithDeletedContent() {
+        //given
+        Element element = sampleLines.getElementById("shouldMapBlockquoteWithDeletedContent");
+        //when
+        Appendix actualAppendix = blockquoteMapper.mapElement(element);
+        //then
+        assertEquals(expectedOutputs.get("shouldMapBlockquoteWithDeletedContent").get(0), actualAppendix);
+    }
+    @Test
+    void shouldMapBlockquoteWithList() {
+        //given
+        Element element = sampleLines.getElementById("shouldMapBlockquoteWithList");
+        //when
+        Appendix actualAppendix = blockquoteMapper.mapElement(element);
+        //then
+        assertEquals(expectedOutputs.get("shouldMapBlockquoteWithList").get(0), actualAppendix);
     }
 }
