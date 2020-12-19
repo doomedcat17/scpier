@@ -19,11 +19,11 @@ public class Appendix {
         return !title.equals("");
     }
 
-    public void addContentBox(ContentNode<?> contentNode) {
+    public void addContentNode(ContentNode<?> contentNode) {
         contents.add(contentNode);
     }
 
-    public ContentNode<?> getLastContentBox() {
+    public ContentNode<?> getLastContentNode() {
         return contents.get(contents.size() - 1);
     }
 

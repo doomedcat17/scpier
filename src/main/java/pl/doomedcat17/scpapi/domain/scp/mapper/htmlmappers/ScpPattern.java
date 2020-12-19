@@ -14,7 +14,8 @@ public enum ScpPattern {
     SCP_RECOVERY("Recovery Log"),
     SCP_TEST_LOG("Test log"),
     SCP_INCIDENT("Incident"),
-    SCP_EXPERIMENT("Experiment Log"),
+    SCP_EXPERIMENT_LOGS("Experiment Log"),
+    SCP_EXPERIMENT_LOG("Experiment Logs"),
     SCP_REPORT("Report"),
     SCP_DISCOVERY("Discovery");
 

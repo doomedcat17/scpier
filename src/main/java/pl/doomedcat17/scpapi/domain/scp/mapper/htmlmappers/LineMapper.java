@@ -7,7 +7,6 @@ import pl.doomedcat17.scpapi.data.ContentNode;
 import java.util.List;
 
 public class LineMapper extends HtmlMapper {
-//TODO more tests needed
     @Override
     public Appendix mapElement(Element element) {
         Appendix appendix = new Appendix();
@@ -15,7 +14,8 @@ public class LineMapper extends HtmlMapper {
             String title = extractTitle(element);
             appendix.setTitle(title);
         }
-        addTextToAppendix(appendix, element);
+        List<ContentNode<String>> contentNodes = scrapText(element);
+        contentNodes.forEach(appendix::addContentNode);
         return appendix;
     }
 
@@ -27,9 +27,5 @@ public class LineMapper extends HtmlMapper {
             title = title.substring(0, title.length() - 1); //remove : from the end of title
         strongElement.remove();
         return title;
-    }
-    private void addTextToAppendix(Appendix appendix, Element element) {
-        List<ContentNode<String>> contentNodes = scrapText(element);
-        contentNodes.forEach(appendix::addContentBox);
     }
 }

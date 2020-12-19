@@ -7,6 +7,7 @@ import pl.doomedcat17.scpapi.data.Appendix;
 import pl.doomedcat17.scpapi.data.ContentNode;
 import pl.doomedcat17.scpapi.data.ContentNodeType;
 import pl.doomedcat17.scpapi.exceptions.MapperNotFoundException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,25 +26,29 @@ public abstract class HtmlMapper {
         List<ContentNode<String>> contentNodes = new ArrayList<>();
         if (textElement.is("[style*=\"text-decoration: line-through;\"]")) {
             contentNodes.add(new ContentNode<>(ContentNodeType.TEXT_DELETED, textElement.text()));
+        } else if (textElement.is("sup.footnoteref")) {
+            contentNodes.add(new ContentNode<>(ContentNodeType.TEXT, "[" + textElement.text() + "]"));
         } else {
             ContentNode<String> contentNode = new ContentNode<>(ContentNodeType.TEXT);
             for (Node node : textElement.childNodes()) {
                 if (node instanceof Element) {
                     Element element = (Element) node;
                     if (element.tagName().equals("br")) {
-                        addText(contentNode, "\n");
+                        appendTextToContentNode(contentNode, "\n");
                     } else if (element.is("[style*=\"text-decoration: line-through;\"]")) {
                         if (contentNode.getContent() != null) contentNodes.add(contentNode);
                         ContentNode<String> deletedText = new ContentNode<>(ContentNodeType.TEXT_DELETED, element.text());
                         contentNodes.add(deletedText);
                         contentNode = new ContentNode<>(ContentNodeType.TEXT);
+                    } else if (element.is("sup.footnoteref")) {
+                        appendTextToContentNode(contentNode, "[" + element.text() + "]");
                     } else {
-                        addText(contentNode, element.text());
+                        appendTextToContentNode(contentNode, element.text());
                     }
                 } else {
                     String text = node.toString();
                     if (!text.isBlank()) {
-                        addText(contentNode, text);
+                        appendTextToContentNode(contentNode, text);
                     }
                 }
             }
@@ -57,13 +62,13 @@ public abstract class HtmlMapper {
         contentNodes.forEach(contentBox -> contentBox.setContent(contentBox.getContent().trim()));
     }
 
-    private void addText(ContentNode<String> contentNode, String text) {
+    private void appendTextToContentNode(ContentNode<String> contentNode, String text) {
         if (contentNode.getContent() == null) {
             contentNode.setContent(text);
         } else contentNode.setContent(contentNode.getContent() + text);
     }
 
-    protected List<ContentNode<?>> extractContent(Element element) {
+    protected List<ContentNode<?>> mapElementContent(Element element) {
         List<ContentNode<?>> contentNodes = new ArrayList<>();
         for (Node node : element.childNodes()) {
             try {
@@ -71,6 +76,9 @@ public abstract class HtmlMapper {
                     Element childElement = (Element) node;
                     HtmlMapper htmlMapper = HtmlMapperFactory.getHtmlMapper(childElement);
                     Appendix appendix = htmlMapper.mapElement(childElement);
+                    if (appendix.hasTitle()) {
+                        appendix.addContentNode(new ContentNode<>(ContentNodeType.HEADING, appendix.getTitle()));
+                    }
                     contentNodes.addAll(appendix.getContents());
                 } else {
                     String text = node.toString().trim();
@@ -85,16 +93,28 @@ public abstract class HtmlMapper {
         return contentNodes;
     }
 
-    protected boolean isNotSimpleElement(Element element) {
+    protected boolean isNotSimpleElement(Element element) { //last changed
         if (!element.parent().id().equals(PAGE_CONTENT_ID)) return false;
-        Element strongElement = element.selectFirst("strong");
-        if (strongElement != null) {
-            if (ScpPattern.containsValue(strongElement.text(), "eng")) {
-                return true;
-            } else {
-                return (strongElement.text().length() >= MIN_HEADER_LENGTH && strongElement.text().length() <= MAX_HEADER_LENGTH);
-            }
-        } else return false;
+        if (!element.tagName().equals("strong")) {
+            Node node = element.childNode(0); //some strong elements are inside text content of element
+            if (node instanceof Element) element = (Element) node;
+            else return false;
+        }
+            if (element.tagName().equals("strong")) {
+                if (ScpPattern.containsValue(element.text(), "eng")) {
+                    return true;
+                } else {
+                    return (element.text().length() >= MIN_HEADER_LENGTH && element.text().length() <= MAX_HEADER_LENGTH);
+                }
+            } else return false;
+        }
+
+    protected boolean isTittle(String title) {
+        if (ScpPattern.containsValue(title, "eng")) {
+            return true;
+        } else {
+            return (title.length() >= MIN_HEADER_LENGTH && title.length() <= MAX_HEADER_LENGTH);
+        }
     }
 
 }

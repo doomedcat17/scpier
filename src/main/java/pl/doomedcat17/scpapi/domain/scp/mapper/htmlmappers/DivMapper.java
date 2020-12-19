@@ -4,7 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import pl.doomedcat17.scpapi.data.*;
-import pl.doomedcat17.scpapi.exceptions.MapperNotFoundException;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -12,39 +13,39 @@ import java.util.List;
 public class DivMapper extends HtmlMapper{
     @Override
     public Appendix mapElement(Element element) { //TODO implementation needed
-    /*    Appendix appendix = new Appendix();
-        DeletedContentMarker.markDeletedContent(element);
-        mapContent(appendix, element);
-        if (appendix.hasTitle()) {
-            scpObject.addAppendix(appendix);
-        } else appendix.getContents()
-                .forEach(
-                        contentBox ->
-                                scpObject.getLastAppendix().addContentBox(contentBox)
-
-                );
-
-     */
-        return null;
-
+        Appendix mappedAppendix;
+        List<Appendix> appendices = mapContent(element);
+        if (appendices.size() == 1) {
+            mappedAppendix = appendices.get(0);
+        } else {
+            ContentNode<List<Appendix>> contentNode = new ContentNode<>(ContentNodeType.APPENDICES, appendices);
+            mappedAppendix = new Appendix();
+            mappedAppendix.addContentNode(contentNode);
+        }
+        return mappedAppendix;
     }
 
-    private void mapContent(Appendix appendix, Element element, ScpObject scpObject) {
+    private List<Appendix> mapContent(Element element) {
         if (element.hasClass("collapsible-block")) { //footnotes-footer
-            mapCollapsibleBlock(appendix, element, scpObject);
+            return mapCollapsibleBlock(element);
         } else if (element.hasClass("footnotes-footer")) {
-            mapFootnotes(appendix, element);
+            return mapFootnotes(element);
         } else if (element.hasClass("anom-bar")) {
-            mapHeadingBar(appendix, element, scpObject);
-        } else mapDefaultDiv(appendix, element, scpObject);
+            return mapHeadingBar(element);
+        } else if (element.hasClass("scp-image-block")){
+            return mapImageBlock(element);
+        } else mapDefaultDiv(element);
+        return null;
     }
 
-    private void mapHeadingBar(Appendix appendix, Element element, ScpObject scpObject) {
+    private List<Appendix> mapHeadingBar(Element element) {
         //TODO code refactor
+        List<Appendix> appendices = new ArrayList<>();
         Element itemElement = element.selectFirst("top-left-box");
-        appendix = new Appendix();
-        appendix.setTitle(itemElement.selectFirst("item").text());
-        appendix.addContentBox(new ContentNode<>(ContentNodeType.TEXT, itemElement.select("number")));
+        Appendix itemNameAppendix = new Appendix();
+        itemNameAppendix.setTitle(itemElement.selectFirst("item").text());
+        itemNameAppendix.addContentNode(new ContentNode<>(ContentNodeType.TEXT, itemElement.select("number")));
+        appendices.add(itemNameAppendix);
         Element scpClasses = element.selectFirst("text-part");
         for (Element classElement: scpClasses.children()) {
             if (classElement.is("main-class")) {
@@ -53,15 +54,16 @@ public class DivMapper extends HtmlMapper{
                 scpClass.setTitle(ScpPattern.OBJECT_CLASS.engNormalized);
                 String className = containmentClassElement.selectFirst("class-text").text();
                 className = firstLetterToUpper(className).trim(); //class name first letter to uppercase
-                scpClass.addContentBox(new ContentNode<>(ContentNodeType.TEXT, className));
-                scpObject.addAppendix(scpClass);
+                scpClass.addContentNode(new ContentNode<>(ContentNodeType.TEXT, className));
+                appendices.add(scpClass);
                 Element secondaryClassElement = classElement.selectFirst("second-class");
                 String secondaryClassName = secondaryClassElement.selectFirst("class-text").text().trim();
                 if (!secondaryClassName.equals("none")) {
                     secondaryClassName = firstLetterToUpper(secondaryClassName);
                     Appendix secondaryClassAppendix = new Appendix();
                     secondaryClassAppendix.setTitle(ScpPattern.OBJECT_SECONDARY_CLASS.engNormalized);
-                    secondaryClassAppendix.addContentBox(new ContentNode<>(ContentNodeType.TEXT, secondaryClassName));
+                    secondaryClassAppendix.addContentNode(new ContentNode<>(ContentNodeType.TEXT, secondaryClassName));
+                    appendices.add(secondaryClassAppendix);
                 }
             } else {
                 String scpClassTitle = "";
@@ -70,55 +72,74 @@ public class DivMapper extends HtmlMapper{
                 } else if (element.is("risk-class")) {
                     scpClassTitle = ScpPattern.OBJECT_RISK_CLASS.engNormalized;
                 }
-                String scpClassName = element.selectFirst("class-text").text();
+                String scpClassName = element.selectFirst("class-text").text().trim();
                 if (!scpClassName.equals("none")) {
-                    scpClassName = firstLetterToUpper(scpClassName).trim();
+                    scpClassName = firstLetterToUpper(scpClassName);
                     Appendix scpClass = new Appendix();
                     scpClass.setTitle(scpClassTitle);
-                    scpClass.addContentBox(new ContentNode<>(ContentNodeType.TEXT, scpClassName));
+                    scpClass.addContentNode(new ContentNode<>(ContentNodeType.TEXT, scpClassName));
+                    appendices.add(scpClass);
                 }
             }
         }
+        return appendices;
     }
 
-    private void mapFootnotes(Appendix appendix, Element element) {
+    private List<Appendix> mapFootnotes(Element element) {
+        Appendix appendix = new Appendix();
         appendix.setTitle("Footnotes");
-        Elements footnotes = element.select("footnote-footer");
+        Elements footnotes = element.select(".footnote-footer");
         for (Element footnote: footnotes) {
-            appendix.addContentBox(new ContentNode<>(ContentNodeType.TEXT, footnote.text().trim()));
+            appendix.addContentNode(new ContentNode<>(ContentNodeType.TEXT, footnote.text().trim()));
         }
-
+        return List.of(appendix);
     }
 
-    private void mapCollapsibleBlock(Appendix appendix, Element element, ScpObject scpObject) {
-        appendix.setTitle(element.selectFirst("collapsible-block-link").text().trim());
-        mapDefaultDiv(appendix, element.selectFirst("collapsible-block-content"), scpObject);
-
-
+    private List<Appendix> mapCollapsibleBlock(Element element) {
+        Appendix appendix = new Appendix();
+        String title = element.selectFirst(".collapsible-block-link").text();
+        title = clearCollapsibleBlockTittle(title);
+        if (isTittle(title)) appendix.setTitle(title);
+        Element collapsibleBlockContent = element.selectFirst(".collapsible-block-content");
+        List<ContentNode<?>> contentNodes = mapElementContent(collapsibleBlockContent);
+        if (!appendix.hasTitle()) {
+            contentNodes.stream()
+                    .filter(contentNode -> contentNode.getContentNodeType().equals(ContentNodeType.HEADING))
+                    .findFirst().ifPresent(contentNode -> {
+                        String text = contentNode.getContent().toString();
+                        if (isTittle(text)) {
+                            appendix.setTitle(text);
+                        }
+            });
+        }
+        appendix.setContents(contentNodes);
+        return List.of(appendix);
     }
 
-    private void mapDefaultDiv(Appendix appendix, Element element, ScpObject scpObject) {
-        for (Element divChild: element.children()) {
-            if (divChild.is("p") || divChild.is("strong")) {
-                appendix.addContentBox(new ContentNode<>(ContentNodeType.TEXT, element.text().trim()));
-            } else if (divChild.is("div") && divChild.children().size() != 0) {
-                mapContent(appendix, element, scpObject);
-            } else {
-                ScpObject dummyScpObject = new ScpObject();
-                dummyScpObject.addAppendix(appendix);
-                try {
-                    HtmlMapper htmlMapper = HtmlMapperFactory.getHtmlMapper(element);
-                } catch (MapperNotFoundException e) {
-                    log.info(e.getMessage());
-                }
-                appendix = dummyScpObject.getLastAppendix();
-                List<Image> dummyImages = dummyScpObject.getImages();
-                if (!dummyImages.isEmpty()) {
-                    dummyImages.forEach(scpObject::addImage);
-                }
+    private String clearCollapsibleBlockTittle(String title){
+        char firstChar = title.charAt(0);
+        if (firstChar == '+' || firstChar == '>' || firstChar == '-') {
+            return title.substring(1).trim();
+        } else return title;
+    }
 
-            }
-        }
+    private List<Appendix> mapImageBlock(Element element) {
+        Appendix appendix = new Appendix();
+        appendix.setTitle("IMG");
+        ContentNode<Image> contentNode = new ContentNode<>(ContentNodeType.IMAGE);
+        String imageSource = element
+                .selectFirst("img")
+                .attributes().get("src");
+        String imageCaption = element.selectFirst(".scp-image-caption").text().trim();
+        Image image = new Image(imageSource, imageCaption);
+        contentNode.setContent(image);
+        appendix.addContentNode(contentNode);
+        return List.of(appendix);
+    }
+
+    private List<Appendix> mapDefaultDiv(Element element) {
+        Appendix appendix = new Appendix();
+        return null;
     }
     private String firstLetterToUpper(String text) {
         return text.substring(0, 1).toUpperCase() + text.substring(1);

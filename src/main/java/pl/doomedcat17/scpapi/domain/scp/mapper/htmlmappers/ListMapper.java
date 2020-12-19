@@ -21,7 +21,7 @@ public class ListMapper extends HtmlMapper {
         } else contentNode.setContentNodeType(ContentNodeType.LIST_OL);
         contentNode.setContent(new ArrayList<>());
         mapList(element, contentNode);
-        appendix.addContentBox(contentNode);
+        appendix.addContentNode(contentNode);
         return appendix;
     }
 
@@ -38,7 +38,7 @@ public class ListMapper extends HtmlMapper {
             return nestedAppendix.getContents().get(0);
 
         } else {
-            List<ContentNode<?>> contentNodes = extractContent(row);
+            List<ContentNode<?>> contentNodes = mapElementContent(row);
             if (contentNodes.size() == 1) {
                 return contentNodes.get(0);
             } else {

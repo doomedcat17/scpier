@@ -15,9 +15,17 @@ public class HtmlMapperFactory {
             case "li":
             case "small":
             case "span":
+            case "sup":
                 return new LineMapper();
-           /* case "div":
-                return new DivMapper(); */
+            case "h1":
+            case "h2":
+            case "h3":
+            case "h4":
+            case "h5":
+            case "h6":
+                return new HeadingMapper();
+           case "div":
+                return new DivMapper();
             case "table":
                 return new TableMapper();
             case "ul":

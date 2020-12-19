@@ -11,5 +11,8 @@ public enum ContentNodeType {
     LIST_UL,
     TEXT_DELETED,
     TABLE,
-    IMAGE
+    IMAGE,
+    SCP,
+    APPENDICES,
+    HEADING
 }
