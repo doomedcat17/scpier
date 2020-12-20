@@ -64,7 +64,7 @@
           "content": [
             {
               "contentNodeType": "TEXT",
-              "content": "Description: SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm."
+              "content": "Description: SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. "
             },
             {
               "contentNodeType": "TEXT_DELETED",
@@ -72,7 +72,7 @@
             },
             {
               "contentNodeType": "TEXT",
-              "content": "The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
+              "content": " The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
             }
           ]
         }

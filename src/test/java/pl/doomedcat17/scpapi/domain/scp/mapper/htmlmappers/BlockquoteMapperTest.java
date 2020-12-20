@@ -1,14 +1,9 @@
 package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
-import org.jsoup.parser.Parser;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.doomedcat17.scpapi.TestDataProvider;
 import pl.doomedcat17.scpapi.data.Appendix;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 

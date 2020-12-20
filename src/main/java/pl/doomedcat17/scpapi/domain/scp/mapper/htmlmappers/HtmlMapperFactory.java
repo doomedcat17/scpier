@@ -24,8 +24,10 @@ public class HtmlMapperFactory {
             case "h5":
             case "h6":
                 return new HeadingMapper();
-           case "div":
+            case "div":
                 return new DivMapper();
+            case "img":
+                return new ImageMapper();
             case "table":
                 return new TableMapper();
             case "ul":

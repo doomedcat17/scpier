@@ -9,8 +9,6 @@ import pl.doomedcat17.scpapi.data.ContentNodeType;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO tests needed
-//TODO refactor code
 public class ListMapper extends HtmlMapper {
     @Override
     public Appendix mapElement(Element element) {
@@ -38,7 +36,7 @@ public class ListMapper extends HtmlMapper {
             return nestedAppendix.getContents().get(0);
 
         } else {
-            List<ContentNode<?>> contentNodes = mapElementContent(row);
+            List<ContentNode<?>> contentNodes = margeTextNodes(mapElementContent(row));
             if (contentNodes.size() == 1) {
                 return contentNodes.get(0);
             } else {

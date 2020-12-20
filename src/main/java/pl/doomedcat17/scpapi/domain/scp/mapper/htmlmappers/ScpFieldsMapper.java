@@ -51,23 +51,34 @@ public class ScpFieldsMapper {
                     HtmlMapper htmlMapper = HtmlMapperFactory.getHtmlMapper(element);
                     Appendix appendix = htmlMapper.mapElement(element);
                     if (!appendix.hasTitle()) {
-                        Appendix lastAppendix = scpObject.getLastAppendix();
-                        appendix.getContents().forEach(
-                                lastAppendix::addContentNode);
-                    } else if (appendix.getTitle().equals("IMG")) {
-                        ContentNode<Image> imageContentNode = (ContentNode<Image>) appendix.getContents().get(0);
-                        scpObject.addImage(imageContentNode.getContent());
-                    } else scpObject.addAppendix(appendix);
+                        if (element.tagName().equals("div") && appendix.getContents().get(0).getContentNodeType().equals(ContentNodeType.APPENDICES)) {
+                            ContentNode<List<Appendix>> contentNode = (ContentNode<List<Appendix>>) appendix.getContents().get(0);
+                            contentNode.getContent().forEach(scpObject::addAppendix);
+                        } else if (appendix.getContents().get(0).getContentNodeType().equals(ContentNodeType.IMAGE)){
+                            ContentNode<Image> imageContentNode = (ContentNode<Image>) appendix.getContents().get(0);
+                            scpObject.addImage(imageContentNode.getContent());
+                        } else {
+                            Appendix lastAppendix = scpObject.getLastAppendix();
+                            appendix.getContents().forEach(
+                                    lastAppendix::addContentNode);
+                        }
+                    }  else scpObject.addAppendix(appendix);
                 } catch (MapperNotFoundException e) {
                     log.info(e.getMessage());
                 }
             } else {
                 if (!scpObject.getAppendices().isEmpty()) {
-                   ContentNode<?> lastContentNode =  scpObject.getLastAppendix().getLastContentNode();
-                   if (lastContentNode.getContentNodeType().equals(ContentNodeType.TEXT)) {
-                       ContentNode<String> lastTextContentNode = (ContentNode<String>) lastContentNode;
-                       lastTextContentNode.setContent(lastContentNode.getContent()+node.toString());
-                   } else scpObject.getLastAppendix().addContentNode(new ContentNode<>(ContentNodeType.TEXT, node.toString()));
+                    if (scpObject.getLastAppendix().getContents().isEmpty()) {
+                        scpObject.getLastAppendix().addContentNode(new ContentNode<>(ContentNodeType.TEXT, node.toString()));
+                    } else {
+                        ContentNode<?> lastContentNode = scpObject.getLastAppendix().getLastContentNode();
+                        if (lastContentNode.getContentNodeType().equals(ContentNodeType.TEXT)) {
+                            ContentNode<String> lastTextContentNode = (ContentNode<String>) lastContentNode;
+                            lastTextContentNode.setContent(lastContentNode.getContent() + node.toString());
+                        } else
+                            scpObject.getLastAppendix().addContentNode(new ContentNode<>(ContentNodeType.TEXT, node.toString()));
+                    }
+
                 }
             }
         }

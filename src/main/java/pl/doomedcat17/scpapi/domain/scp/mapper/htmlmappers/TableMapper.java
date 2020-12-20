@@ -32,7 +32,7 @@ public class TableMapper extends HtmlMapper {
     private ContentNode<?> mapRow(Element row) {
         List<ContentNode<?>> rowCells = new ArrayList<>();
         for (Element cell: row.children()) {
-            if(cell.text().isEmpty()) continue;
+            if(cell.children().size() == 0 && cell.text().isBlank()) continue;
             List<ContentNode<?>> extractedContentNodes = margeTextNodes(mapElementContent(cell));
             if (extractedContentNodes.size() == 1) {
                 rowCells.add(extractedContentNodes.get(0));
@@ -41,26 +41,6 @@ public class TableMapper extends HtmlMapper {
             }
         }
         return new ContentNode<>(ContentNodeType.ROW, rowCells);
-    }
-
-    private List<ContentNode<?>> margeTextNodes(List<ContentNode<?>> nodes) {
-        ContentNode<String> lastTextNode = null;
-        List<ContentNode<?>> mappedNodes = new ArrayList<>();
-        for (ContentNode node: nodes) {
-            if (node.getContentNodeType().equals(ContentNodeType.TEXT)) {
-                if (lastTextNode == null) {
-                    lastTextNode = node;
-                } else {
-                    lastTextNode.setContent(lastTextNode.getContent()+' '+node.getContent().toString());
-                }
-            } else {
-                mappedNodes.add(lastTextNode);
-                lastTextNode = null;
-                mappedNodes.add(node);
-            }
-        }
-        if (lastTextNode != null) mappedNodes.add(lastTextNode);
-        return mappedNodes;
     }
 
 

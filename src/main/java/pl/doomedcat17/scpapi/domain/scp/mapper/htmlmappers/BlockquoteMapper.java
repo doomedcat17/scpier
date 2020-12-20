@@ -13,14 +13,9 @@ public class BlockquoteMapper extends HtmlMapper {
         Appendix appendix = new Appendix();
         ContentNode<List<ContentNode<?>>> blockquoteNode = new ContentNode<>(ContentNodeType.BLOCKQUOTE);
         List<ContentNode<?>> contentNodes = mapElementContent(element);
-        contentNodes.stream()
-                .filter(contentNode ->
-                        contentNode.getContentNodeType().equals(ContentNodeType.HEADING)
-                )
-                .findFirst().ifPresent(contentNode -> {
-                    appendix.setTitle(contentNode.getContent().toString());
-                    contentNodes.remove(contentNode);
-        });
+        if (!appendix.hasTitle()) {
+            appendix.setTitle(lookForTittle(contentNodes));
+        }
         blockquoteNode.setContent(contentNodes);
         appendix.addContentNode(blockquoteNode);
        return appendix;
