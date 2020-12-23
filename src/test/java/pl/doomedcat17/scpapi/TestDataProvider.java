@@ -5,9 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import pl.doomedcat17.scpapi.data.Appendix;
-import pl.doomedcat17.scpapi.data.ContentNode;
-import pl.doomedcat17.scpapi.data.ScpObject;
+import pl.doomedcat17.scpapi.data.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -60,6 +58,8 @@ public class TestDataProvider {
                     for (int i = 0; i < contentNodes.size(); i++) {
                         if (contentNodes.get(i).getContent() instanceof List) {
                             contentNodes.set(i, mapContentNode(contentNodes.get(i)));
+                        } else if (contentNodes.get(i).getContent() instanceof LinkedHashMap && contentNodes.get(i).getContentNodeType().equals(ContentNodeType.IMAGE)) {
+                            contentNodes.set(i,mapImageContentNode(contentNodes.get(i).getContent()));
                         }
                     }
                 }
@@ -68,6 +68,12 @@ public class TestDataProvider {
             e.printStackTrace();
         }
         return outputs;
+    }
+
+    private static ContentNode<Image> mapImageContentNode(LinkedHashMap<String, String> linkedHashMap) {
+        return new ContentNode<>(ContentNodeType.IMAGE,
+                new Image(linkedHashMap.get("source"),
+                        linkedHashMap.get("caption")));
     }
 
     private static ContentNode<List<ContentNode<?>>> mapContentNode(ContentNode<?> contentNode) {

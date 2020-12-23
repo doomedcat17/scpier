@@ -92,6 +92,16 @@ class TextScrapperTest {
     }
 
     @Test
+    void shouldScrapSubElement() {
+        //given
+        Element element = sampleLines.getElementById("shouldScrapSubElement");
+        //when
+        List<ContentNode<String>> output = textScrapper.scrapText(element);
+        //then
+        assertEquals("[2]", output.get(0).getContent());
+    }
+
+    @Test
     void shouldScrapStrongElementWithDeletedContent() {
         //given
         Element element = sampleLines.getElementById("sampleStrongWithDeletedElement");

@@ -15,9 +15,11 @@ public class LineMapper extends HtmlMapper {
             String title = extractTitle(element);
             appendix.setTitle(title);
         }
-        if (!element.tagName().equals("strong")) {
-            List<ContentNode<String>> contentNodes = textScrapper.scrapText(element);
-            contentNodes.forEach(appendix::addContentNode);
+        if (element.hasText()) {
+            if (!element.tagName().equals("strong")) {
+                List<ContentNode<String>> contentNodes = textScrapper.scrapText(element);
+                contentNodes.forEach(appendix::addContentNode);
+            }
         }
         return appendix;
     }

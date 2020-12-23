@@ -43,7 +43,7 @@ public abstract class HtmlMapper {
                     }
                     contentNodes.addAll(appendix.getContents());
                 } else {
-                    String text = node.toString().trim();
+                    String text = node.toString();
                     if (!text.isBlank()) {
                         contentNodes.add(new ContentNode<>(ContentNodeType.TEXT, text));
                     }
@@ -71,7 +71,11 @@ public abstract class HtmlMapper {
                 if (i == TITLE_DEPTH) break;
                 if (contentNode.getContentNodeType().equals(ContentNodeType.HEADING)) {
                     ContentNode<String> headingNode = (ContentNode<String>) contentNode;
-                    if (isTittle(headingNode.getContent())) title = headingNode.getContent();
+                    if (isTittle(headingNode.getContent())) {
+                        title = headingNode.getContent();
+                        contentNodes.remove(headingNode);
+                        break;
+                    }
                 }
             }
         }
@@ -91,13 +95,17 @@ public abstract class HtmlMapper {
                 }
             } else {
                 if (lastTextNode != null) {
+                    lastTextNode.setContent(lastTextNode.getContent().trim());
                     mappedNodes.add(lastTextNode);
                     lastTextNode = null;
                 }
                 mappedNodes.add(node);
             }
         }
-        if (lastTextNode != null) mappedNodes.add(lastTextNode);
+        if (lastTextNode != null) {
+            lastTextNode.setContent(lastTextNode.getContent().trim());
+            mappedNodes.add(lastTextNode);
+        }
         return mappedNodes;
     }
 

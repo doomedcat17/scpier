@@ -15,7 +15,7 @@ public class TextScrapper {
         if (textElement.is("[style*=\"text-decoration: line-through;\"]")) {
             contentNodes.add(new ContentNode<>(ContentNodeType.TEXT_DELETED, textElement.text()));
         } else if (textElement.is("sup.footnoteref") || textElement.is("sub.footnoteref")) {
-            contentNodes.add(new ContentNode<>(ContentNodeType.TEXT, "[" + textElement.text() + "]"));
+            contentNodes.add(new ContentNode<>(ContentNodeType.TEXT, "[" + textElement.text().trim() + "]"));
         } else {
             ContentNode<String> contentNode = new ContentNode<>(ContentNodeType.TEXT);
             for (Node node : textElement.childNodes()) {

@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class PageContentProvider {
 
-    private final String[] elementsToRemove = {".footer-wikiwalk-nav", ".page-rate-widget-box", ".licensebox22", ".creditRate", "#u-credit-view", ".info-container"};
+    private final String[] elementsToRemove = {".footer-wikiwalk-nav", ".page-rate-widget-box", ".licensebox22",".licensebox", ".creditRate", "#u-credit-view", ".info-container", "br", "hr"};
     //TODO handle IO exception
     public PageContent getPageContent(String url) throws IOException {
         HTMLDocumentProvider htmlDocumentProvider = new HTMLDocumentProviderImpl();

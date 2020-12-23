@@ -31,11 +31,11 @@ public class ScpFieldsMapper {
             if (title.equals(ScpPattern.OBJECT_CLASS.engNormalized)
                     || appendix.getTitle().equals(ScpPattern.CONTAINMENT_CLASS.engNormalized)) {
                 contentNode = (ContentNode<String>) appendix.getLastContentNode();
-                scpObject.setObjectClass(contentNode.getContent());
+                scpObject.setObjectClass(contentNode.getContent().trim());
                 iterator.remove();
             } else if(title.equals(ScpPattern.OBJECT_NAME.engNormalized))  {
                 contentNode = (ContentNode<String>) appendix.getLastContentNode();
-                scpObject.setObjectName(contentNode.getContent());
+                scpObject.setObjectName(contentNode.getContent().trim());
                 iterator.remove();
             }
         }
@@ -51,6 +51,7 @@ public class ScpFieldsMapper {
                     HtmlMapper htmlMapper = HtmlMapperFactory.getHtmlMapper(element);
                     Appendix appendix = htmlMapper.mapElement(element);
                     if (!appendix.hasTitle()) {
+                        if (appendix.getContents().isEmpty()) continue;
                         if (element.tagName().equals("div") && appendix.getContents().get(0).getContentNodeType().equals(ContentNodeType.APPENDICES)) {
                             ContentNode<List<Appendix>> contentNode = (ContentNode<List<Appendix>>) appendix.getContents().get(0);
                             contentNode.getContent().forEach(scpObject::addAppendix);
@@ -58,9 +59,7 @@ public class ScpFieldsMapper {
                             ContentNode<Image> imageContentNode = (ContentNode<Image>) appendix.getContents().get(0);
                             scpObject.addImage(imageContentNode.getContent());
                         } else {
-                            Appendix lastAppendix = scpObject.getLastAppendix();
-                            appendix.getContents().forEach(
-                                    lastAppendix::addContentNode);
+                            addContentNodesToLastAppendix(scpObject, appendix);
                         }
                     }  else scpObject.addAppendix(appendix);
                 } catch (MapperNotFoundException e) {
@@ -83,5 +82,15 @@ public class ScpFieldsMapper {
             }
         }
         scpObject.getAppendices().removeIf(appendix -> !appendix.hasTitle() || appendix.getContents().size() == 0);
+    }
+
+    private void addContentNodesToLastAppendix(ScpObject scpObject, Appendix appendix) {
+        for (ContentNode<?> contentNode: appendix.getContents()) {
+            if (contentNode.getContent() != null) {
+                if (!contentNode.getContent().toString().isBlank()) {
+                    scpObject.getLastAppendix().addContentNode(contentNode);
+                }
+            }
+        }
     }
 }

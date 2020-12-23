@@ -66,4 +66,34 @@ class BlockquoteMapperTest {
         //then
         assertEquals(expectedOutputs.get("shouldMapBlockquoteWithList").get(0), actualAppendix);
     }
+
+    @Test
+    void shouldMapBlockquoteWithHeading() {
+        //given
+        Element element = sampleLines.getElementById("shouldMapBlockquoteWithHeading");
+        //when
+        Appendix actualAppendix = blockquoteMapper.mapElement(element);
+        //then
+        assertEquals(expectedOutputs.get("shouldMapBlockquoteWithHeading").get(0), actualAppendix);
+    }
+
+    @Test
+    void shouldMapBlockquoteWithHeadingAsTittle() {
+        //given
+        Element element = sampleLines.getElementById("shouldMapBlockquoteWithHeadingAsTittle");
+        //when
+        Appendix actualAppendix = blockquoteMapper.mapElement(element);
+        //then
+        assertEquals(expectedOutputs.get("shouldMapBlockquoteWithHeadingAsTittle").get(0), actualAppendix);
+    }
+
+    @Test
+    void shouldMapBlockquoteWithImage() {
+        //given
+        Element element = sampleLines.getElementById("shouldMapBlockquoteWithImage");
+        //when
+        Appendix actualAppendix = blockquoteMapper.mapElement(element);
+        //then
+        assertEquals(expectedOutputs.get("shouldMapBlockquoteWithImage").get(0), actualAppendix);
+    }
 }

@@ -171,24 +171,5 @@
         }
       ]
     }
-  ],
-  "shouldMapBlockquoteWithImage": [
-    {
-      "title": "",
-      "contents": [
-        {
-          "contentNodeType": "BLOCKQUOTE",
-          "content": [
-            {
-              "contentNodeType": "IMAGE",
-              "content": {
-                "source": "https://i.imgur.com/BUEYoXE.png?2",
-                "caption": "Theorized borders of SCP-4015 territory shown in red, while areas under its military influence are shown in orange. Areas subject to occasional raids are shown in yellow"
-              }
-            }
-          ]
-        }
-      ]
-    }
   ]
 }

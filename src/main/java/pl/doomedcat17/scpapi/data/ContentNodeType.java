@@ -14,5 +14,6 @@ public enum ContentNodeType {
     IMAGE,
     SCP,
     APPENDICES,
-    HEADING
+    HEADING,
+    DIV
 }
