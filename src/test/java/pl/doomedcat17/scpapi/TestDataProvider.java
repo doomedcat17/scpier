@@ -59,7 +59,7 @@ public class TestDataProvider {
                         if (contentNodes.get(i).getContent() instanceof List) {
                             contentNodes.set(i, mapContentNode(contentNodes.get(i)));
                         } else if (contentNodes.get(i).getContent() instanceof LinkedHashMap && contentNodes.get(i).getContentNodeType().equals(ContentNodeType.IMAGE)) {
-                            contentNodes.set(i,mapImageContentNode(contentNodes.get(i).getContent()));
+                            contentNodes.set(i,mapImageContentNode((LinkedHashMap<String, String>) contentNodes.get(i).getContent()));
                         }
                     }
                 }
@@ -81,6 +81,8 @@ public class TestDataProvider {
         for (int i = 0; i < mappedContentNodes.size(); i++) {
             if (mappedContentNodes.get(i).getContent() instanceof List) {
                 mappedContentNodes.set(i, mapContentNode(mappedContentNodes.get(i)));
+            } else if (mappedContentNodes.get(i).getContent() instanceof LinkedHashMap && mappedContentNodes.get(i).getContentNodeType().equals(ContentNodeType.IMAGE)) {
+                mappedContentNodes.set(i,mapImageContentNode((LinkedHashMap<String, String>) mappedContentNodes.get(i).getContent()));
             }
         }
         ContentNode<List<ContentNode<?>>> listContentNode = new ContentNode<>();

@@ -39,7 +39,7 @@ public abstract class HtmlMapper {
                     HtmlMapper htmlMapper = HtmlMapperFactory.getHtmlMapper(childElement);
                     Appendix appendix = htmlMapper.mapElement(childElement);
                     if (appendix.hasTitle()) {
-                        appendix.addContentNode(new ContentNode<>(ContentNodeType.HEADING, appendix.getTitle()));
+                        contentNodes.add(new ContentNode<>(ContentNodeType.HEADING, appendix.getTitle()));
                     }
                     contentNodes.addAll(appendix.getContents());
                 } else {
