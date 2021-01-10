@@ -159,8 +159,4 @@ class ListMapperTest extends MapperTest {
         //then
         assertEquals(expectedOutputs.get("shouldMapSimpleOrderedListWithDeletedElements").get(0), actualAppendix);
     }
-
-
-
-    //TODO strong elements, deleted elements check 
 }

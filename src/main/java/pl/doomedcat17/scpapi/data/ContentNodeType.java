@@ -15,5 +15,9 @@ public enum ContentNodeType {
     SCP,
     APPENDICES,
     HEADING,
-    DIV
+    DIV;
+
+    public static boolean isText(ContentNodeType contentNodeType) {
+        return contentNodeType.equals(ContentNodeType.TEXT) || contentNodeType.equals(ContentNodeType.HEADING);
+    }
 }

@@ -1,5 +1,7 @@
 package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 
+import pl.doomedcat17.scpapi.data.ContentNodeType;
+
 public enum ScpPattern {
     OBJECT_NAME("Item #"),
     OBJECT_CLASS("Object Class"),
@@ -17,6 +19,7 @@ public enum ScpPattern {
     SCP_EXPERIMENT_LOGS("Experiment Log"),
     SCP_EXPERIMENT_LOG("Experiment Logs"),
     SCP_REPORT("Report"),
+    SCP_CREATOR_INFO("Creator Information"),
     SCP_DISCOVERY("Discovery");
 
     public String engNormalized;

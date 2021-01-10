@@ -18,7 +18,7 @@ public class DivMapper extends HtmlMapper{
         if (appendices.size() == 1) {
             mappedAppendix = appendices.get(0);
             if (mappedAppendix.getContents().size() > 1) {
-                mappedAppendix.setContents(List.of(new ContentNode<>(ContentNodeType.DIV, mappedAppendix.getContents())));
+                mappedAppendix.setContents(new ArrayList<>(List.of(new ContentNode<>(ContentNodeType.DIV, mappedAppendix.getContents()))));
             }
         } else {
             ContentNode<List<Appendix>> contentNode = new ContentNode<>(ContentNodeType.APPENDICES, appendices);

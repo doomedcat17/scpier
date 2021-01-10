@@ -21,7 +21,7 @@ public class TextScrapper {
             for (Node node : textElement.childNodes()) {
                 if (node instanceof Element) {
                     Element element = (Element) node;
-                    if (element.tagName().equals("br")) {
+                    if (element.is("br")) {
                         appendTextToContentNode(contentNode, "\n");
                     } else if (element.is("[style*=\"text-decoration: line-through;\"]")) {
                         if (contentNode.getContent() != null) contentNodes.add(contentNode);
@@ -47,7 +47,6 @@ public class TextScrapper {
     }
 
     private void trimContent(List<ContentNode<String>> contentNodes) {
-        //TODO bug z SCP-083
         ContentNode<String> leadingNode = contentNodes.get(0);
         leadingNode.setContent(leadingNode.getContent().stripLeading());
         ContentNode<String> tailingNode = contentNodes.get(contentNodes.size()-1);

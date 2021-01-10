@@ -4,6 +4,7 @@ import org.jsoup.nodes.Element;
 import pl.doomedcat17.scpapi.data.Appendix;
 import pl.doomedcat17.scpapi.data.ContentNode;
 import pl.doomedcat17.scpapi.data.ContentNodeType;
+import pl.doomedcat17.scpapi.data.Image;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +15,13 @@ public class TableMapper extends HtmlMapper {
         Appendix appendix = new Appendix();
         ContentNode<List<ContentNode<?>>> contentNode = new ContentNode<>();
         contentNode.setContent(mapTable(element));
-        contentNode.setContentNodeType(ContentNodeType.TABLE);
-        appendix.addContentNode(contentNode);
+        if (isTableAnImage(contentNode)) {
+            ContentNode<Image> imageContentNode = extractImage(contentNode);
+            appendix.addContentNode(imageContentNode);
+        } else {
+            contentNode.setContentNodeType(ContentNodeType.TABLE);
+            appendix.addContentNode(contentNode);
+        }
         return appendix;
     }
 
@@ -41,6 +47,33 @@ public class TableMapper extends HtmlMapper {
             }
         }
         return new ContentNode<>(ContentNodeType.ROW, rowCells);
+    }
+
+    //TODO TEST NEEDED
+    private ContentNode<Image> extractImage(ContentNode<List<ContentNode<?>>> contentNode) {
+        List<ContentNode<?>> rows = contentNode.getContent();
+        List<ContentNode<?>> rowContentNodes = (List<ContentNode<?>>) rows.get(0).getContent();
+        ContentNode<Image> imageContentNode = (ContentNode<Image>) rowContentNodes.get(0);
+        if (rows.size() == 2) {
+            rowContentNodes = (List<ContentNode<?>>) rows.get(1).getContent();
+            if (ContentNodeType.isText(rowContentNodes.get(0).getContentNodeType())) {
+                imageContentNode.getContent().setCaption((String) rowContentNodes.get(0).getContent());
+            }
+        }
+        return imageContentNode;
+    }
+
+    private boolean isTableAnImage(ContentNode<List<ContentNode<?>>> contentNode) {
+        List<ContentNode<?>> rows = contentNode.getContent();
+        if (rows.size() <= 2) {
+            for (ContentNode<?> row: rows) {
+                List<ContentNode<?>> rowContentNodes = (List<ContentNode<?>>) row.getContent();
+                if (rowContentNodes.size() == 1) {
+                    return rowContentNodes.get(0).getContentNodeType().equals(ContentNodeType.IMAGE);
+                } else break;
+            }
+        }
+        return false;
     }
 
 

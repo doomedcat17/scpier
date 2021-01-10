@@ -30,11 +30,11 @@ public class ScpFieldsMapper {
             ContentNode<String> contentNode;
             if (title.equals(ScpPattern.OBJECT_CLASS.engNormalized)
                     || appendix.getTitle().equals(ScpPattern.CONTAINMENT_CLASS.engNormalized)) {
-                contentNode = (ContentNode<String>) appendix.getLastContentNode();
+                contentNode = (ContentNode<String>) appendix.getContents().get(0); //TODO scp-1649
                 scpObject.setObjectClass(contentNode.getContent().trim());
                 iterator.remove();
             } else if(title.equals(ScpPattern.OBJECT_NAME.engNormalized))  {
-                contentNode = (ContentNode<String>) appendix.getLastContentNode();
+                contentNode = (ContentNode<String>) appendix.getContents().get(0);
                 scpObject.setObjectName(contentNode.getContent().trim());
                 iterator.remove();
             }
@@ -59,9 +59,14 @@ public class ScpFieldsMapper {
                             ContentNode<Image> imageContentNode = (ContentNode<Image>) appendix.getContents().get(0);
                             scpObject.addImage(imageContentNode.getContent());
                         } else {
-                            addContentNodesToLastAppendix(scpObject, appendix);
+                            if (!scpObject.getAppendices().isEmpty()) {
+                                addContentNodesToLastAppendix(scpObject, appendix);
+                            } else {
+                                appendix.setTitle("HEADING");
+                                scpObject.addAppendix(appendix);
+                            }
                         }
-                    }  else scpObject.addAppendix(appendix);
+                    } else scpObject.addAppendix(appendix);
                 } catch (MapperNotFoundException e) {
                     log.info(e.getMessage());
                 }
