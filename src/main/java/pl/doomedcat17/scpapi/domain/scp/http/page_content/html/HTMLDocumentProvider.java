@@ -1,4 +1,4 @@
-package pl.doomedcat17.scpapi.domain.scp.http;
+package pl.doomedcat17.scpapi.domain.scp.http.page_content.html;
 
 import org.jsoup.nodes.Document;
 

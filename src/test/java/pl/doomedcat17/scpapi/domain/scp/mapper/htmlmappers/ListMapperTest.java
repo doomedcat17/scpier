@@ -10,7 +10,6 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-//TODO refactor tests - htmlmapper margeTextNodesChanged
 class ListMapperTest extends MapperTest {
 
     private ListMapper listMapper = new ListMapper();

@@ -6,6 +6,7 @@ import org.jsoup.nodes.Node;
 import pl.doomedcat17.scpapi.data.Appendix;
 import pl.doomedcat17.scpapi.data.ContentNode;
 import pl.doomedcat17.scpapi.data.ContentNodeType;
+import pl.doomedcat17.scpapi.domain.scp.mapper.ScpPattern;
 import pl.doomedcat17.scpapi.exceptions.MapperNotFoundException;
 
 import java.util.ArrayList;

@@ -6,14 +6,13 @@ import pl.doomedcat17.scpapi.TestDataProvider;
 import pl.doomedcat17.scpapi.data.Appendix;
 import pl.doomedcat17.scpapi.data.ContentNode;
 import pl.doomedcat17.scpapi.data.ContentNodeType;
+import pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers.div.DivMapper;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DivMapperTest {
-
-
 
     private DivMapper divMapper = new DivMapper();
 
@@ -157,6 +156,135 @@ class DivMapperTest {
         } catch (Exception e) {
             fail();
         }
+    }
+
+    @Test
+    void shouldMapAnomBar() {
+        //given
+        Element anomBarElement = sampleDivs.getElementById("shouldMapAnomBar");
+        //when
+        Appendix actualAppendix = divMapper.mapElement(anomBarElement);
+        //then
+        assertEquals(1, actualAppendix.getContents().size());
+        try {
+            ContentNode<List<Appendix>> appendicesContentNode = (ContentNode<List<Appendix>>) actualAppendix.getContents().get(0);
+
+            List<Appendix> appendices = appendicesContentNode.getContent();
+            assertAll(
+                    () -> assertEquals(5, appendicesContentNode.getContent().size()),
+                    () -> assertAll(
+                            () -> assertEquals("Item #", appendices.get(0).getTitle()),
+                            () -> assertEquals(1, appendices.get(0).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(0).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("SCP-5004", appendices.get(0).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Object Class", appendices.get(1).getTitle()),
+                            () -> assertEquals(1, appendices.get(1).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(1).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Esoteric", appendices.get(1).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Secondary Class", appendices.get(2).getTitle()),
+                            () -> assertEquals(1, appendices.get(2).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(2).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Thaumiel", appendices.get(2).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Disruption Class", appendices.get(3).getTitle()),
+                            () -> assertEquals(1, appendices.get(3).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(3).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Ekhi", appendices.get(3).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Risk Class", appendices.get(4).getTitle()),
+                            () -> assertEquals(1, appendices.get(4).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(4).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Notice", appendices.get(4).getContents().get(0).getContent()
+                    )));
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
+
+    }
+
+    @Test
+    void shouldMapAnomBar2() {
+        //given
+        Element anomBarElement = sampleDivs.getElementById("shouldMapAnomBar2");
+        //when
+        Appendix actualAppendix = divMapper.mapElement(anomBarElement);
+        //then
+        assertEquals(1, actualAppendix.getContents().size());
+        try {
+            ContentNode<List<Appendix>> appendicesContentNode = (ContentNode<List<Appendix>>) actualAppendix.getContents().get(0);
+
+            List<Appendix> appendices = appendicesContentNode.getContent();
+            assertAll(
+                    () -> assertEquals(4, appendicesContentNode.getContent().size()),
+                    () -> assertAll(
+                            () -> assertEquals("Item #", appendices.get(0).getTitle()),
+                            () -> assertEquals(1, appendices.get(0).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(0).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("SCP-2105", appendices.get(0).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Object Class", appendices.get(1).getTitle()),
+                            () -> assertEquals(1, appendices.get(1).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(1).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Euclid", appendices.get(1).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Disruption Class", appendices.get(2).getTitle()),
+                            () -> assertEquals(1, appendices.get(2).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(2).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Vlam", appendices.get(2).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Risk Class", appendices.get(3).getTitle()),
+                            () -> assertEquals(1, appendices.get(3).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(3).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Notice", appendices.get(3).getContents().get(0).getContent()
+                            )));
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
+
+    }
+
+    @Test
+    void shouldMapAnomBar3() {
+        //given
+        Element anomBarElement = sampleDivs.getElementById("shouldMapAnomBar3");
+        //when
+        Appendix actualAppendix = divMapper.mapElement(anomBarElement);
+        //then
+        assertEquals(1, actualAppendix.getContents().size());
+        try {
+            ContentNode<List<Appendix>> appendicesContentNode = (ContentNode<List<Appendix>>) actualAppendix.getContents().get(0);
+
+            List<Appendix> appendices = appendicesContentNode.getContent();
+            assertAll(
+                    () -> assertEquals(2, appendicesContentNode.getContent().size()),
+                    () -> assertAll(
+                            () -> assertEquals("Item #", appendices.get(0).getTitle()),
+                            () -> assertEquals(1, appendices.get(0).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(0).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("SCP-4511", appendices.get(0).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Object Class", appendices.get(1).getTitle()),
+                            () -> assertEquals(1, appendices.get(1).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(1).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Pending", appendices.get(1).getContents().get(0).getContent())
+                    ));
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
+
     }
 
 }

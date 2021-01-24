@@ -1,6 +1,7 @@
 package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
 
 import org.jsoup.nodes.Element;
+import pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers.div.DivMapper;
 import pl.doomedcat17.scpapi.exceptions.MapperNotFoundException;
 
 public class HtmlMapperFactory {
@@ -16,6 +17,8 @@ public class HtmlMapperFactory {
             case "small":
             case "span":
             case "sup":
+            case "sub":
+            case "tt":
                 return new LineMapper();
             case "h1":
             case "h2":

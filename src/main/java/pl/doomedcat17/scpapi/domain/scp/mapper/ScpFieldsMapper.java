@@ -1,11 +1,12 @@
-package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
+package pl.doomedcat17.scpapi.domain.scp.mapper;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
-import org.jsoup.select.Elements;
 import pl.doomedcat17.scpapi.data.*;
+import pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers.HtmlMapper;
+import pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers.HtmlMapperFactory;
 import pl.doomedcat17.scpapi.exceptions.MapperNotFoundException;
 
 import java.util.Iterator;
@@ -29,11 +30,13 @@ public class ScpFieldsMapper {
             String title = appendix.getTitle();
             ContentNode<String> contentNode;
             if (title.equals(ScpPattern.OBJECT_CLASS.engNormalized)
-                    || appendix.getTitle().equals(ScpPattern.CONTAINMENT_CLASS.engNormalized)) {
+                    || appendix.getTitle().equals(ScpPattern.CONTAINMENT_CLASS.engNormalized)
+                    || appendix.getTitle().equals(ScpPattern.OBJECT_ALTERNATIVE_CLASS.engNormalized)
+                    || appendix.getTitle().equals(ScpPattern.OBJECT_SECOND_ALTERNATIVE_CLASS.engNormalized)) {
                 contentNode = (ContentNode<String>) appendix.getContents().get(0); //TODO scp-1649
                 scpObject.setObjectClass(contentNode.getContent().trim());
                 iterator.remove();
-            } else if(title.equals(ScpPattern.OBJECT_NAME.engNormalized))  {
+            } else if(title.equals(ScpPattern.OBJECT_NAME.engNormalized) || title.equals(ScpPattern.OBJECT_ALTERNATIVE_NAME.engNormalized) || title.equals(ScpPattern.OBJECT_SECOND_ALTERNATIVE_NAME.engNormalized))  {
                 contentNode = (ContentNode<String>) appendix.getContents().get(0);
                 scpObject.setObjectName(contentNode.getContent().trim());
                 iterator.remove();
@@ -52,7 +55,7 @@ public class ScpFieldsMapper {
                     Appendix appendix = htmlMapper.mapElement(element);
                     if (!appendix.hasTitle()) {
                         if (appendix.getContents().isEmpty()) continue;
-                        if (element.tagName().equals("div") && appendix.getContents().get(0).getContentNodeType().equals(ContentNodeType.APPENDICES)) {
+                        if ((element.tagName().equals("div") || element.tagName().equals("table")) && appendix.getContents().get(0).getContentNodeType().equals(ContentNodeType.APPENDICES)) {
                             ContentNode<List<Appendix>> contentNode = (ContentNode<List<Appendix>>) appendix.getContents().get(0);
                             contentNode.getContent().forEach(scpObject::addAppendix);
                         } else if (appendix.getContents().get(0).getContentNodeType().equals(ContentNodeType.IMAGE)){
@@ -87,6 +90,10 @@ public class ScpFieldsMapper {
             }
         }
         scpObject.getAppendices().removeIf(appendix -> !appendix.hasTitle() || appendix.getContents().size() == 0);
+    }
+
+    private void resolveAppendix() {
+
     }
 
     private void addContentNodesToLastAppendix(ScpObject scpObject, Appendix appendix) {

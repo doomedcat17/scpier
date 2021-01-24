@@ -4,6 +4,8 @@ import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import pl.doomedcat17.scpapi.TestDataProvider;
+import pl.doomedcat17.scpapi.domain.scp.http.page_content.html.HTMLDocumentProvider;
+import pl.doomedcat17.scpapi.domain.scp.http.page_content.html.HTMLDocumentProviderImpl;
 
 import static org.junit.jupiter.api.Assertions.*;
 

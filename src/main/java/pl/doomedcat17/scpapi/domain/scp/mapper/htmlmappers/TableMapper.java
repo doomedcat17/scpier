@@ -8,31 +8,57 @@ import pl.doomedcat17.scpapi.data.Image;
 
 import java.util.ArrayList;
 import java.util.List;
-//TODO refactor code
+
+//TODO refactor code and SPLIT mapTable
 public class TableMapper extends HtmlMapper {
     @Override
     public Appendix mapElement(Element element) {
-        Appendix appendix = new Appendix();
-        ContentNode<List<ContentNode<?>>> contentNode = new ContentNode<>();
-        contentNode.setContent(mapTable(element));
-        if (isTableAnImage(contentNode)) {
-            ContentNode<Image> imageContentNode = extractImage(contentNode);
-            appendix.addContentNode(imageContentNode);
-        } else {
-            contentNode.setContentNodeType(ContentNodeType.TABLE);
-            appendix.addContentNode(contentNode);
-        }
-        return appendix;
+        return mapTable(element);
     }
 
-    private List<ContentNode<?>> mapTable(Element element) {
+    private Appendix mapTable(Element element) {
         Element tableBody = element.selectFirst("tbody");
-        if (tableBody != null) element = tableBody;
+        if (tableBody != null) {
+            element = tableBody;
+        }
+        if (element.hasClass("scale EN-base") ||
+                (element.is("tbody") &&
+                        element.parent().hasClass("scale EN-base") &&
+                        element.parent().is("table"))) {
+            return mapEnBaseTable(element);
+        } else return mapDefaultTable(element);
+    }
+
+    private Appendix mapDefaultTable(Element element) {
+        Appendix appendix = new Appendix();
         List<ContentNode<?>> tableRows = new ArrayList<>();
         for (Element tableRow: element.children()) {
             tableRows.add(mapRow(tableRow));
         }
-        return tableRows;
+        ContentNode<List<ContentNode<?>>> mappedContentNode = new ContentNode<>(ContentNodeType.TABLE, tableRows);
+        if (isTableAnImage(mappedContentNode)) {
+            ContentNode<Image> imageContentNode = extractImage(mappedContentNode);
+            appendix.addContentNode(imageContentNode);
+        } else appendix.addContentNode(mappedContentNode);
+        return appendix;
+    }
+
+    private Appendix mapEnBaseTable(Element element) {
+        Appendix appendix = new Appendix();
+        List<Appendix> appendices = new ArrayList<>();
+        ContentNode<List<Appendix>> contentNode = new ContentNode<>(ContentNodeType.APPENDICES, appendices);
+        List<ContentNode<?>> contentNodes = new ArrayList<>();
+        contentNodes.add(contentNode);
+        Element itemHeaders = element.getElementsByClass("item1 EN").get(0);
+        for (Element itemElement: itemHeaders.children()) {
+            String[] splitElements = itemElement.text().split(":");
+            Appendix innerAppendix = new Appendix();
+            innerAppendix.setTitle(splitElements[0].trim());
+            innerAppendix.addContentNode(new ContentNode<>(ContentNodeType.TEXT, splitElements[1].trim()));
+            appendices.add(innerAppendix);
+        }
+        appendix.addContentNode(contentNode);
+        return appendix;
     }
 
     private ContentNode<?> mapRow(Element row) {

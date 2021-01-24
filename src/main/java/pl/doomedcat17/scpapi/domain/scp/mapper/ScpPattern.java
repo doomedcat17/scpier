@@ -1,10 +1,12 @@
-package pl.doomedcat17.scpapi.domain.scp.mapper.htmlmappers;
-
-import pl.doomedcat17.scpapi.data.ContentNodeType;
+package pl.doomedcat17.scpapi.domain.scp.mapper;
 
 public enum ScpPattern {
     OBJECT_NAME("Item #"),
+    OBJECT_ALTERNATIVE_NAME("Item"),
+    OBJECT_SECOND_ALTERNATIVE_NAME("Item#"),
     OBJECT_CLASS("Object Class"),
+    OBJECT_ALTERNATIVE_CLASS("Object class"),
+    OBJECT_SECOND_ALTERNATIVE_CLASS("Item Class"),
     CONTAINMENT_CLASS("Containment Class"),
     OBJECT_SECONDARY_CLASS("Secondary Class"),
     OBJECT_DISRUPT_CLASS("Disruption Class"),

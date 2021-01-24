@@ -171,5 +171,62 @@
         }
       ]
     }
+  ],
+  "shouldMapAnomBar": [
+    {
+      "title": "",
+      "contents": [
+        {
+          "contentNodeType": "APPENDICES",
+          "content": [
+            {
+              "title": "Item #",
+              "contents": [
+                {
+                  "contentNodeType": "TEXT",
+                  "content": "SCP-5004"
+                }
+              ]
+            },
+            {
+              "title": "Object Class",
+              "contents": [
+                {
+                  "contentNodeType": "TEXT",
+                  "content": "Esoteric"
+                }
+              ]
+            },
+            {
+              "title": "Secondary Class",
+              "contents": [
+                {
+                  "contentNodeType": "TEXT",
+                  "content": "Thaumiel"
+                }
+              ]
+            },
+            {
+              "title": "Disruption Class",
+              "contents": [
+                {
+                  "contentNodeType": "TEXT",
+                  "content": "Ekhi"
+                }
+              ]
+            },
+            {
+              "title": "Risk Class",
+              "contents": [
+                {
+                  "contentNodeType": "TEXT",
+                  "content": "Notice"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
