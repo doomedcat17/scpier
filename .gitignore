@@ -31,3 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
+!/src/test/java/pl/doomedcat17/scpapi/NodesTest.java
