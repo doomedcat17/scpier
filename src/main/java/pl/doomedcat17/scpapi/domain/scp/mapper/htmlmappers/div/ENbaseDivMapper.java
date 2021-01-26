@@ -20,13 +20,14 @@ public class ENbaseDivMapper extends DivMapperComponent {
         itemAppendix.setTitle(scpItem[0].trim());
         itemAppendix.addContentNode(new ContentNode<>(ContentNodeType.TEXT, scpItem[1].trim()));
         appendices.add(itemAppendix);
-        String scpClass = element.getElementsByClass("obj-text")
+        String scpClassName = element.getElementsByClass("obj-text")
                 .get(0)
                 .text().trim();
         Appendix classAppendix = new Appendix();
         classAppendix.setTitle("Object Class");
-        classAppendix.addContentNode(new ContentNode<>(ContentNodeType.TEXT, scpClass));
+        classAppendix.addContentNode(new ContentNode<>(ContentNodeType.TEXT, capitalizeText(scpClassName)));
         appendices.add(classAppendix);
         return appendices;
     }
+
 }

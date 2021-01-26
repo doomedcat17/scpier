@@ -29,14 +29,11 @@ public class ScpFieldsMapper {
             Appendix appendix = iterator.next();
             String title = appendix.getTitle();
             ContentNode<String> contentNode;
-            if (title.equals(ScpPattern.OBJECT_CLASS.engNormalized)
-                    || appendix.getTitle().equals(ScpPattern.CONTAINMENT_CLASS.engNormalized)
-                    || appendix.getTitle().equals(ScpPattern.OBJECT_ALTERNATIVE_CLASS.engNormalized)
-                    || appendix.getTitle().equals(ScpPattern.OBJECT_SECOND_ALTERNATIVE_CLASS.engNormalized)) {
-                contentNode = (ContentNode<String>) appendix.getContents().get(0); //TODO scp-1649
+            if (ScpPattern.isObjectClass(title, "eng")) {
+                contentNode = (ContentNode<String>) appendix.getContents().get(0);
                 scpObject.setObjectClass(contentNode.getContent().trim());
                 iterator.remove();
-            } else if(title.equals(ScpPattern.OBJECT_NAME.engNormalized) || title.equals(ScpPattern.OBJECT_ALTERNATIVE_NAME.engNormalized) || title.equals(ScpPattern.OBJECT_SECOND_ALTERNATIVE_NAME.engNormalized))  {
+            } else if(ScpPattern.isItemName(title, "eng"))  {
                 contentNode = (ContentNode<String>) appendix.getContents().get(0);
                 scpObject.setObjectName(contentNode.getContent().trim());
                 iterator.remove();
@@ -90,10 +87,6 @@ public class ScpFieldsMapper {
             }
         }
         scpObject.getAppendices().removeIf(appendix -> !appendix.hasTitle() || appendix.getContents().size() == 0);
-    }
-
-    private void resolveAppendix() {
-
     }
 
     private void addContentNodesToLastAppendix(ScpObject scpObject, Appendix appendix) {

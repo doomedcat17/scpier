@@ -14,9 +14,12 @@ public class ImageBlockMapper extends DivMapperComponent {
     List<Appendix> mapDivContent(Element element) {
         ImageMapper imageMapper = new ImageMapper();
         Appendix appendix = imageMapper.mapElement(element.selectFirst("img"));
-        String imageCaption = element.selectFirst(".scp-image-caption").text().trim();
         ContentNode<Image> contentNode = (ContentNode<Image>) appendix.getContents().get(0);
-        contentNode.getContent().setCaption(imageCaption);
+        Element imageCaptionElement = element.selectFirst(".scp-image-caption");
+        if (imageCaptionElement != null) {
+            String imageCaption = imageCaptionElement.text().trim();
+            contentNode.getContent().setCaption(imageCaption);
+        }
         return new ArrayList<>(List.of(appendix));
     }
 }

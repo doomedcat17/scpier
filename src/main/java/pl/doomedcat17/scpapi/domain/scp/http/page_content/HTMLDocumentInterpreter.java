@@ -11,7 +11,7 @@ import java.util.List;
 
 public class HTMLDocumentInterpreter {
 
-    private final String[] elementsToRemove = {".footer-wikiwalk-nav", ".page-rate-widget-box", ".licensebox22",".licensebox", ".creditRate", "#u-credit-view", ".info-container", "br", "hr", ".meta-title"};
+    private final String[] elementsToRemove = {".footer-wikiwalk-nav", ".page-rate-widget-box", ".licensebox22",".licensebox", ".creditRate", "#u-credit-view", ".info-container", "br", "hr", ".meta-title", ".error-block", "br", "hr", "script"};
 
 
     public Element parseDocument(Document pageContent) throws IOException {
@@ -23,19 +23,21 @@ public class HTMLDocumentInterpreter {
     private void clearContent(Element content) throws IOException {
         removeTrashElements(content);
         removeEmptyNodes(content);
-        unpackNodesFromDivs(content);
+        unpackNodes(content);
 
     }
 
-    private void unpackNodesFromDivs(Element content) throws IOException {
+    private void unpackNodes(Element content) throws IOException {
         //in some cases content has less than 5 elements then it's unpacked
-        if (content.children().size() < 4 && !content.children().select("div").isEmpty()) {
+        if (content.children().size() < 5 && !content.children().select("div").isEmpty() || !content.children().select("blockquote").isEmpty()) {
             ArrayList<Node> nodes = new ArrayList<>();
             for (Node node: content.childNodesCopy()) {
                 if (node instanceof Element) {
                     Element element = (Element) node;
                     if (element.is("div")) {
                         nodes.addAll(unpackDiv(element));
+                    } else if (element.is("blockquote")) {
+                        nodes.addAll(element.childNodes());
                     } else nodes.add(node);
                 } else nodes.add(node);
             }
@@ -47,6 +49,8 @@ public class HTMLDocumentInterpreter {
     }
 
 
+
+
     private List<Node> unpackDiv(Element divElement) throws IOException {
         if (divElement.is("#u-adult-warning")) {
             RedirectionContent redirectionContent = new RedirectionContent();
@@ -56,6 +60,11 @@ public class HTMLDocumentInterpreter {
                     .getElementsByClass("collapsible-block-content")
                     .get(0)
                     .childNodes();
+        } else if(divElement.hasClass("yui-navset") || divElement.hasClass("yui-navset-top")) {
+            Element yuiContent = divElement.getElementsByClass("yui-content").first();
+            List<Node> nodes = new ArrayList<>();
+            yuiContent.children().forEach(div -> nodes.addAll(div.childNodes()));
+            return nodes;
         } else return divElement.childNodes();
     }
 

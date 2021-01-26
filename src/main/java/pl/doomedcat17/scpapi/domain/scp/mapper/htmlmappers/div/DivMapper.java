@@ -39,10 +39,14 @@ public class DivMapper extends HtmlMapper {
             return new FootnotesMapper();
         } else if (element.hasClass("anom-bar-container")) {
             return new AnomBarMapper();
-        } else if (element.hasClass("scp-image-block")){
+        } else if (element.hasClass("scp-image-block") || element.hasClass("image-container")){
             return new ImageBlockMapper();
         } else if (element.hasClass("scale EN-base")){
             return new ENbaseDivMapper();
+        } else if (element.hasClass("acs-hybrid-text-bar")){
+            return new ACSDivMapper();
+        } else if (element.hasClass("objclassbar")){
+            return new ObjectClassBarDivMapper();
         } else return new DefaultDivMapper();
     }
 }

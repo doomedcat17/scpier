@@ -9,7 +9,6 @@ import pl.doomedcat17.scpapi.data.Image;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO refactor code and SPLIT mapTable
 public class TableMapper extends HtmlMapper {
     @Override
     public Appendix mapElement(Element element) {
@@ -75,7 +74,6 @@ public class TableMapper extends HtmlMapper {
         return new ContentNode<>(ContentNodeType.ROW, rowCells);
     }
 
-    //TODO TEST NEEDED
     private ContentNode<Image> extractImage(ContentNode<List<ContentNode<?>>> contentNode) {
         List<ContentNode<?>> rows = contentNode.getContent();
         List<ContentNode<?>> rowContentNodes = (List<ContentNode<?>>) rows.get(0).getContent();

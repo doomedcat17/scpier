@@ -14,15 +14,13 @@ public class RedirectionContent {
     HTMLDocumentProvider htmlDocumentProvider = new HTMLDocumentProviderImpl();
 
     public List<Node> getRedirectionContent(String type, Element element) throws IOException {
-        switch (type){
-            case "u-adult-warning":
-                Element linkElement = element.getElementsByTag("a").get(0);
-                String redirectionLink = linkElement.attr("href");
-                Document document = htmlDocumentProvider.getWebpageContent(redirectionLink);
-                return document.getElementById("page-content").childNodesCopy();
-            default:
-                throw new NullPointerException();
+        if ("u-adult-warning".equals(type)) {
+            Element linkElement = element.getElementsByTag("a").get(0);
+            String redirectionLink = linkElement.attr("href");
+            Document document = htmlDocumentProvider.getWebpageContent(redirectionLink);
+            return document.getElementById("page-content").childNodesCopy();
         }
+        throw new NullPointerException();
 
     }
 }

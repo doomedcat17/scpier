@@ -7,6 +7,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import pl.doomedcat17.scpapi.data.*;
 
+import javax.print.Doc;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -27,6 +28,20 @@ public class TestDataProvider {
             e.printStackTrace();
         }
         return element;
+    }
+
+    public static Document loadDocumentFormHTML(String path) {
+        Document document = null;
+        try {
+            document = Jsoup.parse(
+                    new File(path),
+                    "UTF-8",
+                    ""
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return document;
     }
 
     public static Element getSamplePageContent() {

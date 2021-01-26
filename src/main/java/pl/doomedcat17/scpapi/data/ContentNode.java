@@ -11,9 +11,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ContentNode<T> {
 
-    private ContentNodeType contentNodeType;
+    protected ContentNodeType contentNodeType;
 
-    private T content;
+    protected T content;
 
     @Override
     public boolean equals(Object o) {

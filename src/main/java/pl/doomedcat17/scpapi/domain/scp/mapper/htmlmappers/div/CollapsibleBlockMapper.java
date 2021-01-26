@@ -24,9 +24,12 @@ public class CollapsibleBlockMapper extends DivMapperComponent {
     }
 
     private String clearCollapsibleBlockTittle(String title){
-        char firstChar = title.charAt(0);
-        if (firstChar == '+' || firstChar == '>' || firstChar == '-') {
-            return title.substring(1).trim();
-        } else return title;
+        if (!title.isBlank()) {
+            char firstChar = title.charAt(0);
+            if (firstChar == '+' || firstChar == '>' || firstChar == '-') {
+                return title.substring(1).trim();
+            }
+        }
+        return title;
     }
 }

@@ -287,4 +287,166 @@ class DivMapperTest {
 
     }
 
+    @Test
+    void shouldEnbaseDiv() {
+        //given
+        Element enBaseElement = sampleDivs.getElementById("shouldEnbaseDiv");
+        //when
+        Appendix actualAppendix = divMapper.mapElement(enBaseElement);
+        //then
+        assertEquals(1, actualAppendix.getContents().size());
+        try {
+            ContentNode<List<Appendix>> appendicesContentNode = (ContentNode<List<Appendix>>) actualAppendix.getContents().get(0);
+
+            List<Appendix> appendices = appendicesContentNode.getContent();
+            assertAll(
+                    () -> assertEquals(2, appendicesContentNode.getContent().size()),
+                    () -> assertAll(
+                            () -> assertEquals("Item #", appendices.get(0).getTitle()),
+                            () -> assertEquals(1, appendices.get(0).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(0).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("SCP-1780", appendices.get(0).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Object Class", appendices.get(1).getTitle()),
+                            () -> assertEquals(1, appendices.get(1).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(1).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Safe", appendices.get(1).getContents().get(0).getContent())
+                    ));
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
+
+    }
+
+    @Test
+    void shouldEnbaseDiv2() {
+        //given
+        Element enBaseElement = sampleDivs.getElementById("shouldEnbaseDiv2");
+        //when
+        Appendix actualAppendix = divMapper.mapElement(enBaseElement);
+        //then
+        assertEquals(1, actualAppendix.getContents().size());
+        try {
+            ContentNode<List<Appendix>> appendicesContentNode = (ContentNode<List<Appendix>>) actualAppendix.getContents().get(0);
+
+            List<Appendix> appendices = appendicesContentNode.getContent();
+            assertAll(
+                    () -> assertEquals(2, appendicesContentNode.getContent().size()),
+                    () -> assertAll(
+                            () -> assertEquals("Item #", appendices.get(0).getTitle()),
+                            () -> assertEquals(1, appendices.get(0).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(0).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("SCP-2410", appendices.get(0).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Object Class", appendices.get(1).getTitle()),
+                            () -> assertEquals(1, appendices.get(1).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(1).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Keter", appendices.get(1).getContents().get(0).getContent())
+                    ));
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
+
+    }
+
+    @Test
+    void shouldMapACSDiv() {
+        //given
+        Element ACSElement = sampleDivs.getElementById("shouldMapACSDiv");
+        //when
+        Appendix actualAppendix = divMapper.mapElement(ACSElement);
+        //then
+        assertEquals(1, actualAppendix.getContents().size());
+        try {
+            ContentNode<List<Appendix>> appendicesContentNode = (ContentNode<List<Appendix>>) actualAppendix.getContents().get(0);
+
+            List<Appendix> appendices = appendicesContentNode.getContent();
+            assertAll(
+                    () -> assertEquals(4, appendicesContentNode.getContent().size()),
+                    () -> assertAll(
+                            () -> assertEquals("Item", appendices.get(0).getTitle()),
+                            () -> assertEquals(1, appendices.get(0).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(0).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("SCP-306", appendices.get(0).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Object Class", appendices.get(1).getTitle()),
+                            () -> assertEquals(1, appendices.get(1).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(1).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Keter", appendices.get(1).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Disruption Class", appendices.get(2).getTitle()),
+                            () -> assertEquals(1, appendices.get(2).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(2).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Ekhi", appendices.get(2).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Risk Class", appendices.get(3).getTitle()),
+                            () -> assertEquals(1, appendices.get(3).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(3).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Danger", appendices.get(3).getContents().get(0).getContent())
+                    ));
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
+
+    }
+
+    @Test
+    void shouldMapACSDiv2() {
+        //given
+        Element ACSElement = sampleDivs.getElementById("shouldMapACSDiv2");
+        //when
+        Appendix actualAppendix = divMapper.mapElement(ACSElement);
+        //then
+        assertEquals(1, actualAppendix.getContents().size());
+        try {
+            ContentNode<List<Appendix>> appendicesContentNode = (ContentNode<List<Appendix>>) actualAppendix.getContents().get(0);
+
+            List<Appendix> appendices = appendicesContentNode.getContent();
+            assertAll(
+                    () -> assertEquals(5, appendicesContentNode.getContent().size()),
+                    () -> assertAll(
+                            () -> assertEquals("Item", appendices.get(0).getTitle()),
+                            () -> assertEquals(1, appendices.get(0).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(0).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("SCP-2105", appendices.get(0).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Object Class", appendices.get(1).getTitle()),
+                            () -> assertEquals(1, appendices.get(1).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(1).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Euclid", appendices.get(1).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Secondary Class", appendices.get(2).getTitle()),
+                            () -> assertEquals(1, appendices.get(2).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(2).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Apollyon", appendices.get(2).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Disruption Class", appendices.get(3).getTitle()),
+                            () -> assertEquals(1, appendices.get(3).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(3).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Vlam", appendices.get(3).getContents().get(0).getContent())
+                    ),
+                    () -> assertAll(
+                            () -> assertEquals("Risk Class", appendices.get(4).getTitle()),
+                            () -> assertEquals(1, appendices.get(4).getContents().size()),
+                            () -> assertEquals(ContentNodeType.TEXT, appendices.get(4).getContents().get(0).getContentNodeType()),
+                            () -> assertEquals("Notice", appendices.get(4).getContents().get(0).getContent())
+                    ));
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
+
+    }
+
 }

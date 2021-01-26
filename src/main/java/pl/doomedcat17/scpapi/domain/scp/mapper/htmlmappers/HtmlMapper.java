@@ -84,7 +84,6 @@ public abstract class HtmlMapper {
     }
 
     protected List<ContentNode<?>> margeTextNodes(List<ContentNode<?>> nodes) {
-        //TODO test needed
         ContentNode<String> lastTextNode = null;
         List<ContentNode<?>> mappedNodes = new ArrayList<>();
         for (ContentNode node: nodes) {
@@ -108,6 +107,10 @@ public abstract class HtmlMapper {
             mappedNodes.add(lastTextNode);
         }
         return mappedNodes;
+    }
+
+    protected String capitalizeText(String text) {
+        return text.substring(0, 1).toUpperCase() + text.substring(1);
     }
 
 }
