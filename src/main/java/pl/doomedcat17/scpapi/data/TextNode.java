@@ -1,19 +1,36 @@
 package pl.doomedcat17.scpapi.data;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.Getter;
 
+import java.util.HashMap;
+import java.util.Map;
+@Getter
+@JsonPropertyOrder({"contentNodeType", "styles", "content"})
 public class TextNode extends ContentNode<String> {
 
-    private List<StyleType> styleTypes = new ArrayList<>();
+    private Map<String, String> styles = new HashMap<>();
 
-    public void addStyleTypes(StyleType styleType) {
-        styleTypes.add(styleType);
+    public void addStyle(String styleName, String styleValue) {
+        styles.put(styleName, styleValue);
     }
 
     public TextNode() {
         super(ContentNodeType.TEXT);
     }
+
+    public TextNode(String content) {
+        super(ContentNodeType.TEXT);
+        super.content = content;
+    }
+
+    public TextNode(String content, Map<String, String> styles) {
+        super(ContentNodeType.TEXT);
+        super.content = content;
+        this.styles = styles;
+    }
+
+
 
 
 }

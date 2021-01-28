@@ -11,8 +11,7 @@ import java.util.List;
 
 public class HTMLDocumentInterpreter {
 
-    private final String[] elementsToRemove = {".footer-wikiwalk-nav", ".page-rate-widget-box", ".licensebox22",".licensebox", ".creditRate", "#u-credit-view", ".info-container", "br", "hr", ".meta-title", ".error-block", "br", "hr", "script"};
-
+    private final String[] elementsToRemove = {".footer-wikiwalk-nav", ".page-rate-widget-box", ".licensebox22",".licensebox", ".creditRate", "#u-credit-view", ".info-container", ".meta-title", ".error-block", "hr", "script"};
 
     public Element parseDocument(Document pageContent) throws IOException {
         Element content = pageContent.getElementById("page-content");
@@ -29,7 +28,7 @@ public class HTMLDocumentInterpreter {
 
     private void unpackNodes(Element content) throws IOException {
         //in some cases content has less than 5 elements then it's unpacked
-        if (content.children().size() < 5 && !content.children().select("div").isEmpty() || !content.children().select("blockquote").isEmpty()) {
+        if (content.children().size() < 5 && (!content.children().select("div").isEmpty() || !content.children().select("blockquote").isEmpty())) {
             ArrayList<Node> nodes = new ArrayList<>();
             for (Node node: content.childNodesCopy()) {
                 if (node instanceof Element) {
@@ -85,6 +84,11 @@ public class HTMLDocumentInterpreter {
             if (!elements.isEmpty()) {
                 elements.forEach(Node::remove);
             }
+        }
+        //deleting <br> elements only from <div id="page-content">
+        Elements elements = content.children();
+        for (Element element: elements) {
+            if (element.is("br")) element.remove();
         }
     }
 

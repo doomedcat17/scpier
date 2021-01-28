@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public enum ContentNodeType {
     TEXT,
+    PARAGRAPH,
     ROW,
     ELEMENTS,
     BLOCKQUOTE,
