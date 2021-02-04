@@ -1,10 +1,11 @@
 package pl.doomedcat17.scpapi.domain.scp.http.html;
 
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.doomedcat17.scpapi.TestDataProvider;
-import pl.doomedcat17.scpapi.domain.scp.http.page_content.HTMLDocumentInterpreter;
+import pl.doomedcat17.scpapi.domain.scp.http.page_content.html.HTMLDocumentInterpreter;
+import pl.doomedcat17.scpapi.domain.scp.http.page_content.PageContent;
 
 import java.io.IOException;
 
@@ -12,16 +13,23 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class HTMLDocumentInterpreterTest {
 
-    HTMLDocumentInterpreter htmlDocumentInterpreter = new HTMLDocumentInterpreter();
+    private HTMLDocumentInterpreter htmlDocumentInterpreter = new HTMLDocumentInterpreter();
+
+    private PageContent pageContent;
+
+    @BeforeEach
+    void init() {
+        pageContent = new PageContent();
+    }
 
     @Test
     void shouldClearContent() throws IOException {
         //given
         Document scpDocument = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/sample_scps/scp-035.html");
         //when
-        Element scpContentElement = htmlDocumentInterpreter.parseDocument(scpDocument);
+        htmlDocumentInterpreter.mapDocument(scpDocument, pageContent);
         //then
-        assertEquals(31, scpContentElement.childNodeSize());
+        assertEquals(31, pageContent.getContent().childNodeSize());
     }
 
     @Test
@@ -29,9 +37,9 @@ class HTMLDocumentInterpreterTest {
         //given
         Document scpDocument = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/sample_scps/scp-194.html");
         //when
-        Element scpContentElement = htmlDocumentInterpreter.parseDocument(scpDocument);
+        htmlDocumentInterpreter.mapDocument(scpDocument, pageContent);
         //then
-        assertEquals(7, scpContentElement.childNodeSize());
+        assertEquals(7, pageContent.getContent().childNodeSize());
     }
 
     @Test
@@ -39,9 +47,9 @@ class HTMLDocumentInterpreterTest {
         //given
         Document scpDocument = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/sample_scps/scp-285.html");
         //when
-        Element scpContentElement = htmlDocumentInterpreter.parseDocument(scpDocument);
+        htmlDocumentInterpreter.mapDocument(scpDocument, pageContent);
         //then
-        assertEquals(34, scpContentElement.childNodeSize());
+        assertEquals(34, pageContent.getContent().childNodeSize());
     }
 
     @Test
@@ -49,9 +57,9 @@ class HTMLDocumentInterpreterTest {
         //given
         Document scpDocument = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/sample_scps/scp-1496.html");
         //when
-        Element scpContentElement = htmlDocumentInterpreter.parseDocument(scpDocument);
+        htmlDocumentInterpreter.mapDocument(scpDocument, pageContent);
         //then
-        assertEquals(6, scpContentElement.childNodeSize());
+        assertEquals(6, pageContent.getContent().childNodeSize());
     }
 
     @Test
@@ -59,9 +67,9 @@ class HTMLDocumentInterpreterTest {
         //given
         Document scpDocument = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/sample_scps/scp-2117.html");
         //when
-        Element scpContentElement = htmlDocumentInterpreter.parseDocument(scpDocument);
+        htmlDocumentInterpreter.mapDocument(scpDocument, pageContent);
         //then
-        assertEquals(38, scpContentElement.childNodeSize());
+        assertEquals(38, pageContent.getContent().childNodeSize());
     }
 
     @Test
@@ -69,9 +77,9 @@ class HTMLDocumentInterpreterTest {
         //given
         Document scpDocument = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/sample_scps/scp-597.html");
         //when
-        Element scpContentElement = htmlDocumentInterpreter.parseDocument(scpDocument);
+        htmlDocumentInterpreter.mapDocument(scpDocument, pageContent);
         //then
-        assertEquals(36, scpContentElement.childNodeSize());
+        assertEquals(36, pageContent.getContent().childNodeSize());
     }
 
     @Test
@@ -79,9 +87,9 @@ class HTMLDocumentInterpreterTest {
         //given
         Document scpDocument = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/sample_scps/scp-1004.html");
         //when
-        Element scpContentElement = htmlDocumentInterpreter.parseDocument(scpDocument);
+        htmlDocumentInterpreter.mapDocument(scpDocument, pageContent);
         //then
-        assertEquals(14, scpContentElement.childNodeSize());
+        assertEquals(14, pageContent.getContent().childNodeSize());
     }
 
     @Test
@@ -89,9 +97,9 @@ class HTMLDocumentInterpreterTest {
         //given
         Document scpDocument = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/sample_scps/scp-2182.html");
         //when
-        Element scpContentElement = htmlDocumentInterpreter.parseDocument(scpDocument);
+        htmlDocumentInterpreter.mapDocument(scpDocument, pageContent);
         //then
-        assertEquals(23, scpContentElement.childNodeSize());
+        assertEquals(23, pageContent.getContent().childNodeSize());
     }
 
 }

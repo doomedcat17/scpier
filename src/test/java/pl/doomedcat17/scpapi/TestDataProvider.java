@@ -1,13 +1,16 @@
 package pl.doomedcat17.scpapi;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import pl.doomedcat17.scpapi.data.*;
+import pl.doomedcat17.scpapi.data.appendencies.Appendix;
+import pl.doomedcat17.scpapi.data.content_node.ContentNode;
+import pl.doomedcat17.scpapi.data.content_node.ContentNodeType;
+import pl.doomedcat17.scpapi.data.content_node.Image;
 
-import javax.print.Doc;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -61,7 +64,9 @@ public class TestDataProvider {
 
     }
 
+
     public static Map<String, List<Appendix>> getExpectedAppendicesOutputs(String path) {
+        /*
         ObjectMapper objectMapper = new ObjectMapper();
         Map<String, List<Appendix>> outputs = null;
         try {
@@ -83,6 +88,18 @@ public class TestDataProvider {
             e.printStackTrace();
         }
         return outputs;
+
+         */
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        return null;
+    }
+
+    private Appendix mapJsonNodeToAppendix(JsonNode jsonNode) {
+        Appendix appendix = new Appendix();
+        appendix.setTitle(jsonNode.get("title").asText());
+        appendix.setTitle(jsonNode.get("title").asText());
+        return null;
     }
 
     private static ContentNode<Image> mapImageContentNode(LinkedHashMap<String, String> linkedHashMap) {
@@ -117,21 +134,6 @@ public class TestDataProvider {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.convertValue(linkedHashMap, new TypeReference<ContentNode<?>>() {
         });
-    }
-
-    public static ScpObject getSampleScpObject() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        ScpObject scpObject = null;
-        try {
-            scpObject = objectMapper
-                    .readValue(
-                            new File("src/test/resources/html/test_data/sample_scp.json"),
-                            new TypeReference<ScpObject>() {
-                            });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return scpObject;
     }
 
     public static Appendix getSampleAppendix() {
