@@ -1,92 +1,517 @@
 {
-  "shouldMapSimpleLine": [
-    {
-      "title": "",
-      "contents": [
+  "java.util.HashMap": {
+    "shouldMapSimpleLine": {
+      "java.util.ArrayList": [
         {
-          "contentNodeType": "TEXT",
-          "content": "Following initial investigations, multiple test subjects were allowed access to the score. In every case, the subjects mutilated themselves in order to use their own blood to finish the piece, resulting in subsequent symptoms of psychosis and massive trauma. Those subjects who managed to finish a section of the piece immediately committed suicide, declaring the piece to be \"impossible to complete\". Attempts to perform the music have resulted in a disagreeable cacophony, with each instrumental part having no correlation or harmony with the other instruments."
-        }
-      ]
-    }
-  ],
-  "shouldMapLineWithHeader": [
-    {
-      "title": "Description",
-      "contents": [
-        {
-          "contentNodeType": "TEXT",
-          "content": "SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete. The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma.",
-        }
-      ]
-    }
-  ],
-  "shouldMapOnlyContent": [
-    {
-      "title": "",
-      "contents": [
-        {
-          "contentNodeType": "TEXT",
-          "content": "Date: ██/██/████\nObjects Observed: Bibles\nNotes: Due to the wide variation in sizes of individual copies, estimates of the number of Bibles present ranged from 3 billion to 6 billion. The pile was searched for early copies of potential historical significance, but given the number of copies present an exhaustive search was not possible. The earliest copy located dated to 1607."
-        }
-      ]
-    }
-  ],
-  "shouldMapLinesToMultipleAppendices": [
-    {
-      "title": "Test title",
-      "contents": [
-        {
-          "contentNodeType": "TEXT",
-          "content": "Test text inside box"
+          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+            "title": "",
+            "contents": {
+              "java.util.ArrayList": [
+                {
+                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                    "contentNodeType": {
+                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                    },
+                    "content": {
+                      "java.util.ArrayList": [
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {}
+                            },
+                            "content": "Following initial investigations, multiple test subjects were allowed access to the score. In every case, the subjects mutilated themselves in order to use their own blood to finish the piece, resulting in subsequent symptoms of psychosis and massive trauma. Those subjects who managed to finish a section of the piece immediately committed suicide, declaring the piece to be \"impossible to complete\". Attempts to perform the music have resulted in a disagreeable cacophony, with each instrumental part having no correlation or harmony with the other instruments."
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
         }
       ]
     },
-    {
-      "title": "Description",
-      "contents": [
+    "sampleLineWithDeletedContent": {
+      "java.util.ArrayList": [
         {
-          "contentNodeType": "TEXT",
-          "content": "SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete. The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
-        },
-        {
-          "contentNodeType": "TEXT",
-          "content": "SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete. The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
+          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+            "title": "",
+            "contents": {
+              "java.util.ArrayList": [
+                {
+                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                    "contentNodeType": {
+                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                    },
+                    "content": {
+                      "java.util.ArrayList": [
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {}
+                            },
+                            "content": "Following initial investigations, multiple test subjects were allowed access to the score. In every case, the subjects mutilated themselves in order to use their own blood to finish the piece, resulting in subsequent symptoms of psychosis and massive trauma. Those subjects who managed to finish a section of the piece immediately committed suicide, declaring the piece to be \"impossible to complete\". "
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {
+                                "text-decoration": "line-through"
+                              }
+                            },
+                            "content": "SCP-3031 is currently assumed to be noncommunicable, as no vector of transmission has been identified to date."
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {}
+                            },
+                            "content": " Attempts to perform the music have resulted in a disagreeable cacophony, with each instrumental part having no correlation or harmony with the other instruments."
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
         }
       ]
     },
-    {
-      "title": "Document 2137",
-      "contents": [
+    "shouldScrapLineWithHeader": {
+      "java.util.ArrayList": [
         {
-          "contentNodeType": "TEXT",
-          "content": "SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete. The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
+          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+            "title": "Description",
+            "contents": {
+              "java.util.ArrayList": [
+                {
+                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                    "contentNodeType": {
+                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                    },
+                    "content": {
+                      "java.util.ArrayList": [
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {}
+                            },
+                            "content": "SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete. The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
         }
       ]
     },
-    {
-      "title": "Recovery Log",
-      "contents": [
+    "shouldScrapContentWithStrongElements": {
+      "java.util.ArrayList": [
         {
-          "contentNodeType": "TEXT",
-          "content": "SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete. The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
-        },
+          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+            "title": "",
+            "contents": {
+              "java.util.ArrayList": [
+                {
+                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                    "contentNodeType": {
+                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                    },
+                    "content": {
+                      "java.util.ArrayList": [
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {
+                                "font-weight": "bold"
+                              }
+                            },
+                            "content": "Date:"
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {}
+                            },
+                            "content": " ██/██/████\n"
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {
+                                "font-weight": "bold"
+                              }
+                            },
+                            "content": "Objects Observed:"
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {}
+                            },
+                            "content": " Bibles\n"
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {
+                                "font-weight": "bold"
+                              }
+                            },
+                            "content": "Notes:"
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {}
+                            },
+                            "content": " Due to the wide variation in sizes of individual copies, estimates of the number of Bibles present ranged from 3 billion to 6 billion. The pile was searched for early copies of potential historical significance, but given the number of copies present an exhaustive search was not possible. The earliest copy located dated to 1607."
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "shouldScrapContentWithEmAndIElements": {
+      "java.util.ArrayList": [
         {
-          "contentNodeType": "TEXT",
-          "content": "SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete. The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
+          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+            "title": "",
+            "contents": {
+              "java.util.ArrayList": [
+                {
+                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                    "contentNodeType": {
+                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                    },
+                    "content": {
+                      "java.util.ArrayList": [
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {}
+                            },
+                            "content": "Some normal text! "
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {
+                                "font-style": "italic"
+                              }
+                            },
+                            "content": "Some italic text! "
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {
+                                "font-style": "italic"
+                              }
+                            },
+                            "content": "Some more italic text!"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "shouldScrapContentWithInnerSpanElements": {
+      "java.util.ArrayList": [
+        {
+          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+            "title": "",
+            "contents": {
+              "java.util.ArrayList": [
+                {
+                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                    "contentNodeType": {
+                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                    },
+                    "content": {
+                      "java.util.ArrayList": [
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {}
+                            },
+                            "content": "Some normal text! "
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {
+                                "color": "red"
+                              }
+                            },
+                            "content": "Some red text! "
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {
+                                "font-style": "italic"
+                              }
+                            },
+                            "content": "Some "
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {
+                                "color": "red",
+                                "font-style": "italic"
+                              }
+                            },
+                            "content": "red "
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {
+                                "font-style": "italic"
+                              }
+                            },
+                            "content": "italic text!"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "shouldScrapContentWithStylization": {
+      "java.util.ArrayList": [
+        {
+          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+            "title": "",
+            "contents": {
+              "java.util.ArrayList": [
+                {
+                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                    "contentNodeType": {
+                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                    },
+                    "content": {
+                      "java.util.ArrayList": [
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {
+                                "color": "red"
+                              }
+                            },
+                            "content": "Some normal red text! "
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {
+                                "color": "red",
+                                "font-style": "italic"
+                              }
+                            },
+                            "content": "Some red italic text!"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "shouldScrapStrongElement": {
+      "java.util.ArrayList": [
+        {
+          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+            "title": "Appendix!",
+            "contents": {
+              "java.util.ArrayList": []
+            }
+          }
+        }
+      ]
+    },
+    "shouldScrapStrongElementAsTextNode": {
+      "java.util.ArrayList": [
+        {
+          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+            "title": "",
+            "contents": {
+              "java.util.ArrayList": [
+                {
+                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                    "contentNodeType": {
+                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                    },
+                    "styles": {
+                      "java.util.HashMap": {
+                        "font-weight": "bold"
+                      }
+                    },
+                    "content": "Sample text!"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "shouldScrapLineWithMultipleStrongElements": {
+      "java.util.ArrayList": [
+        {
+          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+            "title": "Appendix!",
+            "contents": {
+              "java.util.ArrayList": [
+                {
+                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                    "contentNodeType": {
+                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                    },
+                    "content": {
+                      "java.util.ArrayList": [
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {
+                                "font-weight": "bold"
+                              }
+                            },
+                            "content": "Sample Strong! "
+                          }
+                        },
+                        {
+                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                            "contentNodeType": {
+                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                            },
+                            "styles": {
+                              "java.util.HashMap": {
+                                "font-weight": "bold"
+                              }
+                            },
+                            "content": "Appendix!"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
         }
       ]
     }
-  ],
-  "innerSampleLineWithHeader": [
-    {
-      "title": "",
-      "contents": [
-        {
-          "contentNodeType": "TEXT",
-          "content": "Description: SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete. The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
-        }
-      ]
-    }
-  ]
+  }
 }

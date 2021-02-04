@@ -1,6 +1,6 @@
 package pl.doomedcat17.scpapi.domain;
 
-import pl.doomedcat17.scpapi.data.ScpObject;
+import pl.doomedcat17.scpapi.data.scp.ScpObject;
 import pl.doomedcat17.scpapi.domain.scp.http.page_content.PageContent;
 import pl.doomedcat17.scpapi.domain.scp.http.page_content.PageContentProvider;
 import pl.doomedcat17.scpapi.domain.scp.mapper.ScpMapper;

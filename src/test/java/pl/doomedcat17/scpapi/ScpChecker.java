@@ -1,8 +1,5 @@
 package pl.doomedcat17.scpapi;
 
-import pl.doomedcat17.scpapi.data.ScpObject;
-import pl.doomedcat17.scpapi.domain.ScpProviderImpl;
-
 public class ScpChecker implements Runnable {
 
     private int startNumber;
@@ -11,6 +8,7 @@ public class ScpChecker implements Runnable {
 
     @Override
     public void run() {
+        /*
         ScpProviderImpl scpProvider = new ScpProviderImpl();
         for (int i = startNumber; i <= endNumber; i++) {
             StringBuilder scpNumber = new StringBuilder(String.valueOf(i));
@@ -27,6 +25,8 @@ public class ScpChecker implements Runnable {
                 System.out.println(scpNumber.toString());
             }
         }
+
+         */
     }
 
     public ScpChecker(int startNumber, int endNumber) {
