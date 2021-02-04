@@ -1,6 +1,6 @@
 package pl.doomedcat17.scpapi;
 
-import pl.doomedcat17.scpapi.data.appendencies.Appendix;
+import data.appendencies.Appendix;
 import java.util.List;
 import java.util.Map;
 

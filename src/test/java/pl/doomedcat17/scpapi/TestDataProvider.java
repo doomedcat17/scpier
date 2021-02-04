@@ -6,10 +6,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import pl.doomedcat17.scpapi.data.appendencies.Appendix;
-import pl.doomedcat17.scpapi.data.content_node.ContentNode;
-import pl.doomedcat17.scpapi.data.content_node.ContentNodeType;
-import pl.doomedcat17.scpapi.data.content_node.Image;
+import data.appendencies.Appendix;
+import data.content_node.ContentNode;
+import data.content_node.ContentNodeType;
+import data.content_node.Image;
 
 import java.io.File;
 import java.io.IOException;
