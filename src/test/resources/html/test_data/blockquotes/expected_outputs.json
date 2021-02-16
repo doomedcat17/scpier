@@ -3,28 +3,28 @@
     "shouldScrapSimpleBlockquote": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "BLOCKQUOTE"
+                      "data.content_node.ContentNodeType": "BLOCKQUOTE"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                          "data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                              "data.content_node.ContentNodeType": "PARAGRAPH"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                  "scper.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                      "data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {
