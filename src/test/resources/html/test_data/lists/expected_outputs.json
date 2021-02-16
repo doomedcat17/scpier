@@ -3,21 +3,21 @@
     "shouldMapSimpleUnorderedList": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                      "data.content_node.ContentNodeType": "LIST_UL"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -26,9 +26,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -37,9 +37,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -48,9 +48,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -59,9 +59,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -70,9 +70,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -93,21 +93,21 @@
     "shouldMapSimpleOrderedList": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                      "data.content_node.ContentNodeType": "LIST_OL"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -116,9 +116,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -127,9 +127,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -138,9 +138,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -149,9 +149,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -160,9 +160,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -183,28 +183,28 @@
     "shouldMapUnorderedListWithNestedUnorderedList": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                      "data.content_node.ContentNodeType": "LIST_UL"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                          "data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                              "data.content_node.ContentNodeType": "ELEMENTS"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                  "data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                      "data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -213,16 +213,16 @@
                                   }
                                 },
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                  "data.content_node.ContentNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                      "data.content_node.ContentNodeType": "LIST_UL"
                                     },
                                     "content": {
                                       "java.util.ArrayList": [
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -231,16 +231,16 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                          "data.content_node.ContentNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                                              "data.content_node.ContentNodeType": "ELEMENTS"
                                             },
                                             "content": {
                                               "java.util.ArrayList": [
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                  "data.content_node.TextNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                      "data.content_node.ContentNodeType": "TEXT"
                                                     },
                                                     "styles": {
                                                       "java.util.HashMap": {}
@@ -249,16 +249,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                                      "data.content_node.ContentNodeType": "LIST_UL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -295,28 +295,28 @@
     "shouldMapOrderedListWithNestedUnorderedList": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                      "data.content_node.ContentNodeType": "LIST_OL"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                          "data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                              "data.content_node.ContentNodeType": "ELEMENTS"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                  "data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                      "data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -325,16 +325,16 @@
                                   }
                                 },
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                  "data.content_node.ContentNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                      "data.content_node.ContentNodeType": "LIST_UL"
                                     },
                                     "content": {
                                       "java.util.ArrayList": [
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -343,16 +343,16 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                          "data.content_node.ContentNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                                              "data.content_node.ContentNodeType": "ELEMENTS"
                                             },
                                             "content": {
                                               "java.util.ArrayList": [
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                  "data.content_node.TextNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                      "data.content_node.ContentNodeType": "TEXT"
                                                     },
                                                     "styles": {
                                                       "java.util.HashMap": {}
@@ -361,16 +361,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                                      "data.content_node.ContentNodeType": "LIST_UL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -407,28 +407,28 @@
     "shouldMapUnorderedListWithNestedOrderedList": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                      "data.content_node.ContentNodeType": "LIST_UL"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                          "data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                              "data.content_node.ContentNodeType": "ELEMENTS"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                  "data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                      "data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -437,16 +437,16 @@
                                   }
                                 },
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                  "data.content_node.ContentNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                      "data.content_node.ContentNodeType": "LIST_UL"
                                     },
                                     "content": {
                                       "java.util.ArrayList": [
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -455,16 +455,16 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                          "data.content_node.ContentNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                                              "data.content_node.ContentNodeType": "ELEMENTS"
                                             },
                                             "content": {
                                               "java.util.ArrayList": [
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                  "data.content_node.TextNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                      "data.content_node.ContentNodeType": "TEXT"
                                                     },
                                                     "styles": {
                                                       "java.util.HashMap": {}
@@ -473,16 +473,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                                                      "data.content_node.ContentNodeType": "LIST_OL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -519,28 +519,28 @@
     "shouldScrapOrderedListWithNestedOrderedList": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                      "data.content_node.ContentNodeType": "LIST_OL"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                          "data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                              "data.content_node.ContentNodeType": "ELEMENTS"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                  "data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                      "data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -549,16 +549,16 @@
                                   }
                                 },
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                  "data.content_node.ContentNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                      "data.content_node.ContentNodeType": "LIST_UL"
                                     },
                                     "content": {
                                       "java.util.ArrayList": [
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -567,16 +567,16 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                          "data.content_node.ContentNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                                              "data.content_node.ContentNodeType": "ELEMENTS"
                                             },
                                             "content": {
                                               "java.util.ArrayList": [
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                  "data.content_node.TextNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                      "data.content_node.ContentNodeType": "TEXT"
                                                     },
                                                     "styles": {
                                                       "java.util.HashMap": {}
@@ -585,16 +585,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                                                      "data.content_node.ContentNodeType": "LIST_OL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -631,28 +631,28 @@
     "shouldScrapUnorderedListWithNestedMultipleUnorderedLists": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                      "data.content_node.ContentNodeType": "LIST_UL"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                          "data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                              "data.content_node.ContentNodeType": "ELEMENTS"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                  "data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                      "data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -661,16 +661,16 @@
                                   }
                                 },
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                  "data.content_node.ContentNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                      "data.content_node.ContentNodeType": "LIST_UL"
                                     },
                                     "content": {
                                       "java.util.ArrayList": [
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -679,16 +679,16 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                          "data.content_node.ContentNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                                              "data.content_node.ContentNodeType": "ELEMENTS"
                                             },
                                             "content": {
                                               "java.util.ArrayList": [
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                  "data.content_node.TextNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                      "data.content_node.ContentNodeType": "TEXT"
                                                     },
                                                     "styles": {
                                                       "java.util.HashMap": {}
@@ -697,16 +697,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                                      "data.content_node.ContentNodeType": "LIST_UL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -719,16 +719,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                                      "data.content_node.ContentNodeType": "LIST_UL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -741,16 +741,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                                      "data.content_node.ContentNodeType": "LIST_UL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -763,16 +763,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                                      "data.content_node.ContentNodeType": "LIST_UL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -789,9 +789,9 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -800,9 +800,9 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -811,16 +811,16 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                          "data.content_node.ContentNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                              "data.content_node.ContentNodeType": "LIST_UL"
                                             },
                                             "content": {
                                               "java.util.ArrayList": [
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                  "data.content_node.TextNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                      "data.content_node.ContentNodeType": "TEXT"
                                                     },
                                                     "styles": {
                                                       "java.util.HashMap": {}
@@ -853,28 +853,28 @@
     "shouldScrapOrderedListWithNestedMultipleUnorderedLists": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                      "data.content_node.ContentNodeType": "LIST_OL"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                          "data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                              "data.content_node.ContentNodeType": "ELEMENTS"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                  "data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                      "data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -883,16 +883,16 @@
                                   }
                                 },
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                  "data.content_node.ContentNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                      "data.content_node.ContentNodeType": "LIST_UL"
                                     },
                                     "content": {
                                       "java.util.ArrayList": [
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -901,16 +901,16 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                          "data.content_node.ContentNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                                              "data.content_node.ContentNodeType": "ELEMENTS"
                                             },
                                             "content": {
                                               "java.util.ArrayList": [
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                  "data.content_node.TextNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                      "data.content_node.ContentNodeType": "TEXT"
                                                     },
                                                     "styles": {
                                                       "java.util.HashMap": {}
@@ -919,16 +919,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                                      "data.content_node.ContentNodeType": "LIST_UL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -941,16 +941,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                                      "data.content_node.ContentNodeType": "LIST_UL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -963,16 +963,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                                      "data.content_node.ContentNodeType": "LIST_UL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -985,16 +985,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                                      "data.content_node.ContentNodeType": "LIST_UL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -1011,9 +1011,9 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -1022,9 +1022,9 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -1033,16 +1033,16 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                          "data.content_node.ContentNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                                              "data.content_node.ContentNodeType": "LIST_UL"
                                             },
                                             "content": {
                                               "java.util.ArrayList": [
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                  "data.content_node.TextNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                      "data.content_node.ContentNodeType": "TEXT"
                                                     },
                                                     "styles": {
                                                       "java.util.HashMap": {}
@@ -1075,28 +1075,28 @@
     "shouldScrapUnorderedListWithNestedMultipleOrderedLists": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_UL"
+                      "data.content_node.ContentNodeType": "LIST_UL"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                          "data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                              "data.content_node.ContentNodeType": "ELEMENTS"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                  "data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                      "data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -1105,16 +1105,16 @@
                                   }
                                 },
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                  "data.content_node.ContentNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                                      "data.content_node.ContentNodeType": "LIST_OL"
                                     },
                                     "content": {
                                       "java.util.ArrayList": [
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -1123,16 +1123,16 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                          "data.content_node.ContentNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                                              "data.content_node.ContentNodeType": "ELEMENTS"
                                             },
                                             "content": {
                                               "java.util.ArrayList": [
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                  "data.content_node.TextNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                      "data.content_node.ContentNodeType": "TEXT"
                                                     },
                                                     "styles": {
                                                       "java.util.HashMap": {}
@@ -1141,16 +1141,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                                                      "data.content_node.ContentNodeType": "LIST_OL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -1163,16 +1163,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                                                      "data.content_node.ContentNodeType": "LIST_OL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -1185,16 +1185,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                                                      "data.content_node.ContentNodeType": "LIST_OL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -1207,16 +1207,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                                                      "data.content_node.ContentNodeType": "LIST_OL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -1233,9 +1233,9 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -1244,9 +1244,9 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -1255,16 +1255,16 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                          "data.content_node.ContentNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                                              "data.content_node.ContentNodeType": "LIST_OL"
                                             },
                                             "content": {
                                               "java.util.ArrayList": [
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                  "data.content_node.TextNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                      "data.content_node.ContentNodeType": "TEXT"
                                                     },
                                                     "styles": {
                                                       "java.util.HashMap": {}
@@ -1297,28 +1297,28 @@
     "shouldScrapOrderedListWithNestedMultipleOrderedLists": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                      "data.content_node.ContentNodeType": "LIST_OL"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                          "data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                              "data.content_node.ContentNodeType": "ELEMENTS"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                  "data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                      "data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -1327,16 +1327,16 @@
                                   }
                                 },
                                 {
-                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                  "data.content_node.ContentNode": {
                                     "contentNodeType": {
-                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                                      "data.content_node.ContentNodeType": "LIST_OL"
                                     },
                                     "content": {
                                       "java.util.ArrayList": [
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -1345,16 +1345,16 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                          "data.content_node.ContentNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "ELEMENTS"
+                                              "data.content_node.ContentNodeType": "ELEMENTS"
                                             },
                                             "content": {
                                               "java.util.ArrayList": [
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                  "data.content_node.TextNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                      "data.content_node.ContentNodeType": "TEXT"
                                                     },
                                                     "styles": {
                                                       "java.util.HashMap": {}
@@ -1363,16 +1363,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                                                      "data.content_node.ContentNodeType": "LIST_OL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -1385,16 +1385,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                                                      "data.content_node.ContentNodeType": "LIST_OL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -1407,16 +1407,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                                                      "data.content_node.ContentNodeType": "LIST_OL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -1429,16 +1429,16 @@
                                                   }
                                                 },
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                                  "data.content_node.ContentNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                                                      "data.content_node.ContentNodeType": "LIST_OL"
                                                     },
                                                     "content": {
                                                       "java.util.ArrayList": [
                                                         {
-                                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                          "data.content_node.TextNode": {
                                                             "contentNodeType": {
-                                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                              "data.content_node.ContentNodeType": "TEXT"
                                                             },
                                                             "styles": {
                                                               "java.util.HashMap": {}
@@ -1455,9 +1455,9 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -1466,9 +1466,9 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                          "data.content_node.TextNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                              "data.content_node.ContentNodeType": "TEXT"
                                             },
                                             "styles": {
                                               "java.util.HashMap": {}
@@ -1477,16 +1477,16 @@
                                           }
                                         },
                                         {
-                                          "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                                          "data.content_node.ContentNode": {
                                             "contentNodeType": {
-                                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "LIST_OL"
+                                              "data.content_node.ContentNodeType": "LIST_OL"
                                             },
                                             "content": {
                                               "java.util.ArrayList": [
                                                 {
-                                                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                                                  "data.content_node.TextNode": {
                                                     "contentNodeType": {
-                                                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                                                      "data.content_node.ContentNodeType": "TEXT"
                                                     },
                                                     "styles": {
                                                       "java.util.HashMap": {}
@@ -1519,19 +1519,19 @@
     "shouldScrapSimpleUnorderedListWithDeletedElements": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix" : {
+          "data.appendencies.Appendix" : {
             "title" : "",
             "contents" : {
               "java.util.ArrayList" : [ {
-                "pl.doomedcat17.scpapi.data.content_node.ContentNode" : {
+                "data.content_node.ContentNode" : {
                   "contentNodeType" : {
-                    "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "LIST_UL"
+                    "data.content_node.ContentNodeType" : "LIST_UL"
                   },
                   "content" : {
                     "java.util.ArrayList" : [ {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1541,9 +1541,9 @@
                         "content" : "Enhanced survivability in the bacterium's natural environment and similar environments;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1553,9 +1553,9 @@
                         "content" : "Full spectrum antibiotic resistance;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1565,9 +1565,9 @@
                         "content" : "Increased reproduction rate and consumption of available material;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1577,9 +1577,9 @@
                         "content" : "Development of a sporulation ability in gram-positive bacteria;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1589,9 +1589,9 @@
                         "content" : "Increased ability to uptake, hold, and share plasmids, particularly in gram-negative bacteria;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1612,19 +1612,19 @@
     "shouldScrapSimpleOrderedListWithDeletedElements": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix" : {
+          "data.appendencies.Appendix" : {
             "title" : "",
             "contents" : {
               "java.util.ArrayList" : [ {
-                "pl.doomedcat17.scpapi.data.content_node.ContentNode" : {
+                "data.content_node.ContentNode" : {
                   "contentNodeType" : {
-                    "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "LIST_OL"
+                    "data.content_node.ContentNodeType" : "LIST_OL"
                   },
                   "content" : {
                     "java.util.ArrayList" : [ {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1634,9 +1634,9 @@
                         "content" : "Enhanced survivability in the bacterium's natural environment and similar environments;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1646,9 +1646,9 @@
                         "content" : "Full spectrum antibiotic resistance;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1658,9 +1658,9 @@
                         "content" : "Increased reproduction rate and consumption of available material;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1670,9 +1670,9 @@
                         "content" : "Development of a sporulation ability in gram-positive bacteria;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1682,9 +1682,9 @@
                         "content" : "Increased ability to uptake, hold, and share plasmids, particularly in gram-negative bacteria;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1705,19 +1705,19 @@
     "shouldScrapSimpleUnorderedListWithStrongElements": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix" : {
+          "data.appendencies.Appendix" : {
             "title" : "",
             "contents" : {
               "java.util.ArrayList" : [ {
-                "pl.doomedcat17.scpapi.data.content_node.ContentNode" : {
+                "data.content_node.ContentNode" : {
                   "contentNodeType" : {
-                    "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "LIST_UL"
+                    "data.content_node.ContentNodeType" : "LIST_UL"
                   },
                   "content" : {
                     "java.util.ArrayList" : [ {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1727,9 +1727,9 @@
                         "content" : "Enhanced survivability in the bacterium's natural environment and similar environments;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1739,9 +1739,9 @@
                         "content" : "Full spectrum antibiotic resistance;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1751,9 +1751,9 @@
                         "content" : "Increased reproduction rate and consumption of available material;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1763,9 +1763,9 @@
                         "content" : "Development of a sporulation ability in gram-positive bacteria;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1775,9 +1775,9 @@
                         "content" : "Increased ability to uptake, hold, and share plasmids, particularly in gram-negative bacteria;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1798,19 +1798,19 @@
     "shouldScrapSimpleOrderedListWithStrongElements": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix" : {
+          "data.appendencies.Appendix" : {
             "title" : "",
             "contents" : {
               "java.util.ArrayList" : [ {
-                "pl.doomedcat17.scpapi.data.content_node.ContentNode" : {
+                "data.content_node.ContentNode" : {
                   "contentNodeType" : {
-                    "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "LIST_OL"
+                    "data.content_node.ContentNodeType" : "LIST_OL"
                   },
                   "content" : {
                     "java.util.ArrayList" : [ {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1820,9 +1820,9 @@
                         "content" : "Enhanced survivability in the bacterium's natural environment and similar environments;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1832,9 +1832,9 @@
                         "content" : "Full spectrum antibiotic resistance;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1844,9 +1844,9 @@
                         "content" : "Increased reproduction rate and consumption of available material;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1856,9 +1856,9 @@
                         "content" : "Development of a sporulation ability in gram-positive bacteria;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {
@@ -1868,9 +1868,9 @@
                         "content" : "Increased ability to uptake, hold, and share plasmids, particularly in gram-negative bacteria;"
                       }
                     }, {
-                      "pl.doomedcat17.scpapi.data.content_node.TextNode" : {
+                      "data.content_node.TextNode" : {
                         "contentNodeType" : {
-                          "pl.doomedcat17.scpapi.data.content_node.ContentNodeType" : "TEXT"
+                          "data.content_node.ContentNodeType" : "TEXT"
                         },
                         "styles" : {
                           "java.util.HashMap" : {

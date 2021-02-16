@@ -3,21 +3,21 @@
     "shouldMapSimpleLine": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                      "data.content_node.ContentNodeType": "PARAGRAPH"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -38,21 +38,21 @@
     "sampleLineWithDeletedContent": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                      "data.content_node.ContentNodeType": "PARAGRAPH"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -61,9 +61,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {
@@ -74,9 +74,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -97,21 +97,21 @@
     "shouldScrapLineWithHeader": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "Description",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                      "data.content_node.ContentNodeType": "PARAGRAPH"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -132,21 +132,21 @@
     "shouldScrapContentWithStrongElements": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                      "data.content_node.ContentNodeType": "PARAGRAPH"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {
@@ -157,9 +157,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -168,9 +168,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {
@@ -181,9 +181,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -192,9 +192,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {
@@ -205,9 +205,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -228,21 +228,21 @@
     "shouldScrapContentWithEmAndIElements": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                      "data.content_node.ContentNodeType": "PARAGRAPH"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -251,9 +251,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {
@@ -264,9 +264,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {
@@ -289,21 +289,21 @@
     "shouldScrapContentWithInnerSpanElements": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                      "data.content_node.ContentNodeType": "PARAGRAPH"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {}
@@ -312,9 +312,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {
@@ -325,9 +325,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {
@@ -338,9 +338,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {
@@ -352,9 +352,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {
@@ -377,21 +377,21 @@
     "shouldScrapContentWithStylization": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                      "data.content_node.ContentNodeType": "PARAGRAPH"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {
@@ -402,9 +402,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {
@@ -428,7 +428,7 @@
     "shouldScrapStrongElement": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "Appendix!",
             "contents": {
               "java.util.ArrayList": []
@@ -440,14 +440,14 @@
     "shouldScrapStrongElementAsTextNode": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                  "data.content_node.TextNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                      "data.content_node.ContentNodeType": "TEXT"
                     },
                     "styles": {
                       "java.util.HashMap": {
@@ -466,21 +466,21 @@
     "shouldScrapLineWithMultipleStrongElements": {
       "java.util.ArrayList": [
         {
-          "pl.doomedcat17.scpapi.data.appendencies.Appendix": {
+          "data.appendencies.Appendix": {
             "title": "Appendix!",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "pl.doomedcat17.scpapi.data.content_node.ContentNode": {
+                  "data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "PARAGRAPH"
+                      "data.content_node.ContentNodeType": "PARAGRAPH"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {
@@ -491,9 +491,9 @@
                           }
                         },
                         {
-                          "pl.doomedcat17.scpapi.data.content_node.TextNode": {
+                          "data.content_node.TextNode": {
                             "contentNodeType": {
-                              "pl.doomedcat17.scpapi.data.content_node.ContentNodeType": "TEXT"
+                              "data.content_node.ContentNodeType": "TEXT"
                             },
                             "styles": {
                               "java.util.HashMap": {
