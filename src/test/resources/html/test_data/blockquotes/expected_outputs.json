@@ -3,28 +3,28 @@
     "shouldScrapSimpleBlockquote": {
       "java.util.ArrayList": [
         {
-          "data.appendencies.Appendix": {
+          "com.doomedcat17.scpier.data.appendix.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "data.content_node.ContentNode": {
+                  "com.doomedcat17.scpier.data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "data.content_node.ContentNodeType": "BLOCKQUOTE"
+                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "BLOCKQUOTE"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "data.content_node.ContentNode": {
+                          "com.doomedcat17.scpier.data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "data.content_node.ContentNodeType": "PARAGRAPH"
+                              "com.doomedcat17.scpier.data.content_node.ContentNodeType": "PARAGRAPH"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {
@@ -51,28 +51,28 @@
     "shouldScrapBlockquoteWithLongLine": {
       "java.util.ArrayList": [
         {
-          "data.appendencies.Appendix": {
+          "com.doomedcat17.scpier.data.appendix.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "data.content_node.ContentNode": {
+                  "com.doomedcat17.scpier.data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "data.content_node.ContentNodeType": "BLOCKQUOTE"
+                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "BLOCKQUOTE"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "data.content_node.ContentNode": {
+                          "com.doomedcat17.scpier.data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "data.content_node.ContentNodeType": "PARAGRAPH"
+                              "com.doomedcat17.scpier.data.content_node.ContentNodeType": "PARAGRAPH"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {
@@ -83,9 +83,9 @@
                                   }
                                 },
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -110,175 +110,174 @@
     "shouldScrapBlockquoteWithMultipleLines": {
       "java.util.ArrayList": [
         {
-          "data.appendencies.Appendix": {
-            "title": "",
-            "contents": {
-              "java.util.ArrayList": [
-                {
-                  "data.content_node.ContentNode": {
-                    "contentNodeType": {
-                      "data.content_node.ContentNodeType": "BLOCKQUOTE"
-                    },
-                    "content": {
-                      "java.util.ArrayList": [
-                        {
-                          "data.content_node.ContentNode": {
-                            "contentNodeType": {
-                              "data.content_node.ContentNodeType": "PARAGRAPH"
-                            },
-                            "content": {
-                              "java.util.ArrayList": [
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {
-                                        "font-weight": "bold"
-                                      }
-                                    },
-                                    "content": "Description:"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": " SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete. The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
-                                  }
-                                }
-                              ]
-                            }
-                          }
+          "com.doomedcat17.scpier.data.appendix.Appendix" : {
+            "title" : "",
+            "contents" : {
+              "java.util.ArrayList" : [ {
+                "com.doomedcat17.scpier.data.content_node.ContentNode" : {
+                  "contentNodeType" : {
+                    "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "BLOCKQUOTE"
+                  },
+                  "content" : {
+                    "java.util.ArrayList" : [ {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
+                        "contentNodeType" : {
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                         },
-                        {
-                          "data.content_node.ContentNode": {
-                            "contentNodeType": {
-                              "data.content_node.ContentNodeType": "PARAGRAPH"
-                            },
-                            "content": {
-                              "java.util.ArrayList": [
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {
-                                        "font-weight": "bold"
-                                      }
-                                    },
-                                    "content": "Date:"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": " ██/██/████\n"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {
-                                        "font-weight": "bold"
-                                      }
-                                    },
-                                    "content": "Objects Observed:"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": " Bibles\n"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {
-                                        "font-weight": "bold"
-                                      }
-                                    },
-                                    "content": "Notes:"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": " Due to the wide variation in sizes of individual copies, estimates of the number of Bibles present ranged from 3 billion to 6 billion. The pile was searched for early copies of potential historical significance, but given the number of copies present an exhaustive search was not possible. The earliest copy located dated to 1607."
-                                  }
+                        "content" : {
+                          "java.util.ArrayList" : [ {
+                            "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                              },
+                              "styles" : {
+                                "java.util.HashMap" : {
+                                  "font-weight" : "bold"
                                 }
-                              ]
+                              },
+                              "content" : "Description:"
                             }
-                          }
-                        },
-                        {
-                          "data.content_node.ContentNode": {
-                            "contentNodeType": {
-                              "data.content_node.ContentNodeType": "PARAGRAPH"
-                            },
-                            "content": {
-                              "java.util.ArrayList": [
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {
-                                        "font-weight": "bold"
-                                      }
-                                    },
-                                    "content": "Description:"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": " SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete. The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
-                                  }
-                                }
-                              ]
+                          }, {
+                            "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                              },
+                              "styles" : {
+                                "java.util.HashMap" : { }
+                              },
+                              "content" : " SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete. The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
                             }
-                          }
+                          } ]
                         }
-                      ]
-                    }
+                      }
+                    }, {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
+                        "contentNodeType" : {
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
+                        },
+                        "content" : {
+                          "java.util.ArrayList" : [ {
+                            "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                              },
+                              "styles" : {
+                                "java.util.HashMap" : {
+                                  "font-weight" : "bold"
+                                }
+                              },
+                              "content" : "Date:"
+                            }
+                          }, {
+                            "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                              },
+                              "styles" : {
+                                "java.util.HashMap" : { }
+                              },
+                              "content" : " ██/██/████"
+                            }
+                          } ]
+                        }
+                      }
+                    }, {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
+                        "contentNodeType" : {
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
+                        },
+                        "content" : {
+                          "java.util.ArrayList" : [ {
+                            "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                              },
+                              "styles" : {
+                                "java.util.HashMap" : {
+                                  "font-weight" : "bold"
+                                }
+                              },
+                              "content" : "Objects Observed:"
+                            }
+                          }, {
+                            "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                              },
+                              "styles" : {
+                                "java.util.HashMap" : { }
+                              },
+                              "content" : " Bibles"
+                            }
+                          } ]
+                        }
+                      }
+                    }, {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
+                        "contentNodeType" : {
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
+                        },
+                        "content" : {
+                          "java.util.ArrayList" : [ {
+                            "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                              },
+                              "styles" : {
+                                "java.util.HashMap" : {
+                                  "font-weight" : "bold"
+                                }
+                              },
+                              "content" : "Notes:"
+                            }
+                          }, {
+                            "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                              },
+                              "styles" : {
+                                "java.util.HashMap" : { }
+                              },
+                              "content" : " Due to the wide variation in sizes of individual copies, estimates of the number of Bibles present ranged from 3 billion to 6 billion. The pile was searched for early copies of potential historical significance, but given the number of copies present an exhaustive search was not possible. The earliest copy located dated to 1607."
+                            }
+                          } ]
+                        }
+                      }
+                    }, {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
+                        "contentNodeType" : {
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
+                        },
+                        "content" : {
+                          "java.util.ArrayList" : [ {
+                            "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                              },
+                              "styles" : {
+                                "java.util.HashMap" : {
+                                  "font-weight" : "bold"
+                                }
+                              },
+                              "content" : "Description:"
+                            }
+                          }, {
+                            "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                              },
+                              "styles" : {
+                                "java.util.HashMap" : { }
+                              },
+                              "content" : " SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete. The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
+                            }
+                          } ]
+                        }
+                      }
+                    } ]
                   }
                 }
-              ]
+              } ]
             }
           }
         }
@@ -287,28 +286,28 @@
     "shouldScrapBlockquoteWithDeletedContent": {
       "java.util.ArrayList": [
         {
-          "data.appendencies.Appendix": {
+          "com.doomedcat17.scpier.data.appendix.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "data.content_node.ContentNode": {
+                  "com.doomedcat17.scpier.data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "data.content_node.ContentNodeType": "BLOCKQUOTE"
+                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "BLOCKQUOTE"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "data.content_node.ContentNode": {
+                          "com.doomedcat17.scpier.data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "data.content_node.ContentNodeType": "PARAGRAPH"
+                              "com.doomedcat17.scpier.data.content_node.ContentNodeType": "PARAGRAPH"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {
@@ -319,9 +318,9 @@
                                   }
                                 },
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -330,9 +329,9 @@
                                   }
                                 },
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {
@@ -343,9 +342,9 @@
                                   }
                                 },
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -370,99 +369,142 @@
     "shouldScrapBlockquoteWithList": {
       "java.util.ArrayList": [
         {
-          "data.appendencies.Appendix": {
-            "title": "",
-            "contents": {
-              "java.util.ArrayList": [
-                {
-                  "data.content_node.ContentNode": {
-                    "contentNodeType": {
-                      "data.content_node.ContentNodeType": "BLOCKQUOTE"
-                    },
-                    "content": {
-                      "java.util.ArrayList": [
-                        {
-                          "data.content_node.ContentNode": {
-                            "contentNodeType": {
-                              "data.content_node.ContentNodeType": "LIST_UL"
-                            },
-                            "content": {
-                              "java.util.ArrayList": [
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+          "com.doomedcat17.scpier.data.appendix.Appendix" : {
+            "title" : "",
+            "contents" : {
+              "java.util.ArrayList" : [ {
+                "com.doomedcat17.scpier.data.content_node.ContentNode" : {
+                  "contentNodeType" : {
+                    "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "BLOCKQUOTE"
+                  },
+                  "content" : {
+                    "java.util.ArrayList" : [ {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
+                        "contentNodeType" : {
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "LIST_UL"
+                        },
+                        "content" : {
+                          "java.util.ArrayList" : [ {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
+                              },
+                              "content" : {
+                                "java.util.ArrayList" : [ {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                    "contentNodeType" : {
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
                                     },
-                                    "styles": {
-                                      "java.util.HashMap": {}
+                                    "styles" : {
+                                      "java.util.HashMap" : { }
                                     },
-                                    "content": "Enhanced survivability in the bacterium's natural environment and similar environments;"
+                                    "content" : "Enhanced survivability in the bacterium's natural environment and similar environments;"
                                   }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": "Full spectrum antibiotic resistance;"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": "Increased reproduction rate and consumption of available material;"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": "Development of a sporulation ability in gram-positive bacteria;"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": "Increased ability to uptake, hold, and share plasmids, particularly in gram-negative bacteria;"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": "Increased transmission, due to traits described above."
-                                  }
-                                }
-                              ]
+                                } ]
+                              }
                             }
-                          }
+                          }, {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
+                              },
+                              "content" : {
+                                "java.util.ArrayList" : [ {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                    "contentNodeType" : {
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                    },
+                                    "styles" : {
+                                      "java.util.HashMap" : { }
+                                    },
+                                    "content" : "Full spectrum antibiotic resistance;"
+                                  }
+                                } ]
+                              }
+                            }
+                          }, {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
+                              },
+                              "content" : {
+                                "java.util.ArrayList" : [ {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                    "contentNodeType" : {
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                    },
+                                    "styles" : {
+                                      "java.util.HashMap" : { }
+                                    },
+                                    "content" : "Increased reproduction rate and consumption of available material;"
+                                  }
+                                } ]
+                              }
+                            }
+                          }, {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
+                              },
+                              "content" : {
+                                "java.util.ArrayList" : [ {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                    "contentNodeType" : {
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                    },
+                                    "styles" : {
+                                      "java.util.HashMap" : { }
+                                    },
+                                    "content" : "Development of a sporulation ability in gram-positive bacteria;"
+                                  }
+                                } ]
+                              }
+                            }
+                          }, {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
+                              },
+                              "content" : {
+                                "java.util.ArrayList" : [ {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                    "contentNodeType" : {
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                    },
+                                    "styles" : {
+                                      "java.util.HashMap" : { }
+                                    },
+                                    "content" : "Increased ability to uptake, hold, and share plasmids, particularly in gram-negative bacteria;"
+                                  }
+                                } ]
+                              }
+                            }
+                          }, {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
+                              "contentNodeType" : {
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
+                              },
+                              "content" : {
+                                "java.util.ArrayList" : [ {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                    "contentNodeType" : {
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                    },
+                                    "styles" : {
+                                      "java.util.HashMap" : { }
+                                    },
+                                    "content" : "Increased transmission, due to traits described above."
+                                  }
+                                } ]
+                              }
+                            }
+                          } ]
                         }
-                      ]
-                    }
+                      }
+                    } ]
                   }
                 }
-              ]
+              } ]
             }
           }
         }
@@ -471,28 +513,28 @@
     "shouldScrapBlockquoteWithHeading": {
       "java.util.ArrayList": [
         {
-          "data.appendencies.Appendix": {
+          "com.doomedcat17.scpier.data.appendix.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "data.content_node.ContentNode": {
+                  "com.doomedcat17.scpier.data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "data.content_node.ContentNodeType": "BLOCKQUOTE"
+                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "BLOCKQUOTE"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "data.content_node.ContentNode": {
+                          "com.doomedcat17.scpier.data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "data.content_node.ContentNodeType": "HEADING"
+                              "com.doomedcat17.scpier.data.content_node.ContentNodeType": "HEADING"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {
@@ -508,16 +550,16 @@
                           }
                         },
                         {
-                          "data.content_node.ContentNode": {
+                          "com.doomedcat17.scpier.data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "data.content_node.ContentNodeType": "PARAGRAPH"
+                              "com.doomedcat17.scpier.data.content_node.ContentNodeType": "PARAGRAPH"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -526,9 +568,9 @@
                                   }
                                 },
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {
@@ -539,9 +581,9 @@
                                   }
                                 },
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -566,28 +608,53 @@
     "shouldScrapBlockquoteWithHeadingAsTittle": {
       "java.util.ArrayList": [
         {
-          "data.appendencies.Appendix": {
-            "title": "Description",
+          "com.doomedcat17.scpier.data.appendix.Appendix": {
+            "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "data.content_node.ContentNode": {
+                  "com.doomedcat17.scpier.data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "data.content_node.ContentNodeType": "BLOCKQUOTE"
+                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "BLOCKQUOTE"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "data.content_node.ContentNode": {
+                          "com.doomedcat17.scpier.data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "data.content_node.ContentNodeType": "PARAGRAPH"
+                              "com.doomedcat17.scpier.data.content_node.ContentNodeType": "HEADING"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
+                                    },
+                                    "styles": {
+                                      "java.util.HashMap": {
+                                        "font-weight": "bold",
+                                        "font-size": "2em"
+                                      }
+                                    },
+                                    "content": "Description"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "com.doomedcat17.scpier.data.content_node.ContentNode": {
+                            "contentNodeType": {
+                              "com.doomedcat17.scpier.data.content_node.ContentNodeType": "PARAGRAPH"
+                            },
+                            "content": {
+                              "java.util.ArrayList": [
+                                {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
+                                    "contentNodeType": {
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -596,9 +663,9 @@
                                   }
                                 },
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {
@@ -609,9 +676,9 @@
                                   }
                                 },
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -636,27 +703,37 @@
     "shouldScrapBlockquoteWithImage": {
       "java.util.ArrayList": [
         {
-          "data.appendencies.Appendix": {
+          "com.doomedcat17.scpier.data.appendix.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "data.content_node.ContentNode": {
+                  "com.doomedcat17.scpier.data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "data.content_node.ContentNodeType": "BLOCKQUOTE"
+                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "BLOCKQUOTE"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "data.content_node.ContentNode": {
+                          "com.doomedcat17.scpier.data.content_node.ImageNode": {
                             "contentNodeType": {
-                              "data.content_node.ContentNodeType": "IMAGE"
+                              "com.doomedcat17.scpier.data.content_node.ContentNodeType": "IMAGE"
                             },
-                            "content": {
-                              "data.content_node.Image": {
-                                "source": "https://i.imgur.com/BUEYoXE.png?2",
-                                "caption": "Theorized borders of SCP-4015 territory shown in red, while areas under its military influence are shown in orange. Areas subject to occasional raids are shown in yellow"
-                              }
+                            "content": "https://i.imgur.com/BUEYoXE.png?2",
+                            "caption": {
+                              "java.util.ArrayList": [
+                                {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
+                                    "contentNodeType": {
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
+                                    },
+                                    "styles": {
+                                      "java.util.HashMap": {}
+                                    },
+                                    "content": "Theorized borders of SCP-4015 territory shown in red, while areas under its military influence are shown in orange. Areas subject to occasional raids are shown in yellow"
+                                  }
+                                }
+                              ]
                             }
                           }
                         }

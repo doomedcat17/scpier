@@ -3,74 +3,101 @@
     "shouldScrapSimpleTable": {
       "java.util.ArrayList": [
         {
-          "data.appendencies.Appendix" : {
+          "com.doomedcat17.scpier.data.appendix.Appendix" : {
             "title" : "",
             "contents" : {
               "java.util.ArrayList" : [ {
-                "data.content_node.ContentNode" : {
+                "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                   "contentNodeType" : {
-                    "data.content_node.ContentNodeType" : "TABLE"
+                    "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE"
                   },
                   "content" : {
                     "java.util.ArrayList" : [ {
-                      "data.content_node.ContentNode" : {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                         "contentNodeType" : {
-                          "data.content_node.ContentNodeType" : "TABLE_ROW"
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_ROW"
                         },
                         "content" : {
                           "java.util.ArrayList" : [ {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_HEADING_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_HEADING_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "Set"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "Set"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_HEADING_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_HEADING_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "Approximate time of creation"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "Approximate time of creation"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_HEADING_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_HEADING_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "Target"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "Target"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
@@ -79,64 +106,91 @@
                         }
                       }
                     }, {
-                      "data.content_node.ContentNode" : {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                         "contentNodeType" : {
-                          "data.content_node.ContentNodeType" : "TABLE_ROW"
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_ROW"
                         },
                         "content" : {
                           "java.util.ArrayList" : [ {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "SCP-1118-2-A"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "SCP-1118-2-A"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "1946-1950"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "1946-1950"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "Former US President Harry S. Truman"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "Former US President Harry S. Truman"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
@@ -145,64 +199,91 @@
                         }
                       }
                     }, {
-                      "data.content_node.ContentNode" : {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                         "contentNodeType" : {
-                          "data.content_node.ContentNodeType" : "TABLE_ROW"
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_ROW"
                         },
                         "content" : {
                           "java.util.ArrayList" : [ {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "SCP-1118-2-B"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "SCP-1118-2-B"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "1932-1937"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "1932-1937"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "Former British Prime Minister Neville Chamberlain"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "Former British Prime Minister Neville Chamberlain"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
@@ -211,64 +292,91 @@
                         }
                       }
                     }, {
-                      "data.content_node.ContentNode" : {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                         "contentNodeType" : {
-                          "data.content_node.ContentNodeType" : "TABLE_ROW"
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_ROW"
                         },
                         "content" : {
                           "java.util.ArrayList" : [ {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "SCP-1118-2-C"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "SCP-1118-2-C"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "1958-1967"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "1958-1967"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "Unknown"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "Unknown"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
@@ -277,64 +385,91 @@
                         }
                       }
                     }, {
-                      "data.content_node.ContentNode" : {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                         "contentNodeType" : {
-                          "data.content_node.ContentNodeType" : "TABLE_ROW"
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_ROW"
                         },
                         "content" : {
                           "java.util.ArrayList" : [ {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "SCP-1118-2-D"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "SCP-1118-2-D"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "1992"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "1992"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "D-138119 (deceased)"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "D-138119 (deceased)"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
@@ -354,28 +489,28 @@
     "shouldScrapBlockquoteWithLongLine": {
       "java.util.ArrayList": [
         {
-          "data.appendencies.Appendix": {
+          "com.doomedcat17.scpier.data.appendix.Appendix": {
             "title": "",
             "contents": {
               "java.util.ArrayList": [
                 {
-                  "data.content_node.ContentNode": {
+                  "com.doomedcat17.scpier.data.content_node.ContentNode": {
                     "contentNodeType": {
-                      "data.content_node.ContentNodeType": "BLOCKQUOTE"
+                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "BLOCKQUOTE"
                     },
                     "content": {
                       "java.util.ArrayList": [
                         {
-                          "data.content_node.ContentNode": {
+                          "com.doomedcat17.scpier.data.content_node.ContentNode": {
                             "contentNodeType": {
-                              "data.content_node.ContentNodeType": "PARAGRAPH"
+                              "com.doomedcat17.scpier.data.content_node.ContentNodeType": "PARAGRAPH"
                             },
                             "content": {
                               "java.util.ArrayList": [
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {
@@ -386,9 +521,9 @@
                                   }
                                 },
                                 {
-                                  "data.content_node.TextNode": {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode": {
                                     "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType": "TEXT"
                                     },
                                     "styles": {
                                       "java.util.HashMap": {}
@@ -413,74 +548,101 @@
     "shouldScrapSimpleTable2": {
       "java.util.ArrayList": [
         {
-          "data.appendencies.Appendix" : {
+          "com.doomedcat17.scpier.data.appendix.Appendix" : {
             "title" : "",
             "contents" : {
               "java.util.ArrayList" : [ {
-                "data.content_node.ContentNode" : {
+                "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                   "contentNodeType" : {
-                    "data.content_node.ContentNodeType" : "TABLE"
+                    "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE"
                   },
                   "content" : {
                     "java.util.ArrayList" : [ {
-                      "data.content_node.ContentNode" : {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                         "contentNodeType" : {
-                          "data.content_node.ContentNodeType" : "TABLE_ROW"
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_ROW"
                         },
                         "content" : {
                           "java.util.ArrayList" : [ {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_HEADING_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_HEADING_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "Experiment"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "Experiment"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_HEADING_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_HEADING_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "Description"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "Description"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_HEADING_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_HEADING_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "Result"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "Result"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
@@ -489,64 +651,91 @@
                         }
                       }
                     }, {
-                      "data.content_node.ContentNode" : {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                         "contentNodeType" : {
-                          "data.content_node.ContentNodeType" : "TABLE_ROW"
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_ROW"
                         },
                         "content" : {
                           "java.util.ArrayList" : [ {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "1097-2"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "1097-2"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "D-48230, a 47-year-old male with a history of good behavior while incarcerated, introduced alone into SCP-1097's area of effect. "
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "D-48230, a 47-year-old male with a history of good behavior while incarcerated, introduced alone into SCP-1097's area of effect."
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "SCP-1097 assumes a physical form resembling that of D-48230. Answers questions from researchers cooperatively with simple \"yes\" and \"no\" gestures, and displays knowledge of subjects, both general and personal, that D-48230 is familiar with. "
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "SCP-1097 assumes a physical form resembling that of D-48230. Answers questions from researchers cooperatively with simple \"yes\" and \"no\" gestures, and displays knowledge of subjects, both general and personal, that D-48230 is familiar with."
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
@@ -555,64 +744,91 @@
                         }
                       }
                     }, {
-                      "data.content_node.ContentNode" : {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                         "contentNodeType" : {
-                          "data.content_node.ContentNodeType" : "TABLE_ROW"
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_ROW"
                         },
                         "content" : {
                           "java.util.ArrayList" : [ {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "1097-5"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "1097-5"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "D-23142, a 21-year-old female with documented sociopathic behavioral tendencies, introduced alone into SCP-1097's area of effect. "
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "D-23142, a 21-year-old female with documented sociopathic behavioral tendencies, introduced alone into SCP-1097's area of effect."
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "In a manner similar to Experiment 1097-2, SCP-1097 exhibits physical traits, mannerisms, and knowledge of D-23142. Upon Researcher Upton's disengagement of the security doors leading into the testing chamber, D-23142 feigns sudden illness. When medical personnel respond, SCP-1097 attacks nearby security staff, causing a brief containment breach. Containment re-established with 2 fatalities and 4 personnel injured. D-23142 summarily terminated. "
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "In a manner similar to Experiment 1097-2, SCP-1097 exhibits physical traits, mannerisms, and knowledge of D-23142. Upon Researcher Upton's disengagement of the security doors leading into the testing chamber, D-23142 feigns sudden illness. When medical personnel respond, SCP-1097 attacks nearby security staff, causing a brief containment breach. Containment re-established with 2 fatalities and 4 personnel injured. D-23142 summarily terminated."
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
@@ -621,64 +837,91 @@
                         }
                       }
                     }, {
-                      "data.content_node.ContentNode" : {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                         "contentNodeType" : {
-                          "data.content_node.ContentNodeType" : "TABLE_ROW"
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_ROW"
                         },
                         "content" : {
                           "java.util.ArrayList" : [ {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "1097-9"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "1097-9"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "D-29003, a 37-year-old male convicted of multiple murders, and D-31057, a 28-year old male documented as a serial rapist, introduced into SCP-1097's area of effect. "
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "D-29003, a 37-year-old male convicted of multiple murders, and D-31057, a 28-year old male documented as a serial rapist, introduced into SCP-1097's area of effect."
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "SCP-1097 manifests as a 1.8&nbsp;m tall male of average build and musculature. SCP-1097's facial features resemble an amalgamation of D-31057 and D-29003, including such features as D-29003's surgically repaired cleft lip and an 8&nbsp;cm scar over D-31057's right eyebrow. For the duration of the test, SCP-1097 huddles in the corner of the testing chamber, refusing to interact with researchers. "
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "SCP-1097 manifests as a 1.8&nbsp;m tall male of average build and musculature. SCP-1097's facial features resemble an amalgamation of D-31057 and D-29003, including such features as D-29003's surgically repaired cleft lip and an 8&nbsp;cm scar over D-31057's right eyebrow. For the duration of the test, SCP-1097 huddles in the corner of the testing chamber, refusing to interact with researchers."
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
@@ -687,64 +930,91 @@
                         }
                       }
                     }, {
-                      "data.content_node.ContentNode" : {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                         "contentNodeType" : {
-                          "data.content_node.ContentNodeType" : "TABLE_ROW"
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_ROW"
                         },
                         "content" : {
                           "java.util.ArrayList" : [ {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "1097-11"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "1097-11"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "D-10772, a 27-year-old female, and D-58271, a 42-year-old male, both with histories of non-violent crimes, introduced simultaneously into SCP-1097's area of effect. D-10772 is fluent in American Sign Language, and instructed to attempt to communicate with SCP-1097. "
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "D-10772, a 27-year-old female, and D-58271, a 42-year-old male, both with histories of non-violent crimes, introduced simultaneously into SCP-1097's area of effect. D-10772 is fluent in American Sign Language, and instructed to attempt to communicate with SCP-1097."
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "SCP-1097 arranges its mass to resemble ██████ ████, an individual that D-58271 claims was his 10th grade English teacher. SCP-1097, like D-10772, demonstrates ASL fluency, and is able to communicate with test subjects and researchers. SCP-1097 challenges D-10772 to a game of chess; after three hours of compliance with researchers' inquiries, SCP-1097 is granted its request in exchange for its cooperation, and a chess set and board is introduced into the testing chamber via robotic drone. SCP-1097 defeats D-10772 in eight moves. "
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "SCP-1097 arranges its mass to resemble ██████ ████, an individual that D-58271 claims was his 10th grade English teacher. SCP-1097, like D-10772, demonstrates ASL fluency, and is able to communicate with test subjects and researchers. SCP-1097 challenges D-10772 to a game of chess; after three hours of compliance with researchers' inquiries, SCP-1097 is granted its request in exchange for its cooperation, and a chess set and board is introduced into the testing chamber via robotic drone. SCP-1097 defeats D-10772 in eight moves."
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
@@ -753,64 +1023,91 @@
                         }
                       }
                     }, {
-                      "data.content_node.ContentNode" : {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                         "contentNodeType" : {
-                          "data.content_node.ContentNodeType" : "TABLE_ROW"
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_ROW"
                         },
                         "content" : {
                           "java.util.ArrayList" : [ {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "1097-13"
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "1097-13"
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "D-95523, D-04189, D-09923, and D-60354, all males between the ages of 19 and 54 and selected for their records of compliance and good behavior, introduced simultaneously into SCP-1097's area of effect. "
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "D-95523, D-04189, D-09923, and D-60354, all males between the ages of 19 and 54 and selected for their records of compliance and good behavior, introduced simultaneously into SCP-1097's area of effect."
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
                             }
                           }, {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
-                                    "styles" : {
-                                      "java.util.HashMap" : { }
-                                    },
-                                    "content" : "SCP-1097 changes its shape into a 3.4&nbsp;m tall, vaguely humanoid construct, exhibiting an additional arm protruding from the spinal region with what appears to be a simulacrum of D-04189's face in the place of a hand. SCP-1097 quickly moves to embrace D-95523 with four of its limbs, causing acute chemical burns over most of D-95523's body. After approximately 2 minutes, D-95523 loses consciousness. SCP-1097 decreases in height by 1.2&nbsp;m, and assumes the appearance of a normal human male. SCP-1097 is docile and cooperative for the duration of the experiment. D-95523 dies of his injuries three days later. "
+                                    "content" : {
+                                      "java.util.ArrayList" : [ {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
+                                          "contentNodeType" : {
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
+                                          },
+                                          "styles" : {
+                                            "java.util.HashMap" : { }
+                                          },
+                                          "content" : "SCP-1097 changes its shape into a 3.4&nbsp;m tall, vaguely humanoid construct, exhibiting an additional arm protruding from the spinal region with what appears to be a simulacrum of D-04189's face in the place of a hand. SCP-1097 quickly moves to embrace D-95523 with four of its limbs, causing acute chemical burns over most of D-95523's body. After approximately 2 minutes, D-95523 loses consciousness. SCP-1097 decreases in height by 1.2&nbsp;m, and assumes the appearance of a normal human male. SCP-1097 is docile and cooperative for the duration of the experiment. D-95523 dies of his injuries three days later."
+                                        }
+                                      } ]
+                                    }
                                   }
                                 } ]
                               }
@@ -830,31 +1127,31 @@
     "shouldScrapSimpleTableWithStylization": {
       "java.util.ArrayList": [
         {
-          "data.appendencies.Appendix" : {
+          "com.doomedcat17.scpier.data.appendix.Appendix" : {
             "title" : "",
             "contents" : {
               "java.util.ArrayList" : [ {
-                "data.content_node.ContentNode" : {
+                "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                   "contentNodeType" : {
-                    "data.content_node.ContentNodeType" : "TABLE"
+                    "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE"
                   },
                   "content" : {
                     "java.util.ArrayList" : [ {
-                      "data.content_node.ContentNode" : {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                         "contentNodeType" : {
-                          "data.content_node.ContentNodeType" : "TABLE_ROW"
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_ROW"
                         },
                         "content" : {
                           "java.util.ArrayList" : [ {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_HEADING_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_HEADING_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
                                     },
                                     "styles" : {
                                       "java.util.HashMap" : { }
@@ -868,21 +1165,21 @@
                         }
                       }
                     }, {
-                      "data.content_node.ContentNode" : {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                         "contentNodeType" : {
-                          "data.content_node.ContentNodeType" : "TABLE_ROW"
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_ROW"
                         },
                         "content" : {
                           "java.util.ArrayList" : [ {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
                                     },
                                     "styles" : {
                                       "java.util.HashMap" : {
@@ -892,9 +1189,9 @@
                                     "content" : "Standing Order 5056-01:"
                                   }
                                 }, {
-                                  "data.content_node.TextNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.TextNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "TEXT"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
                                     },
                                     "styles" : {
                                       "java.util.HashMap" : { }
@@ -908,27 +1205,27 @@
                         }
                       }
                     }, {
-                      "data.content_node.ContentNode" : {
+                      "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                         "contentNodeType" : {
-                          "data.content_node.ContentNodeType" : "TABLE_ROW"
+                          "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_ROW"
                         },
                         "content" : {
                           "java.util.ArrayList" : [ {
-                            "data.content_node.ContentNode" : {
+                            "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                               "contentNodeType" : {
-                                "data.content_node.ContentNodeType" : "TABLE_CELL"
+                                "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TABLE_CELL"
                               },
                               "content" : {
                                 "java.util.ArrayList" : [ {
-                                  "data.content_node.ContentNode" : {
+                                  "com.doomedcat17.scpier.data.content_node.ContentNode" : {
                                     "contentNodeType" : {
-                                      "data.content_node.ContentNodeType" : "PARAGRAPH"
+                                      "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "PARAGRAPH"
                                     },
                                     "content" : {
                                       "java.util.ArrayList" : [ {
-                                        "data.content_node.TextNode" : {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
                                           "contentNodeType" : {
-                                            "data.content_node.ContentNodeType" : "TEXT"
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
                                           },
                                           "styles" : {
                                             "java.util.HashMap" : {
@@ -938,9 +1235,9 @@
                                           "content" : "Standing Order 5056-02:"
                                         }
                                       }, {
-                                        "data.content_node.TextNode" : {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
                                           "contentNodeType" : {
-                                            "data.content_node.ContentNodeType" : "TEXT"
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
                                           },
                                           "styles" : {
                                             "java.util.HashMap" : { }
@@ -948,9 +1245,9 @@
                                           "content" : " No personnel requiring ocular devices may be admitted to Site-43."
                                         }
                                       }, {
-                                        "data.content_node.TextNode" : {
+                                        "com.doomedcat17.scpier.data.content_node.TextNode" : {
                                           "contentNodeType" : {
-                                            "data.content_node.ContentNodeType" : "TEXT"
+                                            "com.doomedcat17.scpier.data.content_node.ContentNodeType" : "TEXT"
                                           },
                                           "styles" : {
                                             "java.util.HashMap" : {
@@ -974,309 +1271,6 @@
                   }
                 }
               } ]
-            }
-          }
-        }
-      ]
-    },
-    "shouldScrapBlockquoteWithList": {
-      "java.util.ArrayList": [
-        {
-          "data.appendencies.Appendix": {
-            "title": "",
-            "contents": {
-              "java.util.ArrayList": [
-                {
-                  "data.content_node.ContentNode": {
-                    "contentNodeType": {
-                      "data.content_node.ContentNodeType": "BLOCKQUOTE"
-                    },
-                    "content": {
-                      "java.util.ArrayList": [
-                        {
-                          "data.content_node.ContentNode": {
-                            "contentNodeType": {
-                              "data.content_node.ContentNodeType": "LIST_UL"
-                            },
-                            "content": {
-                              "java.util.ArrayList": [
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": "Enhanced survivability in the bacterium's natural environment and similar environments;"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": "Full spectrum antibiotic resistance;"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": "Increased reproduction rate and consumption of available material;"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": "Development of a sporulation ability in gram-positive bacteria;"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": "Increased ability to uptake, hold, and share plasmids, particularly in gram-negative bacteria;"
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": "Increased transmission, due to traits described above."
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        }
-      ]
-    },
-    "shouldScrapBlockquoteWithHeading": {
-      "java.util.ArrayList": [
-        {
-          "data.appendencies.Appendix": {
-            "title": "",
-            "contents": {
-              "java.util.ArrayList": [
-                {
-                  "data.content_node.ContentNode": {
-                    "contentNodeType": {
-                      "data.content_node.ContentNodeType": "BLOCKQUOTE"
-                    },
-                    "content": {
-                      "java.util.ArrayList": [
-                        {
-                          "data.content_node.ContentNode": {
-                            "contentNodeType": {
-                              "data.content_node.ContentNodeType": "HEADING"
-                            },
-                            "content": {
-                              "java.util.ArrayList": [
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {
-                                        "font-weight": "bold",
-                                        "font-size": "2em"
-                                      }
-                                    },
-                                    "content": "Papiesz"
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        },
-                        {
-                          "data.content_node.ContentNode": {
-                            "contentNodeType": {
-                              "data.content_node.ContentNodeType": "PARAGRAPH"
-                            },
-                            "content": {
-                              "java.util.ArrayList": [
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": "during the excavation of a northern Italian tomb destroyed in a recent storm. "
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {
-                                        "text-decoration": "line-through"
-                                      }
-                                    },
-                                    "content": "The object, a piece of handwritten musical score entitled \"On\r\n                Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete."
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": " The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        }
-      ]
-    },
-    "shouldScrapBlockquoteWithHeadingAsTittle": {
-      "java.util.ArrayList": [
-        {
-          "data.appendencies.Appendix": {
-            "title": "Description",
-            "contents": {
-              "java.util.ArrayList": [
-                {
-                  "data.content_node.ContentNode": {
-                    "contentNodeType": {
-                      "data.content_node.ContentNodeType": "BLOCKQUOTE"
-                    },
-                    "content": {
-                      "java.util.ArrayList": [
-                        {
-                          "data.content_node.ContentNode": {
-                            "contentNodeType": {
-                              "data.content_node.ContentNodeType": "PARAGRAPH"
-                            },
-                            "content": {
-                              "java.util.ArrayList": [
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": "During the excavation of a northern Italian tomb destroyed in a recent storm. "
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {
-                                        "text-decoration": "line-through"
-                                      }
-                                    },
-                                    "content": "The object, a piece of handwritten musical score entitled \"On\r\n                Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete."
-                                  }
-                                },
-                                {
-                                  "data.content_node.TextNode": {
-                                    "contentNodeType": {
-                                      "data.content_node.ContentNodeType": "TEXT"
-                                    },
-                                    "styles": {
-                                      "java.util.HashMap": {}
-                                    },
-                                    "content": " The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
-                                  }
-                                }
-                              ]
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        }
-      ]
-    },
-    "shouldScrapBlockquoteWithImage": {
-      "java.util.ArrayList": [
-        {
-          "data.appendencies.Appendix": {
-            "title": "",
-            "contents": {
-              "java.util.ArrayList": [
-                {
-                  "data.content_node.ContentNode": {
-                    "contentNodeType": {
-                      "data.content_node.ContentNodeType": "BLOCKQUOTE"
-                    },
-                    "content": {
-                      "java.util.ArrayList": [
-                        {
-                          "data.content_node.ContentNode": {
-                            "contentNodeType": {
-                              "data.content_node.ContentNodeType": "IMAGE"
-                            },
-                            "content": {
-                              "data.content_node.Image": {
-                                "source": "https://i.imgur.com/BUEYoXE.png?2",
-                                "caption": "Theorized borders of SCP-4015 territory shown in red, while areas under its military influence are shown in orange. Areas subject to occasional raids are shown in yellow"
-                              }
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              ]
             }
           }
         }

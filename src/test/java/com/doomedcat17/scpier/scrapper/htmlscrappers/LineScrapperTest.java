@@ -1,0 +1,181 @@
+package com.doomedcat17.scpier.scrapper.htmlscrappers;
+
+import com.doomedcat17.scpapi.TestDataProvider;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.jsoup.nodes.Element;
+import org.junit.Ignore;
+import org.junit.jupiter.api.Test;
+import com.doomedcat17.scpier.data.appendix.Appendix;
+import com.doomedcat17.scpier.scrapper.htmlscrappers.line.LineScrapper;
+
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class LineScrapperTest extends ScrapperTest {
+
+    private final LineScrapper lineMapper = new LineScrapper(SOURCE, titleResolver);
+
+    private final Element sampleLines = TestDataProvider
+            .getSampleElements("src/test/resources/html/test_data/lines/SampleLinesElements.html");
+
+    private Map<String, List<Appendix>> expectedOutputs = getExpectedAppendicesOutputs("src/test/resources/html/test_data/lines/expected_outputs.json");
+
+    @Test
+    void shouldScrapSimpleLine() {
+        //given
+        Element simpleLine = sampleLines.getElementById("sampleLine");
+        //when
+        Appendix actualAppendix = lineMapper.scrapElement(simpleLine);
+        //then
+        assertEquals(expectedOutputs.get("shouldMapSimpleLine").get(0), actualAppendix);
+    }
+
+    @Test
+    void shouldScrapSimpleLineWithDeletedContent() {
+        //given
+        Element simpleLine = sampleLines.getElementById("sampleLineWithDeletedContent");
+        //when
+        Appendix actualAppendix = lineMapper.scrapElement(simpleLine);
+        //then
+        assertEquals(expectedOutputs.get("sampleLineWithDeletedContent").get(0), actualAppendix);
+    }
+
+    @Test
+    void shouldScrapLineWithHeader() {
+        //given
+        Element lineWithHeader = sampleLines.getElementById("shouldScrapLineWithHeader");
+        //when
+        Appendix actualAppendix = lineMapper.scrapElement(lineWithHeader);
+        //then
+        assertEquals(expectedOutputs.get("shouldScrapLineWithHeader").get(0), actualAppendix);
+
+    }
+    @Test
+    void shouldScrapLineWithStrongElements() {
+        //given
+        Element line = sampleLines.getElementById("shouldScrapContentWithStrongElements");
+        //when
+        Appendix actualAppendix = lineMapper.scrapElement(line);
+        //then
+        assertAll(() -> assertEquals(expectedOutputs.get("shouldScrapContentWithStrongElements").get(0), actualAppendix));
+
+    }
+
+    @Test
+    void shouldScrapLineWithEmAndIElements() {
+        //given
+        Element line = sampleLines.getElementById("shouldScrapContentWithEmAndIElements");
+        //when
+        Appendix actualAppendix = lineMapper.scrapElement(line);
+        //then
+        assertAll(() -> assertEquals(expectedOutputs.get("shouldScrapContentWithEmAndIElements").get(0), actualAppendix));
+
+    }
+
+    @Test
+    void shouldScrapLineWithInnerSpanElements() {
+        //given
+        Element line = sampleLines.getElementById("shouldScrapContentWithInnerSpanElements");
+        //when
+        Appendix actualAppendix = lineMapper.scrapElement(line);
+        //then
+        assertAll(() -> assertEquals(expectedOutputs.get("shouldScrapContentWithInnerSpanElements").get(0), actualAppendix));
+
+    }
+
+    @Test
+    void shouldScrapLineWithStylization() {
+        //given
+        Element line = sampleLines.getElementById("shouldScrapContentWithStylization");
+        //when
+        Appendix actualAppendix = lineMapper.scrapElement(line);
+        //then
+        assertAll(() -> assertEquals(expectedOutputs.get("shouldScrapContentWithStylization").get(0), actualAppendix));
+
+    }
+    @Test
+    void shouldScrapStrongElement() {
+        //given
+        Element line = sampleLines.getElementById("sampleStrong");
+        //when
+        Appendix actualAppendix = lineMapper.scrapElement(line);
+        //then
+        assertAll(() -> assertEquals(expectedOutputs.get("shouldScrapStrongElement").get(0), actualAppendix));
+    }
+
+    @Test
+    void shouldScrapStrongElementAsTextNode() {
+        //given
+        Element line = sampleLines.getElementById("sampleStrong2");
+        //when
+        Appendix actualAppendix = lineMapper.scrapElement(line);
+        //then
+        assertAll(() -> assertEquals(expectedOutputs.get("shouldScrapStrongElementAsTextNode").get(0), actualAppendix));
+    }
+
+    @Test
+    void shouldScrapLineWithMultipleStrongElements() {
+        //given
+        Element line = sampleLines.getElementById("shouldScrapLineWithMultipleStrongElements");
+        //when
+        Appendix actualAppendix = lineMapper.scrapElement(line);
+        //then
+        assertAll(() -> assertEquals(expectedOutputs.get("shouldScrapLineWithMultipleStrongElements").get(0), actualAppendix));
+    }
+
+    @Test
+    void shouldScrapLine1() {
+        //given
+        Element line = sampleLines.getElementById("shouldScrapLine1");
+        //when
+        Appendix actualAppendix = lineMapper.scrapElement(line);
+        //then
+        try {
+            objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.EVERYTHING, JsonTypeInfo.As.WRAPPER_OBJECT);
+            System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(actualAppendix));
+        } catch (Exception ignored) {}
+
+        assertAll(() -> assertEquals(expectedOutputs.get("shouldScrapLine1").get(0), actualAppendix));
+    }
+
+    @Test
+    void shouldScrapLine2() {
+        //given
+        Element line = sampleLines.getElementById("shouldScrapLine2");
+        //when
+        Appendix actualAppendix = lineMapper.scrapElement(line);
+        //then
+        try {
+            objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.EVERYTHING, JsonTypeInfo.As.WRAPPER_OBJECT);
+            System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(actualAppendix));
+        } catch (Exception ignored) {}
+
+        assertAll(() -> assertEquals(expectedOutputs.get("shouldScrapLine2").get(0), actualAppendix));
+    }
+
+    @Test
+    void shouldScrapLine3() {
+        //given
+        Element line = sampleLines.getElementById("shouldScrapLine3");
+        //when
+        Appendix actualAppendix = lineMapper.scrapElement(line);
+        //then
+
+        assertAll(() -> assertEquals(expectedOutputs.get("shouldScrapLine3").get(0), actualAppendix));
+    }
+
+    @Test
+    @Ignore
+    void testLink() {
+        //given
+        Element line = sampleLines.getElementById("testLink");
+        //when
+        Appendix actualAppendix = lineMapper.scrapElement(line);
+        //then
+
+    }
+
+}
