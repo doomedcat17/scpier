@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.scp.scp_mappers;
+package com.doomedcat17.scpier.mapper.scp_mappers;
 
 import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
 import com.doomedcat17.scpier.data.scp_object.ScpObject;

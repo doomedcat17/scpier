@@ -1,13 +1,13 @@
-package com.doomedcat17.scpier.scp;
+package com.doomedcat17.scpier.mapper;
 
 import com.doomedcat17.scpier.data.scp_object.SCPBranch;
 import com.doomedcat17.scpier.data.scp_object.SCPIdentifierPlacement;
 import com.doomedcat17.scpier.data.scp_object.SCPTranslation;
 import org.jsoup.internal.StringUtil;
 
-public class ScpSourceBuilder {
+public class SourceBuilder {
 
-    public String buildScpSource(String objectName, SCPBranch scpBranch, SCPTranslation scpTranslation) {
+    public String buildSource(String objectName, SCPBranch scpBranch, SCPTranslation scpTranslation) {
         StringBuilder sourceBuilder = new StringBuilder(objectName);
         if (StringUtil.isNumeric(objectName)) {
             while (sourceBuilder.length() < 3) sourceBuilder.insert(0, "0");

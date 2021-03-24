@@ -2,7 +2,7 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers.div.componetnts;
 
 import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
 import com.doomedcat17.scpier.data.scp_object.ScpObject;
-import com.doomedcat17.scpier.scp.scp_mappers.appendix_mappers.AppendixMapper;
+import com.doomedcat17.scpier.mapper.scp_mappers.appendix_mappers.AppendixMapper;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.div.DivScrapper;
 import org.jsoup.nodes.Element;
 import com.doomedcat17.scpier.data.appendix.Appendix;

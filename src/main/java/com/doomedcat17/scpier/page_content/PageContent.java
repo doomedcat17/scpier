@@ -6,7 +6,7 @@ import java.util.List;
 
 public class PageContent {
 
-    private String scpName;
+    private String name;
 
     private Element content;
 
@@ -24,12 +24,12 @@ public class PageContent {
         this.langIdentifier = langIdentifier;
     }
 
-    public String getScpName() {
-        return scpName;
+    public String getName() {
+        return name;
     }
 
-    public void setScpName(String scpName) {
-        this.scpName = scpName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Element getContent() {

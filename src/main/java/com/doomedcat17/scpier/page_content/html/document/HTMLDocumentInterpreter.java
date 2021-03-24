@@ -20,7 +20,7 @@ public class HTMLDocumentInterpreter {
         Element content = contentDocument.getElementById("page-content");
         Optional<Element> redirectionElement = htmlRedirectionHandler.checkForRedirection(content);
         if (redirectionElement.isPresent()) content = htmlRedirectionHandler.getRedirectionContent(redirectionElement.get(), pageContent.getSourceUrl());
-        pageContent.setScpName(contentDocument.getElementById("page-title").text());
+        pageContent.setName(contentDocument.getElementById("page-title").text());
         Optional<List<String>> tagNames = pageTagsScrapper.scrapPageTags(contentDocument);
         tagNames.ifPresent(pageContent::setTags);
         pageContent.setContent(content);

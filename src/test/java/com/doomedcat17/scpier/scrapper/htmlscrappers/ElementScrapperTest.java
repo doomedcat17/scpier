@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.doomedcat17.scpier.data.appendix.Appendix;
 import com.doomedcat17.scpier.data.content_node.ContentNode;
 import com.doomedcat17.scpier.data.content_node.TextNode;
-import com.doomedcat17.scpier.scp.scp_mappers.appendix_mappers.AppendixMapper;
+import com.doomedcat17.scpier.mapper.scp_mappers.appendix_mappers.AppendixMapper;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.div.DivScrapper;
 import static org.junit.jupiter.api.Assertions.*;
 import org.jsoup.nodes.Element;
