@@ -43,7 +43,7 @@ public class ListScrapper extends ElementScrapper {
             return nestedAppendix.getContents().get(0);
 
         } else {
-            List<ContentNode<?>> contentNodes = scrapElementInnerContent(row);
+            List<ContentNode<?>> contentNodes = scrapContent(row);
             if (contentNodes.size() == 1) {
                 return contentNodes.get(0);
             } else {

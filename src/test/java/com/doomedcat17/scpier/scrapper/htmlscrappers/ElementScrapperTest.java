@@ -25,7 +25,7 @@ class ElementScrapperTest extends ScrapperTest  {
         //given
         Element divElement = sampleDivs.getElementById("innerElementsScrapperTestDiv");
         //when
-        List<ContentNode<?>> contentNodes = elementScrapper.scrapElementInnerContent(divElement);
+        List<ContentNode<?>> contentNodes = elementScrapper.scrapContent(divElement);
         //then
         assertEquals(1, contentNodes.size());
         ContentNode<List<TextNode>> paragraph = (ContentNode<List<TextNode>>) contentNodes.get(0);
@@ -37,7 +37,7 @@ class ElementScrapperTest extends ScrapperTest  {
         //given
         Element divElement = sampleDivs.getElementById("shouldScrapMath");
         //when
-        List<ContentNode<?>> contentNodes = elementScrapper.scrapElementInnerContent(divElement);
+        List<ContentNode<?>> contentNodes = elementScrapper.scrapContent(divElement);
         //then
         ContentNode<List<TextNode>> paragraph = (ContentNode<List<TextNode>>) contentNodes.get(0);
         StringBuilder stringBuilder = new StringBuilder();
@@ -50,7 +50,7 @@ class ElementScrapperTest extends ScrapperTest  {
         //given
         Element divElement = sampleDivs.getElementById("shouldScrapMath2");
         //when
-        List<ContentNode<?>> contentNodes = elementScrapper.scrapElementInnerContent(divElement);
+        List<ContentNode<?>> contentNodes = elementScrapper.scrapContent(divElement);
         //then
         ContentNode<List<TextNode>> paragraph = (ContentNode<List<TextNode>>) contentNodes.get(0);
         StringBuilder stringBuilder = new StringBuilder();

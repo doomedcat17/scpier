@@ -71,7 +71,7 @@ public class TableScrapper extends ElementScrapper {
             ContentNode<List<ContentNode<?>>> cellNode = new ContentNode<>(ContentNodeType.TABLE_CELL, new ArrayList<>());
             if (cell.is("th")) cellNode.setContentNodeType(ContentNodeType.TABLE_HEADING_CELL);
             if(cell.children().isEmpty() && cell.text().isBlank()) continue;
-            cellNode.getContent().addAll(scrapElementInnerContent(cell));
+            cellNode.getContent().addAll(scrapContent(cell));
             rowCells.add(cellNode);
         }
         return new ContentNode<>(ContentNodeType.TABLE_ROW, rowCells);

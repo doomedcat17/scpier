@@ -1,4 +1,6 @@
 package com.doomedcat17.scpier.data.scp_object;
 
-public class MappedScpObject {
+import com.doomedcat17.scpier.data.appendix.Appendix;
+
+public class MappedScpObject extends ScpObject<Appendix> {
 }

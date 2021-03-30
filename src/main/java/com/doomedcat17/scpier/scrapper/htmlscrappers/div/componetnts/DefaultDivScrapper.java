@@ -17,7 +17,7 @@ public class DefaultDivScrapper extends DivScrapper implements DivScrapperCompon
 
     @Override
     public List<Appendix> scrapDivContent(Element element) {
-        List<ContentNode<?>> contentNodes = scrapElementInnerContent(element);
+        List<ContentNode<?>> contentNodes = scrapContent(element);
         Appendix appendix = new Appendix();
         appendix.setContents(contentNodes);
         return new ArrayList<>(List.of(appendix));

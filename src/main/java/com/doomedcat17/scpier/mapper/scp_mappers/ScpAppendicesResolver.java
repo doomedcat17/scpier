@@ -18,19 +18,19 @@ public class ScpAppendicesResolver {
                     appendix.getContents().forEach(contentNode -> scpObject.addImage((ImageNode) contentNode));
                     appendicesIterator.remove();
                 } else {
-                    if (scpObject.getAppendices().isEmpty() && !appendix.hasTitle()) {
+                    if (scpObject.getContent().isEmpty() && !appendix.hasTitle()) {
                         appendix.setTitle("HEADING");
                     }
-                    scpObject.addAppendix(appendix);
+                    scpObject.addContent(appendix);
 
                 }
             }
         }
     }
 
-    public static void appendicesCleanup(ScpObject scpObject, TitleResolver titleResolver) {
-        scpObject.getAppendices().removeIf(appendix -> !appendix.hasTitle() || appendix.getContents().size() == 0);
-        Iterator<Appendix> iterator = scpObject.getAppendices().iterator();
+    public static void appendicesCleanup(List<Appendix> appendices, TitleResolver titleResolver) {
+        appendices.removeIf(appendix -> !appendix.hasTitle() || appendix.getContents().size() == 0);
+        Iterator<Appendix> iterator = appendices.iterator();
         while (iterator.hasNext()) {
             Appendix appendix = iterator.next();
             String title = appendix.getTitle();

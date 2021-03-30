@@ -1,5 +1,6 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers.div.componetnts;
 
+import com.doomedcat17.scpier.data.scp_object.MappedScpObject;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
 import com.doomedcat17.scpier.data.scp_object.ScpObject;
 import com.doomedcat17.scpier.mapper.scp_mappers.appendix_mappers.AppendixMapper;
@@ -32,9 +33,9 @@ public class YuiDivScrapper extends DivScrapper implements DivScrapperComponent 
     }
 
     private List<Appendix> mapWikiTab(Element wikiTab) {
-        ScpObject scpObject = new ScpObject();
+        MappedScpObject scpObject = new MappedScpObject();
         wikiTab.attr("id", "page-content");
         AppendixMapper.mapNodesToAppendices(wikiTab.childNodes(), source, titleResolver);
-        return scpObject.getAppendices();
+        return scpObject.getContent();
     }
 }

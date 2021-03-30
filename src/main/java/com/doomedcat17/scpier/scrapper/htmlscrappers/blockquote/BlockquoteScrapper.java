@@ -18,7 +18,7 @@ public class BlockquoteScrapper extends ElementScrapper {
     public Appendix scrapElement(Element element) {
         Appendix appendix = new Appendix();
         ContentNode<List<ContentNode<?>>> blockquoteNode = new ContentNode<>(ContentNodeType.BLOCKQUOTE);
-        List<ContentNode<?>> contentNodes = scrapElementInnerContent(element);
+        List<ContentNode<?>> contentNodes = scrapContent(element);
         blockquoteNode.setContent(contentNodes);
         appendix.addContentNode(blockquoteNode);
        return appendix;

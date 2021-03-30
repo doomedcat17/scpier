@@ -18,6 +18,6 @@ public class DefaultScpTaleMapper implements ScpTaleMapper {
 
     private void mapTale(ScpTale scpTale, Element pageContentElement, TitleResolver titleResolver) {
         LineScrapper lineScrapper = new LineScrapper(scpTale.getSource(), titleResolver);
-        scpTale.setContent(lineScrapper.scrapElementInnerContent(pageContentElement));
+        scpTale.setContent(lineScrapper.scrapContent(pageContentElement));
     }
 }

@@ -25,7 +25,7 @@ public abstract class ElementScrapper {
 
     protected final TitleResolver titleResolver;
 
-    public List<ContentNode<?>> scrapElementInnerContent(Element element) {
+    public List<ContentNode<?>> scrapContent(Element element) {
         List<ContentNode<?>> contentNodes = new ArrayList<>();
         for (Node node : element.childNodes()) {
             try {

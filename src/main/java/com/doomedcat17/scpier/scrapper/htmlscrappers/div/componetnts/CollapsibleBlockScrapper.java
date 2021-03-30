@@ -21,7 +21,7 @@ public class CollapsibleBlockScrapper extends DivScrapper implements DivScrapper
         title = clearCollapsibleBlockTittle(title);
         if (titleResolver.isTitle(title)) appendix.setTitle(title);
         Element collapsibleBlockContent = element.selectFirst(".collapsible-block-content");
-        List<ContentNode<?>> contentNodes = scrapElementInnerContent(collapsibleBlockContent);
+        List<ContentNode<?>> contentNodes = scrapContent(collapsibleBlockContent);
         appendix.setContents(contentNodes);
         return new ArrayList<>(List.of(appendix));
     }

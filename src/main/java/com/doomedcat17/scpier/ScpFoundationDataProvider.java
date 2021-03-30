@@ -24,21 +24,21 @@ public class ScpFoundationDataProvider {
 
     private final SourceBuilder sourceBuilder = new SourceBuilder();
 
-    public ScpObject getScpObject(int objectId, SCPBranch scpBranch, SCPTranslation scpTranslation) throws ScpObjectNotFoundException {
+    public ScpObject getScpObject(int objectId, SCPBranch scpBranch, SCPTranslation scpTranslation, boolean mapped) throws ScpObjectNotFoundException {
         String name = String.valueOf(objectId);
-        return getScpObject(name, scpBranch, scpTranslation);
+        return getScpObject(name, scpBranch, scpTranslation, mapped);
     }
 
-    public ScpObject getFirstScpObject(String proposalName, SCPBranch scpBranch, SCPTranslation scpTranslation) throws ScpObjectNotFoundException {
-        return getScpObject(proposalName, scpBranch, scpTranslation);
+    public ScpObject getFirstScpObject(String proposalName, SCPBranch scpBranch, SCPTranslation scpTranslation, boolean mapped) throws ScpObjectNotFoundException {
+        return getScpObject(proposalName, scpBranch, scpTranslation, mapped);
     }
 
-    private ScpObject getScpObject(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws ScpObjectNotFoundException {
+    private ScpObject getScpObject(String name, SCPBranch scpBranch, SCPTranslation scpTranslation, boolean mapped) throws ScpObjectNotFoundException {
         try {
             PageContent pageContent = getPageContent(name, scpBranch, scpTranslation);
             TitleResolver titleResolver =
                     TitleResolverProvider.getTitleResolver(pageContent.getLangIdentifier());
-            ScpMapper scpMapper = ScpMapperProvider.getScpMapper(pageContent.getName());
+            ScpMapper scpMapper = ScpMapperProvider.getScpMapper(pageContent.getName(), mapped);
             ScpObject scpObject = scpMapper.mapToScp(pageContent, titleResolver);
             scpObject.setTags(pageContent.getTags());
             return scpObject;

@@ -4,10 +4,11 @@ package com.doomedcat17.scpier.mapper.scp_mappers;
 public class ScpMapperProvider {
 
 
-    public static ScpMapper getScpMapper(String scpName) {
+    public static ScpMapper getScpMapper(String scpName, boolean mapped) {
         switch (scpName) {
             default:
-                return new DefaultScpMapper();
+                if (mapped) return new DefaultMappedScpMapper();
+                else return new DefaultUnmappedScpMapper();
         }
     }
 }

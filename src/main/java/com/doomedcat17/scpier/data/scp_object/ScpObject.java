@@ -6,11 +6,11 @@ import com.doomedcat17.scpier.data.content_node.ImageNode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScpObject {
+public abstract class ScpObject<T> {
 
     private String objectName;
 
-    private List<Appendix> appendices = new ArrayList<>();
+    private List<T> content = new ArrayList<>();
 
     private List<ImageNode> images = new ArrayList<>();
 
@@ -18,40 +18,16 @@ public class ScpObject {
 
     private String source;
 
-
     public void addImage(ImageNode image) {
         images.add(image);
     }
 
-    public void addAppendix(Appendix appendix) {
-        appendices.add(appendix);
+    public void addContent(T content) {
+        this.content.add(content);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ScpObject)) return false;
-
-        ScpObject scpObject = (ScpObject) o;
-
-        if (getObjectName() != null ? !getObjectName().equals(scpObject.getObjectName()) : scpObject.getObjectName() != null)
-            return false;
-        if (getAppendices() != null ? !getAppendices().equals(scpObject.getAppendices()) : scpObject.getAppendices() != null)
-            return false;
-        if (getImages() != null ? !getImages().equals(scpObject.getImages()) : scpObject.getImages() != null)
-            return false;
-        if (getTags() != null ? !getTags().equals(scpObject.getTags()) : scpObject.getTags() != null) return false;
-        return getSource() != null ? getSource().equals(scpObject.getSource()) : scpObject.getSource() == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getObjectName() != null ? getObjectName().hashCode() : 0;
-        result = 31 * result + (getAppendices() != null ? getAppendices().hashCode() : 0);
-        result = 31 * result + (getImages() != null ? getImages().hashCode() : 0);
-        result = 31 * result + (getTags() != null ? getTags().hashCode() : 0);
-        result = 31 * result + (getSource() != null ? getSource().hashCode() : 0);
-        return result;
+    public void getContent(T content) {
+        this.content.add(content);
     }
 
     public String getObjectName() {
@@ -62,12 +38,12 @@ public class ScpObject {
         this.objectName = objectName;
     }
 
-    public List<Appendix> getAppendices() {
-        return appendices;
+    public List<T> getContent() {
+        return content;
     }
 
-    public void setAppendices(List<Appendix> appendices) {
-        this.appendices = appendices;
+    public void setContent(List<T> content) {
+        this.content = content;
     }
 
     public List<ImageNode> getImages() {
@@ -92,5 +68,32 @@ public class ScpObject {
 
     public void setTags(List<String> tags) {
         this.tags = tags;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ScpObject)) return false;
+
+        ScpObject<?> scpObject = (ScpObject<?>) o;
+
+        if (getObjectName() != null ? !getObjectName().equals(scpObject.getObjectName()) : scpObject.getObjectName() != null)
+            return false;
+        if (getContent() != null ? !getContent().equals(scpObject.getContent()) : scpObject.getContent() != null)
+            return false;
+        if (getImages() != null ? !getImages().equals(scpObject.getImages()) : scpObject.getImages() != null)
+            return false;
+        if (getTags() != null ? !getTags().equals(scpObject.getTags()) : scpObject.getTags() != null) return false;
+        return getSource() != null ? getSource().equals(scpObject.getSource()) : scpObject.getSource() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getObjectName() != null ? getObjectName().hashCode() : 0;
+        result = 31 * result + (getContent() != null ? getContent().hashCode() : 0);
+        result = 31 * result + (getImages() != null ? getImages().hashCode() : 0);
+        result = 31 * result + (getTags() != null ? getTags().hashCode() : 0);
+        result = 31 * result + (getSource() != null ? getSource().hashCode() : 0);
+        return result;
     }
 }

@@ -18,7 +18,7 @@ public class AdultWarningScrapper extends DivScrapper implements DivScrapperComp
         Element headingElement = element.getElementById("u-adult-header");
         appendix.setTitle(headingElement.text());
         headingElement.remove();
-        appendix.setContents(scrapElementInnerContent(element));
+        appendix.setContents(scrapContent(element));
         return new ArrayList<>(List.of(appendix));
     }
 }
