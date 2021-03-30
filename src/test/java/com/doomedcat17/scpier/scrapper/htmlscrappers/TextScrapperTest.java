@@ -33,11 +33,9 @@ class TextScrapperTest extends ScrapperTest {
         //when
         List<TextNode> contentNodes = TextScrapper.scrapText(paragraphElement, SOURCE);
         //then
-        assertAll(
-                () -> assertEquals(2, contentNodes.size()),
-                () -> assertEquals(paragraphElement.selectFirst("strong").wholeText(), contentNodes.get(0).getContent()),
-                () -> assertEquals(paragraphElement.childNode(1).toString(), contentNodes.get(1).getContent())
-        );
+        assertEquals(2, contentNodes.size());
+        assertEquals(paragraphElement.selectFirst("strong").wholeText(), contentNodes.get(0).getContent());
+        assertEquals(paragraphElement.childNode(1).toString(), contentNodes.get(1).getContent());
 
     }
 

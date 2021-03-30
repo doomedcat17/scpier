@@ -28,6 +28,7 @@ class HTMLRedirectionHandlerTest {
         MockitoAnnotations.initMocks(this);
         htmlRedirectionHandler = new HTMLRedirectionHandler(htmlDocumentProvider);
     }
+
     @Test
     void shouldFindRedirection() {
         //given
@@ -63,11 +64,13 @@ class HTMLRedirectionHandlerTest {
         Element content = TestDataProvider
                 .getSampleElements("src/test/resources/html/test_data/document/sampleScpWithRedirection.html")
                 .getElementById("page-content");
+
+        //when
         Optional<Element> foundRedirection =
                 htmlRedirectionHandler.checkForRedirection(content);
+
         if (foundRedirection.isEmpty()) fail();
         Element redirectionElement = foundRedirection.get();
-        //when
         Element redirectedContent =
                 htmlRedirectionHandler.getRedirectionContent(redirectionElement, "http://www.scpwiki.com/scp-597");
         //then
