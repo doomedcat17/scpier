@@ -1,26 +1,22 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers.blockquote;
 
-import com.doomedcat17.scpier.data.content_node.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.ElementScrapper;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
 import org.jsoup.nodes.Element;
-import com.doomedcat17.scpier.data.appendix.Appendix;
-import com.doomedcat17.scpier.data.content_node.ContentNodeType;
 
 import java.util.List;
 
 public class BlockquoteScrapper extends ElementScrapper {
-    public BlockquoteScrapper(String source, TitleResolver titleResolver) {
-        super(source, titleResolver);
+    public BlockquoteScrapper(String source) {
+        super(source);
     }
 
     @Override
-    public Appendix scrapElement(Element element) {
-        Appendix appendix = new Appendix();
+    public ContentNode<?> scrapElement(Element element) {
         ContentNode<List<ContentNode<?>>> blockquoteNode = new ContentNode<>(ContentNodeType.BLOCKQUOTE);
         List<ContentNode<?>> contentNodes = scrapContent(element);
         blockquoteNode.setContent(contentNodes);
-        appendix.addContentNode(blockquoteNode);
-       return appendix;
+       return blockquoteNode;
     }
 }

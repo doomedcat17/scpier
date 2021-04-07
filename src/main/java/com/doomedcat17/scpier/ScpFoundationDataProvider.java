@@ -1,20 +1,18 @@
 package com.doomedcat17.scpier;
 
-import com.doomedcat17.scpier.data.scp_object.SCPBranch;
-import com.doomedcat17.scpier.data.scp_object.SCPTranslation;
-import com.doomedcat17.scpier.data.tale.ScpTale;
+import com.doomedcat17.scpier.data.scp.SCPBranch;
+import com.doomedcat17.scpier.data.scp.SCPTranslation;
+import com.doomedcat17.scpier.data.scp.ScpObject;
+import com.doomedcat17.scpier.data.scp.ScpTale;
 import com.doomedcat17.scpier.exceptions.ScpObjectNotFoundException;
 import com.doomedcat17.scpier.exceptions.ScpTaleNotFoundException;
-import com.doomedcat17.scpier.mapper.tale_mappers.ScpTaleMapper;
-import com.doomedcat17.scpier.mapper.tale_mappers.ScpTaleMapperProvider;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolverProvider;
-import com.doomedcat17.scpier.page_content.PageContent;
-import com.doomedcat17.scpier.page_content.PageContentProvider;
 import com.doomedcat17.scpier.mapper.SourceBuilder;
 import com.doomedcat17.scpier.mapper.scp_mappers.ScpMapper;
 import com.doomedcat17.scpier.mapper.scp_mappers.ScpMapperProvider;
-import com.doomedcat17.scpier.data.scp_object.ScpObject;
+import com.doomedcat17.scpier.mapper.tale_mappers.ScpTaleMapper;
+import com.doomedcat17.scpier.mapper.tale_mappers.ScpTaleMapperProvider;
+import com.doomedcat17.scpier.pagecontent.PageContent;
+import com.doomedcat17.scpier.pagecontent.PageContentProvider;
 
 import java.io.IOException;
 
@@ -24,22 +22,20 @@ public class ScpFoundationDataProvider {
 
     private final SourceBuilder sourceBuilder = new SourceBuilder();
 
-    public ScpObject getScpObject(int objectId, SCPBranch scpBranch, SCPTranslation scpTranslation, boolean mapped) throws ScpObjectNotFoundException {
+    public ScpObject getScpObject(int objectId, SCPBranch scpBranch, SCPTranslation scpTranslation) throws ScpObjectNotFoundException {
         String name = String.valueOf(objectId);
-        return getScpObject(name, scpBranch, scpTranslation, mapped);
+        return getScpObject(name, scpBranch, scpTranslation);
     }
 
-    public ScpObject getFirstScpObject(String proposalName, SCPBranch scpBranch, SCPTranslation scpTranslation, boolean mapped) throws ScpObjectNotFoundException {
-        return getScpObject(proposalName, scpBranch, scpTranslation, mapped);
+    public ScpObject getFirstScpObject(String proposalName, SCPBranch scpBranch, SCPTranslation scpTranslation) throws ScpObjectNotFoundException {
+        return getScpObject(proposalName, scpBranch, scpTranslation);
     }
 
-    private ScpObject getScpObject(String name, SCPBranch scpBranch, SCPTranslation scpTranslation, boolean mapped) throws ScpObjectNotFoundException {
+    private ScpObject getScpObject(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws ScpObjectNotFoundException {
         try {
             PageContent pageContent = getPageContent(name, scpBranch, scpTranslation);
-            TitleResolver titleResolver =
-                    TitleResolverProvider.getTitleResolver(pageContent.getLangIdentifier());
-            ScpMapper scpMapper = ScpMapperProvider.getScpMapper(pageContent.getName(), mapped);
-            ScpObject scpObject = scpMapper.mapToScp(pageContent, titleResolver);
+            ScpMapper scpMapper = ScpMapperProvider.getScpMapper(pageContent.getName());
+            ScpObject scpObject = scpMapper.mapToScp(pageContent);
             scpObject.setTags(pageContent.getTags());
             return scpObject;
         } catch (Exception e) {
@@ -50,10 +46,8 @@ public class ScpFoundationDataProvider {
     public ScpTale getScpTale(String taleTittle, SCPBranch scpBranch, SCPTranslation scpTranslation) throws ScpTaleNotFoundException {
         try {
             PageContent pageContent = getPageContent(taleTittle, scpBranch, scpTranslation);
-            TitleResolver titleResolver =
-                    TitleResolverProvider.getTitleResolver(pageContent.getLangIdentifier());
             ScpTaleMapper scpTaleMapper = ScpTaleMapperProvider.getScpTaleMapper(taleTittle);
-            ScpTale scpTale = scpTaleMapper.mapToTale(pageContent, titleResolver);
+            ScpTale scpTale = scpTaleMapper.mapToTale(pageContent);
             scpTale.setTags(pageContent.getTags());
             return scpTale;
         } catch (Exception e) {

@@ -1,8 +1,8 @@
 package com.doomedcat17.scpier.mapper;
 
-import com.doomedcat17.scpier.data.scp_object.SCPBranch;
-import com.doomedcat17.scpier.data.scp_object.SCPIdentifierPlacement;
-import com.doomedcat17.scpier.data.scp_object.SCPTranslation;
+import com.doomedcat17.scpier.data.scp.SCPBranch;
+import com.doomedcat17.scpier.data.scp.SCPIdentifierPlacement;
+import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import org.jsoup.internal.StringUtil;
 
 public class SourceBuilder {

@@ -1,41 +1,35 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers.div.componetnts;
 
-import com.doomedcat17.scpier.data.scp_object.MappedScpObject;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
-import com.doomedcat17.scpier.data.scp_object.ScpObject;
-import com.doomedcat17.scpier.mapper.scp_mappers.appendix_mappers.AppendixMapper;
+import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.div.DivScrapper;
 import org.jsoup.nodes.Element;
-import com.doomedcat17.scpier.data.appendix.Appendix;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class YuiDivScrapper extends DivScrapper implements DivScrapperComponent {
-    public YuiDivScrapper(String source, TitleResolver titleResolver) {
-        super(source, titleResolver);
+    public YuiDivScrapper(String source) {
+        super(source);
     }
 
     @Override
-    public List<Appendix> scrapDivContent(Element element) {
-        List<Appendix> appendices = new ArrayList<>();
+    public List<ContentNode<?>> scrapDivContent(Element element) {
+        List<ContentNode<?>> contentNodes = new ArrayList<>();
         if (element.hasClass("yui-navset")) {
             Element yuiContent = element.selectFirst(".yui-content");
-            if (yuiContent != null) appendices.addAll(scrapDivContent(yuiContent));
+            if (yuiContent != null) contentNodes.addAll(scrapDivContent(yuiContent));
         } else if (element.hasClass("yui-content")) {
             element.children().stream()
                     .filter(wikiTab -> wikiTab.hasAttr("id"))
                     .filter(wikiTab -> wikiTab.attr("id").contains("wiki-tab-"))
-                    .map(this::mapWikiTab)
-                    .forEach(appendices::addAll);
-        } else if (element.attr("id").contains("wiki-tab-")) appendices.addAll(mapWikiTab(element));
-        return appendices;
+                    .map(this::scrapWikiTab)
+                    .forEach(contentNodes::addAll);
+        } else if (element.attr("id").contains("wiki-tab-")) contentNodes.addAll(scrapWikiTab(element));
+        return contentNodes;
     }
 
-    private List<Appendix> mapWikiTab(Element wikiTab) {
-        MappedScpObject scpObject = new MappedScpObject();
+    private List<ContentNode<?>> scrapWikiTab(Element wikiTab) {
         wikiTab.attr("id", "page-content");
-        AppendixMapper.mapNodesToAppendices(wikiTab.childNodes(), source, titleResolver);
-        return scpObject.getContent();
+        return scrapContent(wikiTab);
     }
 }

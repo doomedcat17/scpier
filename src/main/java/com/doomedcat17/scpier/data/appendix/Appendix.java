@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.data.appendix;
 
-import com.doomedcat17.scpier.data.content_node.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;

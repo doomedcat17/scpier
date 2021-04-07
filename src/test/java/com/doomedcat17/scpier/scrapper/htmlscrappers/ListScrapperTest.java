@@ -1,24 +1,23 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers;
 
-import com.doomedcat17.scpapi.TestDataProvider;
+import com.doomedcat17.scpier.TestDataProvider;
+import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.scrapper.htmlscrappers.list.ListScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
-import com.doomedcat17.scpier.data.appendix.Appendix;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.list.ListScrapper;
 
-import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ListScrapperTest extends ScrapperTest {
 
-    private ListScrapper listMapper = new ListScrapper(SOURCE, titleResolver);
+    private ListScrapper listMapper = new ListScrapper(SOURCE);
 
     private final Element sampleLists = TestDataProvider
             .getSampleElements("src/test/resources/html/test_data/lists/SampleListsElements.html");
 
-    private Map<String, List<Appendix>> expectedOutputs =
+    private Map<String, ContentNode<?>> expectedOutputs =
             getExpectedAppendicesOutputs("src/test/resources/html/test_data/lists/expected_outputs.json");
 
     @Test
@@ -26,18 +25,18 @@ class ListScrapperTest extends ScrapperTest {
         //given
         Element simpleUnorderedList = sampleLists.getElementById("shouldMapSimpleUnorderedList");
         //when
-        Appendix actualAppendix = listMapper.scrapElement(simpleUnorderedList);
+        ContentNode<?> contentNode = listMapper.scrapElement(simpleUnorderedList);
         //then
-        assertEquals(expectedOutputs.get("shouldMapSimpleUnorderedList").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldMapSimpleUnorderedList"), contentNode);
     }
     @Test
     void shouldScrapSimpleOrderedList() {
         //given
         Element simpleOrderedList = sampleLists.getElementById("shouldMapSimpleOrderedList");
         //when
-        Appendix actualAppendix = listMapper.scrapElement(simpleOrderedList);
+        ContentNode<?> contentNode = listMapper.scrapElement(simpleOrderedList);
         //then
-        assertEquals(expectedOutputs.get("shouldMapSimpleOrderedList").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldMapSimpleOrderedList"), contentNode);
     }
 
 
@@ -46,9 +45,9 @@ class ListScrapperTest extends ScrapperTest {
         //given
         Element simpleUnorderedList = sampleLists.getElementById("shouldMapUnorderedListWithNestedUnorderedList");
         //when
-        Appendix actualAppendix = listMapper.scrapElement(simpleUnorderedList);
+        ContentNode<?> contentNode = listMapper.scrapElement(simpleUnorderedList);
         //then
-        assertEquals(expectedOutputs.get("shouldMapUnorderedListWithNestedUnorderedList").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldMapUnorderedListWithNestedUnorderedList"), contentNode);
     }
 
     @Test
@@ -56,27 +55,27 @@ class ListScrapperTest extends ScrapperTest {
         //given
         Element simpleOrderedList = sampleLists.getElementById("shouldMapOrderedListWithNestedUnorderedList");
         //when
-        Appendix actualAppendix = listMapper.scrapElement(simpleOrderedList);
+        ContentNode<?> contentNode = listMapper.scrapElement(simpleOrderedList);
         //then
-        assertEquals(expectedOutputs.get("shouldMapOrderedListWithNestedUnorderedList").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldMapOrderedListWithNestedUnorderedList"), contentNode);
     }
     @Test
     void shouldScrapUnorderedListWithNestedOrderedList() {
         //given
         Element simpleUnorderedList = sampleLists.getElementById("shouldMapUnorderedListWithNestedOrderedList");
         //when
-        Appendix actualAppendix = listMapper.scrapElement(simpleUnorderedList);
+        ContentNode<?> contentNode = listMapper.scrapElement(simpleUnorderedList);
         //then
-        assertEquals(expectedOutputs.get("shouldMapUnorderedListWithNestedOrderedList").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldMapUnorderedListWithNestedOrderedList"), contentNode);
     }
     @Test
     void shouldScrapOrderedListWithNestedOrderedList() {
         //given
         Element simpleOrderedList = sampleLists.getElementById("shouldScrapOrderedListWithNestedOrderedList");
         //when
-        Appendix actualAppendix = listMapper.scrapElement(simpleOrderedList);
+        ContentNode<?> contentNode = listMapper.scrapElement(simpleOrderedList);
         //then
-        assertEquals(expectedOutputs.get("shouldScrapOrderedListWithNestedOrderedList").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldScrapOrderedListWithNestedOrderedList"), contentNode);
     }
 
 
@@ -85,9 +84,9 @@ class ListScrapperTest extends ScrapperTest {
         //given
         Element simpleOrderedList = sampleLists.getElementById("shouldScrapUnorderedListWithNestedMultipleUnorderedLists");
         //when
-        Appendix actualAppendix = listMapper.scrapElement(simpleOrderedList);
+        ContentNode<?> contentNode = listMapper.scrapElement(simpleOrderedList);
         //then
-        assertEquals(expectedOutputs.get("shouldScrapUnorderedListWithNestedMultipleUnorderedLists").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldScrapUnorderedListWithNestedMultipleUnorderedLists"), contentNode);
     }
 
     @Test
@@ -95,9 +94,9 @@ class ListScrapperTest extends ScrapperTest {
         //given
         Element simpleOrderedList = sampleLists.getElementById("shouldScrapOrderedListWithNestedMultipleUnorderedLists");
         //when
-        Appendix actualAppendix = listMapper.scrapElement(simpleOrderedList);
+        ContentNode<?> contentNode = listMapper.scrapElement(simpleOrderedList);
         //then
-        assertEquals(expectedOutputs.get("shouldScrapOrderedListWithNestedMultipleUnorderedLists").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldScrapOrderedListWithNestedMultipleUnorderedLists"), contentNode);
     }
 
     @Test
@@ -105,9 +104,9 @@ class ListScrapperTest extends ScrapperTest {
         //given
         Element simpleOrderedList = sampleLists.getElementById("shouldScrapUnorderedListWithNestedMultipleOrderedLists");
         //when
-        Appendix actualAppendix = listMapper.scrapElement(simpleOrderedList);
+        ContentNode<?> contentNode = listMapper.scrapElement(simpleOrderedList);
         //then
-        assertEquals(expectedOutputs.get("shouldScrapUnorderedListWithNestedMultipleOrderedLists").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldScrapUnorderedListWithNestedMultipleOrderedLists"), contentNode);
     }
 
     @Test
@@ -115,9 +114,9 @@ class ListScrapperTest extends ScrapperTest {
         //given
         Element simpleOrderedList = sampleLists.getElementById("shouldScrapOrderedListWithNestedMultipleOrderedLists");
         //when
-        Appendix actualAppendix = listMapper.scrapElement(simpleOrderedList);
+        ContentNode<?> contentNode = listMapper.scrapElement(simpleOrderedList);
         //then
-        assertEquals(expectedOutputs.get("shouldScrapOrderedListWithNestedMultipleOrderedLists").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldScrapOrderedListWithNestedMultipleOrderedLists"), contentNode);
     }
 
     @Test
@@ -125,9 +124,9 @@ class ListScrapperTest extends ScrapperTest {
         //given
         Element list = sampleLists.getElementById("shouldScrapSimpleUnorderedListWithDeletedElements");
         //when
-        Appendix actualAppendix = listMapper.scrapElement(list);
+        ContentNode<?> contentNode = listMapper.scrapElement(list);
         //then
-        assertEquals(expectedOutputs.get("shouldScrapSimpleUnorderedListWithDeletedElements").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldScrapSimpleUnorderedListWithDeletedElements"), contentNode);
     }
 
     @Test
@@ -135,9 +134,9 @@ class ListScrapperTest extends ScrapperTest {
         //given
         Element list = sampleLists.getElementById("shouldScrapSimpleOrderedListWithDeletedElements");
         //when
-        Appendix actualAppendix = listMapper.scrapElement(list);
+        ContentNode<?> contentNode = listMapper.scrapElement(list);
         //then
-        assertEquals(expectedOutputs.get("shouldScrapSimpleOrderedListWithDeletedElements").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldScrapSimpleOrderedListWithDeletedElements"), contentNode);
     }
 
     @Test
@@ -145,9 +144,9 @@ class ListScrapperTest extends ScrapperTest {
         //given
         Element list = sampleLists.getElementById("shouldScrapSimpleUnorderedListWithStrongElements");
         //when
-        Appendix actualAppendix = listMapper.scrapElement(list);
+        ContentNode<?> contentNode = listMapper.scrapElement(list);
         //then
-        assertEquals(expectedOutputs.get("shouldScrapSimpleUnorderedListWithStrongElements").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldScrapSimpleUnorderedListWithStrongElements"), contentNode);
     }
 
     @Test
@@ -155,8 +154,8 @@ class ListScrapperTest extends ScrapperTest {
         //given
         Element list = sampleLists.getElementById("shouldScrapSimpleOrderedListWithStrongElements");
         //when
-        Appendix actualAppendix = listMapper.scrapElement(list);
+        ContentNode<?> contentNode = listMapper.scrapElement(list);
         //then
-        assertEquals(expectedOutputs.get("shouldScrapSimpleOrderedListWithStrongElements").get(0), actualAppendix);
+        assertEquals(expectedOutputs.get("shouldScrapSimpleOrderedListWithStrongElements"), contentNode);
     }
 }

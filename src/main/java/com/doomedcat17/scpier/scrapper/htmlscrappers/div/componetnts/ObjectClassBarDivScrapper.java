@@ -1,45 +1,42 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers.div.componetnts;
 
-import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
-import com.doomedcat17.scpier.data.content_node.TextNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.div.DivScrapper;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import com.doomedcat17.scpier.data.appendix.Appendix;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ObjectClassBarDivScrapper extends DivScrapper implements DivScrapperComponent {
-    public ObjectClassBarDivScrapper(String source, TitleResolver titleResolver) {
-        super(source, titleResolver);
+    public ObjectClassBarDivScrapper(String source) {
+        super(source);
     }
 
     @Override
-    public List<Appendix> scrapDivContent(Element element) {
-        List<Appendix> appendices = new ArrayList<>();
-        mapBarElement(element, appendices);
-        return appendices;
+    public List<ContentNode<?>> scrapDivContent(Element element) {
+        List<ContentNode<?>> barContent = new ArrayList<>();
+        List<Element> elements = new ArrayList<>();
+        elements.add(element.getElementsByClass("sideleft").first());
+        elements.add(element.getElementsByClass("sidemiddle").first());
+        for (Element e : elements) {
+            e.children().forEach(child -> barContent.add(mapDivElement(child)));
+        }
+        return barContent;
     }
 
-    private void mapBarElement(Element barElement, List<Appendix> appendices) {
-        List<Element> elements = new ArrayList<>();
-        elements.add(barElement.getElementsByClass("sideleft").first());
-        elements.add(barElement.getElementsByClass("sidemiddle").first());
-        for (Element element: elements) {
-            element.children().forEach(child -> appendices.add(mapDivElement(child)));
-            }
-        }
-
-
-    private Appendix mapDivElement(Element divElement) {
+    private ContentNode<?> mapDivElement(Element divElement) {
         Elements spanElements = divElement.getElementsByClass("ocb-text");
-        String title = spanElements.get(0).text().trim();
-        if (title.charAt(title.length()-1) == ':') title = title.substring(0, title.length()-1);
-        String textContent = spanElements.get(1).text().trim();
-        Appendix appendix = new Appendix();
-        appendix.setTitle(title);
-        appendix.addContentNode(new TextNode(textContent));
-        return appendix;
+        String title = spanElements.get(0).text().stripLeading();
+        String textContent = spanElements.get(1).text().stripTrailing();
+        TextNode strongNode = new TextNode(title);
+        strongNode.addStyle("font-weight", "bold");
+        TextNode content = new TextNode(textContent);
+        ContentNode<List<TextNode>> paragraph = new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
+        paragraph.getContent().add(strongNode);
+        paragraph.getContent().add(content);
+        return paragraph;
     }
 }

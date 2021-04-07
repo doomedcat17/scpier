@@ -1,33 +1,29 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers.list;
 
-import com.doomedcat17.scpier.data.content_node.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.ElementScrapper;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
-import com.doomedcat17.scpier.data.content_node.TextNode;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import com.doomedcat17.scpier.data.appendix.Appendix;
-import com.doomedcat17.scpier.data.content_node.ContentNodeType;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListScrapper extends ElementScrapper {
-    public ListScrapper(String source, TitleResolver titleResolver) {
-        super(source, titleResolver);
+    public ListScrapper(String source) {
+        super(source);
     }
 
     @Override
-    public Appendix scrapElement(Element element) {
-        Appendix appendix = new Appendix();
+    public ContentNode<?> scrapElement(Element element) {
         ContentNode<List<ContentNode<?>>> contentNode = new ContentNode<>();
         contentNode.setContent(new ArrayList<>());
         if (element.tagName().equals("ul")) {
             contentNode.setContentNodeType(ContentNodeType.LIST_UL);
         } else contentNode.setContentNodeType(ContentNodeType.LIST_OL);
         mapList(element, contentNode);
-        appendix.addContentNode(contentNode);
-        return appendix;
+        return contentNode;
     }
 
     private void mapList(Element element, ContentNode<List<ContentNode<?>>> contentNode) {
@@ -39,9 +35,7 @@ public class ListScrapper extends ElementScrapper {
 
     private ContentNode<?> mapRow(Element row) {
         if (row.is("ul, ol")) {
-            Appendix nestedAppendix = scrapElement(row);
-            return nestedAppendix.getContents().get(0);
-
+            return scrapElement(row);
         } else {
             List<ContentNode<?>> contentNodes = scrapContent(row);
             if (contentNodes.size() == 1) {
@@ -49,7 +43,7 @@ public class ListScrapper extends ElementScrapper {
             } else {
                 if (contentNodes.stream().allMatch(contentNode -> contentNode instanceof TextNode)) {
                     return new ContentNode<>(ContentNodeType.PARAGRAPH, contentNodes);
-                } else return new ContentNode<>(ContentNodeType.ELEMENTS, contentNodes);
+                } else return new ContentNode<>(ContentNodeType.CONTENT_NODES, contentNodes);
             }
         }
     }

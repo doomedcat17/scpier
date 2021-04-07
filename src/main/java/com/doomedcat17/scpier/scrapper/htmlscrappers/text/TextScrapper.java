@@ -1,9 +1,9 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers.text;
 
-import com.doomedcat17.scpier.data.content_node.HyperlinkNode;
+import com.doomedcat17.scpier.data.contentnode.HyperlinkNode;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
-import com.doomedcat17.scpier.data.content_node.TextNode;
+import com.doomedcat17.scpier.data.contentnode.TextNode;
 
 import java.util.ArrayList;
 import java.util.List;

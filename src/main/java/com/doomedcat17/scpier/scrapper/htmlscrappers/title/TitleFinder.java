@@ -1,8 +1,8 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers.title;
 
-import com.doomedcat17.scpier.data.content_node.ContentNode;
-import com.doomedcat17.scpier.data.content_node.ContentNodeType;
-import com.doomedcat17.scpier.data.content_node.TextNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.text.TextScrapper;
 import org.jsoup.internal.StringUtil;
 

@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers;
 
-import com.doomedcat17.scpapi.TestDataProvider;
+import com.doomedcat17.scpier.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.text.StyleScrapper;

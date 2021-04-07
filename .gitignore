@@ -33,3 +33,7 @@ build/
 ### VS Code ###
 .vscode/
 !/src/test/java/pl/doomedcat17/scpapi/NodesTest.java
+/src/main/java/com/doomedcat17/scpier/mapper/scp_mappers/appendix_mappers/
+/src/main/java/com/doomedcat17/scpier/data/appendix/
+/src/test/java/com/doomedcat17/scpier/scrapper/htmlscrappers/title/
+/src/main/resources/patterns/

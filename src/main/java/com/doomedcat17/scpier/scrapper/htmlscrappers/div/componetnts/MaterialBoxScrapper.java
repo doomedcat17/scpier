@@ -1,20 +1,20 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers.div.componetnts;
 
-import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
-import com.doomedcat17.scpier.data.appendix.Appendix;
-import com.doomedcat17.scpier.mapper.scp_mappers.appendix_mappers.AppendixMapper;
+import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.div.DivScrapper;
 import org.jsoup.nodes.Element;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MaterialBoxScrapper extends DivScrapper implements DivScrapperComponent {
-    public MaterialBoxScrapper(String source, TitleResolver titleResolver) {
-        super(source, titleResolver);
+    public MaterialBoxScrapper(String source) {
+        super(source);
     }
 
     @Override
-    public List<Appendix> scrapDivContent(Element element) {
-        return AppendixMapper.mapNodesToAppendices(element.childNodes(), source, titleResolver);
+    public List<ContentNode<?>> scrapDivContent(Element element) {
+        return new ArrayList<>(List.of(new ContentNode<>(ContentNodeType.DIV, scrapContent(element))));
     }
 }

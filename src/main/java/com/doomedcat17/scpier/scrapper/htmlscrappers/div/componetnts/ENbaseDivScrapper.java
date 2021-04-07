@@ -1,33 +1,32 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers.div.componetnts;
 
-import com.doomedcat17.scpier.data.content_node.ContentNode;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
-import com.doomedcat17.scpier.data.content_node.ContentNodeType;
-import com.doomedcat17.scpier.data.content_node.TextNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.div.DivScrapper;
 import org.jsoup.nodes.Element;
-import com.doomedcat17.scpier.data.appendix.Appendix;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class ENbaseDivScrapper extends DivScrapper implements DivScrapperComponent {
-    public ENbaseDivScrapper(String source, TitleResolver titleResolver) {
-        super(source, titleResolver);
+    public ENbaseDivScrapper(String source) {
+        super(source);
     }
 
     @Override
-    public List<Appendix> scrapDivContent(Element element) {
-        List<Appendix> appendices = new ArrayList<>();
+    public List<ContentNode<?>> scrapDivContent(Element element) {
+        List<ContentNode<?>> contentNodes = new ArrayList<>();
         String scpClassName = element.getElementsByClass("obj-text")
                 .get(0)
                 .text().trim();
-        Appendix classAppendix = new Appendix();
-        classAppendix.setTitle("Object Class");
-        classAppendix.addContentNode(new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>(List.of(new TextNode(capitalizeText(scpClassName))))));
-        appendices.add(classAppendix);
-        return appendices;
+        TextNode objectClassName = new TextNode(capitalizeText(scpClassName));
+        TextNode objectClass = new TextNode("Object Class: ");
+        objectClassName.addStyle("font-weight", "bold");
+        objectClass.addStyle("font-weight", "bold");
+        contentNodes.add(new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>(List.of(objectClass, objectClassName))));
+        return contentNodes;
     }
 
 }

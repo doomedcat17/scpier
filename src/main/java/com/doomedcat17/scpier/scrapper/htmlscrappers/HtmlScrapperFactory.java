@@ -14,7 +14,7 @@ import com.doomedcat17.scpier.exceptions.MapperNotFoundException;
 
 public class HtmlScrapperFactory {
 
-    public static ElementScrapper getHtmlScrapper(Element element, String source, TitleResolver titleResolver) throws MapperNotFoundException {
+    public static ElementScrapper getHtmlScrapper(Element element, String source) throws MapperNotFoundException {
         switch (element.tagName()) {
             case "strong":
             case "em":
@@ -29,29 +29,29 @@ public class HtmlScrapperFactory {
             case "tt":
             case "br":
             case "pre":
-                return new LineScrapper(source, titleResolver);
+                return new LineScrapper(source);
             case "h1":
             case "h2":
             case "h3":
             case "h4":
             case "h5":
             case "h6":
-                return new HeadingScrapper(source, titleResolver);
+                return new HeadingScrapper(source);
             case "audio":
             case "audio-player":
-                return new AudioScrapper(source, titleResolver);
+                return new AudioScrapper(source);
             case "div":
-                if (element.hasClass("blockquote")) return new BlockquoteScrapper(source, titleResolver);
-                else return new DivScrapper(source, titleResolver);
+                if (element.hasClass("blockquote")) return new BlockquoteScrapper(source);
+                else return new DivScrapper(source);
             case "img":
-                return new ImageScrapper(source, titleResolver);
+                return new ImageScrapper(source);
             case "table":
-                return new TableScrapper(source, titleResolver);
+                return new TableScrapper(source);
             case "ul":
             case "ol":
-                return new ListScrapper(source, titleResolver);
+                return new ListScrapper(source);
             case "blockquote":
-                return new BlockquoteScrapper(source, titleResolver);
+                return new BlockquoteScrapper(source);
             default:
                 throw new MapperNotFoundException("Could not find mapper for " + element.tagName());
         }

@@ -1,25 +1,25 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers.div.componetnts;
 
-import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
+import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.div.DivScrapper;
 import org.jsoup.nodes.Element;
-import com.doomedcat17.scpier.data.appendix.Appendix;
-import com.doomedcat17.scpier.data.content_node.ContentNode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DefaultDivScrapper extends DivScrapper implements DivScrapperComponent {
 
-    public DefaultDivScrapper(String source, TitleResolver titleResolver) {
-        super(source, titleResolver);
+    public DefaultDivScrapper(String source) {
+        super(source);
     }
 
     @Override
-    public List<Appendix> scrapDivContent(Element element) {
+    public List<ContentNode<?>> scrapDivContent(Element element) {
         List<ContentNode<?>> contentNodes = scrapContent(element);
-        Appendix appendix = new Appendix();
-        appendix.setContents(contentNodes);
-        return new ArrayList<>(List.of(appendix));
+        ContentNode<List<ContentNode<?>>> divNode = new ContentNode<>(ContentNodeType.DIV);
+        divNode.setContent(contentNodes);
+        if (divNode.getContent().size() == 1) return new ArrayList<>(List.of(divNode.getContent().get(0)));
+        return new ArrayList<>(List.of(divNode));
     }
 }

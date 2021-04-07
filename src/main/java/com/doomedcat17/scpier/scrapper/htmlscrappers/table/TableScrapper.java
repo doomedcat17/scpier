@@ -1,27 +1,25 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers.table;
 
-import com.doomedcat17.scpier.data.content_node.ContentNode;
-import com.doomedcat17.scpier.data.content_node.ContentNodeType;
-import com.doomedcat17.scpier.data.content_node.TextNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.ElementScrapper;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
 import org.jsoup.nodes.Element;
-import com.doomedcat17.scpier.data.appendix.Appendix;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TableScrapper extends ElementScrapper {
-    public TableScrapper(String source, TitleResolver titleResolver) {
-        super(source, titleResolver);
+    public TableScrapper(String source) {
+        super(source);
     }
 
     @Override
-    public Appendix scrapElement(Element element) {
+    public ContentNode<?> scrapElement(Element element) {
         return mapTable(element);
     }
 
-    private Appendix mapTable(Element element) {
+    private ContentNode<?> mapTable(Element element) {
         Element tableBody = element.selectFirst("tbody");
         if (tableBody != null) {
             element = tableBody;
@@ -30,37 +28,35 @@ public class TableScrapper extends ElementScrapper {
                 (element.is("tbody") &&
                         element.parent().hasClass("scale EN-base") &&
                         element.parent().is("table"))) {
-            return mapEnBaseTable(element);
-        } else return mapDefaultTable(element);
+            return scrapEnBaseTable(element);
+        } else return scrapDefaultTable(element);
     }
 
-    private Appendix mapDefaultTable(Element element) {
-        Appendix appendix = new Appendix();
+    private ContentNode<List<ContentNode<?>>> scrapDefaultTable(Element element) {
         List<ContentNode<?>> tableRows = new ArrayList<>();
         for (Element tableRow: element.children()) {
             tableRows.add(mapRow(tableRow));
         }
-        ContentNode<List<ContentNode<?>>> mappedContentNode = new ContentNode<>(ContentNodeType.TABLE, tableRows);
-        appendix.addContentNode(mappedContentNode);
-        return appendix;
+        return new ContentNode<>(ContentNodeType.TABLE, tableRows);
     }
 
-    private Appendix mapEnBaseTable(Element element) {
-        Appendix appendix = new Appendix();
-        ContentNode<List<Appendix>> appendicesContentNodes = new ContentNode<>(ContentNodeType.APPENDICES, new ArrayList<>());
+    private ContentNode<?> scrapEnBaseTable(Element element) {
         Element itemHeaders = element.getElementsByClass("item1 EN").get(0);
+        ContentNode<List<ContentNode<List<TextNode>>>> paragraphs = new ContentNode<>(ContentNodeType.PARAGRAPHS, new ArrayList<>());
         for (Element itemElement: itemHeaders.children()) {
-            String[] splitElements = itemElement.text().split(":");
-            Appendix innerAppendix = new Appendix();
-            innerAppendix.setTitle(splitElements[0].trim());
-            innerAppendix.addContentNode(new TextNode(splitElements[1].trim()));
-            appendicesContentNodes.getContent().add(innerAppendix);
+            ContentNode<List<TextNode>> paragraph = new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
+            String[] splitElements = itemElement.text().split(": ");
+            TextNode strongNode = new TextNode(splitElements[0].trim()+": ");
+            strongNode.addStyle("font-weight", "bold");
+            strongNode.setContent(strongNode.getContent());
+            paragraph.getContent().add(strongNode);
+            paragraph.getContent().add(new TextNode(splitElements[1].trim()));
+            paragraphs.getContent().add(paragraph);
         }
-        appendix.addContentNode(appendicesContentNodes);
-        return appendix;
+        return paragraphs;
     }
 
-    private Appendix mapItemInfo(Element element) {
+    private ContentNode<?>  mapItemInfo(Element element) {
         //TODO scp 139
         return null;
     }

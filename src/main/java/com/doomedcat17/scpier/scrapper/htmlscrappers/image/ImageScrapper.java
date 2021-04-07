@@ -1,24 +1,21 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers.image;
 
-import com.doomedcat17.scpier.data.content_node.ImageNode;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
-import org.jsoup.nodes.Element;
-import com.doomedcat17.scpier.data.appendix.Appendix;
+import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ImageNode;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.ElementScrapper;
+import org.jsoup.nodes.Element;
 
 public class ImageScrapper extends ElementScrapper {
-    public ImageScrapper(String source, TitleResolver titleResolver) {
-        super(source, titleResolver);
+    public ImageScrapper(String source) {
+        super(source);
     }
 
     @Override
-    public Appendix scrapElement(Element element) {
-        Appendix appendix = new Appendix();
+    public ContentNode<?> scrapElement(Element element) {
         ImageNode imageNode = new ImageNode();
         String imageSource = element
                 .attributes().get("src");
         imageNode.setContent(imageSource);
-        appendix.addContentNode(imageNode);
-        return appendix;
+        return imageNode;
     }
 }

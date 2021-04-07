@@ -1,9 +1,9 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers;
 
-import com.doomedcat17.scpapi.TestDataProvider;
+import com.doomedcat17.scpier.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
-import com.doomedcat17.scpier.data.content_node.TextNode;
+import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.scrapper.htmlscrappers.text.TextScrapper;
 
 import java.util.List;
