@@ -1,11 +1,9 @@
 package com.doomedcat17.scpier.data.contentnode;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import lombok.Getter;
 
 import java.util.HashMap;
 import java.util.Map;
-@Getter
 @JsonPropertyOrder({"contentNodeType", "styles", "content"})
 public class TextNode extends ContentNode<String> {
 
@@ -27,6 +25,8 @@ public class TextNode extends ContentNode<String> {
         super(ContentNodeType.TEXT);
         super.content = content;
     }
+
+
 
     @Override
     public boolean isEmpty() {
