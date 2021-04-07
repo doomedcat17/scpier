@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.doomedcat17</groupId>
-    <artifactId>scper</artifactId>
+    <artifactId>scpier</artifactId>
     <version>0.7.0</version>
-    <name>scper</name>
-    <description>SCPer</description>
+    <name>scpier</name>
+    <description>SCPier</description>
 
     <properties>
         <java.version>11</java.version>
