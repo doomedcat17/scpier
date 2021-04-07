@@ -1,0 +1,25 @@
+package com.doomedcat17.scpier;
+
+import com.doomedcat17.scpier.data.scp.SCPBranch;
+import com.doomedcat17.scpier.data.scp.SCPTranslation;
+import com.doomedcat17.scpier.data.scp.ScpObject;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class JSONWriter {
+
+    public static void main(String[] args) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
+        try {
+            ScpObject scp = scpFoundationDataProvider.getScpObject(123, SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
+            // ScpTale scpTale = scpFoundationDataProvider.getScpTale("a-blessed-day", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
+            // ScpObject scpObject = scpFoundationDataProvider.getFirstScpObject("qntm-s-proposal", SCPBranch.ENGLISH, SCPTranslation.POLISH, false);
+            System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(scp));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+}
