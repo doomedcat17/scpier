@@ -1,19 +1,20 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers;
 
 import com.doomedcat17.scpier.TestDataProvider;
+import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.scrapper.text.TextScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
-import com.doomedcat17.scpier.data.contentnode.TextNode;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.text.TextScrapper;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TextScrapperTest extends ScrapperTest {
 
     private final Element sampleLines = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/lines/SampleLinesElements.html");
+            .getSampleElements("src/test/resources/html/testdata/lines/SampleLinesElements.html");
 
     @Test
     void shouldMapSimpleParagraph() {

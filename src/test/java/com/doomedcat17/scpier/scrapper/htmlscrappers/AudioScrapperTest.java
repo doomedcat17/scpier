@@ -3,7 +3,7 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.AudioNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.audio.AudioScrapper;
+import com.doomedcat17.scpier.scrapper.audio.AudioScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +15,7 @@ class AudioScrapperTest extends ScrapperTest {
     private final AudioScrapper audioScrapper = new AudioScrapper(SOURCE);
 
     private final Element sampleElements = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/audio/sampleAudioElements.html");
+            .getSampleElements("src/test/resources/html/testdata/audio/sampleAudioElements.html");
 
     @Test
     void shouldScrapAudioElement() {

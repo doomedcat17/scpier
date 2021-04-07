@@ -3,7 +3,7 @@ package com.doomedcat17.scpier.mapper.scp;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.scp.ScpObject;
 import com.doomedcat17.scpier.pagecontent.PageContent;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.ElementScrapper;
+import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import org.jsoup.nodes.Element;
 
 public class DefaultScpMapper implements ScpMapper {

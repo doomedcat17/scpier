@@ -1,9 +1,9 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers;
 
 import com.doomedcat17.scpier.TestDataProvider;
+import com.doomedcat17.scpier.scrapper.text.StyleScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.text.StyleScrapper;
 
 import java.util.Map;
 
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class StyleScrapperTest {
 
     private final Element sampleLines = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/lines/SampleLinesElements.html");
+            .getSampleElements("src/test/resources/html/testdata/lines/SampleLinesElements.html");
 
     @Test
     void shouldScrapStylesFromStrongElement() {

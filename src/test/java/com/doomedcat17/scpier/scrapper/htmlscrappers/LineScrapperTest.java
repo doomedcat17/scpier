@@ -3,9 +3,9 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.scrapper.line.LineScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.line.LineScrapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +18,9 @@ class LineScrapperTest extends ScrapperTest {
     private final LineScrapper lineScrapper = new LineScrapper(SOURCE);
 
     private final Element sampleLines = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/lines/SampleLinesElements.html");
+            .getSampleElements("src/test/resources/html/testdata/lines/SampleLinesElements.html");
 
-    private Map<String, ContentNode<?>> expectedOutputs = getExpectedAppendicesOutputs("src/test/resources/html/test_data/lines/expected_outputs.json");
+    private final Map<String, ContentNode<?>> expectedOutputs = getExpectedAppendicesOutputs("src/test/resources/html/testdata/lines/expected_outputs.json");
 
     @Test
     void shouldScrapSimpleLine() {

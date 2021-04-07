@@ -2,7 +2,7 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 
 import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.blockquote.BlockquoteScrapper;
+import com.doomedcat17.scpier.scrapper.blockquote.BlockquoteScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
@@ -13,13 +13,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class BlockquoteScrapperTest extends ScrapperTest {
 
 
-    private BlockquoteScrapper blockquoteScrapper = new BlockquoteScrapper(SOURCE);
+    private final BlockquoteScrapper blockquoteScrapper = new BlockquoteScrapper(SOURCE);
 
     private final Element sampleLines = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/blockquotes/SampleBlockquoteElements.html");
+            .getSampleElements("src/test/resources/html/testdata/blockquotes/SampleBlockquoteElements.html");
 
     private final Map<String, ContentNode<?>> expectedOutputs =
-            getExpectedAppendicesOutputs("src/test/resources/html/test_data/blockquotes/expected_outputs.json");
+            getExpectedAppendicesOutputs("src/test/resources/html/testdata/blockquotes/expected_outputs.json");
 
     @Test
     void shouldScrapSimpleBlockquote() {

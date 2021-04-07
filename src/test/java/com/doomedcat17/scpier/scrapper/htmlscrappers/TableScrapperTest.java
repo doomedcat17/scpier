@@ -2,27 +2,27 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 
 
 import com.doomedcat17.scpier.TestDataProvider;
-import com.doomedcat17.scpier.data.contentnode.TextNode;
-import org.jsoup.nodes.Element;
-import org.junit.jupiter.api.Test;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.table.TableScrapper;
+import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.scrapper.table.TableScrapper;
+import org.jsoup.nodes.Element;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TableScrapperTest extends ScrapperTest {
 
-    private TableScrapper tableMapper = new TableScrapper(SOURCE);
+    private final TableScrapper tableMapper = new TableScrapper(SOURCE);
 
     private final Element sampleTables = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/tables/SampleTableElements.html");
+            .getSampleElements("src/test/resources/html/testdata/tables/SampleTableElements.html");
 
-    private Map<String, ContentNode<?>> expectedOutputs =
-            getExpectedAppendicesOutputs("src/test/resources/html/test_data/tables/expected_outputs.json");
+    private final Map<String, ContentNode<?>> expectedOutputs =
+            getExpectedAppendicesOutputs("src/test/resources/html/testdata/tables/expected_outputs.json");
 
     @Test
     void shouldScrapSimpleTable() {

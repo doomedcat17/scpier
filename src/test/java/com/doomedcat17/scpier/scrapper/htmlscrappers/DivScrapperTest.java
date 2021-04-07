@@ -5,7 +5,7 @@ import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.ImageNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.div.DivScrapper;
+import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
@@ -15,10 +15,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DivScrapperTest extends ScrapperTest {
 
-    private DivScrapper divMapper = new DivScrapper(SOURCE);
+    private final DivScrapper divMapper = new DivScrapper(SOURCE);
 
     protected final Element sampleDivs = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/divs/SampleDivsElements.html");
+            .getSampleElements("src/test/resources/html/testdata/divs/SampleDivsElements.html");
 
     @Test
     void shouldMapDivAsText() {

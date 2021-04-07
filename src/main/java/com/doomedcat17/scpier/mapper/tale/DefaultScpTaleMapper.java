@@ -2,7 +2,7 @@ package com.doomedcat17.scpier.mapper.tale;
 
 import com.doomedcat17.scpier.data.scp.ScpTale;
 import com.doomedcat17.scpier.pagecontent.PageContent;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.line.LineScrapper;
+import com.doomedcat17.scpier.scrapper.line.LineScrapper;
 import org.jsoup.nodes.Element;
 
 public class DefaultScpTaleMapper implements ScpTaleMapper {

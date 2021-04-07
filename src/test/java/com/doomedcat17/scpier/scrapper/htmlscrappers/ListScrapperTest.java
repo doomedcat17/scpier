@@ -2,7 +2,7 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 
 import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.list.ListScrapper;
+import com.doomedcat17.scpier.scrapper.list.ListScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
@@ -12,13 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ListScrapperTest extends ScrapperTest {
 
-    private ListScrapper listMapper = new ListScrapper(SOURCE);
+    private final ListScrapper listMapper = new ListScrapper(SOURCE);
 
     private final Element sampleLists = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/lists/SampleListsElements.html");
+            .getSampleElements("src/test/resources/html/testdata/lists/SampleListsElements.html");
 
-    private Map<String, ContentNode<?>> expectedOutputs =
-            getExpectedAppendicesOutputs("src/test/resources/html/test_data/lists/expected_outputs.json");
+    private final Map<String, ContentNode<?>> expectedOutputs =
+            getExpectedAppendicesOutputs("src/test/resources/html/testdata/lists/expected_outputs.json");
 
     @Test
     void shouldScrapSimpleUnorderedList() {

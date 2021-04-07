@@ -3,7 +3,8 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.div.DivScrapper;
+import com.doomedcat17.scpier.scrapper.ElementScrapper;
+import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.nodes.Element;
@@ -18,7 +19,7 @@ class ElementScrapperTest extends ScrapperTest  {
     private final ElementScrapper elementScrapper = new DivScrapper(SOURCE);
 
     private final Element sampleDivs = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/divs/SampleDivsElements.html");
+            .getSampleElements("src/test/resources/html/testdata/divs/SampleDivsElements.html");
 
     @Test
     void shouldScrapMath() {
