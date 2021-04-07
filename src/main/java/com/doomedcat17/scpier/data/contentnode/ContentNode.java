@@ -57,4 +57,5 @@ public class ContentNode<T> implements Serializable {
     public void setContent(T content) {
         this.content = content;
     }
+
 }

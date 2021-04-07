@@ -56,11 +56,6 @@ public class TableScrapper extends ElementScrapper {
         return paragraphs;
     }
 
-    private ContentNode<?>  mapItemInfo(Element element) {
-        //TODO scp 139
-        return null;
-    }
-
     private ContentNode<?> mapRow(Element row) {
         List<ContentNode<List<ContentNode<?>>>> rowCells = new ArrayList<>();
         for (Element cell: row.children()) {
