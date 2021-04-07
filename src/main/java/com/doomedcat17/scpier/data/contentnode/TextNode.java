@@ -1,10 +1,7 @@
 package com.doomedcat17.scpier.data.contentnode;
 
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
 import java.util.HashMap;
 import java.util.Map;
-@JsonPropertyOrder({"contentNodeType", "styles", "content"})
 public class TextNode extends ContentNode<String> {
 
     protected Map<String, String> styles = new HashMap<>();
