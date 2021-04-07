@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.mapper.tale_mappers;
+package com.doomedcat17.scpier.mapper.tale;
 
 import com.doomedcat17.scpier.data.scp.ScpTale;
 import com.doomedcat17.scpier.pagecontent.PageContent;

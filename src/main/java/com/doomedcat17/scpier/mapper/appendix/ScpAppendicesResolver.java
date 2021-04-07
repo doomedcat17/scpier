@@ -1,9 +1,10 @@
-package com.doomedcat17.scpier.mapper.scp_mappers.appendix_mappers;
+package com.doomedcat17.scpier.mapper.appendix;
 
-import com.doomedcat17.scpier.data.contentnode.ImageNode;
-import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
 import com.doomedcat17.scpier.data.appendix.Appendix;
+import com.doomedcat17.scpier.data.contentnode.ImageNode;
 import com.doomedcat17.scpier.data.scp.ScpObject;
+import com.doomedcat17.scpier.scrapper.htmlscrappers.title.TitleResolver;
+
 import java.util.Iterator;
 import java.util.List;
 

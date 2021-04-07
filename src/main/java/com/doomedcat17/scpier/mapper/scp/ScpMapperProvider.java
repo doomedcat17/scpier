@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.mapper.scp_mappers;
+package com.doomedcat17.scpier.mapper.scp;
 
 
 public class ScpMapperProvider {

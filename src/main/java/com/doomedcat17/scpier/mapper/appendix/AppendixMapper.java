@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.mapper.scp_mappers.appendix_mappers;
+package com.doomedcat17.scpier.mapper.appendix;
 
 import com.doomedcat17.scpier.data.appendix.Appendix;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;

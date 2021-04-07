@@ -7,10 +7,10 @@ import com.doomedcat17.scpier.data.scp.ScpTale;
 import com.doomedcat17.scpier.exceptions.ScpObjectNotFoundException;
 import com.doomedcat17.scpier.exceptions.ScpTaleNotFoundException;
 import com.doomedcat17.scpier.mapper.SourceBuilder;
-import com.doomedcat17.scpier.mapper.scp_mappers.ScpMapper;
-import com.doomedcat17.scpier.mapper.scp_mappers.ScpMapperProvider;
-import com.doomedcat17.scpier.mapper.tale_mappers.ScpTaleMapper;
-import com.doomedcat17.scpier.mapper.tale_mappers.ScpTaleMapperProvider;
+import com.doomedcat17.scpier.mapper.scp.ScpMapper;
+import com.doomedcat17.scpier.mapper.scp.ScpMapperProvider;
+import com.doomedcat17.scpier.mapper.tale.ScpTaleMapper;
+import com.doomedcat17.scpier.mapper.tale.ScpTaleMapperProvider;
 import com.doomedcat17.scpier.pagecontent.PageContent;
 import com.doomedcat17.scpier.pagecontent.PageContentProvider;
 
