@@ -30,10 +30,13 @@
                 <configuration>
                     <source>11</source>
                     <target>11</target>
+                    <excludes>
+                        <exclude>src/test/resources/**</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
         </plugins>
-        <testSourceDirectory>src/test</testSourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
     </build>
 
     <dependencies>
