@@ -459,6 +459,53 @@ class DivScrapperTest extends ScrapperTest {
             fail();
         }
 
+
+
+    }
+
+    @Test
+    void shouldScrapObjClassBar() {
+        //given
+        Element anomBarElement = sampleDivs.getElementById("shouldScrapObjClassBar");
+        //when
+        ContentNode<?> contentNode = divMapper.scrapElement(anomBarElement);
+        //then
+        assertEquals(ContentNodeType.CONTENT_NODES, contentNode.getContentNodeType());
+        try {
+            ContentNode<List<ContentNode<List<TextNode>>>> node = (ContentNode<List<ContentNode<List<TextNode>>>>) contentNode;
+
+            assertEquals(6, node.getContent().size());
+
+            assertEquals("Item #: ", node.getContent().get(0).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(0).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("SCP-4444", node.getContent().get(0).getContent().get(1).getContent());
+
+            assertEquals("Object Class: ", node.getContent().get(1).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(1).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("Keter", node.getContent().get(1).getContent().get(1).getContent());
+
+            assertEquals("Site Responsible: ", node.getContent().get(2).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(2).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("USMILA Site-19", node.getContent().get(2).getContent().get(1).getContent());
+
+            assertEquals("Director: ", node.getContent().get(3).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(3).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("Tilda Moose", node.getContent().get(3).getContent().get(1).getContent());
+
+            assertEquals("Research Head: ", node.getContent().get(4).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(4).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("K. P. Crow", node.getContent().get(4).getContent().get(1).getContent());
+
+            assertEquals("Assigned Task Force: ", node.getContent().get(5).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(5).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("N/A", node.getContent().get(5).getContent().get(1).getContent());
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
+
+
+
     }
 
 

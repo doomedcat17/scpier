@@ -4,8 +4,8 @@ import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
+import com.doomedcat17.scpier.scrapper.text.TextScrapper;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,26 +17,26 @@ public class ObjectClassBarDivScrapper extends DivScrapper implements DivScrappe
 
     @Override
     public List<ContentNode<?>> scrapDivContent(Element element) {
-        List<ContentNode<?>> barContent = new ArrayList<>();
+        List<ContentNode<?>> contentNodes = new ArrayList<>();
         List<Element> elements = new ArrayList<>();
         elements.add(element.getElementsByClass("sideleft").first());
         elements.add(element.getElementsByClass("sidemiddle").first());
-        for (Element e : elements) {
-            e.children().forEach(child -> barContent.add(mapDivElement(child)));
+        for (Element sideElement : elements) {
+            contentNodes.addAll(scrapSide(sideElement));
         }
-        return barContent;
+        return contentNodes;
     }
 
-    private ContentNode<?> mapDivElement(Element divElement) {
-        Elements spanElements = divElement.getElementsByClass("ocb-text");
-        String title = spanElements.get(0).text().stripLeading();
-        String textContent = spanElements.get(1).text().stripTrailing();
-        TextNode strongNode = new TextNode(title);
-        strongNode.addStyle("font-weight", "bold");
-        TextNode content = new TextNode(textContent);
-        ContentNode<List<TextNode>> paragraph = new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
-        paragraph.getContent().add(strongNode);
-        paragraph.getContent().add(content);
-        return paragraph;
+    private List<ContentNode<List<TextNode>>> scrapSide(Element sideElement) {
+        List<ContentNode<List<TextNode>>> paragraphs = new ArrayList<>();
+        sideElement.children().forEach(lineElement -> paragraphs.add(scrapLine(lineElement)));
+        return paragraphs;
+    }
+
+    private ContentNode<List<TextNode>> scrapLine(Element lineElement) {
+        List<TextNode> textNodes = TextScrapper.scrapText(lineElement, source);
+        textNodes.get(0).addStyle("font-weight", "bold");
+        if (!textNodes.get(0).getContent().endsWith(" ")) textNodes.get(0).setContent(textNodes.get(0).getContent()+" ");
+        return new ContentNode<>(ContentNodeType.PARAGRAPH, textNodes);
     }
 }
