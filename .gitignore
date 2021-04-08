@@ -37,3 +37,4 @@ build/
 ### VS Code ###
 .vscode/
 /src/test/java/com/doomedcat17/scpier/scrapper/title/
+/src/main/java/com/doomedcat17/scpier/scrapper/title/

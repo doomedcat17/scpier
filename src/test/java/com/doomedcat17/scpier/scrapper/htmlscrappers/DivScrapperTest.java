@@ -222,18 +222,23 @@ class DivScrapperTest extends ScrapperTest {
         try {
             ContentNode<List<ContentNode<List<TextNode>>>> node = (ContentNode<List<ContentNode<List<TextNode>>>>) contentNode;
 
-            assertEquals(3, node.getContent().size());
-            assertEquals("Object Class: ", node.getContent().get(0).getContent().get(0).getContent());
+            assertEquals(4, node.getContent().size());
+
+            assertEquals("Item#: ", node.getContent().get(0).getContent().get(0).getContent());
             assertTrue(node.getContent().get(0).getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Keter", node.getContent().get(0).getContent().get(1).getContent());
+            assertEquals("SCP-306", node.getContent().get(0).getContent().get(1).getContent());
 
-            assertEquals("Disruption Class: ", node.getContent().get(1).getContent().get(0).getContent());
+            assertEquals("Containment Class: ", node.getContent().get(1).getContent().get(0).getContent());
             assertTrue(node.getContent().get(1).getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Ekhi", node.getContent().get(1).getContent().get(1).getContent());
+            assertEquals("Keter", node.getContent().get(1).getContent().get(1).getContent());
 
-            assertEquals("Risk Class: ", node.getContent().get(2).getContent().get(0).getContent());
+            assertEquals("Disruption Class: ", node.getContent().get(2).getContent().get(0).getContent());
             assertTrue(node.getContent().get(2).getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Danger", node.getContent().get(2).getContent().get(1).getContent());
+            assertEquals("Ekhi", node.getContent().get(2).getContent().get(1).getContent());
+
+            assertEquals("Risk Class: ", node.getContent().get(3).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(3).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("Danger", node.getContent().get(3).getContent().get(1).getContent());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -254,22 +259,27 @@ class DivScrapperTest extends ScrapperTest {
         try {
             ContentNode<List<ContentNode<List<TextNode>>>> node = (ContentNode<List<ContentNode<List<TextNode>>>>) contentNode;
 
-            assertEquals(4, node.getContent().size());
-            assertEquals("Object Class: ", node.getContent().get(0).getContent().get(0).getContent());
+            assertEquals(5, node.getContent().size());
+
+            assertEquals("Item#: ", node.getContent().get(0).getContent().get(0).getContent());
             assertTrue(node.getContent().get(0).getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Euclid", node.getContent().get(0).getContent().get(1).getContent());
+            assertEquals("SCP-2105", node.getContent().get(0).getContent().get(1).getContent());
 
-            assertEquals("Secondary Class: ", node.getContent().get(1).getContent().get(0).getContent());
+            assertEquals("Containment Class: ", node.getContent().get(1).getContent().get(0).getContent());
             assertTrue(node.getContent().get(1).getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Apollyon", node.getContent().get(1).getContent().get(1).getContent());
+            assertEquals("Euclid", node.getContent().get(1).getContent().get(1).getContent());
 
-            assertEquals("Disruption Class: ", node.getContent().get(2).getContent().get(0).getContent());
+            assertEquals("Secondary Class: ", node.getContent().get(2).getContent().get(0).getContent());
             assertTrue(node.getContent().get(2).getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Vlam", node.getContent().get(2).getContent().get(1).getContent());
+            assertEquals("Apollyon", node.getContent().get(2).getContent().get(1).getContent());
 
-            assertEquals("Risk Class: ", node.getContent().get(3).getContent().get(0).getContent());
+            assertEquals("Disruption Class: ", node.getContent().get(3).getContent().get(0).getContent());
             assertTrue(node.getContent().get(3).getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Notice", node.getContent().get(3).getContent().get(1).getContent());
+            assertEquals("Vlam", node.getContent().get(3).getContent().get(1).getContent());
+
+            assertEquals("Risk Class: ", node.getContent().get(4).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(4).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("Notice", node.getContent().get(4).getContent().get(1).getContent());
         } catch (Exception e) {
             e.printStackTrace();
             fail();

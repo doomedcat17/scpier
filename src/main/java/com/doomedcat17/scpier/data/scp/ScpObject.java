@@ -1,7 +1,6 @@
 package com.doomedcat17.scpier.data.scp;
 
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.ImageNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +11,9 @@ public class ScpObject {
 
     private List<ContentNode<?>> content = new ArrayList<>();
 
-    private List<ImageNode> images = new ArrayList<>();
-
     private List<String> tags;
 
     private String source;
-
-    public void addImage(ImageNode image) {
-        images.add(image);
-    }
 
     public void addContent(ContentNode<?> content) {
         this.content.add(content);
@@ -44,14 +37,6 @@ public class ScpObject {
 
     public void setContent(List<ContentNode<?>> content) {
         this.content = content;
-    }
-
-    public List<ImageNode> getImages() {
-        return images;
-    }
-
-    public void setImages(List<ImageNode> images) {
-        this.images = images;
     }
 
     public String getSource() {
@@ -81,8 +66,6 @@ public class ScpObject {
             return false;
         if (getContent() != null ? !getContent().equals(scpObject.getContent()) : scpObject.getContent() != null)
             return false;
-        if (getImages() != null ? !getImages().equals(scpObject.getImages()) : scpObject.getImages() != null)
-            return false;
         if (getTags() != null ? !getTags().equals(scpObject.getTags()) : scpObject.getTags() != null) return false;
         return getSource() != null ? getSource().equals(scpObject.getSource()) : scpObject.getSource() == null;
     }
@@ -91,7 +74,6 @@ public class ScpObject {
     public int hashCode() {
         int result = getObjectName() != null ? getObjectName().hashCode() : 0;
         result = 31 * result + (getContent() != null ? getContent().hashCode() : 0);
-        result = 31 * result + (getImages() != null ? getImages().hashCode() : 0);
         result = 31 * result + (getTags() != null ? getTags().hashCode() : 0);
         result = 31 * result + (getSource() != null ? getSource().hashCode() : 0);
         return result;
