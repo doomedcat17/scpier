@@ -18,15 +18,26 @@ public class ENbaseDivScrapper extends DivScrapper implements DivScrapperCompone
     @Override
     public List<ContentNode<?>> scrapDivContent(Element element) {
         List<ContentNode<?>> contentNodes = new ArrayList<>();
-        String scpClassName = element.getElementsByClass("obj-text")
-                .get(0)
-                .text().trim();
+        contentNodes.add(scrapItemName(element));
+        contentNodes.add(scrapObjectName(element));
+        return contentNodes;
+    }
+
+    private ContentNode<List<TextNode>> scrapItemName(Element element) {
+        String itemText = element.getElementsByClass("itemnum EN").get(0).text();
+        String[] itemStrings = itemText.split(":");
+        TextNode itemHeading = new TextNode(itemStrings[0] + ": ");
+        itemHeading.addStyle("font-weight", "bold");
+        TextNode itemName = new TextNode(itemStrings[1].trim());
+        return new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>(List.of(itemHeading, itemName)));
+    }
+
+    private ContentNode<List<TextNode>> scrapObjectName(Element element) {
+        String scpClassName = element.selectFirst(".obj-text").text();
         TextNode objectClassName = new TextNode(capitalizeText(scpClassName));
         TextNode objectClass = new TextNode("Object Class: ");
-        objectClassName.addStyle("font-weight", "bold");
         objectClass.addStyle("font-weight", "bold");
-        contentNodes.add(new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>(List.of(objectClass, objectClassName))));
-        return contentNodes;
+        return new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>(List.of(objectClass, objectClassName)));
     }
 
 }

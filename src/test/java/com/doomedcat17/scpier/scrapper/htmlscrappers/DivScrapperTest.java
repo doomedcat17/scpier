@@ -172,14 +172,19 @@ class DivScrapperTest extends ScrapperTest {
         //when
         ContentNode<?> contentNode = divMapper.scrapElement(enBaseElement);
         //then
-        assertEquals(ContentNodeType.PARAGRAPH, contentNode.getContentNodeType());
+        assertEquals(ContentNodeType.CONTENT_NODES, contentNode.getContentNodeType());
         try {
-            ContentNode<List<TextNode>> paragraph = (ContentNode<List<TextNode>>) contentNode;
-            assertEquals("Object Class: ", paragraph.getContent().get(0).getContent());
-            assertTrue(paragraph.getContent().get(0).getStyles().containsKey("font-weight"));
+            ContentNode<List<ContentNode<List<TextNode>>>> node = (ContentNode<List<ContentNode<List<TextNode>>>>) contentNode;
 
-            assertEquals("Safe", paragraph.getContent().get(1).getContent());
-            assertTrue(paragraph.getContent().get(1).getStyles().containsKey("font-weight"));
+            assertEquals(2, node.getContent().size());
+
+            assertEquals("Item #: ", node.getContent().get(0).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(0).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("SCP-1780", node.getContent().get(0).getContent().get(1).getContent());
+
+            assertEquals("Object Class: ", node.getContent().get(1).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(1).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("Safe", node.getContent().get(1).getContent().get(1).getContent());
         } catch (Exception e) {
             e.printStackTrace();
             fail();
@@ -195,14 +200,19 @@ class DivScrapperTest extends ScrapperTest {
         //when
         ContentNode<?> contentNode = divMapper.scrapElement(enBaseElement);
         //then
-        assertEquals(ContentNodeType.PARAGRAPH, contentNode.getContentNodeType());
+        assertEquals(ContentNodeType.CONTENT_NODES, contentNode.getContentNodeType());
         try {
-            ContentNode<List<TextNode>> paragraph = (ContentNode<List<TextNode>>) contentNode;
-            assertEquals("Object Class: ", paragraph.getContent().get(0).getContent());
-            assertTrue(paragraph.getContent().get(0).getStyles().containsKey("font-weight"));
+            ContentNode<List<ContentNode<List<TextNode>>>> node = (ContentNode<List<ContentNode<List<TextNode>>>>) contentNode;
 
-            assertEquals("Keter", paragraph.getContent().get(1).getContent());
-            assertTrue(paragraph.getContent().get(1).getStyles().containsKey("font-weight"));
+            assertEquals(2, node.getContent().size());
+
+            assertEquals("Item #: ", node.getContent().get(0).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(0).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("SCP-2410", node.getContent().get(0).getContent().get(1).getContent());
+
+            assertEquals("Object Class: ", node.getContent().get(1).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(1).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("Keter", node.getContent().get(1).getContent().get(1).getContent());
         } catch (Exception e) {
             e.printStackTrace();
             fail();
@@ -360,22 +370,27 @@ class DivScrapperTest extends ScrapperTest {
         try {
             ContentNode<List<ContentNode<List<TextNode>>>> node = (ContentNode<List<ContentNode<List<TextNode>>>>) contentNode;
 
-            assertEquals(4, node.getContent().size());
-            assertEquals("Containment Class: ", node.getContent().get(0).getContent().get(0).getContent());
+            assertEquals(5, node.getContent().size());
+
+            assertEquals("Item#: ", node.getContent().get(0).getContent().get(0).getContent());
             assertTrue(node.getContent().get(0).getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Esoteric", node.getContent().get(0).getContent().get(1).getContent());
+            assertEquals("SCP-5004", node.getContent().get(0).getContent().get(1).getContent());
 
-            assertEquals("Secondary Class: ", node.getContent().get(1).getContent().get(0).getContent());
+            assertEquals("Containment Class: ", node.getContent().get(1).getContent().get(0).getContent());
             assertTrue(node.getContent().get(1).getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Thaumiel", node.getContent().get(1).getContent().get(1).getContent());
+            assertEquals("Esoteric", node.getContent().get(1).getContent().get(1).getContent());
 
-            assertEquals("Disruption Class: ", node.getContent().get(2).getContent().get(0).getContent());
+            assertEquals("Secondary Class: ", node.getContent().get(2).getContent().get(0).getContent());
             assertTrue(node.getContent().get(2).getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Ekhi", node.getContent().get(2).getContent().get(1).getContent());
+            assertEquals("Thaumiel", node.getContent().get(2).getContent().get(1).getContent());
 
-            assertEquals("Risk Class: ", node.getContent().get(3).getContent().get(0).getContent());
+            assertEquals("Disruption Class: ", node.getContent().get(3).getContent().get(0).getContent());
             assertTrue(node.getContent().get(3).getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Notice", node.getContent().get(3).getContent().get(1).getContent());
+            assertEquals("Ekhi", node.getContent().get(3).getContent().get(1).getContent());
+
+            assertEquals("Risk Class: ", node.getContent().get(4).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(4).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("Notice", node.getContent().get(4).getContent().get(1).getContent());
         } catch (Exception e) {
             e.printStackTrace();
             fail();
@@ -396,18 +411,23 @@ class DivScrapperTest extends ScrapperTest {
         try {
             ContentNode<List<ContentNode<List<TextNode>>>> node = (ContentNode<List<ContentNode<List<TextNode>>>>) contentNode;
 
-            assertEquals(3, node.getContent().size());
-            assertEquals("Containment Class: ", node.getContent().get(0).getContent().get(0).getContent());
+            assertEquals(4, node.getContent().size());
+
+            assertEquals("Item#: ", node.getContent().get(0).getContent().get(0).getContent());
             assertTrue(node.getContent().get(0).getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Euclid", node.getContent().get(0).getContent().get(1).getContent());
+            assertEquals("SCP-2105", node.getContent().get(0).getContent().get(1).getContent());
 
-            assertEquals("Disruption Class: ", node.getContent().get(1).getContent().get(0).getContent());
+            assertEquals("Containment Class: ", node.getContent().get(1).getContent().get(0).getContent());
             assertTrue(node.getContent().get(1).getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Vlam", node.getContent().get(1).getContent().get(1).getContent());
+            assertEquals("Euclid", node.getContent().get(1).getContent().get(1).getContent());
 
-            assertEquals("Risk Class: ", node.getContent().get(2).getContent().get(0).getContent());
+            assertEquals("Disruption Class: ", node.getContent().get(2).getContent().get(0).getContent());
             assertTrue(node.getContent().get(2).getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Notice", node.getContent().get(2).getContent().get(1).getContent());
+            assertEquals("Vlam", node.getContent().get(2).getContent().get(1).getContent());
+
+            assertEquals("Risk Class: ", node.getContent().get(3).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(3).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("Notice", node.getContent().get(3).getContent().get(1).getContent());
         } catch (Exception e) {
             e.printStackTrace();
             fail();
@@ -421,12 +441,19 @@ class DivScrapperTest extends ScrapperTest {
         //when
         ContentNode<?> contentNode = divMapper.scrapElement(anomBarElement);
         //then
-        assertEquals(ContentNodeType.PARAGRAPH, contentNode.getContentNodeType());
+        assertEquals(ContentNodeType.CONTENT_NODES, contentNode.getContentNodeType());
         try {
-            ContentNode<List<TextNode>> paragraph = (ContentNode<List<TextNode>>) contentNode;
-            assertEquals("Containment Class: ", paragraph.getContent().get(0).getContent());
-            assertTrue(paragraph.getContent().get(0).getStyles().containsKey("font-weight"));
-            assertEquals("Pending", paragraph.getContent().get(1).getContent());
+            ContentNode<List<ContentNode<List<TextNode>>>> node = (ContentNode<List<ContentNode<List<TextNode>>>>) contentNode;
+
+            assertEquals(2, node.getContent().size());
+
+            assertEquals("Item#: ", node.getContent().get(0).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(0).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("SCP-4511", node.getContent().get(0).getContent().get(1).getContent());
+
+            assertEquals("Containment Class: ", node.getContent().get(1).getContent().get(0).getContent());
+            assertTrue(node.getContent().get(1).getContent().get(0).getStyles().containsKey("font-weight"));
+            assertEquals("Pending", node.getContent().get(1).getContent().get(1).getContent());
         } catch (Exception e) {
             e.printStackTrace();
             fail();
