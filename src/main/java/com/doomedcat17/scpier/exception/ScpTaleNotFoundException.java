@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.exceptions;
+package com.doomedcat17.scpier.exception;
 
 public class ScpTaleNotFoundException extends Exception {
 

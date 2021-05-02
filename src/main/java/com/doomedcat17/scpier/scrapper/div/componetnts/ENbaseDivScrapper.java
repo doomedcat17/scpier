@@ -24,7 +24,7 @@ public class ENbaseDivScrapper extends DivScrapper implements DivScrapperCompone
     }
 
     private ContentNode<List<TextNode>> scrapItemName(Element element) {
-        String itemText = element.getElementsByClass("itemnum EN").get(0).text();
+        String itemText = element.getElementsByClass("itemnum").get(0).text();
         String[] itemStrings = itemText.split(":");
         TextNode itemHeading = new TextNode(itemStrings[0] + ": ");
         itemHeading.addStyle("font-weight", "bold");

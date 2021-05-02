@@ -12,6 +12,11 @@ public class HyperlinkNode extends TextNode {
         this.href = href;
     }
 
+    @Override
+    public boolean isEmpty() {
+        return super.isEmpty() || content.isEmpty() || href.isEmpty();
+    }
+
     public HyperlinkNode(String content, String href) {
         super(content);
         this.href = href;

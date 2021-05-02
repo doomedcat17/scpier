@@ -60,7 +60,7 @@ public class TableScrapper extends ElementScrapper {
         List<ContentNode<List<ContentNode<?>>>> rowCells = new ArrayList<>();
         for (Element cell: row.children()) {
             ContentNode<List<ContentNode<?>>> cellNode = new ContentNode<>(ContentNodeType.TABLE_CELL, new ArrayList<>());
-            if (cell.is("th")) cellNode.setContentNodeType(ContentNodeType.TABLE_HEADING_CELL);
+            if (cell.is("th, thead")) cellNode.setContentNodeType(ContentNodeType.TABLE_HEADING_CELL);
             if(cell.children().isEmpty() && cell.text().isBlank()) continue;
             cellNode.getContent().addAll(scrapContent(cell));
             rowCells.add(cellNode);

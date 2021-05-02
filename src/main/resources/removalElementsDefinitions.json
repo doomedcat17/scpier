@@ -16,5 +16,13 @@
   "style",
   ".log-form",
   "form",
-  ".form"
+  ".form",
+  "#loadingpage",
+  "#buttons",
+  "#loading",
+  "meta",
+  "base",
+  "#buttons",
+  "#warning"
+
 ]

@@ -1,15 +1,10 @@
 package com.doomedcat17.scpier.pagecontent.html.document;
 
-import org.jsoup.Connection;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
+import com.doomedcat17.scpier.pagecontent.PageContent;
 
 import java.io.IOException;
 
-public class HTMLDocumentProvider {
+public interface HTMLDocumentProvider {
 
-    public Document getWebpageContent(String url) throws IOException {
-        Connection conn = Jsoup.connect(url);
-        return conn.get();
-    }
+    PageContent getWebpageContent(String url) throws IOException;
 }

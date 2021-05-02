@@ -4,9 +4,8 @@ import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import com.doomedcat17.scpier.data.scp.ScpObject;
 import com.doomedcat17.scpier.data.scp.ScpTale;
-import com.doomedcat17.scpier.exceptions.ScpObjectNotFoundException;
-import com.doomedcat17.scpier.exceptions.ScpTaleNotFoundException;
-import com.doomedcat17.scpier.mapper.SourceBuilder;
+import com.doomedcat17.scpier.exception.ScpObjectNotFoundException;
+import com.doomedcat17.scpier.exception.ScpTaleNotFoundException;
 import com.doomedcat17.scpier.mapper.scp.ScpMapper;
 import com.doomedcat17.scpier.mapper.scp.ScpMapperProvider;
 import com.doomedcat17.scpier.mapper.tale.ScpTaleMapper;
@@ -19,8 +18,6 @@ import java.io.IOException;
 public class ScpFoundationDataProvider {
 
     private final PageContentProvider pageContentProvider = new PageContentProvider();
-
-    private final SourceBuilder sourceBuilder = new SourceBuilder();
 
     public ScpObject getScpObject(int objectId, SCPBranch scpBranch, SCPTranslation scpTranslation) throws ScpObjectNotFoundException {
         String name = String.valueOf(objectId);
@@ -56,8 +53,7 @@ public class ScpFoundationDataProvider {
     }
 
     private PageContent getPageContent(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws IOException {
-        String source = sourceBuilder.buildSource(name, scpBranch, scpTranslation);
-        PageContent pageContent = pageContentProvider.getPageContent(source);
+        PageContent pageContent = pageContentProvider.getPageContent(name, scpBranch, scpTranslation);
         if (scpTranslation.equals(SCPTranslation.ORIGINAL)) {
             pageContent.setLangIdentifier(scpBranch.identifier);
         } else pageContent.setLangIdentifier(scpTranslation.identifier);

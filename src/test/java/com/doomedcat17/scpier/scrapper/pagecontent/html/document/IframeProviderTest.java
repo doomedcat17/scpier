@@ -1,22 +1,7 @@
 package com.doomedcat17.scpier.scrapper.pagecontent.html.document;
 
-import com.doomedcat17.scpier.TestDataProvider;
-import com.doomedcat17.scpier.pagecontent.PageContent;
-import com.doomedcat17.scpier.pagecontent.html.document.DocumentContentCleanerImpl;
-import com.doomedcat17.scpier.pagecontent.html.document.HTMLDocumentProvider;
-import com.doomedcat17.scpier.pagecontent.html.document.IframeProvider;
-import org.jsoup.nodes.Element;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-
-import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 class IframeProviderTest {
+    /*
 
     @Mock
     private HTMLDocumentProvider htmlDocumentProvider;
@@ -161,4 +146,6 @@ class IframeProviderTest {
         //then
         assertEquals(1, content.select("video").size());
     }
+
+     */
 }

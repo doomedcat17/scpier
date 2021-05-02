@@ -28,7 +28,7 @@ public class DivScrapper extends ElementScrapper {
     }
 
     private DivScrapperComponent getComponent(Element element) {
-        if (element.hasClass("collapsible-block")) {
+        if (element.hasClass("collapsible-block") || element.hasClass("colmod-block")) {
             return new CollapsibleBlockScrapper(source);
         } else if (element.id().equals("u-adult-warning")) {
             return new AdultWarningScrapper(source);
@@ -40,7 +40,7 @@ public class DivScrapper extends ElementScrapper {
             return new AnomBarScrapper(source);
         } else if (element.hasClass("scp-image-block") || element.hasClass("image-container")){
             return new ImageBlockScrapper(source);
-        } else if (element.hasClass("scale EN-base")){
+        } else if (element.hasClass("scale")){
             return new ENbaseDivScrapper(source);
         } else if (element.hasClass("acs-hybrid-text-bar")){
             return new ACSDivScrapper(source);

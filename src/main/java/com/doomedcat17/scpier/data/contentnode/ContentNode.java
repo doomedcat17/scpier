@@ -1,6 +1,7 @@
 package com.doomedcat17.scpier.data.contentnode;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class ContentNode<T> implements Serializable {
 
@@ -9,7 +10,12 @@ public class ContentNode<T> implements Serializable {
     protected T content;
 
     public boolean isEmpty() {
-        return content == null;
+        if (content == null) return true;
+        else if (content instanceof List) {
+            List<?> objects = (List<?>) content;
+            return objects.isEmpty();
+        }
+        return false;
     }
 
     @Override

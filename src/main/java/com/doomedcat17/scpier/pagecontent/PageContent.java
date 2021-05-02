@@ -55,4 +55,11 @@ public class PageContent {
     public void setTags(List<String> tags) {
         this.tags = tags;
     }
+
+    public PageContent(Element content) {
+        this.content = content;
+    }
+
+    public PageContent() {
+    }
 }

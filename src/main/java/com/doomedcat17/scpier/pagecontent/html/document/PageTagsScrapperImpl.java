@@ -1,6 +1,5 @@
 package com.doomedcat17.scpier.pagecontent.html.document;
 
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
@@ -9,9 +8,9 @@ import java.util.Optional;
 
 public class PageTagsScrapperImpl implements PageTagsScrapper {
     @Override
-    public Optional<List<String>> scrapPageTags(Document contentDocument) {
+    public Optional<List<String>> scrapPageTags(Element contentElement) {
         List<String> tagNames = new ArrayList<>();
-        Element tagsElement = contentDocument.selectFirst(".page-tags");
+        Element tagsElement = contentElement.selectFirst(".page-tags");
         if (tagsElement == null) return Optional.empty();
         List<Element> tagElements = tagsElement.children();
         if (tagElements.size() == 1) tagElements = tagElements.get(0).children();

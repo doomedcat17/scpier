@@ -1,7 +1,6 @@
 package com.doomedcat17.scpier.pagecontent.html.document;
 
 import com.doomedcat17.scpier.pagecontent.PageContent;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.IOException;
@@ -16,19 +15,19 @@ public class HTMLDocumentInterpreter {
 
     private final PageTagsScrapper pageTagsScrapper;
 
-    public void mapDocument(Document contentDocument, PageContent pageContent) throws IOException {
-        Element content = contentDocument.getElementById("page-content");
+    public void mapContent(PageContent pageContent) throws IOException {
+        Element content = pageContent.getContent().getElementById("page-content");
         Optional<Element> redirectionElement = htmlRedirectionHandler.checkForRedirection(content);
         if (redirectionElement.isPresent()) content = htmlRedirectionHandler.getRedirectionContent(redirectionElement.get(), pageContent.getSourceUrl());
-        pageContent.setName(contentDocument.getElementById("page-title").text());
-        Optional<List<String>> tagNames = pageTagsScrapper.scrapPageTags(contentDocument);
+        pageContent.setName(pageContent.getContent().getElementById("page-title").text());
+        Optional<List<String>> tagNames = pageTagsScrapper.scrapPageTags(pageContent.getContent());
         tagNames.ifPresent(pageContent::setTags);
         pageContent.setContent(content);
-        documentContentCleanerImpl.clearContentAndUnpackBlocks(content);
-        if (!content.select(":root iframe").isEmpty()) {
-            IframeProvider iframeProvider = new IframeProvider(new HTMLDocumentProvider(), documentContentCleanerImpl);
+        if (!content.getElementsByTag("iframe").isEmpty()) {
+            IframeProvider iframeProvider = new IframeProvider(new DefaultHTMLDocumentProvider(), documentContentCleanerImpl);
             iframeProvider.provideIframesContent(pageContent);
         }
+        documentContentCleanerImpl.clearContentAndUnpackBlocks(content);
     }
 
     public HTMLDocumentInterpreter(DocumentContentCleaner documentContentCleanerImpl, HTMLRedirectionHandler htmlRedirectionHandler, PageTagsScrapper pageTagsScrapper) {

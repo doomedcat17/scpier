@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.data.scp;
 
 public enum SCPBranch {
-    ENGLISH("eng", "http://www.scpwiki.com/", SCPIdentifierPlacement.NONE),
+    ENGLISH("eng", "http://www.scp-wiki.wikidot.com/", SCPIdentifierPlacement.NONE),
     POLISH("pl", "http://scp-pl.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
     RUSSIAN("ru", "http://scp-ru.wikidot.com/", SCPIdentifierPlacement.ENDING),
     JAPANESE("jp", "http://scp-jp.wikidot.com/", SCPIdentifierPlacement.ENDING),

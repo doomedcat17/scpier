@@ -1,6 +1,7 @@
 package com.doomedcat17.scpier.scrapper.pagecontent.html.document;
 
 import com.doomedcat17.scpier.TestDataProvider;
+import com.doomedcat17.scpier.pagecontent.PageContent;
 import com.doomedcat17.scpier.pagecontent.html.document.HTMLDocumentProvider;
 import com.doomedcat17.scpier.pagecontent.html.document.HTMLRedirectionHandler;
 import org.jsoup.nodes.Document;
@@ -61,7 +62,7 @@ class HTMLRedirectionHandlerTest {
         //given
         Document document = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/testdata/document/redirectedScp.html");
         Mockito.when(htmlDocumentProvider.getWebpageContent("http://www.scpwiki.com/adult:scp-597/noredirect/true"))
-                .thenReturn(document);
+                .thenReturn(new PageContent(document.getElementsByTag("body").first()));
         Element content = TestDataProvider
                 .getSampleElements("src/test/resources/html/testdata/document/sampleScpWithRedirection.html")
                 .getElementById("page-content");

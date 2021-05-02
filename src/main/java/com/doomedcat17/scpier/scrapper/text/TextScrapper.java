@@ -20,7 +20,7 @@ public class TextScrapper {
         } else if (textElement.is("a") && !textElement.hasClass("footnoteref")
                 && textElement.hasAttr("href")
                 && (!textElement.attr("href").equals("#") && !textElement.attr("href").contains("javascript"))) {
-            return scrapLink(textElement, source, elementStyles);
+            return new ArrayList<>(List.of(scrapLink(textElement, source, elementStyles)));
         }
         for (Node node : textElement.childNodes()) {
             if (node instanceof Element) {
@@ -35,7 +35,7 @@ public class TextScrapper {
                 } else if (innerElement.is("a") && !innerElement.hasClass("footnoteref")
                         && innerElement.hasAttr("href")
                         && (!innerElement.attr("href").equals("#") && !innerElement.attr("href").contains("javascript"))) {
-                    return scrapLink(innerElement, source, elementStyles);
+                    textNodes.add(scrapLink(innerElement, source, elementStyles));
                 } else {
                     if (innerElement.text().isBlank()) continue;
                     Map<String, String> innerElementStyles = StyleScrapper.scrapStyles(innerElement);
@@ -64,7 +64,7 @@ public class TextScrapper {
         List<TextNode> innerTextNodes = new ArrayList<>();
         for (Node innerNode : element.childNodes()) {
             if (innerNode instanceof Element) {
-                Element innerElement = (Element)  innerNode;
+                Element innerElement = (Element) innerNode;
                 List<TextNode> nodes = scrapText(innerElement, source);
                 innerTextNodes.addAll(nodes);
             } else {
@@ -85,15 +85,15 @@ public class TextScrapper {
         return stringBuilder.toString();
     }
 
-    private static List<TextNode> scrapLink(Element linkElement, String source, Map<String, String> elementStyles) {
+    private static HyperlinkNode scrapLink(Element linkElement, String source, Map<String, String> elementStyles) {
         String href = linkElement.attr("href");
         if (href.startsWith("/")) {
-            href = source.substring(0, source.lastIndexOf('/'))+href;
+            href = source.substring(0, source.lastIndexOf('/')) + href;
         }
         HyperlinkNode hyperlinkNode = new HyperlinkNode(linkElement.wholeText(), href);
         Map<String, String> innerElementStyles = StyleScrapper.scrapStyles(linkElement);
         if (!elementStyles.isEmpty()) innerElementStyles.putAll(elementStyles);
         hyperlinkNode.setStyles(innerElementStyles);
-        return new ArrayList<>(List.of(hyperlinkNode));
+        return hyperlinkNode;
     }
 }

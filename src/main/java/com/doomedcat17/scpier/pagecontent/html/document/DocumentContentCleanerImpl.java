@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DocumentContentCleanerImpl implements DocumentContentCleaner {
 
@@ -29,38 +30,35 @@ public class DocumentContentCleanerImpl implements DocumentContentCleaner {
 
     private void unpackNodes(Element content)  {
         //in some cases content has less than 5 elements then it's unpacked
-        if (content.children().size() < 5 && (!content.children().select("div").isEmpty() || !content.children().select("blockquote").isEmpty())) {
-            ArrayList<Node> nodes = new ArrayList<>();
-            for (Node node: content.childNodesCopy()) {
-                if (node instanceof Element) {
-                    Element element = (Element) node;
-                    if (element.is("div") && !element.hasClass("scp-image-block")) {
-                        nodes.addAll(unpackDiv(element));
-                    } else if (element.is("blockquote")) {
-                        nodes.addAll(element.childNodes());
-                    } else nodes.add(node);
-                } else nodes.add(node);
+        List<Element> divs = content.children().stream().filter(element ->
+                element.is("div, blockquote, section"))
+                .filter(element ->
+                        element.is(":not(.scp-image-block)")).collect(Collectors.toList());
+        if (content.children().size() <= 4 && !divs.isEmpty()) {
+            for (Element element: divs) {
+                List<Node> nodes = unpackBlock(element);
+                int index = element.siblingIndex();
+                element.remove();
+                content.insertChildren(index, nodes);
             }
-            content.empty();
-            content.insertChildren(0, nodes);
             clearContentAndUnpackBlocks(content);
         }
 
     }
 
 
-    private List<Node> unpackDiv(Element divElement) {
+    private List<Node> unpackBlock(Element divElement) {
         if (divElement.is(".collapsible-block")) {
             return divElement
                     .getElementsByClass("collapsible-block-content")
                     .get(0)
-                    .childNodes();
+                    .childNodesCopy();
         } else if(divElement.hasClass("yui-navset") || divElement.hasClass("yui-navset-top")) {
             Element yuiContent = divElement.getElementsByClass("yui-content").first();
             List<Node> nodes = new ArrayList<>();
-            yuiContent.children().forEach(div -> nodes.addAll(div.childNodes()));
+            yuiContent.children().forEach(div -> nodes.addAll(div.childNodesCopy()));
             return nodes;
-        } else return divElement.childNodes();
+        } else return divElement.childNodesCopy();
     }
 
 

@@ -7,6 +7,7 @@ import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import com.doomedcat17.scpier.scrapper.text.TextScrapper;
 import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,7 +21,7 @@ public class LineScrapper extends ElementScrapper {
     @Override
     public ContentNode<?> scrapElement(Element element) {
         if (element.is("br")) {
-            return new TextNode("\n");
+            return new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
         }
         lineCleanup(element);
         //in few cases there are only empty chars and
@@ -39,6 +40,7 @@ public class LineScrapper extends ElementScrapper {
                     return paragraph;
                 } else {
                     List<TextNode> textNodes = TextScrapper.scrapText(element, source);
+                    if (textNodes.isEmpty()) return new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
                     textNodes.get(textNodes.size() - 1).setContent(textNodes.get(textNodes.size() - 1).getContent().stripTrailing());
                     ContentNode<List<ContentNode<List<TextNode>>>> paragraphs = new ContentNode<>(ContentNodeType.PARAGRAPHS);
                     paragraphs.setContent(splitIntoParagraphs(textNodes));
@@ -47,15 +49,23 @@ public class LineScrapper extends ElementScrapper {
                 }
             }
         }
-        return new ContentNode<>();
+        return new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
     }
 
     //in some cases, first node of the paragraph is empty, this method takes care about it
     private void lineCleanup(Element element) {
-        String firstNodeText = element.childNodes().get(0).toString();
-        //removing first node if empty or has only Unicode Byte Order Mark
-        if (firstNodeText.length() == 0 || (firstNodeText.charAt(0) == 65279 && firstNodeText.length() == 1)) {
-            element.childNodes().get(0).remove();
+        if (!element.childNodes().isEmpty()) {
+            Node node = element.childNodes().get(0);
+            String firstNodeText;
+            if (node instanceof Element) {
+                //in some cases node.toString() throws NullPointerException for Element
+                Element e = (Element) node;
+                firstNodeText = e.text();
+            } else firstNodeText = node.toString();
+            //removing first node if empty or has only Unicode Byte Order Mark
+            if (firstNodeText.length() == 0 || (firstNodeText.charAt(0) == 65279 && firstNodeText.length() == 1)) {
+                element.childNodes().get(0).remove();
+            }
         }
     }
 
@@ -78,10 +88,11 @@ public class LineScrapper extends ElementScrapper {
                 if (!lineIndexes.isEmpty()) {
                     for (Integer index : lineIndexes) {
                         String text = textNode.getContent().substring(startIndex, index);
+                        startIndex = index + 1;
+                        if (text.isEmpty()) continue;
                         paragraph.getContent().add(new TextNode(text, textNode.getStyles()));
                         paragraphs.add(paragraph);
                         paragraph = new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
-                        startIndex = index + 1;
                     }
                     String tailingText = textNode.getContent().substring(startIndex);
                     if (!tailingText.isEmpty()) {

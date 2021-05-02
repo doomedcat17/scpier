@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.mapper;
+package com.doomedcat17.scpier.pagecontent.html.document;
 
 import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPIdentifierPlacement;
@@ -7,7 +7,7 @@ import org.jsoup.internal.StringUtil;
 
 public class SourceBuilder {
 
-    public String buildSource(String objectName, SCPBranch scpBranch, SCPTranslation scpTranslation) {
+    public static String buildSource(String objectName, SCPBranch scpBranch, SCPTranslation scpTranslation) {
         StringBuilder sourceBuilder = new StringBuilder(objectName);
         if (StringUtil.isNumeric(objectName)) {
             while (sourceBuilder.length() < 3) sourceBuilder.insert(0, "0");

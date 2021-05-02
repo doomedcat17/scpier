@@ -3,7 +3,7 @@ package com.doomedcat17.scpier.scrapper;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
-import com.doomedcat17.scpier.exceptions.MapperNotFoundException;
+import com.doomedcat17.scpier.exception.MapperNotFoundException;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 
@@ -26,7 +26,6 @@ public abstract class ElementScrapper {
             try {
                 if (node instanceof Element) {
                     Element childElement = (Element) node;
-                    if (childElement.childNodes().isEmpty() || node.toString().isBlank()) continue;
                     ElementScrapper elementScrapper = ScrapperFactory.getHtmlScrapper(childElement, source);
                     ContentNode<?> contentNode = elementScrapper.scrapElement(childElement);
                     if (!contentNode.isEmpty()) {

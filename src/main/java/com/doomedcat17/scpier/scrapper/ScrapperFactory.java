@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.scrapper;
 
-import com.doomedcat17.scpier.exceptions.MapperNotFoundException;
+import com.doomedcat17.scpier.exception.MapperNotFoundException;
 import com.doomedcat17.scpier.scrapper.audio.AudioScrapper;
 import com.doomedcat17.scpier.scrapper.blockquote.BlockquoteScrapper;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
@@ -28,6 +28,7 @@ public class ScrapperFactory {
             case "tt":
             case "br":
             case "pre":
+            case "summary":
                 return new LineScrapper(source);
             case "h1":
             case "h2":
@@ -40,6 +41,8 @@ public class ScrapperFactory {
             case "audio-player":
                 return new AudioScrapper(source);
             case "div":
+            case "section":
+            case "details":
                 if (element.hasClass("blockquote")) return new BlockquoteScrapper(source);
                 else return new DivScrapper(source);
             case "img":

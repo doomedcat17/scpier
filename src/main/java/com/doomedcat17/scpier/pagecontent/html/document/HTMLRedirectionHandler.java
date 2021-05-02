@@ -1,8 +1,8 @@
 package com.doomedcat17.scpier.pagecontent.html.document;
 
+import com.doomedcat17.scpier.pagecontent.PageContent;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.File;
@@ -24,8 +24,8 @@ public class HTMLRedirectionHandler {
             int charPosition = scpUrl.lastIndexOf('/');
             redirectionLink = scpUrl.substring(0, charPosition) + redirectionLink;
         }
-        Document document = htmlDocumentProvider.getWebpageContent(redirectionLink);
-        return document.getElementById("page-content");
+        PageContent webpageContent = htmlDocumentProvider.getWebpageContent(redirectionLink);
+        return webpageContent.getContent().getElementById("page-content");
     }
 
     public Optional<Element> checkForRedirection(Element content) {

@@ -1,18 +1,17 @@
 package com.doomedcat17.scpier.pagecontent.html.document;
 
 import com.doomedcat17.scpier.pagecontent.PageContent;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class IframeProvider {
 
-    private HTMLDocumentProvider htmlDocumentProvider;
+    private final HTMLDocumentProvider htmlDocumentProvider;
 
-    private DocumentContentCleaner documentContentCleaner;
+    private final DocumentContentCleaner documentContentCleaner;
 
     public void provideIframesContent(PageContent pageContent) {
-        Elements iframes = pageContent.getContent().select(":root iframe");
+        Elements iframes = pageContent.getContent().getElementsByTag("iframe");
         iframes.forEach(element -> replaceWithIframeContent(element, pageContent.getSourceUrl(), documentContentCleaner));
     }
 
@@ -35,8 +34,8 @@ public class IframeProvider {
                 source = pageSource.substring(0, pageSource.lastIndexOf('/')) + source;
             }
             try {
-                Document document = htmlDocumentProvider.getWebpageContent(source);
-                iframeContent = document.selectFirst("body");
+                PageContent webpageContent = htmlDocumentProvider.getWebpageContent(source);
+                iframeContent = webpageContent.getContent();
                 documentContentCleaner.removeTrash(iframeContent);
             } catch (Exception ignored) {
             }
