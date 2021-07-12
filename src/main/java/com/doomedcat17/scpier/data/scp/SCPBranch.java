@@ -1,5 +1,8 @@
 package com.doomedcat17.scpier.data.scp;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 public enum SCPBranch {
     ENGLISH("eng", "http://www.scp-wiki.wikidot.com/", SCPIdentifierPlacement.NONE),
     POLISH("pl", "http://scp-pl.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
@@ -26,6 +29,13 @@ public enum SCPBranch {
         this.identifier = identifier;
         this.url = url;
         this.scpIdentifierPlacement = scpIdentifierPlacement;
+    }
+
+    public static SCPBranch getByIdentifier(String identifier) {
+        Optional<SCPBranch> foundScpBranch = Arrays.stream(SCPBranch.values())
+                .filter(scpBranch -> scpBranch.identifier.equals(identifier)).findFirst();
+        if (foundScpBranch.isPresent()) return foundScpBranch.get();
+        else throw new NullPointerException();
     }
 }
 

@@ -1,5 +1,7 @@
 package com.doomedcat17.scpier.data.contentnode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -9,6 +11,7 @@ public class ContentNode<T> implements Serializable {
 
     protected T content;
 
+    @JsonIgnore
     public boolean isEmpty() {
         if (content == null) return true;
         else if (content instanceof List) {
