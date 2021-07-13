@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 
-/** Smallest piece of data. It consists of {@link ContentNodeType} and the actual data. Data type depends on {@link ContentNodeType}
+/** Smallest piece of data. It consists of the {@link ContentNodeType} and the actual data. Data type depends on {@link ContentNodeType}
  * @author Piotr "doomedcat17" Bojczewski */
 
 public class ContentNode<T> implements Serializable {
