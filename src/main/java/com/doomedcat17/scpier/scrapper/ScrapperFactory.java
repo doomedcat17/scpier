@@ -49,6 +49,7 @@ public class ScrapperFactory {
             case "img":
                 return new ImageScrapper(source);
             case "table":
+            case "tbody":
                 return new TableScrapper(source);
             case "ul":
             case "ol":
