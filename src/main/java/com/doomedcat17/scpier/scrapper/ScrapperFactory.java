@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.scrapper;
 
-import com.doomedcat17.scpier.exception.MapperNotFoundException;
+import com.doomedcat17.scpier.exception.ScrapperNotDefinedException;
 import com.doomedcat17.scpier.scrapper.audio.AudioScrapper;
 import com.doomedcat17.scpier.scrapper.blockquote.BlockquoteScrapper;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
@@ -13,7 +13,7 @@ import org.jsoup.nodes.Element;
 
 public class ScrapperFactory {
 
-    public static ElementScrapper getHtmlScrapper(Element element, String source) throws MapperNotFoundException {
+    public static ElementScrapper getHtmlScrapper(Element element, String source) {
         switch (element.tagName()) {
             case "strong":
             case "em":
@@ -55,7 +55,7 @@ public class ScrapperFactory {
             case "blockquote":
                 return new BlockquoteScrapper(source);
             default:
-                throw new MapperNotFoundException("Could not find mapper for " + element.tagName());
+                throw new ScrapperNotDefinedException("Scrapper not defined for" + element.tagName() +" element");
         }
     }
 }

@@ -3,7 +3,6 @@ package com.doomedcat17.scpier.scrapper;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
-import com.doomedcat17.scpier.exception.MapperNotFoundException;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 
@@ -43,7 +42,6 @@ public class ElementContentScrapper {
                         contentNodes.add(paragraph);
                     }
                 }
-            } catch (MapperNotFoundException ignored) {
             } catch (Exception e) {
                 e.printStackTrace();
             }
