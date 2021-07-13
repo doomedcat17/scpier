@@ -1,7 +1,6 @@
 package com.doomedcat17.scpier.mapper.tale;
 
 import com.doomedcat17.scpier.data.scp.ScpTale;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.exception.ScpTaleMapperException;
 import com.doomedcat17.scpier.pagecontent.PageContent;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
@@ -21,7 +20,7 @@ public class DefaultScpTaleMapper implements ScpTaleMapper {
         }
     }
 
-    private void mapTale(ScpTale scpTale, Element pageContentElement) throws ElementScrapperException {
+    private void mapTale(ScpTale scpTale, Element pageContentElement)  {
         scpTale.setContent(ElementContentScrapper.scrapContent(pageContentElement, scpTale.getSource()));
     }
 }

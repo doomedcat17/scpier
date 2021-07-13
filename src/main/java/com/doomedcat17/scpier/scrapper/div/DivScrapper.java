@@ -16,7 +16,7 @@ public class DivScrapper extends ElementScrapper {
     }
 
     @Override
-    public ContentNode<?> scrapElement(Element element) throws ElementScrapperException {
+    public ContentNode<?> scrapElement(Element element)  {
         try {
             List<ContentNode<?>> contentNodes = scrap(element);
             if (contentNodes.size() == 1) {
@@ -27,7 +27,7 @@ public class DivScrapper extends ElementScrapper {
         }
     }
 
-    protected List<ContentNode<?>> scrap(Element element) throws ElementScrapperException {
+    protected List<ContentNode<?>> scrap(Element element)  {
         DivScrapperComponent divMapperComponent = getDivScrapperComponent(element);
         return divMapperComponent.scrapDivContent(element);
     }

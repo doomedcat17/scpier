@@ -18,14 +18,14 @@ public class ACSDivScrapper extends DivScrapper implements DivScrapperComponent 
     }
 
     @Override
-    public List<ContentNode<?>> scrapDivContent(Element element) {
+    public List<ContentNode<?>> scrapDivContent(Element element)  {
         List<ContentNode<?>> contentNodes = new ArrayList<>();
         contentNodes.add(scrapItemName(element));
         contentNodes.addAll(scrapScpClasses(element));
         return contentNodes;
     }
 
-    private ContentNode<List<TextNode>> scrapItemName(Element element) {
+    private ContentNode<List<TextNode>> scrapItemName(Element element)  {
         List<TextNode> item = TextScrapper.scrapText(element.selectFirst(".acs-item"), source);
         TextNode itemHeading = item.get(0);
         TextNode itemName = item.get(1);
@@ -34,7 +34,7 @@ public class ACSDivScrapper extends DivScrapper implements DivScrapperComponent 
         return new ContentNode<>(ContentNodeType.PARAGRAPH, item);
     }
 
-    private List<ContentNode<List<TextNode>>> scrapScpClasses(Element element) {
+    private List<ContentNode<List<TextNode>>> scrapScpClasses(Element element)  {
         List<ContentNode<List<TextNode>>> paragraphs = new ArrayList<>();
         for (String className: ACS_SCP_CLASSES) {
             Element scpClassElement = element.selectFirst(className);

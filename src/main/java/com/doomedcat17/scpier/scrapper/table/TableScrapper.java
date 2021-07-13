@@ -17,7 +17,7 @@ public class TableScrapper extends ElementScrapper {
     }
 
     @Override
-    public ContentNode<?> scrapElement(Element element) throws ElementScrapperException {
+    public ContentNode<?> scrapElement(Element element)  {
         try {
             return mapTable(element);
         } catch (Exception e) {
@@ -25,7 +25,7 @@ public class TableScrapper extends ElementScrapper {
         }
     }
 
-    private ContentNode<?> mapTable(Element element) throws ElementScrapperException {
+    private ContentNode<?> mapTable(Element element)  {
         Element tableBody = element.selectFirst("tbody");
         if (tableBody != null) {
             element = tableBody;
@@ -38,7 +38,7 @@ public class TableScrapper extends ElementScrapper {
         } else return scrapDefaultTable(element);
     }
 
-    private ContentNode<List<ContentNode<?>>> scrapDefaultTable(Element element) throws ElementScrapperException {
+    private ContentNode<List<ContentNode<?>>> scrapDefaultTable(Element element)  {
         List<ContentNode<?>> tableRows = new ArrayList<>();
         for (Element tableRow: element.children()) {
             tableRows.add(mapRow(tableRow));
@@ -62,7 +62,7 @@ public class TableScrapper extends ElementScrapper {
         return paragraphs;
     }
 
-    private ContentNode<?> mapRow(Element row) throws ElementScrapperException {
+    private ContentNode<?> mapRow(Element row)  {
         List<ContentNode<List<ContentNode<?>>>> rowCells = new ArrayList<>();
         for (Element cell: row.children()) {
             ContentNode<List<ContentNode<?>>> cellNode = new ContentNode<>(ContentNodeType.TABLE_CELL, new ArrayList<>());

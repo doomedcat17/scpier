@@ -26,7 +26,7 @@ public class AnomBarScrapper extends DivScrapper implements DivScrapperComponent
         return contentNodes;
     }
 
-    private ContentNode<List<TextNode>> scrapItemName(Element element) {
+    private ContentNode<List<TextNode>> scrapItemName(Element element)  {
         ContentNode<List<TextNode>> paragraph = new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
         Element itemHeaderElement = element.selectFirst(".item");
         TextNode itemHeader = TextScrapper.scrapText(itemHeaderElement, source).get(0);

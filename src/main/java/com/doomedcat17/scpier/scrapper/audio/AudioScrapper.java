@@ -12,7 +12,7 @@ public class AudioScrapper extends ElementScrapper {
     }
 
     @Override
-    public ContentNode<?> scrapElement(Element element) throws ElementScrapperException {
+    public ContentNode<?> scrapElement(Element element)  {
         try {
             String source = "";
             if (element.is("audio-player")) {

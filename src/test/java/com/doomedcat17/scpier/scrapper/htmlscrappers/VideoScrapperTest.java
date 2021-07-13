@@ -3,7 +3,6 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.VideoNode;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.video.VideoScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -19,7 +18,7 @@ class VideoScrapperTest extends ScrapperTest {
             .getSampleElements("src/test/resources/html/testdata/video/sampleVideoElements.html");
 
     @Test
-    void shouldScrapVideo() throws ElementScrapperException {
+    void shouldScrapVideo()  {
         //given
         Element videoElement = sampleElements.getElementById("shouldScrapVideo");
         //when

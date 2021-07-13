@@ -2,7 +2,6 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 
 import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.list.ListScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -22,7 +21,7 @@ class ListScrapperTest extends ScrapperTest {
             getExpectedAppendicesOutputs("src/test/resources/html/testdata/lists/expected_outputs.json");
 
     @Test
-    void shouldScrapSimpleUnorderedList() throws ElementScrapperException {
+    void shouldScrapSimpleUnorderedList()  {
         //given
         Element simpleUnorderedList = sampleLists.getElementById("shouldMapSimpleUnorderedList");
         //when
@@ -31,7 +30,7 @@ class ListScrapperTest extends ScrapperTest {
         assertEquals(expectedOutputs.get("shouldMapSimpleUnorderedList"), contentNode);
     }
     @Test
-    void shouldScrapSimpleOrderedList() throws ElementScrapperException {
+    void shouldScrapSimpleOrderedList()  {
         //given
         Element simpleOrderedList = sampleLists.getElementById("shouldMapSimpleOrderedList");
         //when
@@ -42,7 +41,7 @@ class ListScrapperTest extends ScrapperTest {
 
 
     @Test
-    void shouldScrapUnorderedListWithNestedUnorderedList() throws ElementScrapperException {
+    void shouldScrapUnorderedListWithNestedUnorderedList()  {
         //given
         Element simpleUnorderedList = sampleLists.getElementById("shouldMapUnorderedListWithNestedUnorderedList");
         //when
@@ -52,7 +51,7 @@ class ListScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapOrderedListWithNestedUnorderedList() throws ElementScrapperException {
+    void shouldScrapOrderedListWithNestedUnorderedList()  {
         //given
         Element simpleOrderedList = sampleLists.getElementById("shouldMapOrderedListWithNestedUnorderedList");
         //when
@@ -61,7 +60,7 @@ class ListScrapperTest extends ScrapperTest {
         assertEquals(expectedOutputs.get("shouldMapOrderedListWithNestedUnorderedList"), contentNode);
     }
     @Test
-    void shouldScrapUnorderedListWithNestedOrderedList() throws ElementScrapperException {
+    void shouldScrapUnorderedListWithNestedOrderedList()  {
         //given
         Element simpleUnorderedList = sampleLists.getElementById("shouldMapUnorderedListWithNestedOrderedList");
         //when
@@ -70,7 +69,7 @@ class ListScrapperTest extends ScrapperTest {
         assertEquals(expectedOutputs.get("shouldMapUnorderedListWithNestedOrderedList"), contentNode);
     }
     @Test
-    void shouldScrapOrderedListWithNestedOrderedList() throws ElementScrapperException {
+    void shouldScrapOrderedListWithNestedOrderedList()  {
         //given
         Element simpleOrderedList = sampleLists.getElementById("shouldScrapOrderedListWithNestedOrderedList");
         //when
@@ -81,7 +80,7 @@ class ListScrapperTest extends ScrapperTest {
 
 
     @Test
-    void shouldScrapUnorderedListWithNestedMultipleUnorderedLists() throws ElementScrapperException {
+    void shouldScrapUnorderedListWithNestedMultipleUnorderedLists()  {
         //given
         Element simpleOrderedList = sampleLists.getElementById("shouldScrapUnorderedListWithNestedMultipleUnorderedLists");
         //when
@@ -91,7 +90,7 @@ class ListScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapOrderedListWithNestedMultipleUnorderedLists() throws ElementScrapperException {
+    void shouldScrapOrderedListWithNestedMultipleUnorderedLists()  {
         //given
         Element simpleOrderedList = sampleLists.getElementById("shouldScrapOrderedListWithNestedMultipleUnorderedLists");
         //when
@@ -101,7 +100,7 @@ class ListScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapUnorderedListWithNestedMultipleOrderedLists() throws ElementScrapperException {
+    void shouldScrapUnorderedListWithNestedMultipleOrderedLists()  {
         //given
         Element simpleOrderedList = sampleLists.getElementById("shouldScrapUnorderedListWithNestedMultipleOrderedLists");
         //when
@@ -111,7 +110,7 @@ class ListScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapOrderedListWithNestedMultipleOrderedLists() throws ElementScrapperException {
+    void shouldScrapOrderedListWithNestedMultipleOrderedLists()  {
         //given
         Element simpleOrderedList = sampleLists.getElementById("shouldScrapOrderedListWithNestedMultipleOrderedLists");
         //when
@@ -121,7 +120,7 @@ class ListScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapSimpleUnorderedListWithDeletedElements() throws ElementScrapperException {
+    void shouldScrapSimpleUnorderedListWithDeletedElements()  {
         //given
         Element list = sampleLists.getElementById("shouldScrapSimpleUnorderedListWithDeletedElements");
         //when
@@ -131,7 +130,7 @@ class ListScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapSimpleOrderedListWithDeletedElements() throws ElementScrapperException {
+    void shouldScrapSimpleOrderedListWithDeletedElements()  {
         //given
         Element list = sampleLists.getElementById("shouldScrapSimpleOrderedListWithDeletedElements");
         //when
@@ -141,7 +140,7 @@ class ListScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapSimpleUnorderedListWithStrongElements() throws ElementScrapperException {
+    void shouldScrapSimpleUnorderedListWithStrongElements()  {
         //given
         Element list = sampleLists.getElementById("shouldScrapSimpleUnorderedListWithStrongElements");
         //when
@@ -151,7 +150,7 @@ class ListScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapSimpleOrderedListWithStrongElements() throws ElementScrapperException {
+    void shouldScrapSimpleOrderedListWithStrongElements()  {
         //given
         Element list = sampleLists.getElementById("shouldScrapSimpleOrderedListWithStrongElements");
         //when

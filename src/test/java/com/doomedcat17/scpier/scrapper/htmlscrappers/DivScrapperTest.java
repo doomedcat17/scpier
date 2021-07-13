@@ -5,7 +5,6 @@ import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.ImageNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -22,7 +21,7 @@ class DivScrapperTest extends ScrapperTest {
             .getSampleElements("src/test/resources/html/testdata/divs/SampleDivsElements.html");
 
     @Test
-    void shouldMapDivAsText() throws ElementScrapperException {
+    void shouldMapDivAsText()  {
         //given
         Element simpleDiv = sampleDivs.getElementById("shouldMapDivAsText");
         //when
@@ -41,7 +40,7 @@ class DivScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldMapDivWithOnlyText() throws ElementScrapperException {
+    void shouldMapDivWithOnlyText()  {
         //given
         Element simpleDiv = sampleDivs.getElementById("shouldMapDivWithOnlyText");
         //when
@@ -59,7 +58,7 @@ class DivScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldMapDivWithHeading() throws ElementScrapperException {
+    void shouldMapDivWithHeading()  {
         //given
         Element element = sampleDivs.getElementById("shouldMapDivWithHeading");
         //when
@@ -76,7 +75,7 @@ class DivScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldMapDivWithMultipleHeadings() throws ElementScrapperException {
+    void shouldMapDivWithMultipleHeadings()  {
         //given
         Element element = sampleDivs.getElementById("shouldMapDivWithMultipleHeadings");
         //when
@@ -96,7 +95,7 @@ class DivScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldMapOnlyImage() throws ElementScrapperException {
+    void shouldMapOnlyImage()  {
         //given
         Element element = sampleDivs.getElementById("shouldMapOnlyImage");
         //when
@@ -114,7 +113,7 @@ class DivScrapperTest extends ScrapperTest {
 
      */
     @Test
-    void shouldScrapOnlyImages() throws ElementScrapperException {
+    void shouldScrapOnlyImages()  {
         //given
         Element element = sampleDivs.getElementById("shouldScrapOnlyImages");
         //when
@@ -134,7 +133,7 @@ class DivScrapperTest extends ScrapperTest {
 
 
     @Test
-    void shouldScrapDivInsideDiv() throws ElementScrapperException {
+    void shouldScrapDivInsideDiv()  {
         //given
         Element element = sampleDivs.getElementById("shouldScrapDivInsideDiv");
         //when
@@ -167,7 +166,7 @@ class DivScrapperTest extends ScrapperTest {
 
 
     @Test
-    void shouldScrapEnbaseDiv() throws ElementScrapperException {
+    void shouldScrapEnbaseDiv()  {
         //given
         Element enBaseElement = sampleDivs.getElementById("shouldScrapEnbaseDiv");
         //when
@@ -195,7 +194,7 @@ class DivScrapperTest extends ScrapperTest {
 
 
     @Test
-    void shouldScrapEnbaseDiv2() throws ElementScrapperException {
+    void shouldScrapEnbaseDiv2()  {
         //given
         Element enBaseElement = sampleDivs.getElementById("shouldScrapEnbaseDiv2");
         //when
@@ -223,7 +222,7 @@ class DivScrapperTest extends ScrapperTest {
 
 
     @Test
-    void shouldMapACSDiv() throws ElementScrapperException {
+    void shouldMapACSDiv()  {
         //given
         Element ACSElement = sampleDivs.getElementById("shouldMapACSDiv");
         //when
@@ -260,7 +259,7 @@ class DivScrapperTest extends ScrapperTest {
 
 
     @Test
-    void shouldMapACSDiv2() throws ElementScrapperException {
+    void shouldMapACSDiv2()  {
         //given
         Element ACSElement = sampleDivs.getElementById("shouldMapACSDiv2");
         //when
@@ -300,7 +299,7 @@ class DivScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapAdultWarning() throws ElementScrapperException {
+    void shouldScrapAdultWarning()  {
         //given
         Element element = sampleDivs.getElementById("u-adult-warning");
         //when
@@ -322,7 +321,7 @@ class DivScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapImageBlockWithAElement() throws ElementScrapperException {
+    void shouldScrapImageBlockWithAElement()  {
         //given
         Element element = sampleDivs.getElementById("shouldScrapImageBlockWithAElement");
         //when
@@ -337,7 +336,7 @@ class DivScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapFootnotes() throws ElementScrapperException {
+    void shouldScrapFootnotes()  {
         //given
         Element element = sampleDivs.getElementById("shouldScrapFootnotes");
         //when
@@ -361,7 +360,7 @@ class DivScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapAnomBar() throws ElementScrapperException {
+    void shouldScrapAnomBar()  {
         //given
         Element anomBarElement = sampleDivs.getElementById("shouldScrapAnomBar");
         //when
@@ -402,7 +401,7 @@ class DivScrapperTest extends ScrapperTest {
 
 
     @Test
-    void shouldScrapAnomBar2() throws ElementScrapperException {
+    void shouldScrapAnomBar2()  {
         //given
         Element anomBarElement = sampleDivs.getElementById("shouldScrapAnomBar2");
         //when
@@ -436,7 +435,7 @@ class DivScrapperTest extends ScrapperTest {
 
     }
     @Test
-    void shouldScrapAnomBar3() throws ElementScrapperException {
+    void shouldScrapAnomBar3()  {
         //given
         Element anomBarElement = sampleDivs.getElementById("shouldScrapAnomBar3");
         //when
@@ -465,7 +464,7 @@ class DivScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapObjClassBar() throws ElementScrapperException {
+    void shouldScrapObjClassBar()  {
         //given
         Element anomBarElement = sampleDivs.getElementById("shouldScrapObjClassBar");
         //when

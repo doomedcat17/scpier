@@ -21,7 +21,7 @@ public class DefaultScpMapper implements ScpMapper {
             throw new ScpMapperException(e.getMessage());
         }
     }
-    private void mapScp(ScpObject scpObject, Element content) throws ElementScrapperException {
+    private void mapScp(ScpObject scpObject, Element content)  {
         scpObject.setContent(ElementContentScrapper.scrapContent(content, scpObject.getSource()));
     }
 }

@@ -3,7 +3,6 @@ package com.doomedcat17.scpier.scrapper.div.componetnts;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import org.jsoup.nodes.Element;
@@ -16,7 +15,7 @@ public class AdultWarningScrapper extends DivScrapper implements DivScrapperComp
         super(source);
     }
     @Override
-    public List<ContentNode<?>> scrapDivContent(Element element) throws ElementScrapperException {
+    public List<ContentNode<?>> scrapDivContent(Element element)  {
         Element headingElement = element.getElementById("u-adult-header");
         ContentNode<List<TextNode>> headingNode = new ContentNode<>(ContentNodeType.HEADING, new ArrayList<>());
         headingNode.getContent().add(new TextNode(headingElement.text()));

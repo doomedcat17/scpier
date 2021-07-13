@@ -3,7 +3,6 @@ package com.doomedcat17.scpier.scrapper.div.componetnts;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import org.jsoup.nodes.Element;
@@ -17,7 +16,7 @@ public class CollapsibleBlockScrapper extends DivScrapper implements DivScrapper
     }
 
     @Override
-    public List<ContentNode<?>> scrapDivContent(Element element) throws ElementScrapperException {
+    public List<ContentNode<?>> scrapDivContent(Element element)  {
         if (element.is(".colmod-block")) return scrapColmodConetnt(element);
         List<ContentNode<?>> blockContent = new ArrayList<>();
         String title = element.selectFirst(".collapsible-block-link").text();
@@ -36,7 +35,7 @@ public class CollapsibleBlockScrapper extends DivScrapper implements DivScrapper
         return blockContent;
     }
 
-    private List<ContentNode<?>> scrapColmodConetnt(Element element) throws ElementScrapperException {
+    private List<ContentNode<?>> scrapColmodConetnt(Element element)  {
         Element content = element.selectFirst(".colmod-content");
         if (content.children().size() == 1) {
             return ElementContentScrapper.scrapContent(content.children().get(0), source);

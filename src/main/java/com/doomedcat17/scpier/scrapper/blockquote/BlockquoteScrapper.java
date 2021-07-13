@@ -15,7 +15,7 @@ public class BlockquoteScrapper extends ElementScrapper {
     }
 
     @Override
-    public ContentNode<?> scrapElement(Element element) throws ElementScrapperException {
+    public ContentNode<?> scrapElement(Element element)  {
         try {
             ContentNode<List<ContentNode<?>>> blockquoteNode = new ContentNode<>(ContentNodeType.BLOCKQUOTE);
             List<ContentNode<?>> contentNodes = ElementContentScrapper.scrapContent(element, source);

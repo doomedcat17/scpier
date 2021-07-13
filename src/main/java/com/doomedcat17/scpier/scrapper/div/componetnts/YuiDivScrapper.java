@@ -1,7 +1,6 @@
 package com.doomedcat17.scpier.scrapper.div.componetnts;
 
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import org.jsoup.nodes.Element;
@@ -16,7 +15,7 @@ public class YuiDivScrapper extends DivScrapper implements DivScrapperComponent 
     }
 
     @Override
-    public List<ContentNode<?>> scrapDivContent(Element element) throws ElementScrapperException {
+    public List<ContentNode<?>> scrapDivContent(Element element)  {
         List<ContentNode<?>> contentNodes = new ArrayList<>();
         if (element.hasClass("yui-navset")) {
             Element yuiContent = element.selectFirst(".yui-content");
@@ -32,7 +31,7 @@ public class YuiDivScrapper extends DivScrapper implements DivScrapperComponent 
         return contentNodes;
     }
 
-    private List<ContentNode<?>> scrapWikiTab(Element wikiTab) throws ElementScrapperException {
+    private List<ContentNode<?>> scrapWikiTab(Element wikiTab)  {
         wikiTab.attr("id", "page-content");
         return ElementContentScrapper.scrapContent(wikiTab, source);
     }

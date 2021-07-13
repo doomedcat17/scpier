@@ -3,7 +3,6 @@ package com.doomedcat17.scpier.scrapper;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 
@@ -12,7 +11,7 @@ import java.util.List;
 
 public class ElementContentScrapper {
 
-    public static List<ContentNode<?>> scrapContent(Element element, String source) throws ElementScrapperException {
+    public static List<ContentNode<?>> scrapContent(Element element, String source)  {
         List<ContentNode<?>> contentNodes = new ArrayList<>();
         for (Node node : element.childNodes()) {
             if (node instanceof Element) {

@@ -16,7 +16,7 @@ public class HeadingScrapper extends ElementScrapper {
     }
 
     @Override
-    public ContentNode<?> scrapElement(Element element) throws ElementScrapperException {
+    public ContentNode<?> scrapElement(Element element)  {
         try {
             ContentNode<List<TextNode>> headingContentNode = new ContentNode<>(ContentNodeType.HEADING);
             List<TextNode> textNodes = TextScrapper.scrapText(element, source);

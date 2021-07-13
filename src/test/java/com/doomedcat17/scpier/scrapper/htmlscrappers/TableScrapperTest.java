@@ -5,7 +5,6 @@ import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.table.TableScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -26,7 +25,7 @@ class TableScrapperTest extends ScrapperTest {
             getExpectedAppendicesOutputs("src/test/resources/html/testdata/tables/expected_outputs.json");
 
     @Test
-    void shouldScrapSimpleTable() throws ElementScrapperException {
+    void shouldScrapSimpleTable()  {
         //given
         Element table = sampleTables.getElementById("shouldScrapSimpleTable");
         //when
@@ -36,7 +35,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapSimpleTableWithoutTbody() throws ElementScrapperException {
+    void shouldScrapSimpleTableWithoutTbody()  {
         //given
         Element table = sampleTables.getElementById("shouldScrapSimpleTableWithoutTbody");
         //when
@@ -45,7 +44,7 @@ class TableScrapperTest extends ScrapperTest {
         assertEquals(expectedOutputs.get("shouldScrapSimpleTable"), contentNode);
     }
     @Test
-    void shouldScrapSimpleTable2() throws ElementScrapperException {
+    void shouldScrapSimpleTable2()  {
         //given
         Element table = sampleTables.getElementById("shouldScrapSimpleTable2");
         //when
@@ -55,7 +54,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapEnBaseTable() throws ElementScrapperException {
+    void shouldScrapEnBaseTable()  {
         //given
         Element table = sampleTables.getElementById("shouldMapEnBaseTable");
         //when
@@ -71,7 +70,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldMapEnBaseTable2() throws ElementScrapperException {
+    void shouldMapEnBaseTable2()  {
         //given
         Element table = sampleTables.getElementById("shouldMapEnBaseTable2");
         //when
@@ -87,7 +86,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldMapEnBaseTable3() throws ElementScrapperException {
+    void shouldMapEnBaseTable3()  {
         //given
         Element table = sampleTables.getElementById("shouldMapEnBaseTable3");
         //when

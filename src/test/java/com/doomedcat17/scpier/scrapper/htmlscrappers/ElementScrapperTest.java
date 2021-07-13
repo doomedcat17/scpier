@@ -3,7 +3,6 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
@@ -24,7 +23,7 @@ class ElementScrapperTest extends ScrapperTest  {
             .getSampleElements("src/test/resources/html/testdata/divs/SampleDivsElements.html");
 
     @Test
-    void shouldScrapMath() throws ElementScrapperException {
+    void shouldScrapMath()  {
         //given
         Element divElement = sampleDivs.getElementById("shouldScrapMath");
         //when
@@ -37,7 +36,7 @@ class ElementScrapperTest extends ScrapperTest  {
     }
 
     @Test
-    void shouldScrapMath2() throws ElementScrapperException {
+    void shouldScrapMath2()  {
         //given
         Element divElement = sampleDivs.getElementById("shouldScrapMath2");
         //when

@@ -12,7 +12,7 @@ public class ImageScrapper extends ElementScrapper {
     }
 
     @Override
-    public ContentNode<?> scrapElement(Element element) throws ElementScrapperException {
+    public ContentNode<?> scrapElement(Element element)  {
         try {
             ImageNode imageNode = new ImageNode();
             String imageSource = element

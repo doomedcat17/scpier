@@ -11,7 +11,7 @@ public class VideoScrapper extends ElementScrapper {
         super(source);
     }
     @Override
-    public ContentNode<?> scrapElement(Element element) throws ElementScrapperException {
+    public ContentNode<?> scrapElement(Element element)  {
         try {
             Element sourceElement = element.selectFirst("source");
             source = sourceElement.attr("src");

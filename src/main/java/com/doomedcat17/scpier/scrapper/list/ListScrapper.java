@@ -18,7 +18,7 @@ public class ListScrapper extends ElementScrapper {
     }
 
     @Override
-    public ContentNode<?> scrapElement(Element element) throws ElementScrapperException {
+    public ContentNode<?> scrapElement(Element element)  {
         try {
             ContentNode<List<ContentNode<?>>> contentNode = new ContentNode<>();
             contentNode.setContent(new ArrayList<>());
@@ -32,14 +32,14 @@ public class ListScrapper extends ElementScrapper {
         }
     }
 
-    private void mapList(Element element, ContentNode<List<ContentNode<?>>> contentNode) throws ElementScrapperException {
+    private void mapList(Element element, ContentNode<List<ContentNode<?>>> contentNode)  {
         Elements children = element.children();
         for(Element child : children) {
             contentNode.getContent().add(mapRow(child));
         }
     }
 
-    private ContentNode<?> mapRow(Element row) throws ElementScrapperException {
+    private ContentNode<?> mapRow(Element row)  {
         if (row.is("ul, ol")) {
             return scrapElement(row);
         } else {

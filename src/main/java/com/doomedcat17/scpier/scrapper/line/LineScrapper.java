@@ -20,7 +20,7 @@ public class LineScrapper extends ElementScrapper {
     }
 
     @Override
-    public ContentNode<?> scrapElement(Element element) throws ElementScrapperException {
+    public ContentNode<?> scrapElement(Element element)  {
         try {
             if (element.is("br")) {
                 return new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
