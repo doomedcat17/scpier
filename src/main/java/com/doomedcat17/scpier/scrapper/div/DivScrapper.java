@@ -23,11 +23,11 @@ public class DivScrapper extends ElementScrapper {
     }
 
     protected List<ContentNode<?>> scrap(Element element) {
-        DivScrapperComponent divMapperComponent = getComponent(element);
+        DivScrapperComponent divMapperComponent = getDivScrapperComponent(element);
         return divMapperComponent.scrapDivContent(element);
     }
 
-    private DivScrapperComponent getComponent(Element element) {
+    private DivScrapperComponent getDivScrapperComponent(Element element) {
         if (element.hasClass("collapsible-block") || element.hasClass("colmod-block")) {
             return new CollapsibleBlockScrapper(source);
         } else if (element.id().equals("u-adult-warning")) {

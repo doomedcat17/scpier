@@ -3,6 +3,7 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -26,7 +27,7 @@ class ElementScrapperTest extends ScrapperTest  {
         //given
         Element divElement = sampleDivs.getElementById("shouldScrapMath");
         //when
-        List<ContentNode<?>> contentNodes = elementScrapper.scrapContent(divElement);
+        List<ContentNode<?>> contentNodes = ElementContentScrapper.scrapContent(divElement, SOURCE);
         //then
         ContentNode<List<TextNode>> paragraph = (ContentNode<List<TextNode>>) contentNodes.get(0);
         StringBuilder stringBuilder = new StringBuilder();
@@ -39,7 +40,7 @@ class ElementScrapperTest extends ScrapperTest  {
         //given
         Element divElement = sampleDivs.getElementById("shouldScrapMath2");
         //when
-        List<ContentNode<?>> contentNodes = elementScrapper.scrapContent(divElement);
+        List<ContentNode<?>> contentNodes = ElementContentScrapper.scrapContent(divElement, SOURCE);
         //then
         ContentNode<List<TextNode>> paragraph = (ContentNode<List<TextNode>>) contentNodes.get(0);
         StringBuilder stringBuilder = new StringBuilder();

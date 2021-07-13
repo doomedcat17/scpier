@@ -3,6 +3,7 @@ package com.doomedcat17.scpier.scrapper.table;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import org.jsoup.nodes.Element;
 
@@ -62,7 +63,7 @@ public class TableScrapper extends ElementScrapper {
             ContentNode<List<ContentNode<?>>> cellNode = new ContentNode<>(ContentNodeType.TABLE_CELL, new ArrayList<>());
             if (cell.is("th, thead")) cellNode.setContentNodeType(ContentNodeType.TABLE_HEADING_CELL);
             if(cell.children().isEmpty() && cell.text().isBlank()) continue;
-            cellNode.getContent().addAll(scrapContent(cell));
+            cellNode.getContent().addAll(ElementContentScrapper.scrapContent(cell, source));
             rowCells.add(cellNode);
         }
         return new ContentNode<>(ContentNodeType.TABLE_ROW, rowCells);

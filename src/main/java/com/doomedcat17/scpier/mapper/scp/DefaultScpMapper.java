@@ -1,9 +1,8 @@
 package com.doomedcat17.scpier.mapper.scp;
 
-import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.scp.ScpObject;
 import com.doomedcat17.scpier.pagecontent.PageContent;
-import com.doomedcat17.scpier.scrapper.ElementScrapper;
+import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import org.jsoup.nodes.Element;
 
 public class DefaultScpMapper implements ScpMapper {
@@ -17,12 +16,6 @@ public class DefaultScpMapper implements ScpMapper {
         return scpObject;
     }
     private void mapScp(ScpObject scpObject, Element content) {
-        ElementScrapper elementScrapper = new ElementScrapper(scpObject.getSource()) {
-            @Override
-            public ContentNode<?> scrapElement(Element element) {
-                return null;
-            }
-        };
-        scpObject.setContent(elementScrapper.scrapContent(content));
+        scpObject.setContent(ElementContentScrapper.scrapContent(content, scpObject.getSource()));
     }
 }

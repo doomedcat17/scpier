@@ -2,7 +2,7 @@ package com.doomedcat17.scpier.mapper.tale;
 
 import com.doomedcat17.scpier.data.scp.ScpTale;
 import com.doomedcat17.scpier.pagecontent.PageContent;
-import com.doomedcat17.scpier.scrapper.line.LineScrapper;
+import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import org.jsoup.nodes.Element;
 
 public class DefaultScpTaleMapper implements ScpTaleMapper {
@@ -16,7 +16,6 @@ public class DefaultScpTaleMapper implements ScpTaleMapper {
     }
 
     private void mapTale(ScpTale scpTale, Element pageContentElement) {
-        LineScrapper lineScrapper = new LineScrapper(scpTale.getSource());
-        scpTale.setContent(lineScrapper.scrapContent(pageContentElement));
+        scpTale.setContent(ElementContentScrapper.scrapContent(pageContentElement, scpTale.getSource()));
     }
 }

@@ -3,6 +3,7 @@ package com.doomedcat17.scpier.scrapper.div.componetnts;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import org.jsoup.nodes.Element;
 
@@ -27,9 +28,9 @@ public class CollapsibleBlockScrapper extends DivScrapper implements DivScrapper
         blockContent.add(heading);
         Element collapsibleBlockContent = element.selectFirst(".collapsible-block-content");
         if (collapsibleBlockContent.children().size() == 1) {
-            return scrapContent(collapsibleBlockContent.children().get(0));
+            return ElementContentScrapper.scrapContent(collapsibleBlockContent.children().get(0), source);
         }
-        List<ContentNode<?>> contentNodes = scrapContent(collapsibleBlockContent);
+        List<ContentNode<?>> contentNodes = ElementContentScrapper.scrapContent(collapsibleBlockContent, source);
         blockContent.addAll(contentNodes);
         return blockContent;
     }
@@ -37,8 +38,8 @@ public class CollapsibleBlockScrapper extends DivScrapper implements DivScrapper
     private List<ContentNode<?>> scrapColmodConetnt(Element element) {
         Element content = element.selectFirst(".colmod-content");
         if (content.children().size() == 1) {
-            return scrapContent(content.children().get(0));
-        } else return scrapContent(content);
+            return ElementContentScrapper.scrapContent(content.children().get(0), source);
+        } else return ElementContentScrapper.scrapContent(content, source);
     }
 
     private String clearCollapsibleBlockTittle(String title){

@@ -3,6 +3,7 @@ package com.doomedcat17.scpier.scrapper.list;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -37,7 +38,7 @@ public class ListScrapper extends ElementScrapper {
         if (row.is("ul, ol")) {
             return scrapElement(row);
         } else {
-            List<ContentNode<?>> contentNodes = scrapContent(row);
+            List<ContentNode<?>> contentNodes = ElementContentScrapper.scrapContent(row, source);
             if (contentNodes.size() == 1) {
                 return contentNodes.get(0);
             } else {
