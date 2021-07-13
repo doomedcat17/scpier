@@ -4,6 +4,7 @@ import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ImageNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.data.contentnode.VideoNode;
+import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import com.doomedcat17.scpier.scrapper.image.ImageScrapper;
 import com.doomedcat17.scpier.scrapper.text.TextScrapper;
@@ -19,7 +20,7 @@ public class ImageBlockScrapper extends DivScrapper implements DivScrapperCompon
     }
 
     @Override
-    public List<ContentNode<?>> scrapDivContent(Element element) {
+    public List<ContentNode<?>> scrapDivContent(Element element) throws ElementScrapperException {
         List<ContentNode<?>> contentNodes = new ArrayList<>();
         Element imageElement = element.selectFirst("img");
         if (imageElement == null) {

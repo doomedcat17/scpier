@@ -3,6 +3,7 @@ package com.doomedcat17.scpier.scrapper.list;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import org.jsoup.nodes.Element;
@@ -17,24 +18,28 @@ public class ListScrapper extends ElementScrapper {
     }
 
     @Override
-    public ContentNode<?> scrapElement(Element element) {
-        ContentNode<List<ContentNode<?>>> contentNode = new ContentNode<>();
-        contentNode.setContent(new ArrayList<>());
-        if (element.tagName().equals("ul")) {
-            contentNode.setContentNodeType(ContentNodeType.LIST_UL);
-        } else contentNode.setContentNodeType(ContentNodeType.LIST_OL);
-        mapList(element, contentNode);
-        return contentNode;
+    public ContentNode<?> scrapElement(Element element) throws ElementScrapperException {
+        try {
+            ContentNode<List<ContentNode<?>>> contentNode = new ContentNode<>();
+            contentNode.setContent(new ArrayList<>());
+            if (element.tagName().equals("ul")) {
+                contentNode.setContentNodeType(ContentNodeType.LIST_UL);
+            } else contentNode.setContentNodeType(ContentNodeType.LIST_OL);
+            mapList(element, contentNode);
+            return contentNode;
+        } catch (Exception e) {
+            throw new ElementScrapperException(e.getMessage());
+        }
     }
 
-    private void mapList(Element element, ContentNode<List<ContentNode<?>>> contentNode) {
+    private void mapList(Element element, ContentNode<List<ContentNode<?>>> contentNode) throws ElementScrapperException {
         Elements children = element.children();
-        children.forEach(
-                child -> contentNode.getContent().add(mapRow(child))
-        );
+        for(Element child : children) {
+            contentNode.getContent().add(mapRow(child));
+        }
     }
 
-    private ContentNode<?> mapRow(Element row) {
+    private ContentNode<?> mapRow(Element row) throws ElementScrapperException {
         if (row.is("ul, ol")) {
             return scrapElement(row);
         } else {

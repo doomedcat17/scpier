@@ -5,7 +5,7 @@ import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPIdentifierPlacement;
 import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import com.doomedcat17.scpier.data.scp.ScpObject;
-import com.doomedcat17.scpier.exception.ScpObjectNotFoundException;
+import com.doomedcat17.scpier.exception.SCPWikiContentNotFound;
 
 public class ScpChecker implements Runnable {
 
@@ -40,10 +40,10 @@ public class ScpChecker implements Runnable {
             if (scpTranslation.equals(SCPTranslation.ORIGINAL)) scpNumber.append(" ORIGINAL");
             else scpNumber.append(" ").append(scpTranslation.identifier.toUpperCase());
             try {
-                ScpObject scpObject = scpFoundationDataProvider.getScpObject(i, scpBranch, scpTranslation);
+                ScpObject scpObject = scpFoundationDataProvider.getScpObject(String.valueOf(i), scpBranch, scpTranslation);
                 if (scpObject.getObjectName() == null || scpObject.getContent().isEmpty() ||
                         scpObject.getContent().stream().anyMatch(ContentNode::isEmpty)) ScpCheck.addInvalidScp(scpNumber.toString());
-            } catch (ScpObjectNotFoundException e) {
+            } catch (SCPWikiContentNotFound e) {
                 e.printStackTrace();
                 notFoundCounter++;
             } catch (Exception e) {

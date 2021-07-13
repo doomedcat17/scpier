@@ -3,6 +3,7 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.AudioNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.audio.AudioScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -18,7 +19,7 @@ class AudioScrapperTest extends ScrapperTest {
             .getSampleElements("src/test/resources/html/testdata/audio/sampleAudioElements.html");
 
     @Test
-    void shouldScrapAudioElement() {
+    void shouldScrapAudioElement() throws ElementScrapperException {
         //given
         Element element = sampleElements.getElementById("shouldScrapAudioElement");
         //when
@@ -29,7 +30,7 @@ class AudioScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapAudioPlayerElement() {
+    void shouldScrapAudioPlayerElement() throws ElementScrapperException {
         //given
         Element element = sampleElements.getElementById("shouldScrapAudioPlayerElement");
         //when
