@@ -6,15 +6,15 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class DocumentContentCleanerImpl implements DocumentContentCleaner {
 
-    private final String REMOVAL_DEFINITIONS_PATH = "src/main/resources/removalElementsDefinitions.json";
+    private final String REMOVAL_DEFINITIONS_PATH = "removalElementsDefinitions.json";
 
     private final List<String> removalDefinitions;
 
@@ -107,10 +107,15 @@ public class DocumentContentCleanerImpl implements DocumentContentCleaner {
 
     public DocumentContentCleanerImpl() {
         ObjectMapper objectMapper = new ObjectMapper();
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(REMOVAL_DEFINITIONS_PATH);
+        BufferedReader streamReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
         try {
+            StringBuilder jsonBuilder = new StringBuilder();
+            String line;
+            while ((line = streamReader.readLine()) != null) jsonBuilder.append(line);
             removalDefinitions =
                     objectMapper.readValue(
-                            new File(REMOVAL_DEFINITIONS_PATH),
+                            jsonBuilder.toString(),
                             new TypeReference<>() {
                             });
         } catch (IOException e) {

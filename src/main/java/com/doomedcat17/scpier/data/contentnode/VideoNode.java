@@ -3,6 +3,8 @@ package com.doomedcat17.scpier.data.contentnode;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Corresponds to video files/elements from HTML.
+ * <p>The content is of {@link String} type and defines URL of the image</p>*/
 public class VideoNode extends ContentNode<String> {
 
     public VideoNode(String content) {

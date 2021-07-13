@@ -1,5 +1,8 @@
 package com.doomedcat17.scpier.data.scp;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 public enum SCPTranslation {
     ORIGINAL("", ""),
     ENGLISH("eng", "http://scp-int.wikidot.com/"),
@@ -23,5 +26,12 @@ public enum SCPTranslation {
     SCPTranslation(String identifier, String url) {
         this.identifier = identifier;
         this.url = url;
+    }
+
+    public static SCPTranslation getByIdentifier(String identifier) {
+        Optional<SCPTranslation> foundScpBranch = Arrays.stream(SCPTranslation.values())
+                .filter(scpTranslation -> scpTranslation.identifier.equals(identifier)).findFirst();
+        if (foundScpBranch.isPresent()) return foundScpBranch.get();
+        else throw new NullPointerException();
     }
 }

@@ -1,6 +1,7 @@
 package com.doomedcat17.scpier.scrapper.div.componetnts;
 
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import org.jsoup.nodes.Element;
 
@@ -30,6 +31,6 @@ public class YuiDivScrapper extends DivScrapper implements DivScrapperComponent 
 
     private List<ContentNode<?>> scrapWikiTab(Element wikiTab) {
         wikiTab.attr("id", "page-content");
-        return scrapContent(wikiTab);
+        return ElementContentScrapper.scrapContent(wikiTab, source);
     }
 }

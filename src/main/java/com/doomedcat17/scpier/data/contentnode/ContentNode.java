@@ -1,7 +1,12 @@
 package com.doomedcat17.scpier.data.contentnode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.List;
+
+/** Smallest piece of data. It consists of the {@link ContentNodeType} and the actual data. Data type depends on {@link ContentNodeType}
+ * @author Piotr "doomedcat17" Bojczewski */
 
 public class ContentNode<T> implements Serializable {
 
@@ -9,6 +14,7 @@ public class ContentNode<T> implements Serializable {
 
     protected T content;
 
+    @JsonIgnore
     public boolean isEmpty() {
         if (content == null) return true;
         else if (content instanceof List) {

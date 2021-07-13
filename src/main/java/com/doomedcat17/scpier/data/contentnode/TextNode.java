@@ -2,8 +2,10 @@ package com.doomedcat17.scpier.data.contentnode;
 
 import java.util.HashMap;
 import java.util.Map;
+/** Text piece of data*/
 public class TextNode extends ContentNode<String> {
 
+    /** {@link Map} of CSS styles applied to text. <span style="color: orange;">Only local styles are applied</span>*/
     protected Map<String, String> styles = new HashMap<>();
 
     public void addStyle(String styleName, String styleValue) {
@@ -22,8 +24,6 @@ public class TextNode extends ContentNode<String> {
         super(ContentNodeType.TEXT);
         super.content = content;
     }
-
-
 
     @Override
     public boolean isEmpty() {

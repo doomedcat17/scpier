@@ -5,14 +5,14 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.nodes.Element;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Optional;
 
 public class HTMLRedirectionHandler {
 
-    private final String REDIRECTION_DEFINITIONS_PATH = "src/main/resources/redirectionElementsDefinitions.json";
+    private final String REDIRECTION_DEFINITIONS_PATH = "redirectionElementsDefinitions.json";
 
     private final List<String> redirectionDefinitions;
 
@@ -44,16 +44,21 @@ public class HTMLRedirectionHandler {
     }
 
     public HTMLRedirectionHandler(HTMLDocumentProvider htmlDocumentProvider) {
-        this.htmlDocumentProvider = htmlDocumentProvider;
         ObjectMapper objectMapper = new ObjectMapper();
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(REDIRECTION_DEFINITIONS_PATH);
+        BufferedReader streamReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
         try {
+            StringBuilder jsonBuilder = new StringBuilder();
+            String line;
+            while ((line = streamReader.readLine()) != null) jsonBuilder.append(line);
             redirectionDefinitions =
                     objectMapper.readValue(
-                            new File(REDIRECTION_DEFINITIONS_PATH),
+                            jsonBuilder.toString(),
                             new TypeReference<>() {
                             });
         } catch (IOException e) {
-            throw new RuntimeException("Could not find Redirection Definitions!");
+            throw new RuntimeException("Could not find Removal Definitions!");
         }
+        this.htmlDocumentProvider = htmlDocumentProvider;
     }
 }
