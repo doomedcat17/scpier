@@ -3,6 +3,7 @@ package com.doomedcat17.scpier.scrapper.table;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import org.jsoup.nodes.Element;
@@ -16,11 +17,15 @@ public class TableScrapper extends ElementScrapper {
     }
 
     @Override
-    public ContentNode<?> scrapElement(Element element) {
-        return mapTable(element);
+    public ContentNode<?> scrapElement(Element element)  {
+        try {
+            return mapTable(element);
+        } catch (Exception e) {
+            throw new ElementScrapperException(e.getMessage());
+        }
     }
 
-    private ContentNode<?> mapTable(Element element) {
+    private ContentNode<?> mapTable(Element element)  {
         Element tableBody = element.selectFirst("tbody");
         if (tableBody != null) {
             element = tableBody;
@@ -33,7 +38,7 @@ public class TableScrapper extends ElementScrapper {
         } else return scrapDefaultTable(element);
     }
 
-    private ContentNode<List<ContentNode<?>>> scrapDefaultTable(Element element) {
+    private ContentNode<List<ContentNode<?>>> scrapDefaultTable(Element element)  {
         List<ContentNode<?>> tableRows = new ArrayList<>();
         for (Element tableRow: element.children()) {
             tableRows.add(mapRow(tableRow));
@@ -57,7 +62,7 @@ public class TableScrapper extends ElementScrapper {
         return paragraphs;
     }
 
-    private ContentNode<?> mapRow(Element row) {
+    private ContentNode<?> mapRow(Element row)  {
         List<ContentNode<List<ContentNode<?>>>> rowCells = new ArrayList<>();
         for (Element cell: row.children()) {
             ContentNode<List<ContentNode<?>>> cellNode = new ContentNode<>(ContentNodeType.TABLE_CELL, new ArrayList<>());

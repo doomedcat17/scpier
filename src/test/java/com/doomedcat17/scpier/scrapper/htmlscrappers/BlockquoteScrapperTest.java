@@ -22,7 +22,7 @@ class BlockquoteScrapperTest extends ScrapperTest {
             getExpectedAppendicesOutputs("src/test/resources/html/testdata/blockquotes/expected_outputs.json");
 
     @Test
-    void shouldScrapSimpleBlockquote() {
+    void shouldScrapSimpleBlockquote()  {
         //given
         Element element = sampleLines.getElementById("shouldScrapSimpleBlockquote");
         //when
@@ -32,7 +32,7 @@ class BlockquoteScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapBlockquoteWithLongLine() {
+    void shouldScrapBlockquoteWithLongLine()  {
         //given
         Element element = sampleLines.getElementById("shouldScrapBlockquoteWithLongLine");
         //when
@@ -41,7 +41,7 @@ class BlockquoteScrapperTest extends ScrapperTest {
         assertEquals(expectedOutputs.get("shouldScrapBlockquoteWithLongLine"), contentNode);
     }
     @Test
-    void shouldScrapBlockquoteWithMultipleLines() {
+    void shouldScrapBlockquoteWithMultipleLines()  {
         //given
         Element element = sampleLines.getElementById("shouldScrapBlockquoteWithMultipleLines");
         //when
@@ -50,7 +50,7 @@ class BlockquoteScrapperTest extends ScrapperTest {
         assertEquals(expectedOutputs.get("shouldScrapBlockquoteWithMultipleLines"), contentNode);
     }
     @Test
-    void shouldScrapBlockquoteWithDeletedContent() {
+    void shouldScrapBlockquoteWithDeletedContent()  {
         //given
         Element element = sampleLines.getElementById("shouldScrapBlockquoteWithDeletedContent");
         //when
@@ -59,7 +59,7 @@ class BlockquoteScrapperTest extends ScrapperTest {
         assertEquals(expectedOutputs.get("shouldScrapBlockquoteWithDeletedContent"), contentNode);
     }
     @Test
-    void shouldScrapBlockquoteWithList() {
+    void shouldScrapBlockquoteWithList()  {
         //given
         Element element = sampleLines.getElementById("shouldScrapBlockquoteWithList");
         //when
@@ -69,7 +69,7 @@ class BlockquoteScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapBlockquoteWithHeading() {
+    void shouldScrapBlockquoteWithHeading()  {
         //given
         Element element = sampleLines.getElementById("shouldScrapBlockquoteWithHeading");
         //when
@@ -79,7 +79,7 @@ class BlockquoteScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapBlockquoteWithImage() {
+    void shouldScrapBlockquoteWithImage()  {
         //given
         Element element = sampleLines.getElementById("shouldScrapBlockquoteWithImage");
         //when

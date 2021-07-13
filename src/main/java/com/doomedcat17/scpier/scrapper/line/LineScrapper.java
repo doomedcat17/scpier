@@ -4,6 +4,7 @@ import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.HyperlinkNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import com.doomedcat17.scpier.scrapper.text.TextScrapper;
 import org.jsoup.nodes.Element;
@@ -19,37 +20,41 @@ public class LineScrapper extends ElementScrapper {
     }
 
     @Override
-    public ContentNode<?> scrapElement(Element element) {
-        if (element.is("br")) {
-            return new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
-        }
-        lineCleanup(element);
-        //in few cases there are only empty chars and
-        if (!element.wholeText().isBlank()) {
-            if (element.parent() != null) {
-                if (element.is("a") && !element.hasClass("footnoteref")
-                        && element.hasAttr("href")
-                        && !element.attr("href").equals("#")) {
-                    ContentNode<List<HyperlinkNode>> paragraph = new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
-                    String href = element.attr("href");
-                    if (href.startsWith("/")) {
-                        href = source.substring(0, source.lastIndexOf('/')) + href;
+    public ContentNode<?> scrapElement(Element element)  {
+        try {
+            if (element.is("br")) {
+                return new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
+            }
+            lineCleanup(element);
+            //in few cases there are only empty chars and
+            if (!element.wholeText().isBlank()) {
+                if (element.parent() != null) {
+                    if (element.is("a") && !element.hasClass("footnoteref")
+                            && element.hasAttr("href")
+                            && !element.attr("href").equals("#")) {
+                        ContentNode<List<HyperlinkNode>> paragraph = new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
+                        String href = element.attr("href");
+                        if (href.startsWith("/")) {
+                            href = source.substring(0, source.lastIndexOf('/')) + href;
+                        }
+                        HyperlinkNode hyperlinkNode = new HyperlinkNode(element.text(), href);
+                        paragraph.getContent().add(hyperlinkNode);
+                        return paragraph;
+                    } else {
+                        List<TextNode> textNodes = TextScrapper.scrapText(element, source);
+                        if (textNodes.isEmpty()) return new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
+                        textNodes.get(textNodes.size() - 1).setContent(textNodes.get(textNodes.size() - 1).getContent().stripTrailing());
+                        ContentNode<List<ContentNode<List<TextNode>>>> paragraphs = new ContentNode<>(ContentNodeType.PARAGRAPHS);
+                        paragraphs.setContent(splitIntoParagraphs(textNodes));
+                        if (paragraphs.getContent().size() == 1) return paragraphs.getContent().get(0);
+                        return paragraphs;
                     }
-                    HyperlinkNode hyperlinkNode = new HyperlinkNode(element.text(), href);
-                    paragraph.getContent().add(hyperlinkNode);
-                    return paragraph;
-                } else {
-                    List<TextNode> textNodes = TextScrapper.scrapText(element, source);
-                    if (textNodes.isEmpty()) return new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
-                    textNodes.get(textNodes.size() - 1).setContent(textNodes.get(textNodes.size() - 1).getContent().stripTrailing());
-                    ContentNode<List<ContentNode<List<TextNode>>>> paragraphs = new ContentNode<>(ContentNodeType.PARAGRAPHS);
-                    paragraphs.setContent(splitIntoParagraphs(textNodes));
-                    if (paragraphs.getContent().size() == 1) return paragraphs.getContent().get(0);
-                    return paragraphs;
                 }
             }
+            return new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
+        } catch (Exception e) {
+            throw new ElementScrapperException(e.getMessage());
         }
-        return new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
     }
 
     //in some cases, first node of the paragraph is empty, this method takes care about it

@@ -17,7 +17,7 @@ public class FootnotesScrapper extends DivScrapper implements DivScrapperCompone
     }
 
     @Override
-    public List<ContentNode<?>> scrapDivContent(Element element) {
+    public List<ContentNode<?>> scrapDivContent(Element element)  {
         List<ContentNode<?>> contentNodes = new ArrayList<>();
         ContentNode<List<TextNode>> headingParagraph = new ContentNode<>(ContentNodeType.HEADING, new ArrayList<>());
         headingParagraph.getContent().add(new TextNode("Footnotes"));

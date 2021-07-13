@@ -15,7 +15,7 @@ public class MaterialBoxScrapper extends DivScrapper implements DivScrapperCompo
     }
 
     @Override
-    public List<ContentNode<?>> scrapDivContent(Element element) {
+    public List<ContentNode<?>> scrapDivContent(Element element)  {
         return new ArrayList<>(List.of(new ContentNode<>(ContentNodeType.DIV, ElementContentScrapper.scrapContent(element, source))));
     }
 }

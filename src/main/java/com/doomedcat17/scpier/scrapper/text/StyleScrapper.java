@@ -1,5 +1,6 @@
 package com.doomedcat17.scpier.scrapper.text;
 
+import com.doomedcat17.scpier.exception.ElementScrapperException;
 import org.jsoup.nodes.Element;
 
 import java.util.Arrays;
@@ -10,18 +11,22 @@ import java.util.stream.Collectors;
 
 public class StyleScrapper {
     public static Map<String, String> scrapStyles(Element element) {
-        Map<String, String> stylesMap = new HashMap<>();
-        mapTag(element.tagName(), stylesMap);
-        if (element.hasAttr("style")) {
-            List<String> styles = Arrays.stream(element.attr("style")
-                    .trim()
-                    .split(";"))
-                    .map(String::trim)
-                    .collect(Collectors.toList());
-            styles.forEach(styleText -> mapStyle(styleText, stylesMap));
+        try {
+            Map<String, String> stylesMap = new HashMap<>();
+            mapTag(element.tagName(), stylesMap);
+            if (element.hasAttr("style")) {
+                List<String> styles = Arrays.stream(element.attr("style")
+                                .trim()
+                                .split(";"))
+                        .map(String::trim)
+                        .collect(Collectors.toList());
+                styles.forEach(styleText -> mapStyle(styleText, stylesMap));
+            }
+            addClassStyles(element, stylesMap);
+            return stylesMap;
+        } catch (Exception e) {
+            throw new ElementScrapperException(e.getMessage());
         }
-        addClassStyles(element, stylesMap);
-        return stylesMap;
 
     }
 

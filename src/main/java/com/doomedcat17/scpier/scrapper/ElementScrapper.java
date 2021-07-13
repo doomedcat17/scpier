@@ -9,7 +9,7 @@ public abstract class ElementScrapper {
         this.source = source;
     }
 
-    public abstract ContentNode<?> scrapElement(Element element);
+    public abstract ContentNode<?> scrapElement(Element element) ;
 
     protected String source;
 

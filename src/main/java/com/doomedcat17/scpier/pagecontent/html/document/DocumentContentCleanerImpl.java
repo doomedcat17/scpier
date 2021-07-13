@@ -1,12 +1,16 @@
 package com.doomedcat17.scpier.pagecontent.html.document;
 
+import com.doomedcat17.scpier.exception.DocumentContentCleanupException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +23,12 @@ public class DocumentContentCleanerImpl implements DocumentContentCleaner {
     private final List<String> removalDefinitions;
 
     public void clearContentAndUnpackBlocks(Element content) {
-        removeTrash(content);
-        unpackNodes(content);
+        try {
+            removeTrash(content);
+            unpackNodes(content);
+        } catch (Exception e) {
+            throw new DocumentContentCleanupException(e.getMessage());
+        }
     }
 
     public void removeTrash(Element content) {

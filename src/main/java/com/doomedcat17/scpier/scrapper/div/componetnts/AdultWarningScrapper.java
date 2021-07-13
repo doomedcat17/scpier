@@ -15,7 +15,7 @@ public class AdultWarningScrapper extends DivScrapper implements DivScrapperComp
         super(source);
     }
     @Override
-    public List<ContentNode<?>> scrapDivContent(Element element) {
+    public List<ContentNode<?>> scrapDivContent(Element element)  {
         Element headingElement = element.getElementById("u-adult-header");
         ContentNode<List<TextNode>> headingNode = new ContentNode<>(ContentNodeType.HEADING, new ArrayList<>());
         headingNode.getContent().add(new TextNode(headingElement.text()));

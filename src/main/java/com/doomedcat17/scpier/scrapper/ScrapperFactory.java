@@ -29,6 +29,7 @@ public class ScrapperFactory {
             case "br":
             case "pre":
             case "summary":
+            case "script":
                 return new LineScrapper(source);
             case "h1":
             case "h2":
@@ -48,6 +49,7 @@ public class ScrapperFactory {
             case "img":
                 return new ImageScrapper(source);
             case "table":
+            case "tbody":
                 return new TableScrapper(source);
             case "ul":
             case "ol":
@@ -55,7 +57,7 @@ public class ScrapperFactory {
             case "blockquote":
                 return new BlockquoteScrapper(source);
             default:
-                throw new ScrapperNotDefinedException("Scrapper not defined for" + element.tagName() +" element");
+                throw new ScrapperNotDefinedException("Scrapper not defined for " + element.tagName() +" element");
         }
     }
 }

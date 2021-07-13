@@ -18,7 +18,7 @@ class VideoScrapperTest extends ScrapperTest {
             .getSampleElements("src/test/resources/html/testdata/video/sampleVideoElements.html");
 
     @Test
-    void shouldScrapVideo() {
+    void shouldScrapVideo()  {
         //given
         Element videoElement = sampleElements.getElementById("shouldScrapVideo");
         //when

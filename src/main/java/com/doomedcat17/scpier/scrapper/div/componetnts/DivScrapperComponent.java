@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface DivScrapperComponent {
 
-    List<ContentNode<?>> scrapDivContent(Element element);
+    List<ContentNode<?>> scrapDivContent(Element element) ;
 }

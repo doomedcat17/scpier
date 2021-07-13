@@ -18,7 +18,7 @@ class AudioScrapperTest extends ScrapperTest {
             .getSampleElements("src/test/resources/html/testdata/audio/sampleAudioElements.html");
 
     @Test
-    void shouldScrapAudioElement() {
+    void shouldScrapAudioElement()  {
         //given
         Element element = sampleElements.getElementById("shouldScrapAudioElement");
         //when
@@ -29,7 +29,7 @@ class AudioScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapAudioPlayerElement() {
+    void shouldScrapAudioPlayerElement()  {
         //given
         Element element = sampleElements.getElementById("shouldScrapAudioPlayerElement");
         //when

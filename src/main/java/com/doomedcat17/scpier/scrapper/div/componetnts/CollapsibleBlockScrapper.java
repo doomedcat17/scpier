@@ -16,7 +16,7 @@ public class CollapsibleBlockScrapper extends DivScrapper implements DivScrapper
     }
 
     @Override
-    public List<ContentNode<?>> scrapDivContent(Element element) {
+    public List<ContentNode<?>> scrapDivContent(Element element)  {
         if (element.is(".colmod-block")) return scrapColmodConetnt(element);
         List<ContentNode<?>> blockContent = new ArrayList<>();
         String title = element.selectFirst(".collapsible-block-link").text();
@@ -35,7 +35,7 @@ public class CollapsibleBlockScrapper extends DivScrapper implements DivScrapper
         return blockContent;
     }
 
-    private List<ContentNode<?>> scrapColmodConetnt(Element element) {
+    private List<ContentNode<?>> scrapColmodConetnt(Element element)  {
         Element content = element.selectFirst(".colmod-content");
         if (content.children().size() == 1) {
             return ElementContentScrapper.scrapContent(content.children().get(0), source);

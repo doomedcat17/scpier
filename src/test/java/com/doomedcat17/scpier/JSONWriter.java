@@ -13,10 +13,10 @@ public class JSONWriter {
         ObjectMapper objectMapper = new ObjectMapper();
         ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
         try {
-            ScpObject scp = scpFoundationDataProvider.getScpObject(1112, SCPBranch.RUSSIAN, SCPTranslation.ORIGINAL);
+            ScpObject scp = scpFoundationDataProvider.getScpObject("4001", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
             ScpTale scpTale = scpFoundationDataProvider.getScpTale("sympathy-for-an-empath", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
             // ScpObject scpObject = scpFoundationDataProvider.getFirstScpObject("qntm-s-proposal", SCPBranch.ENGLISH, SCPTranslation.POLISH, false);
-            System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(scpTale));
+            System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(scp));
         } catch (Exception e) {
             e.printStackTrace();
         }

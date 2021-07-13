@@ -14,7 +14,7 @@ public class PlayerWrapperScrapper extends DivScrapper implements DivScrapperCom
     }
 
     @Override
-    public List<ContentNode<?>> scrapDivContent(Element element) {
+    public List<ContentNode<?>> scrapDivContent(Element element)  {
         Element audioElement = element.selectFirst("audio, audio-player");
         AudioScrapper audioScrapper = new AudioScrapper(source);
         return new ArrayList<>(List.of(audioScrapper.scrapElement(audioElement)));

@@ -23,7 +23,7 @@ class ElementScrapperTest extends ScrapperTest  {
             .getSampleElements("src/test/resources/html/testdata/divs/SampleDivsElements.html");
 
     @Test
-    void shouldScrapMath() {
+    void shouldScrapMath()  {
         //given
         Element divElement = sampleDivs.getElementById("shouldScrapMath");
         //when
@@ -36,7 +36,7 @@ class ElementScrapperTest extends ScrapperTest  {
     }
 
     @Test
-    void shouldScrapMath2() {
+    void shouldScrapMath2()  {
         //given
         Element divElement = sampleDivs.getElementById("shouldScrapMath2");
         //when

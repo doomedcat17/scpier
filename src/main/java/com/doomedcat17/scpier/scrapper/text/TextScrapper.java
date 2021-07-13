@@ -2,6 +2,7 @@ package com.doomedcat17.scpier.scrapper.text;
 
 import com.doomedcat17.scpier.data.contentnode.HyperlinkNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.exception.ElementScrapperException;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 
@@ -12,52 +13,56 @@ import java.util.Map;
 public class TextScrapper {
 
     public static List<TextNode> scrapText(Element textElement, String source) {
-        List<TextNode> textNodes = new ArrayList<>();
-        Map<String, String> elementStyles = StyleScrapper.scrapStyles(textElement);
-        if (textElement.is("br")) {
-            textNodes.add(new TextNode("\n"));
-            return textNodes;
-        } else if (textElement.is("a") && !textElement.hasClass("footnoteref")
-                && textElement.hasAttr("href")
-                && (!textElement.attr("href").equals("#") && !textElement.attr("href").contains("javascript"))) {
-            return new ArrayList<>(List.of(scrapLink(textElement, source, elementStyles)));
-        }
-        for (Node node : textElement.childNodes()) {
-            if (node instanceof Element) {
-                Element innerElement = (Element) node;
-                if (innerElement.is("br")) {
-                    if (!textNodes.isEmpty()) {
-                        TextNode lastTextNode = textNodes.get(textNodes.size() - 1);
-                        if (lastTextNode.getContent() == null) {
-                            lastTextNode.setContent("\n");
-                        } else lastTextNode.setContent(lastTextNode.getContent() + "\n");
-                    }
-                } else if (innerElement.is("a") && !innerElement.hasClass("footnoteref")
-                        && innerElement.hasAttr("href")
-                        && (!innerElement.attr("href").equals("#") && !innerElement.attr("href").contains("javascript"))) {
-                    textNodes.add(scrapLink(innerElement, source, elementStyles));
-                } else {
-                    if (innerElement.text().isBlank()) continue;
-                    Map<String, String> innerElementStyles = StyleScrapper.scrapStyles(innerElement);
-                    if (!elementStyles.isEmpty()) innerElementStyles.putAll(elementStyles);
-                    if (innerElement.childrenSize() != 0) {
-                        textNodes.addAll(mapInnerTextElements(innerElement, innerElementStyles, source));
+        try {
+            List<TextNode> textNodes = new ArrayList<>();
+            Map<String, String> elementStyles = StyleScrapper.scrapStyles(textElement);
+            if (textElement.is("br")) {
+                textNodes.add(new TextNode("\n"));
+                return textNodes;
+            } else if (textElement.is("a") && !textElement.hasClass("footnoteref")
+                    && textElement.hasAttr("href")
+                    && (!textElement.attr("href").equals("#") && !textElement.attr("href").contains("javascript"))) {
+                return new ArrayList<>(List.of(scrapLink(textElement, source, elementStyles)));
+            }
+            for (Node node : textElement.childNodes()) {
+                if (node instanceof Element) {
+                    Element innerElement = (Element) node;
+                    if (innerElement.is("br")) {
+                        if (!textNodes.isEmpty()) {
+                            TextNode lastTextNode = textNodes.get(textNodes.size() - 1);
+                            if (lastTextNode.getContent() == null) {
+                                lastTextNode.setContent("\n");
+                            } else lastTextNode.setContent(lastTextNode.getContent() + "\n");
+                        }
+                    } else if (innerElement.is("a") && !innerElement.hasClass("footnoteref")
+                            && innerElement.hasAttr("href")
+                            && (!innerElement.attr("href").equals("#") && !innerElement.attr("href").contains("javascript"))) {
+                        textNodes.add(scrapLink(innerElement, source, elementStyles));
                     } else {
-                        String text = innerElement.wholeText();
-                        TextNode textNode = new TextNode(text, innerElementStyles);
+                        if (innerElement.text().isBlank()) continue;
+                        Map<String, String> innerElementStyles = StyleScrapper.scrapStyles(innerElement);
+                        if (!elementStyles.isEmpty()) innerElementStyles.putAll(elementStyles);
+                        if (innerElement.childrenSize() != 0) {
+                            textNodes.addAll(mapInnerTextElements(innerElement, innerElementStyles, source));
+                        } else {
+                            String text = innerElement.wholeText();
+                            TextNode textNode = new TextNode(text, innerElementStyles);
+                            textNodes.add(textNode);
+                        }
+
+                    }
+                } else {
+                    String text = node.toString();
+                    if (!text.isBlank()) {
+                        TextNode textNode = new TextNode(text, elementStyles);
                         textNodes.add(textNode);
                     }
-
-                }
-            } else {
-                String text = node.toString();
-                if (!text.isBlank()) {
-                    TextNode textNode = new TextNode(text, elementStyles);
-                    textNodes.add(textNode);
                 }
             }
+            return textNodes;
+        } catch (Exception e) {
+            throw new ElementScrapperException(e.getMessage());
         }
-        return textNodes;
     }
 
     private static List<TextNode> mapInnerTextElements(Element element, Map<String, String> parentStyles, String source) {

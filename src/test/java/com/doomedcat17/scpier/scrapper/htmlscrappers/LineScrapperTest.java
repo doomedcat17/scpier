@@ -23,7 +23,7 @@ class LineScrapperTest extends ScrapperTest {
     private final Map<String, ContentNode<?>> expectedOutputs = getExpectedAppendicesOutputs("src/test/resources/html/testdata/lines/expected_outputs.json");
 
     @Test
-    void shouldScrapSimpleLine() {
+    void shouldScrapSimpleLine()  {
         //given
         Element simpleLine = sampleLines.getElementById("sampleLine");
         //when
@@ -33,7 +33,7 @@ class LineScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapSimpleLineWithDeletedContent() {
+    void shouldScrapSimpleLineWithDeletedContent()  {
         //given
         Element simpleLine = sampleLines.getElementById("sampleLineWithDeletedContent");
         //when
@@ -43,7 +43,7 @@ class LineScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapLineWithHeader() {
+    void shouldScrapLineWithHeader()  {
         //given
         Element lineWithHeader = sampleLines.getElementById("shouldScrapLineWithHeader");
         //when
@@ -53,7 +53,7 @@ class LineScrapperTest extends ScrapperTest {
 
     }
     @Test
-    void shouldScrapLineWithStrongElements() {
+    void shouldScrapLineWithStrongElements()  {
         //given
         Element line = sampleLines.getElementById("shouldScrapContentWithStrongElements");
         //when
@@ -64,7 +64,7 @@ class LineScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapLineWithEmAndIElements() {
+    void shouldScrapLineWithEmAndIElements()  {
         //given
         Element line = sampleLines.getElementById("shouldScrapContentWithEmAndIElements");
         //when
@@ -75,7 +75,7 @@ class LineScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapLineWithInnerSpanElements() {
+    void shouldScrapLineWithInnerSpanElements()  {
         //given
         Element line = sampleLines.getElementById("shouldScrapContentWithInnerSpanElements");
         //when
@@ -86,7 +86,7 @@ class LineScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapLineWithStylization() {
+    void shouldScrapLineWithStylization()  {
         //given
         Element line = sampleLines.getElementById("shouldScrapContentWithStylization");
         //when
@@ -96,7 +96,7 @@ class LineScrapperTest extends ScrapperTest {
 
     }
     @Test
-    void shouldScrapStrongElement() {
+    void shouldScrapStrongElement()  {
         //given
         Element line = sampleLines.getElementById("sampleStrong");
         //when
@@ -106,7 +106,7 @@ class LineScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapStrongElementAsTextNode() {
+    void shouldScrapStrongElementAsTextNode()  {
         //given
         Element line = sampleLines.getElementById("sampleStrong2");
         //when
@@ -116,7 +116,7 @@ class LineScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapLineWithMultipleStrongElements() {
+    void shouldScrapLineWithMultipleStrongElements()  {
         //given
         Element line = sampleLines.getElementById("shouldScrapLineWithMultipleStrongElements");
         //when
@@ -126,7 +126,7 @@ class LineScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapLine1() {
+    void shouldScrapLine1()  {
         //given
         Element line = sampleLines.getElementById("shouldScrapLine1");
         //when
@@ -136,7 +136,7 @@ class LineScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapLine2() {
+    void shouldScrapLine2()  {
         //given
         Element line = sampleLines.getElementById("shouldScrapLine2");
         //when
@@ -146,7 +146,7 @@ class LineScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapLine3() {
+    void shouldScrapLine3()  {
         //given
         Element line = sampleLines.getElementById("shouldScrapLine3");
         //when

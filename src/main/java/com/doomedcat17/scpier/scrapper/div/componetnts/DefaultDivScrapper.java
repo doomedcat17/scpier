@@ -16,7 +16,7 @@ public class DefaultDivScrapper extends DivScrapper implements DivScrapperCompon
     }
 
     @Override
-    public List<ContentNode<?>> scrapDivContent(Element element) {
+    public List<ContentNode<?>> scrapDivContent(Element element)  {
         List<ContentNode<?>> contentNodes = ElementContentScrapper.scrapContent(element, source);
         ContentNode<List<ContentNode<?>>> divNode = new ContentNode<>(ContentNodeType.DIV);
         divNode.setContent(contentNodes);

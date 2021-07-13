@@ -25,7 +25,7 @@ class TableScrapperTest extends ScrapperTest {
             getExpectedAppendicesOutputs("src/test/resources/html/testdata/tables/expected_outputs.json");
 
     @Test
-    void shouldScrapSimpleTable() {
+    void shouldScrapSimpleTable()  {
         //given
         Element table = sampleTables.getElementById("shouldScrapSimpleTable");
         //when
@@ -35,7 +35,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapSimpleTableWithoutTbody() {
+    void shouldScrapSimpleTableWithoutTbody()  {
         //given
         Element table = sampleTables.getElementById("shouldScrapSimpleTableWithoutTbody");
         //when
@@ -44,7 +44,7 @@ class TableScrapperTest extends ScrapperTest {
         assertEquals(expectedOutputs.get("shouldScrapSimpleTable"), contentNode);
     }
     @Test
-    void shouldScrapSimpleTable2() {
+    void shouldScrapSimpleTable2()  {
         //given
         Element table = sampleTables.getElementById("shouldScrapSimpleTable2");
         //when
@@ -54,7 +54,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapEnBaseTable() {
+    void shouldScrapEnBaseTable()  {
         //given
         Element table = sampleTables.getElementById("shouldMapEnBaseTable");
         //when
@@ -70,7 +70,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldMapEnBaseTable2() {
+    void shouldMapEnBaseTable2()  {
         //given
         Element table = sampleTables.getElementById("shouldMapEnBaseTable2");
         //when
@@ -86,7 +86,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldMapEnBaseTable3() {
+    void shouldMapEnBaseTable3()  {
         //given
         Element table = sampleTables.getElementById("shouldMapEnBaseTable3");
         //when
