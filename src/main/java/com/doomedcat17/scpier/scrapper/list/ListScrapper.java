@@ -18,12 +18,14 @@ public class ListScrapper extends ElementScrapper {
     }
 
     @Override
-    public ContentNode<?> scrapElement(Element element)  {
+    public ContentNode<?> scrapElement(Element element) {
         try {
             ContentNode<List<ContentNode<?>>> contentNode = new ContentNode<>();
             contentNode.setContent(new ArrayList<>());
             if (element.tagName().equals("ul")) {
                 contentNode.setContentNodeType(ContentNodeType.LIST_UL);
+            } else if (element.tagName().equals("dl")) {
+                contentNode.setContentNodeType(ContentNodeType.LIST_DL);
             } else contentNode.setContentNodeType(ContentNodeType.LIST_OL);
             mapList(element, contentNode);
             return contentNode;
@@ -32,15 +34,15 @@ public class ListScrapper extends ElementScrapper {
         }
     }
 
-    private void mapList(Element element, ContentNode<List<ContentNode<?>>> contentNode)  {
+    private void mapList(Element element, ContentNode<List<ContentNode<?>>> contentNode) {
         Elements children = element.children();
-        for(Element child : children) {
+        for (Element child : children) {
             contentNode.getContent().add(mapRow(child));
         }
     }
 
-    private ContentNode<?> mapRow(Element row)  {
-        if (row.is("ul, ol")) {
+    private ContentNode<?> mapRow(Element row) {
+        if (row.is("ul, ol, dl")) {
             return scrapElement(row);
         } else {
             List<ContentNode<?>> contentNodes = ElementContentScrapper.scrapContent(row, source);

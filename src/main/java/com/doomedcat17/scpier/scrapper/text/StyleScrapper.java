@@ -49,6 +49,7 @@ public class StyleScrapper {
             case "strong":
             case "b":
             case "h4":
+            case "dt":
                 stylesMap.put("font-weight", "bold");
                 break;
             case "em":

@@ -30,6 +30,8 @@ public class ScrapperFactory {
             case "pre":
             case "summary":
             case "script":
+            case "dd":
+            case "dt":
                 return new LineScrapper(source);
             case "h1":
             case "h2":
@@ -53,6 +55,7 @@ public class ScrapperFactory {
                 return new TableScrapper(source);
             case "ul":
             case "ol":
+            case "dl":
                 return new ListScrapper(source);
             case "blockquote":
                 return new BlockquoteScrapper(source);

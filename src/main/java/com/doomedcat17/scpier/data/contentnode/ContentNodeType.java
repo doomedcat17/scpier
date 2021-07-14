@@ -24,6 +24,8 @@ public enum ContentNodeType {
     LIST_OL,
     /** Corresponds to <b style="color: aqua;">{@code <ul> }</b> HTML tag. The content is a {@link java.util.List} of {@link ContentNode}. */
     LIST_UL,
+    //TODO description
+    LIST_DL,
     /** Corresponds to <b style="color: aqua;">{@code <table> }</b> HTML tag. The content is a {@link java.util.List} of {@link ContentNode}.
      * of <span style="color: #eb9934;">TABLE_ROW</span></span> type. */
     TABLE,
