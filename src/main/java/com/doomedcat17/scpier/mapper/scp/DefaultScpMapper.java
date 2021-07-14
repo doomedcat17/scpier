@@ -18,6 +18,7 @@ public class DefaultScpMapper implements ScpMapper {
             mapScp(scpObject, content);
             return scpObject;
         } catch (ElementScrapperException e) {
+            e.printStackTrace();
             throw new ScpMapperException(e.getMessage());
         }
     }

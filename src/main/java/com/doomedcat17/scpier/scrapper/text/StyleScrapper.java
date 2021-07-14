@@ -94,6 +94,13 @@ public class StyleScrapper {
             case "u":
                 stylesMap.put("text-decoration", "underline");
                 break;
+            case "del":
+            case "strike":
+                stylesMap.put("text-decoration", "line-through");
+                break;
+            case "center":
+                stylesMap.put("text-align", "center");
+                break;
             case "p":
             case "span":
             default:

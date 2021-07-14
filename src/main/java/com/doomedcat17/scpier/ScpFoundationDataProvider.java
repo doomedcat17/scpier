@@ -29,6 +29,7 @@ public class ScpFoundationDataProvider {
         scpObject.setTags(pageContent.getTags());
             return scpObject;
         } catch (RuntimeException e) {
+            e.printStackTrace();
             throw new ScpierIternalException(e.getMessage());
         }
     }

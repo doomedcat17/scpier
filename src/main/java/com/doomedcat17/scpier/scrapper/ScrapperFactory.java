@@ -9,6 +9,7 @@ import com.doomedcat17.scpier.scrapper.image.ImageScrapper;
 import com.doomedcat17.scpier.scrapper.line.LineScrapper;
 import com.doomedcat17.scpier.scrapper.list.ListScrapper;
 import com.doomedcat17.scpier.scrapper.table.TableScrapper;
+import com.doomedcat17.scpier.scrapper.video.VideoScrapper;
 import org.jsoup.nodes.Element;
 
 public class ScrapperFactory {
@@ -36,7 +37,8 @@ public class ScrapperFactory {
             case "i":
             case "u":
             case "font":
-            case "center":
+            case "del":
+            case "strike":
                 return new LineScrapper(source);
             case "h1":
             case "h2":
@@ -63,7 +65,10 @@ public class ScrapperFactory {
             case "dl":
                 return new ListScrapper(source);
             case "blockquote":
+            case "center":
                 return new BlockquoteScrapper(source);
+            case "video":
+                return new VideoScrapper(source);
             default:
                 throw new ScrapperNotDefinedException("Scrapper not defined for " + element.tagName() +" element");
         }

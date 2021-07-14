@@ -22,6 +22,10 @@
   "meta",
   "base",
   "#buttons",
-  "#warning"
+  "#warning",
+  "input",
+  "textarea",
+  "hl-main",
+  "noscript"
 
 ]

@@ -4,6 +4,8 @@ import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
+import com.doomedcat17.scpier.scrapper.ElementScrapper;
+import com.doomedcat17.scpier.scrapper.ScrapperFactory;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import org.jsoup.nodes.Element;
 
@@ -28,7 +30,8 @@ public class CollapsibleBlockScrapper extends DivScrapper implements DivScrapper
         blockContent.add(heading);
         Element collapsibleBlockContent = element.selectFirst(".collapsible-block-content");
         if (collapsibleBlockContent.children().size() == 1) {
-            return ElementContentScrapper.scrapContent(collapsibleBlockContent.children().get(0), source);
+            ElementScrapper elementScrapper = ScrapperFactory.getHtmlScrapper(collapsibleBlockContent.children().get(0), source);
+            return List.of(elementScrapper.scrapElement(collapsibleBlockContent.children().get(0)));
         }
         List<ContentNode<?>> contentNodes = ElementContentScrapper.scrapContent(collapsibleBlockContent, source);
         blockContent.addAll(contentNodes);
