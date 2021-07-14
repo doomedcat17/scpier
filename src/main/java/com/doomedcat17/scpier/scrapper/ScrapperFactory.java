@@ -28,12 +28,15 @@ public class ScrapperFactory {
             case "tt":
             case "br":
             case "pre":
+            case "code":
             case "summary":
             case "script":
             case "dd":
             case "dt":
             case "i":
             case "u":
+            case "font":
+            case "center":
                 return new LineScrapper(source);
             case "h1":
             case "h2":

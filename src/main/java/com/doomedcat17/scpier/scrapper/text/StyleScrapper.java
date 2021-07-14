@@ -65,6 +65,7 @@ public class StyleScrapper {
                 stylesMap.put("font-size", "smaller");
                 break;
             case "code":
+            case "pre":
                 stylesMap.put("font-family", "monospace");
                 break;
             case "h1":
