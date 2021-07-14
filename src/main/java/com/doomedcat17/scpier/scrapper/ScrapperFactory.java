@@ -32,6 +32,8 @@ public class ScrapperFactory {
             case "script":
             case "dd":
             case "dt":
+            case "i":
+            case "u":
                 return new LineScrapper(source);
             case "h1":
             case "h2":

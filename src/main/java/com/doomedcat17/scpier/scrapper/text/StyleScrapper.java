@@ -90,6 +90,9 @@ public class StyleScrapper {
             case "a":
                 stylesMap.put("color", "#901");
                 break;
+            case "u":
+                stylesMap.put("text-decoration", "underline");
+                break;
             case "p":
             case "span":
             default:
