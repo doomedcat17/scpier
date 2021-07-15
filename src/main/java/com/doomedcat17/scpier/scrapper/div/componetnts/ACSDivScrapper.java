@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.scrapper.div.componetnts;
 
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.contentnode.ParagraphNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import com.doomedcat17.scpier.scrapper.text.TextScrapper;
@@ -31,11 +31,11 @@ public class ACSDivScrapper extends DivScrapper implements DivScrapperComponent 
         TextNode itemName = item.get(1);
         if (itemHeading.getContent().charAt(itemHeading.getContent().length()-1) != ' ') itemHeading.setContent(itemHeading.getContent()+" ");
         if (!itemName.getContent().toLowerCase().startsWith("scp-")) itemName.setContent("SCP-"+itemName.getContent());
-        return new ContentNode<>(ContentNodeType.PARAGRAPH, item);
+        return new ParagraphNode(item);
     }
 
-    private List<ContentNode<List<TextNode>>> scrapScpClasses(Element element)  {
-        List<ContentNode<List<TextNode>>> paragraphs = new ArrayList<>();
+    private List<ParagraphNode> scrapScpClasses(Element element)  {
+        List<ParagraphNode> paragraphs = new ArrayList<>();
         for (String className: ACS_SCP_CLASSES) {
             Element scpClassElement = element.selectFirst(className);
             if (scpClassElement != null) {
@@ -51,7 +51,7 @@ public class ACSDivScrapper extends DivScrapper implements DivScrapperComponent 
                 if (!classContent.getContent().startsWith("{$")) {
                     if (classContent.getContent().startsWith("/")) classContent.setContent(classContent.getContent().substring(1));
                     classContent.setContent(capitalizeText(classContent.getContent()).trim());
-                    ContentNode<List<TextNode>> paragraph = new ContentNode<>(ContentNodeType.PARAGRAPH, textNodes);
+                    ParagraphNode paragraph = new ParagraphNode(textNodes);
                     paragraphs.add(paragraph);
                 }
             }

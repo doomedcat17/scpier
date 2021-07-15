@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.scrapper.div.componetnts;
 
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.contentnode.ParagraphNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import com.doomedcat17.scpier.scrapper.text.TextScrapper;
@@ -27,16 +27,16 @@ public class ObjectClassBarDivScrapper extends DivScrapper implements DivScrappe
         return contentNodes;
     }
 
-    private List<ContentNode<List<TextNode>>> scrapSide(Element sideElement) {
-        List<ContentNode<List<TextNode>>> paragraphs = new ArrayList<>();
+    private List<ParagraphNode> scrapSide(Element sideElement) {
+        List<ParagraphNode> paragraphs = new ArrayList<>();
         sideElement.children().forEach(lineElement -> paragraphs.add(scrapLine(lineElement)));
         return paragraphs;
     }
 
-    private ContentNode<List<TextNode>> scrapLine(Element lineElement) {
+    private ParagraphNode scrapLine(Element lineElement) {
         List<TextNode> textNodes = TextScrapper.scrapText(lineElement, source);
         textNodes.get(0).addStyle("font-weight", "bold");
         if (!textNodes.get(0).getContent().endsWith(" ")) textNodes.get(0).setContent(textNodes.get(0).getContent()+" ");
-        return new ContentNode<>(ContentNodeType.PARAGRAPH, textNodes);
+        return new ParagraphNode(textNodes);
     }
 }

@@ -2,6 +2,7 @@ package com.doomedcat17.scpier.scrapper.div;
 
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.contentnode.ListNode;
 import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import com.doomedcat17.scpier.scrapper.div.componetnts.*;
@@ -21,7 +22,7 @@ public class DivScrapper extends ElementScrapper {
             List<ContentNode<?>> contentNodes = scrap(element);
             if (contentNodes.size() == 1) {
                 return contentNodes.get(0);
-            } else return new ContentNode<>(ContentNodeType.CONTENT_NODES, contentNodes);
+            } else return new ListNode<>(ContentNodeType.CONTENT_NODES, contentNodes);
         } catch (Exception e) {
             throw new ElementScrapperException(e.getMessage());
         }

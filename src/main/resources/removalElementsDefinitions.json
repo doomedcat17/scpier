@@ -26,6 +26,7 @@
   "input",
   "textarea",
   "hl-main",
-  "noscript"
+  "noscript",
+  "svg"
 
 ]

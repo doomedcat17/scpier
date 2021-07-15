@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.scrapper.div.componetnts;
 
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.contentnode.HeadingNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
@@ -23,10 +23,10 @@ public class CollapsibleBlockScrapper extends DivScrapper implements DivScrapper
         List<ContentNode<?>> blockContent = new ArrayList<>();
         String title = element.selectFirst(".collapsible-block-link").text();
         title = clearCollapsibleBlockTittle(title);
-        ContentNode<List<TextNode>> heading = new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
+        HeadingNode heading = new HeadingNode();
         TextNode titleNode = new TextNode(title);
         titleNode.addStyle("font-weight", "bold");
-        heading.getContent().add(titleNode);
+        heading.addElement(titleNode);
         blockContent.add(heading);
         Element collapsibleBlockContent = element.selectFirst(".collapsible-block-content");
         if (collapsibleBlockContent.children().size() == 1) {

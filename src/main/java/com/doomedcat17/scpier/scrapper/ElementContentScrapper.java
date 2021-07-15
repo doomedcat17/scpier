@@ -2,6 +2,7 @@ package com.doomedcat17.scpier.scrapper;
 
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.contentnode.ParagraphNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -28,17 +29,15 @@ public class ElementContentScrapper {
                 String text = node.toString();
                 if (!text.isBlank()) {
                     if (!contentNodes.isEmpty()) {
-                        if (contentNodes.get(contentNodes.size() - 1).getContentNodeType().equals(ContentNodeType.PARAGRAPH)) {
-                            ContentNode<List<TextNode>> lastParagraph = (ContentNode<List<TextNode>>) contentNodes.get(contentNodes.size() - 1);
+                        if (contentNodes.get(contentNodes.size() - 1) instanceof ParagraphNode) {
+                            ParagraphNode lastParagraph = (ParagraphNode) contentNodes.get(contentNodes.size() - 1);
                             if (text.charAt(0) == ' ') {
-                                lastParagraph.getContent().add(new TextNode(text));
+                                lastParagraph.addElement(new TextNode(text));
                                 continue;
                             }
                         }
                     }
-                    ContentNode<List<TextNode>> paragraph =
-                            new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>(List.of(new TextNode(text.trim()))));
-                    contentNodes.add(paragraph);
+                    contentNodes.add(new ParagraphNode(new ArrayList<>(List.of(new TextNode(text.trim())))));
                 }
             }
 

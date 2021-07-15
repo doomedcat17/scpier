@@ -95,8 +95,8 @@ public class TextScrapper {
         if (href.startsWith("/")) {
             href = source.substring(0, source.lastIndexOf('/')) + href;
         }
-        HyperlinkNode hyperlinkNode = new HyperlinkNode(linkElement.wholeText(), href);
         Map<String, String> innerElementStyles = StyleScrapper.scrapStyles(linkElement);
+        HyperlinkNode hyperlinkNode = new HyperlinkNode(linkElement.wholeText(), innerElementStyles, href);
         if (!elementStyles.isEmpty()) innerElementStyles.putAll(elementStyles);
         hyperlinkNode.setStyles(innerElementStyles);
         return hyperlinkNode;
