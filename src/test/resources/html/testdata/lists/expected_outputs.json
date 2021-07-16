@@ -1,14 +1,14 @@
 {
   "java.util.HashMap": {
     "shouldMapSimpleUnorderedList": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -30,7 +30,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -52,7 +52,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -74,7 +74,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -96,7 +96,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -118,7 +118,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -144,14 +144,14 @@
       }
     },
     "shouldMapSimpleOrderedList": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -173,7 +173,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -195,7 +195,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -217,7 +217,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -239,7 +239,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -261,7 +261,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -287,21 +287,21 @@
       }
     },
     "shouldMapUnorderedListWithNestedUnorderedList": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                         },
@@ -323,14 +323,14 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -352,14 +352,14 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                         },
@@ -381,14 +381,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -430,21 +430,21 @@
       }
     },
     "shouldMapOrderedListWithNestedUnorderedList": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                         },
@@ -466,14 +466,14 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -495,14 +495,14 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                         },
@@ -524,14 +524,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -573,21 +573,21 @@
       }
     },
     "shouldMapUnorderedListWithNestedOrderedList": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                         },
@@ -609,14 +609,14 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -638,14 +638,14 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                         },
@@ -667,14 +667,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -716,21 +716,21 @@
       }
     },
     "shouldScrapOrderedListWithNestedOrderedList": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                         },
@@ -752,14 +752,14 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -781,14 +781,14 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                         },
@@ -810,14 +810,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -859,21 +859,21 @@
       }
     },
     "shouldScrapUnorderedListWithNestedMultipleUnorderedLists": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                         },
@@ -895,14 +895,14 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -924,14 +924,14 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                         },
@@ -953,14 +953,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -986,14 +986,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -1019,14 +1019,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -1052,14 +1052,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -1089,7 +1089,7 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -1111,7 +1111,7 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -1133,14 +1133,14 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                         },
@@ -1178,21 +1178,21 @@
       }
     },
     "shouldScrapOrderedListWithNestedMultipleUnorderedLists": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                         },
@@ -1214,14 +1214,14 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -1243,14 +1243,14 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                         },
@@ -1272,14 +1272,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -1305,14 +1305,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -1338,14 +1338,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -1371,14 +1371,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -1408,7 +1408,7 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -1430,7 +1430,7 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -1452,14 +1452,14 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                         },
@@ -1497,21 +1497,21 @@
       }
     },
     "shouldScrapUnorderedListWithNestedMultipleOrderedLists": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                         },
@@ -1533,14 +1533,14 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -1562,14 +1562,14 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                         },
@@ -1591,14 +1591,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -1624,14 +1624,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -1657,14 +1657,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -1690,14 +1690,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -1727,7 +1727,7 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -1749,7 +1749,7 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -1771,14 +1771,14 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                         },
@@ -1816,21 +1816,21 @@
       }
     },
     "shouldScrapOrderedListWithNestedMultipleOrderedLists": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                         },
@@ -1852,14 +1852,14 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -1881,14 +1881,14 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "CONTENT_NODES"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                         },
@@ -1910,14 +1910,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -1943,14 +1943,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -1976,14 +1976,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -2009,14 +2009,14 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
                                         },
                                         "content": {
                                           "java.util.ArrayList": [
                                             {
-                                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                                 "contentNodeType": {
                                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                                 },
@@ -2046,7 +2046,7 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -2068,7 +2068,7 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
@@ -2090,14 +2090,14 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                                 "contentNodeType": {
                                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                         "contentNodeType": {
                                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                         },
@@ -2135,14 +2135,14 @@
       }
     },
     "shouldScrapSimpleUnorderedListWithDeletedElements": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2166,7 +2166,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2190,7 +2190,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2214,7 +2214,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2238,7 +2238,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2262,7 +2262,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2290,14 +2290,14 @@
       }
     },
     "shouldScrapSimpleOrderedListWithDeletedElements": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2321,7 +2321,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2345,7 +2345,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2369,7 +2369,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2393,7 +2393,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2417,7 +2417,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2445,14 +2445,14 @@
       }
     },
     "shouldScrapSimpleUnorderedListWithStrongElements": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2476,7 +2476,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2500,7 +2500,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2524,7 +2524,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2548,7 +2548,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2572,7 +2572,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2600,14 +2600,14 @@
       }
     },
     "shouldScrapSimpleOrderedListWithStrongElements": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_OL"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2631,7 +2631,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2655,7 +2655,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2679,7 +2679,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2703,7 +2703,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -2727,7 +2727,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },

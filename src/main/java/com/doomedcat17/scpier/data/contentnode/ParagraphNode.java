@@ -8,6 +8,10 @@ public class ParagraphNode extends ListNode<TextNode>{
         super(ContentNodeType.PARAGRAPH, content);
     }
 
+    ParagraphNode(ContentNodeType contentNodeType, List<TextNode> content) {
+        super(contentNodeType, content);
+    }
+
     public ParagraphNode() {
         super(ContentNodeType.PARAGRAPH, new ArrayList<>());
     }

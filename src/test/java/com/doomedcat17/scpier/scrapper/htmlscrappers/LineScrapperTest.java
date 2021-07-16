@@ -2,8 +2,10 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 
 import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ParagraphNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.scrapper.line.LineScrapper;
+import com.doomedcat17.scpier.scrapper.line.TextNodeSplitter;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
@@ -157,11 +159,12 @@ class LineScrapperTest extends ScrapperTest {
 
     @Test
     void shouldSplitIntoParagraphs() {
+        TextNodeSplitter textNodeSplitter = new TextNodeSplitter();
         //given
         List<TextNode> textNodes = new ArrayList<>();
         textNodes.add(new TextNode("paragraph\nparagraph\nparagraph"));
         //when
-        List<ContentNode<List<TextNode>>> paragraphs = lineScrapper.splitIntoParagraphs(textNodes);
+        List<ParagraphNode> paragraphs = textNodeSplitter.splitIntoParagraphs(textNodes);
         //then
         for (ContentNode<List<TextNode>> paragraph: paragraphs) {
             if (paragraph.getContent().size() == 1) {

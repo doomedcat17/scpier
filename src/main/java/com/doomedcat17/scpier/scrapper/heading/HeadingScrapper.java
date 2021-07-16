@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.scrapper.heading;
 
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.contentnode.HeadingNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
@@ -18,10 +18,10 @@ public class HeadingScrapper extends ElementScrapper {
     @Override
     public ContentNode<?> scrapElement(Element element)  {
         try {
-            ContentNode<List<TextNode>> headingContentNode = new ContentNode<>(ContentNodeType.HEADING);
+            HeadingNode headingNode = new HeadingNode();
             List<TextNode> textNodes = TextScrapper.scrapText(element, source);
-            headingContentNode.setContent(textNodes);
-            return headingContentNode;
+            headingNode.setContent(textNodes);
+            return headingNode;
         } catch (Exception e) {
             throw new ElementScrapperException(e.getMessage());
         }

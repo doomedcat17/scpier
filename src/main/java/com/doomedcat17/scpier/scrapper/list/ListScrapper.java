@@ -1,16 +1,14 @@
 package com.doomedcat17.scpier.scrapper.list;
 
-import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
-import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.data.contentnode.*;
 import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ListScrapper extends ElementScrapper {
     public ListScrapper(String source) {
@@ -20,24 +18,23 @@ public class ListScrapper extends ElementScrapper {
     @Override
     public ContentNode<?> scrapElement(Element element) {
         try {
-            ContentNode<List<ContentNode<?>>> contentNode = new ContentNode<>();
-            contentNode.setContent(new ArrayList<>());
+            ListNode<ContentNode<?>> listNode;
             if (element.tagName().equals("ul")) {
-                contentNode.setContentNodeType(ContentNodeType.LIST_UL);
-            } else if (element.tagName().equals("dl")) {
-                contentNode.setContentNodeType(ContentNodeType.LIST_DL);
-            } else contentNode.setContentNodeType(ContentNodeType.LIST_OL);
-            mapList(element, contentNode);
-            return contentNode;
+                listNode = new ListNode<>(ContentNodeType.LIST_UL);
+            } else if (element.tagName().equals("ol")) {
+                listNode = new ListNode<>(ContentNodeType.LIST_OL);
+            } else listNode = new ListNode<>(ContentNodeType.LIST_DL);
+            mapList(element, listNode);
+            return listNode;
         } catch (Exception e) {
             throw new ElementScrapperException(e.getMessage());
         }
     }
 
-    private void mapList(Element element, ContentNode<List<ContentNode<?>>> contentNode) {
+    private void mapList(Element element, ListNode<ContentNode<?>> listNode) {
         Elements children = element.children();
         for (Element child : children) {
-            contentNode.getContent().add(mapRow(child));
+            listNode.addElement(mapRow(child));
         }
     }
 
@@ -50,8 +47,10 @@ public class ListScrapper extends ElementScrapper {
                 return contentNodes.get(0);
             } else {
                 if (contentNodes.stream().allMatch(contentNode -> contentNode instanceof TextNode)) {
-                    return new ContentNode<>(ContentNodeType.PARAGRAPH, contentNodes);
-                } else return new ContentNode<>(ContentNodeType.CONTENT_NODES, contentNodes);
+                    List<TextNode> textNodes = contentNodes.stream()
+                            .map(contentNode -> (TextNode) contentNode).collect(Collectors.toList());
+                    return new ParagraphNode(textNodes);
+                } else return new ListNode<>(ContentNodeType.CONTENT_NODES, contentNodes);
             }
         }
     }

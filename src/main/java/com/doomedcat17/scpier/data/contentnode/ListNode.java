@@ -7,7 +7,7 @@ import java.util.List;
 public class ListNode<T> extends ContentNode<List<T>>{
 
     public ListNode(ContentNodeType contentNodeType, List<T> content) {
-        super(contentNodeType, content);
+        super(contentNodeType, new ArrayList<>(content));
     }
 
     public ListNode(ContentNodeType contentNodeType) {
@@ -25,5 +25,8 @@ public class ListNode<T> extends ContentNode<List<T>>{
     @Override
     public boolean isEmpty() {
         return super.isEmpty() || content.isEmpty();
+    }
+
+    public ListNode() {
     }
 }

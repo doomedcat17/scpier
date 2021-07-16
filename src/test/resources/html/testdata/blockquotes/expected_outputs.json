@@ -1,14 +1,14 @@
 {
   "java.util.HashMap": {
     "shouldScrapSimpleBlockquote": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "BLOCKQUOTE"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -36,14 +36,14 @@
       }
     },
     "shouldScrapBlockquoteWithLongLine": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "BLOCKQUOTE"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -82,14 +82,14 @@
       }
     },
     "shouldScrapBlockquoteWithMultipleLines": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "BLOCKQUOTE"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -124,7 +124,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -159,7 +159,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -194,7 +194,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -229,7 +229,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -268,14 +268,14 @@
       }
     },
     "shouldScrapBlockquoteWithDeletedContent": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "BLOCKQUOTE"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -325,21 +325,21 @@
       }
     },
     "shouldScrapBlockquoteWithList": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "BLOCKQUOTE"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ListNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_UL"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                         },
@@ -361,7 +361,7 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                         },
@@ -383,7 +383,7 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                         },
@@ -405,7 +405,7 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                         },
@@ -427,7 +427,7 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                         },
@@ -449,7 +449,7 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                         "contentNodeType": {
                           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                         },
@@ -479,14 +479,14 @@
       }
     },
     "shouldScrapBlockquoteWithHeading": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "BLOCKQUOTE"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.HeadingNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "HEADING"
                 },
@@ -511,7 +511,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -561,14 +561,14 @@
       }
     },
     "shouldScrapBlockquoteWithHeadingAsTittle": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "BLOCKQUOTE"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.HeadingNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "HEADING"
                 },
@@ -593,7 +593,7 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                 },
@@ -643,7 +643,7 @@
       }
     },
     "shouldScrapBlockquoteWithImage": {
-      "com.doomedcat17.scpier.data.contentnode.ContentNode": {
+      "com.doomedcat17.scpier.data.contentnode.ListNode": {
         "contentNodeType": {
           "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "BLOCKQUOTE"
         },

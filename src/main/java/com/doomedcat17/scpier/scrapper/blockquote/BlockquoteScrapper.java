@@ -2,6 +2,7 @@ package com.doomedcat17.scpier.scrapper.blockquote;
 
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.contentnode.ListNode;
 import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
@@ -17,7 +18,7 @@ public class BlockquoteScrapper extends ElementScrapper {
     @Override
     public ContentNode<?> scrapElement(Element element)  {
         try {
-            ContentNode<List<ContentNode<?>>> blockquoteNode = new ContentNode<>(ContentNodeType.BLOCKQUOTE);
+            ListNode<ContentNode<?>> blockquoteNode = new ListNode<>(ContentNodeType.BLOCKQUOTE);
             List<ContentNode<?>> contentNodes = ElementContentScrapper.scrapContent(element, source);
             blockquoteNode.setContent(contentNodes);
             return blockquoteNode;
