@@ -1,8 +1,9 @@
 package com.doomedcat17.scpier.scrapper.htmlscrappers;
 
 import com.doomedcat17.scpier.TestDataProvider;
-import com.doomedcat17.scpier.data.contentnode.AudioNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.contentnode.EmbedNode;
 import com.doomedcat17.scpier.scrapper.audio.AudioScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,7 @@ class AudioScrapperTest extends ScrapperTest {
         //when
         ContentNode<?> contentNode = audioScrapper.scrapElement(element);
         //then
-        assertTrue(contentNode instanceof AudioNode);
+        assertTrue(contentNode instanceof EmbedNode && contentNode.getContentNodeType().equals(ContentNodeType.AUDIO));
         assertEquals("http://www.scp-wiki.net/local--files/scp-049/Addendum0492.mp3", contentNode.getContent());
     }
 
@@ -35,7 +36,7 @@ class AudioScrapperTest extends ScrapperTest {
         //when
         ContentNode<?> contentNode = audioScrapper.scrapElement(element);
         //then
-        assertTrue(contentNode instanceof AudioNode);
+        assertTrue(contentNode instanceof EmbedNode && contentNode.getContentNodeType().equals(ContentNodeType.AUDIO));
         assertEquals("http://www.scp-wiki.net/local--files/scp-049/Addendum0492.mp3", contentNode.getContent());
     }
 

@@ -1,9 +1,8 @@
 package com.doomedcat17.scpier.scrapper.div.componetnts;
 
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.ImageNode;
+import com.doomedcat17.scpier.data.contentnode.EmbedNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
-import com.doomedcat17.scpier.data.contentnode.VideoNode;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import com.doomedcat17.scpier.scrapper.image.ImageScrapper;
 import com.doomedcat17.scpier.scrapper.text.TextScrapper;
@@ -26,15 +25,15 @@ public class ImageBlockScrapper extends DivScrapper implements DivScrapperCompon
         if (imageElement == null) {
             imageElement = element.selectFirst("video");
             VideoScrapper videoScrapper = new VideoScrapper(source);
-            VideoNode videoNode = (VideoNode) videoScrapper.scrapElement(imageElement);
-            videoNode.getCaption().addAll(getCaption(element));
+            EmbedNode videoNode = (EmbedNode) videoScrapper.scrapElement(imageElement);
+            videoNode.getDescription().addAll(getCaption(element));
             contentNodes.add(videoNode);
         } else {
             ImageScrapper imageMapper = new ImageScrapper(source);
             imageElement = element.selectFirst("img");
-            ImageNode imageNode = (ImageNode) imageMapper.scrapElement(imageElement);
-            imageNode.getCaption().addAll(getCaption(element));
-            contentNodes.add(imageNode);
+            EmbedNode embedNode = (EmbedNode) imageMapper.scrapElement(imageElement);
+            embedNode.getDescription().addAll(getCaption(element));
+            contentNodes.add(embedNode);
         }
         return contentNodes;
     }

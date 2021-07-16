@@ -2,7 +2,7 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 
 import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.VideoNode;
+import com.doomedcat17.scpier.data.contentnode.EmbedNode;
 import com.doomedcat17.scpier.scrapper.video.VideoScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -24,7 +24,7 @@ class VideoScrapperTest extends ScrapperTest {
         //when
         ContentNode<?> contentNode = videoScrapper.scrapElement(videoElement);
         //then
-        assertTrue(contentNode instanceof VideoNode);
+        assertTrue(contentNode instanceof EmbedNode);
         assertEquals("http://kontainer.djkakt.us/local--files/popsioak-6/vid", contentNode.getContent());
     }
 

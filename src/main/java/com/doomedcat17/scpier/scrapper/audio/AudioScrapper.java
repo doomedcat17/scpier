@@ -1,7 +1,8 @@
 package com.doomedcat17.scpier.scrapper.audio;
 
-import com.doomedcat17.scpier.data.contentnode.AudioNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.contentnode.EmbedNode;
 import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import org.jsoup.nodes.Element;
@@ -23,7 +24,7 @@ public class AudioScrapper extends ElementScrapper {
                     source = sourceElement.attr("src");
                 } else source = element.attr("src");
             }
-            return new AudioNode(source);
+            return new EmbedNode(ContentNodeType.AUDIO, source);
         } catch (Exception e) {
             throw new ElementScrapperException(e.getMessage());
         }

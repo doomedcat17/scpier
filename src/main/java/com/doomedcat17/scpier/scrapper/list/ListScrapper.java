@@ -39,20 +39,23 @@ public class ListScrapper extends ElementScrapper {
     }
 
     private ContentNode<?> mapRow(Element row) {
+        ListNode<ContentNode<?>> listItem = new ListNode<>(ContentNodeType.LIST_ITEM);
         if (row.is("ul, ol, dl")) {
-            return scrapElement(row);
+            listItem.addElement(scrapElement(row));
         } else {
             List<ContentNode<?>> contentNodes = ElementContentScrapper.scrapContent(row, source);
             if (contentNodes.size() == 1) {
-                return contentNodes.get(0);
+                listItem.addElement(contentNodes.get(0));
             } else {
                 if (contentNodes.stream().allMatch(contentNode -> contentNode instanceof TextNode)) {
                     List<TextNode> textNodes = contentNodes.stream()
                             .map(contentNode -> (TextNode) contentNode).collect(Collectors.toList());
-                    return new ParagraphNode(textNodes);
-                } else return new ListNode<>(ContentNodeType.CONTENT_NODES, contentNodes);
+                    ParagraphNode paragraphNode = new ParagraphNode(textNodes);
+                    listItem.addElement(paragraphNode);
+                } else listItem.addElements(contentNodes);
             }
         }
+        return listItem;
     }
 
 }

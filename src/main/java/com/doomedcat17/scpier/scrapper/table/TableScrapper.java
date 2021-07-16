@@ -17,17 +17,18 @@ public class TableScrapper extends ElementScrapper {
     @Override
     public ContentNode<?> scrapElement(Element element)  {
         try {
-            return mapTable(element);
+            return scrapTable(element);
         } catch (Exception e) {
             throw new ElementScrapperException(e.getMessage());
         }
     }
 
-    private ContentNode<?> mapTable(Element element)  {
+    private ContentNode<?> scrapTable(Element element)  {
         Element tableBody = element.selectFirst("tbody");
         if (tableBody != null) {
             element = tableBody;
         }
+
         if (element.hasClass("scale EN-base") ||
                 (element.is("tbody") &&
                         element.parent().hasClass("scale EN-base") &&
@@ -39,7 +40,7 @@ public class TableScrapper extends ElementScrapper {
     private ListNode<ContentNode<?>> scrapDefaultTable(Element element)  {
         List<ContentNode<?>> tableRows = new ArrayList<>();
         for (Element tableRow: element.children()) {
-            tableRows.add(mapRow(tableRow));
+            tableRows.add(scrapRow(tableRow));
         }
         return new ListNode<>(ContentNodeType.TABLE, tableRows);
     }
@@ -60,13 +61,13 @@ public class TableScrapper extends ElementScrapper {
         return paragraphs;
     }
 
-    private ContentNode<?> mapRow(Element row)  {
+    private ContentNode<?> scrapRow(Element row)  {
         List<ListNode<ContentNode<?>>> rowCells = new ArrayList<>();
         for (Element cell: row.children()) {
+            if(cell.children().isEmpty() && cell.text().isBlank()) continue;
             ListNode<ContentNode<?>> cellNode = new ListNode<>(ContentNodeType.TABLE_CELL);
             if (cell.is("th, thead")) cellNode.setContentNodeType(ContentNodeType.TABLE_HEADING_CELL);
-            if(cell.children().isEmpty() && cell.text().isBlank()) continue;
-            cellNode.getContent().addAll(ElementContentScrapper.scrapContent(cell, source));
+            cellNode.addElements(ElementContentScrapper.scrapContent(cell, source));
             rowCells.add(cellNode);
         }
         return new ListNode<>(ContentNodeType.TABLE_ROW, rowCells);

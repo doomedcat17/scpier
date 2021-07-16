@@ -3,7 +3,7 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
-import com.doomedcat17.scpier.data.contentnode.ImageNode;
+import com.doomedcat17.scpier.data.contentnode.EmbedNode;
 import com.doomedcat17.scpier.data.contentnode.TextNode;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import org.jsoup.nodes.Element;
@@ -327,11 +327,11 @@ class DivScrapperTest extends ScrapperTest {
         //when
         ContentNode<?> contentNode = divMapper.scrapElement(element);
         //then
-        assertTrue(contentNode instanceof ImageNode);
-        ImageNode scrappedImageNode = (ImageNode) contentNode;
-        assertEquals("Stagnant pond water, Time=0 min.", scrappedImageNode.getCaption().get(0).getContent());
-        assertEquals("Stagnant pond water, Time=0 min.", scrappedImageNode.getCaption().get(0).getContent());
-        assertEquals("http://scp-wiki.wdfiles.com/local--files/scp-242/242-1.jpg", scrappedImageNode.getContent());
+        assertTrue(contentNode instanceof EmbedNode);
+        EmbedNode scrappedEmbedNode = (EmbedNode) contentNode;
+        assertEquals("Stagnant pond water, Time=0 min.", scrappedEmbedNode.getDescription().get(0).getContent());
+        assertEquals("Stagnant pond water, Time=0 min.", scrappedEmbedNode.getDescription().get(0).getContent());
+        assertEquals("http://scp-wiki.wdfiles.com/local--files/scp-242/242-1.jpg", scrappedEmbedNode.getContent());
 
     }
 

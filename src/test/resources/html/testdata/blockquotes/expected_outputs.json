@@ -650,7 +650,7 @@
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ImageNode": {
+              "com.doomedcat17.scpier.data.contentnode.EmbedNode": {
                 "contentNodeType": {
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "IMAGE"
                 },
