@@ -138,7 +138,7 @@ ListNode is subclass of ContentNode with List of ContentNodes as content.
 #### ContentNodeType.PARAGRAPH
 Defines ContentNode ParagraphNode.
 It's subclass of ListNode and corresponds to ```<p>``` HTML tag. 
-The content is a ```List``` of TextNodes
+It only holds TextNodes and its subclasses (like HyperlinkNodes).
 Example:
 ```
 {
@@ -167,9 +167,10 @@ Example:
     }]
   }
 ``` 
-#### ContentNodeType.TABLE
-It's subclass of TextNode and corresponds to ```<p>``` HTML tag. 
-The content is a ```List``` of TextNodes
+#### ContentNodeType.DIV, ContentNodeType.BLOCKQUOTE
+These types are instances of ListNode. They corresponds to ```<div>``` and  ```<blockquote>``` HTML tags.
+Usually ```<blockquote>``` defines some type of note or document on wiki with dashed border and ```<div>``` is more like content box with solid border.
+They can hold all types of ContentNodes.
 Example:
 ```
 {
@@ -199,4 +200,138 @@ Example:
   }
 ``` 
 
+#### ContentNodeType.TABLE
+Corresponds to ```<table>``` HTML tag. It consists of ListNodes of TABLE_ROW (```<tr>``` HTML tag) type.<br>
+Each TABLE_ROW has multiple ListNodes of TABLE_CELL (```<td>``` HTML tag) or TABLE_HEADING_CELL (```<th>``` HTML tag) type. <br>
+TABLE_CELL and TABLE_HEADING_CELL can hold all types of ContentNodes.
+Example:
+```
+{
+  "contentNodeType": "TABLE",
+  "content": [
+    {
+      "contentNodeType": "TABLE_ROW",
+      "content": [
+        {
+          "contentNodeType": "TABLE_HEADING_CELL",
+          "content": [
+            {
+              "contentNodeType": "PARAGRAPH",
+              "content": [
+                {
+                  "contentNodeType": "TEXT",
+                  "content": "Heading",
+                  "styles": {}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "contentNodeType": "TABLE_HEADING_CELL",
+          "content": [
+            {
+              "contentNodeType": "PARAGRAPH",
+              "content": [
+                {
+                  "contentNodeType": "TEXT",
+                  "content": "Heading",
+                  "styles": {}
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "contentNodeType": "TABLE_ROW",
+      "content": [
+        {
+          "contentNodeType": "TABLE_CELL",
+          "content": [
+            {
+              "contentNodeType": "PARAGRAPH",
+              "content": [
+                {
+                  "contentNodeType": "TEXT",
+                  "content": "Some table data",
+                  "styles": {}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "contentNodeType": "TABLE_CELL",
+          "content": [
+            {
+              "contentNodeType": "PARAGRAPH",
+              "content": [
+                {
+                  "contentNodeType": "TEXT",
+                  "content": "And more table data",
+                  "styles": {}
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+``` 
+#### ContentNodeType.LIST_OL, ContentNodeType.LIST_UL, ContentNodeType.LIST_DL, 
+Corresponds to HTML list tags (```<ol>```, ```<ul>``` and ```<dl>```). Each od them consists of ListNodes of LIST_ITEM (```<li>``` HTML tag) type.<br>
+They can hold all types of ContentNodes.
+Example:
+```
+{
+  "contentNodeType" : "LIST_UL",
+    "content" : [ {
+      "contentNodeType" : "LIST_ITEM",
+      "content" : [ {
+        "contentNodeType" : "PARAGRAPH",
+        "content" : [ {
+          "contentNodeType" : "TEXT",
+          "content" : "A bed (Denied)",
+          "styles" : { }
+        } ]
+      } ]
+    }, {
+      "contentNodeType" : "LIST_ITEM",
+      "content" : [ {
+        "contentNodeType" : "PARAGRAPH",
+        "content" : [ {
+          "contentNodeType" : "TEXT",
+          "content" : "A blanket (Denied)",
+          "styles" : { }
+        } ]
+      } ]
+    }, {
+      "contentNodeType" : "LIST_ITEM",
+      "content" : [ {
+        "contentNodeType" : "PARAGRAPH",
+        "content" : [ {
+          "contentNodeType" : "TEXT",
+          "content" : "Books (Denied)",
+          "styles" : { }
+        } ]
+      } ]
+    }, {
+      "contentNodeType" : "LIST_ITEM",
+      "content" : [ {
+        "contentNodeType" : "PARAGRAPH",
+        "content" : [ {
+          "contentNodeType" : "TEXT",
+          "content" : "Clothes (Denied)",
+          "styles" : { }
+        } ]
+      } ]
+    } ]
+}
+
+``` 
 
