@@ -1,8 +1,8 @@
 package com.doomedcat17.scpier.scrapper.heading;
 
-import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.HeadingNode;
-import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.data.content.ContentNode;
+import com.doomedcat17.scpier.data.content.HeadingNode;
+import com.doomedcat17.scpier.data.content.TextNode;
 import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import com.doomedcat17.scpier.scrapper.text.TextScrapper;

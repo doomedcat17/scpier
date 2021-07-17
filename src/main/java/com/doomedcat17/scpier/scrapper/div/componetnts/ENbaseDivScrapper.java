@@ -1,8 +1,8 @@
 package com.doomedcat17.scpier.scrapper.div.componetnts;
 
-import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.ParagraphNode;
-import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.data.content.ContentNode;
+import com.doomedcat17.scpier.data.content.ParagraphNode;
+import com.doomedcat17.scpier.data.content.TextNode;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import org.jsoup.nodes.Element;
 

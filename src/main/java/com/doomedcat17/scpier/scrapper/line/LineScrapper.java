@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.scrapper.line;
 
-import com.doomedcat17.scpier.data.contentnode.*;
+import com.doomedcat17.scpier.data.content.*;
 import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import com.doomedcat17.scpier.scrapper.text.TextScrapper;

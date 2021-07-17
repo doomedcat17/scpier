@@ -53,6 +53,8 @@ public class ScrapperFactory {
             case "div":
             case "section":
             case "details":
+            case "header":
+                //some divs has "blockquote class"
                 if (element.hasClass("blockquote")) return new BlockquoteScrapper(source);
                 else return new DivScrapper(source);
             case "img":

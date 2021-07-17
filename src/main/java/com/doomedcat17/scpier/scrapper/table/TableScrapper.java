@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.scrapper.table;
 
-import com.doomedcat17.scpier.data.contentnode.*;
+import com.doomedcat17.scpier.data.content.*;
 import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;

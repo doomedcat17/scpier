@@ -9,8 +9,8 @@ import com.doomedcat17.scpier.mapper.scp.ScpMapper;
 import com.doomedcat17.scpier.mapper.scp.ScpMapperProvider;
 import com.doomedcat17.scpier.mapper.tale.ScpTaleMapper;
 import com.doomedcat17.scpier.mapper.tale.ScpTaleMapperProvider;
-import com.doomedcat17.scpier.pagecontent.PageContent;
-import com.doomedcat17.scpier.pagecontent.PageContentProvider;
+import com.doomedcat17.scpier.page.PageContent;
+import com.doomedcat17.scpier.page.PageContentProvider;
 
 public class ScpFoundationDataProvider {
 
@@ -26,7 +26,7 @@ public class ScpFoundationDataProvider {
             return scpWikiData;
         } catch (RuntimeException e) {
             e.printStackTrace();
-            throw new ScpierIternalException();
+            throw new ScpierIternalException(name, scpBranch, scpTranslation);
         }
     }
 
@@ -39,7 +39,7 @@ public class ScpFoundationDataProvider {
             return scpTale;
         } catch (RuntimeException e) {
             e.printStackTrace();
-            throw new ScpierIternalException();
+            throw new ScpierIternalException(taleTittle, scpBranch, scpTranslation);
         }
     }
 

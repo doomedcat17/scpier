@@ -1,8 +1,8 @@
 package com.doomedcat17.scpier.scrapper.line;
 
-import com.doomedcat17.scpier.data.contentnode.HyperlinkNode;
-import com.doomedcat17.scpier.data.contentnode.ParagraphNode;
-import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.data.content.HyperlinkNode;
+import com.doomedcat17.scpier.data.content.ParagraphNode;
+import com.doomedcat17.scpier.data.content.TextNode;
 
 import java.util.ArrayList;
 import java.util.Iterator;

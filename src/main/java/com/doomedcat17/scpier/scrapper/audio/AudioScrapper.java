@@ -1,8 +1,8 @@
 package com.doomedcat17.scpier.scrapper.audio;
 
-import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
-import com.doomedcat17.scpier.data.contentnode.EmbedNode;
+import com.doomedcat17.scpier.data.content.ContentNode;
+import com.doomedcat17.scpier.data.content.ContentNodeType;
+import com.doomedcat17.scpier.data.content.EmbedNode;
 import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import org.jsoup.nodes.Element;

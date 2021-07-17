@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.data.scp;
 
-import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.content.ContentNode;
 
 import java.util.ArrayList;
 import java.util.List;

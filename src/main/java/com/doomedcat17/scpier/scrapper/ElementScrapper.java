@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.scrapper;
 
-import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.content.ContentNode;
 import org.jsoup.nodes.Element;
 
 public abstract class ElementScrapper {

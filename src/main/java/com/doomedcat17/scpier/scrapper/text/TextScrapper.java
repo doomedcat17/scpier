@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.scrapper.text;
 
-import com.doomedcat17.scpier.data.contentnode.HyperlinkNode;
-import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.data.content.HyperlinkNode;
+import com.doomedcat17.scpier.data.content.TextNode;
 import com.doomedcat17.scpier.exception.ElementScrapperException;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;

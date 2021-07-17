@@ -1,8 +1,8 @@
 package com.doomedcat17.scpier.scrapper.blockquote;
 
-import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
-import com.doomedcat17.scpier.data.contentnode.ListNode;
+import com.doomedcat17.scpier.data.content.ContentNode;
+import com.doomedcat17.scpier.data.content.ContentNodeType;
+import com.doomedcat17.scpier.data.content.ListNode;
 import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
