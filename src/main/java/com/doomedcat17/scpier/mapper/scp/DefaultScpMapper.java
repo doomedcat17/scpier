@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.mapper.scp;
 
-import com.doomedcat17.scpier.data.scp.ScpObject;
+import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.exception.ScpMapperException;
 import com.doomedcat17.scpier.pagecontent.PageContent;
@@ -9,20 +9,20 @@ import org.jsoup.nodes.Element;
 
 public class DefaultScpMapper implements ScpMapper {
     @Override
-    public ScpObject mapToScp(PageContent pageContent)  {
+    public ScpWikiData mapToScp(PageContent pageContent)  {
         try {
             Element content = pageContent.getContent();
-            ScpObject scpObject = new ScpObject();
-            scpObject.setObjectName(pageContent.getName());
-            scpObject.setSource(pageContent.getSourceUrl());
-            mapScp(scpObject, content);
-            return scpObject;
+            ScpWikiData scpWikiData = new ScpWikiData();
+            scpWikiData.setTitle(pageContent.getName());
+            scpWikiData.setSource(pageContent.getSourceUrl());
+            mapScp(scpWikiData, content);
+            return scpWikiData;
         } catch (ElementScrapperException e) {
             e.printStackTrace();
             throw new ScpMapperException(e.getMessage());
         }
     }
-    private void mapScp(ScpObject scpObject, Element content)  {
-        scpObject.setContent(ElementContentScrapper.scrapContent(content, scpObject.getSource()));
+    private void mapScp(ScpWikiData scpWikiData, Element content)  {
+        scpWikiData.setContent(ElementContentScrapper.scrapContent(content, scpWikiData.getSource()));
     }
 }
