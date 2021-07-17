@@ -6,6 +6,7 @@ import com.doomedcat17.scpier.scrapper.list.ListScrapper;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,8 +21,9 @@ class ListScrapperTest extends ScrapperTest {
     private final Map<String, ContentNode<?>> expectedOutputs =
             getExpectedAppendicesOutputs("src/test/resources/html/testdata/lists/expected_outputs.json");
 
+
     @Test
-    void shouldScrapSimpleUnorderedList()  {
+    void shouldScrapSimpleUnorderedList() throws IOException {
         //given
         Element simpleUnorderedList = sampleLists.getElementById("shouldMapSimpleUnorderedList");
         //when
@@ -150,7 +152,7 @@ class ListScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapSimpleOrderedListWithStrongElements()  {
+    void shouldScrapSimpleOrderedListWithStrongElements() throws IOException {
         //given
         Element list = sampleLists.getElementById("shouldScrapSimpleOrderedListWithStrongElements");
         //when
@@ -158,4 +160,5 @@ class ListScrapperTest extends ScrapperTest {
         //then
         assertEquals(expectedOutputs.get("shouldScrapSimpleOrderedListWithStrongElements"), contentNode);
     }
+
 }

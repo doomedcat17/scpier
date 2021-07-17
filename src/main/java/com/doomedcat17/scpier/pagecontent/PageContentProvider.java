@@ -14,7 +14,7 @@ public class PageContentProvider {
             HTMLDocumentProvider htmlDocumentProvider = HTMLDocumentProviderFactory.getHTMLDocumentProvider(name, scpBranch, scpTranslation);
             HTMLDocumentInterpreter htmlDocumentInterpreter =
                     new HTMLDocumentInterpreter(new DocumentContentCleanerImpl(),
-                            new HTMLRedirectionHandler(new DefaultHTMLDocumentProvider()),
+                            new HTMLRedirectionHandler(htmlDocumentProvider),
                             new PageTagsScrapperImpl()
                     );
             String url = SourceBuilder.buildSource(name, scpBranch, scpTranslation);

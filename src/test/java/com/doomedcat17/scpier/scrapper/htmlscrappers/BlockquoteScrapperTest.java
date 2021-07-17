@@ -3,6 +3,7 @@ package com.doomedcat17.scpier.scrapper.htmlscrappers;
 import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.contentnode.ContentNode;
 import com.doomedcat17.scpier.scrapper.blockquote.BlockquoteScrapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
@@ -59,7 +60,7 @@ class BlockquoteScrapperTest extends ScrapperTest {
         assertEquals(expectedOutputs.get("shouldScrapBlockquoteWithDeletedContent"), contentNode);
     }
     @Test
-    void shouldScrapBlockquoteWithList()  {
+    void shouldScrapBlockquoteWithList() throws JsonProcessingException {
         //given
         Element element = sampleLines.getElementById("shouldScrapBlockquoteWithList");
         //when

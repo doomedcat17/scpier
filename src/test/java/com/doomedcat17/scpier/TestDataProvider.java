@@ -1,16 +1,19 @@
 package com.doomedcat17.scpier;
 
+import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.pagecontent.PageContent;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import com.doomedcat17.scpier.data.contentnode.ContentNode;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class TestDataProvider {
 
@@ -59,15 +62,12 @@ public class TestDataProvider {
         return document;
     }
 
-    public static Element getSamplePageContent() {
-        if (sampleScpDocument == null) {
-            try {
-                sampleScpDocument = (Document) loadElementFormHTML("src/test/resources/html/scp1.html");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return sampleScpDocument.getElementById("page-content");
+    public static PageContent getPageContent(String path) {
+        Document scpDocument = loadDocumentFormHTML(path);
+        PageContent pageContent = new PageContent();
+        pageContent.setContent(scpDocument.getElementsByTag("body").first());
+        pageContent.setSourceUrl("url");
+        return pageContent;
     }
 
     public static Element getSampleElements(String path) {

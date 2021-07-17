@@ -339,21 +339,32 @@
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_ITEM"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
-                                "styles": {
-                                  "java.util.HashMap": {}
-                                },
-                                "content": "Enhanced survivability in the bacterium's natural environment and similar environments;"
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Enhanced survivability in the bacterium's natural environment and similar environments;",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
                               }
                             }
                           ]
@@ -361,21 +372,32 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_ITEM"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
-                                "styles": {
-                                  "java.util.HashMap": {}
-                                },
-                                "content": "Full spectrum antibiotic resistance;"
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Full spectrum antibiotic resistance;",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
                               }
                             }
                           ]
@@ -383,21 +405,32 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_ITEM"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
-                                "styles": {
-                                  "java.util.HashMap": {}
-                                },
-                                "content": "Increased reproduction rate and consumption of available material;"
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Increased reproduction rate and consumption of available material;",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
                               }
                             }
                           ]
@@ -405,21 +438,32 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_ITEM"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
-                                "styles": {
-                                  "java.util.HashMap": {}
-                                },
-                                "content": "Development of a sporulation ability in gram-positive bacteria;"
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Development of a sporulation ability in gram-positive bacteria;",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
                               }
                             }
                           ]
@@ -427,21 +471,32 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_ITEM"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
-                                "styles": {
-                                  "java.util.HashMap": {}
-                                },
-                                "content": "Increased ability to uptake, hold, and share plasmids, particularly in gram-negative bacteria;"
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Increased ability to uptake, hold, and share plasmids, particularly in gram-negative bacteria;",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
                               }
                             }
                           ]
@@ -449,21 +504,32 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
+                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "LIST_ITEM"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
                                 },
-                                "styles": {
-                                  "java.util.HashMap": {}
-                                },
-                                "content": "Increased transmission, due to traits described above."
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Increased transmission, due to traits described above.",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
                               }
                             }
                           ]
@@ -655,7 +721,7 @@
                   "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "IMAGE"
                 },
                 "content": "https://i.imgur.com/BUEYoXE.png?2",
-                "caption": {
+                "description": {
                   "java.util.ArrayList": [
                     {
                       "com.doomedcat17.scpier.data.contentnode.TextNode": {

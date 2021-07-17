@@ -26,6 +26,21 @@ Wiki</a> (all branches) as JSON.
             </li>
         </ul>
     </li>
+    <li>
+        <a>Getting data</a>
+        <ul>
+            <li>
+                <a>SCPFoundationDataProvider</a>
+                <ul>
+                    <li><a href="#paragraph">SCPData</a></li>
+                    <li><a href="#block">SCPBranch and SCPTranslation</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a>Status</a>
+    </li>
 </ul>
 
 <h1 id="how">How it works?</h1>
