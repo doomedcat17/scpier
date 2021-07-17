@@ -20,7 +20,7 @@ class BlockquoteScrapperTest extends ScrapperTest {
             .getSampleElements("src/test/resources/html/testdata/blockquotes/SampleBlockquoteElements.html");
 
     private final Map<String, ContentNode<?>> expectedOutputs =
-            getExpectedAppendicesOutputs("src/test/resources/html/testdata/blockquotes/expected_outputs.json");
+            getExpectedContentNodeOutputs("src/test/resources/html/testdata/blockquotes/expected_outputs.json");
 
     @Test
     void shouldScrapSimpleBlockquote()  {

@@ -88,9 +88,6 @@ public class StyleScrapper {
                 stylesMap.put("font-size", ".67em");
                 stylesMap.put("font-weight", "bold");
                 break;
-            case "a":
-                stylesMap.put("color", "#901");
-                break;
             case "u":
                 stylesMap.put("text-decoration", "underline");
                 break;

@@ -7,116 +7,118 @@ import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TextScrapperTest extends ScrapperTest {
 
     private final Element sampleLines = TestDataProvider
-            .getSampleElements("src/test/resources/html/testdata/lines/SampleLinesElements.html");
+            .getSampleElements("src/test/resources/html/testdata/text/sampleTextElements.html");
+
+    private final Map<String, List<TextNode>> expectedOutputs = getListOfExpectedTextNodes("src/test/resources/html/testdata/text/expected_outputs.json");
+
+    private boolean compareStyles(Map<String, String> first, Map<String, String> second) {
+        return first.entrySet().stream()
+                .allMatch(e -> e.getValue().equals(second.get(e.getKey())));
+    }
+    private boolean areTextNodesStylesAreEqual(List<TextNode> firstList, List<TextNode> secondList) {
+        if (firstList.size() != secondList.size()) return false;
+        for (int i = 0; i < firstList.size(); i++) {
+            if (!compareStyles(firstList.get(i).getStyles(), secondList.get(i).getStyles())) return false;
+        }
+        return true;
+    }
 
     @Test
-    void shouldMapSimpleParagraph() {
+    void shouldScrapSimpleText() {
         //given
-        Element paragraphElement = sampleLines.getElementById("sampleLine");
+        Element textElement = sampleLines.getElementById("shouldScrapSimpleText");
         //when
-        List<TextNode> contentNodes = TextScrapper.scrapText(paragraphElement, SOURCE);
+        List<TextNode> contentNodes = TextScrapper.scrapText(textElement, SOURCE);
         //then
-        assertEquals(paragraphElement.text(), contentNodes.get(0).getContent());
+        assertEquals(expectedOutputs.get("shouldScrapSimpleText"), contentNodes);
+        assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapSimpleText"), contentNodes));
+    }
+
+    @Test
+    void shouldScrapSimpleText2()  {
+        //given
+        Element textElement = sampleLines.getElementById("shouldScrapSimpleText2");
+        //when
+        List<TextNode> contentNodes = TextScrapper.scrapText(textElement, SOURCE);
+        //then
+        assertEquals(expectedOutputs.get("shouldScrapSimpleText2"), contentNodes);
+        assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapSimpleText2"), contentNodes));
+    }
+
+    @Test
+    void shouldScrapTextWithStyling1()  {
+        //given
+        Element textElement = sampleLines.getElementById("shouldScrapTextWithStyling1");
+        //when
+        List<TextNode> contentNodes = TextScrapper.scrapText(textElement, SOURCE);
+        //then
+        assertEquals(expectedOutputs.get("shouldScrapTextWithStyling1"), contentNodes);
+        assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapTextWithStyling1"), contentNodes));
 
     }
 
     @Test
-    void shouldMapSimpleParagraphWithStrongElement() {
+    void shouldScrapTextWithStyling2() {
         //given
-        Element paragraphElement = sampleLines.getElementById("shouldScrapLineWithHeader");
+        Element textElement = sampleLines.getElementById("shouldScrapTextWithStyling2");
         //when
-        List<TextNode> contentNodes = TextScrapper.scrapText(paragraphElement, SOURCE);
+        List<TextNode> contentNodes = TextScrapper.scrapText(textElement, SOURCE);
         //then
-        assertEquals(2, contentNodes.size());
-        assertEquals(paragraphElement.selectFirst("strong").wholeText(), contentNodes.get(0).getContent());
-        assertEquals(paragraphElement.childNode(1).toString(), contentNodes.get(1).getContent());
+        assertEquals(expectedOutputs.get("shouldScrapTextWithStyling2"), contentNodes);
+        assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapTextWithStyling2"), contentNodes));
 
     }
 
     @Test
-    void shouldScrapSimpleTextWithDeletedContent() {
+    void shouldScrapTextWithStyling3() {
         //given
-        Element element = sampleLines.getElementById("sampleLineWithDeletedContent");
+        Element textElement = sampleLines.getElementById("shouldScrapTextWithStyling3");
         //when
-        List<TextNode> output = TextScrapper.scrapText(element, SOURCE);
+        List<TextNode> contentNodes = TextScrapper.scrapText(textElement, SOURCE);
         //then
-        assertAll(() -> assertEquals(3, output.size()),
-                () -> assertEquals(element.selectFirst("span").text(), output.get(1).getContent()));
-
+        assertEquals(expectedOutputs.get("shouldScrapTextWithStyling3"), contentNodes);
+        assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapTextWithStyling3"), contentNodes));
     }
 
     @Test
-    void shouldScrapDeletedContent() {
+    void shouldScrapTextWithStyling4()  {
         //given
-        Element element = sampleLines.getElementById("shouldScrapDeletedContent");
+        Element textElement = sampleLines.getElementById("shouldScrapTextWithStyling4");
         //when
-        List<TextNode> output = TextScrapper.scrapText(element, SOURCE);
+        List<TextNode> contentNodes = TextScrapper.scrapText(textElement, SOURCE);
         //then
-        assertAll(() -> assertEquals(1, output.size()),
-                () -> assertEquals(element.wholeText(), output.get(0).getContent()));
+        assertEquals(expectedOutputs.get("shouldScrapTextWithStyling4"), contentNodes);
+        assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapTextWithStyling4"), contentNodes));
     }
 
     @Test
-    void shouldScrapDeletedContent2() {
+    void shouldScrapTextWithStyling5()  {
         //given
-        Element element = sampleLines.getElementById("shouldScrapDeletedContent2");
+        Element textElement = sampleLines.getElementById("shouldScrapTextWithStyling5");
         //when
-        List<TextNode> output = TextScrapper.scrapText(element, SOURCE);
+        List<TextNode> contentNodes = TextScrapper.scrapText(textElement, SOURCE);
         //then
-        assertAll(() -> assertEquals(1, output.size()),
-                () -> assertEquals(element.wholeText(), output.get(0).getContent()));
+        assertEquals(expectedOutputs.get("shouldScrapTextWithStyling5"), contentNodes);
+        assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapTextWithStyling5"), contentNodes));
     }
 
     @Test
-    void shouldScrapStrongElement() {
+    void shouldScrapTextWithStyling6()  {
         //given
-        Element element = sampleLines.getElementById("sampleStrong");
+        Element textElement = sampleLines.getElementById("shouldScrapTextWithStyling6");
         //when
-        List<TextNode> output = TextScrapper.scrapText(element, SOURCE);
+        List<TextNode> contentNodes = TextScrapper.scrapText(textElement, SOURCE);
         //then
-        assertEquals(element.wholeText(), output.get(0).getContent());
-    }
-
-    @Test
-    void shouldScrapStrongWithSubElement() {
-        //given
-        Element element = sampleLines.getElementById("shouldScrapStrongWithSubElement");
-        //when
-        List<TextNode> output = TextScrapper.scrapText(element, SOURCE);
-        //then
-        assertAll(
-                () -> assertEquals("Sample text inside strong element", output.get(0).getContent()),
-                () -> assertEquals("2", output.get(1).getContent()),
-                () -> assertEquals("!", output.get(2).getContent())
-        );
-    }
-
-    @Test
-    void shouldScrapSubElement() {
-        //given
-        Element element = sampleLines.getElementById("shouldScrapSubElement");
-        //when
-        List<TextNode> output = TextScrapper.scrapText(element, SOURCE);
-        //then
-        assertEquals("2", output.get(0).getContent());
-    }
-
-    @Test
-    void shouldScrapStrongElementWithDeletedContent() {
-        //given
-        Element element = sampleLines.getElementById("sampleStrongWithDeletedElement");
-        //when
-        List<TextNode> output = TextScrapper.scrapText(element, SOURCE);
-        //then
-        String text = output.get(0).getContent() + output.get(1).getContent() + output.get(2).getContent();
-        assertEquals(element.text(), text);
+        assertEquals(expectedOutputs.get("shouldScrapTextWithStyling6"), contentNodes);
+        assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapTextWithStyling6"), contentNodes));
     }
 
 }

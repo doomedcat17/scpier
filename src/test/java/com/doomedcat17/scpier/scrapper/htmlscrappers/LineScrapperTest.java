@@ -22,7 +22,7 @@ class LineScrapperTest extends ScrapperTest {
     private final Element sampleLines = TestDataProvider
             .getSampleElements("src/test/resources/html/testdata/lines/SampleLinesElements.html");
 
-    private final Map<String, ContentNode<?>> expectedOutputs = getExpectedAppendicesOutputs("src/test/resources/html/testdata/lines/expected_outputs.json");
+    private final Map<String, ContentNode<?>> expectedOutputs = getExpectedContentNodeOutputs("src/test/resources/html/testdata/lines/expected_outputs.json");
 
     @Test
     void shouldScrapSimpleLine()  {

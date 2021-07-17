@@ -22,7 +22,7 @@ class TableScrapperTest extends ScrapperTest {
             .getSampleElements("src/test/resources/html/testdata/tables/SampleTableElements.html");
 
     private final Map<String, ContentNode<?>> expectedOutputs =
-            getExpectedAppendicesOutputs("src/test/resources/html/testdata/tables/expected_outputs.json");
+            getExpectedContentNodeOutputs("src/test/resources/html/testdata/tables/expected_outputs.json");
 
     @Test
     void shouldScrapSimpleTable()  {

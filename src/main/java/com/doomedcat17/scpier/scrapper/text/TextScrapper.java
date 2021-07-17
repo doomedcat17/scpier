@@ -7,6 +7,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,13 +41,13 @@ public class TextScrapper {
                         textNodes.add(scrapLink(innerElement, source, elementStyles));
                     } else {
                         if (innerElement.text().isBlank()) continue;
-                        Map<String, String> innerElementStyles = StyleScrapper.scrapStyles(innerElement);
-                        if (!elementStyles.isEmpty()) innerElementStyles.putAll(elementStyles);
+                        //retrieve element styles
+                        Map<String, String> styles = getAppliedStyles(innerElement, elementStyles);
                         if (innerElement.childrenSize() != 0) {
-                            textNodes.addAll(mapInnerTextElements(innerElement, innerElementStyles, source));
+                            textNodes.addAll(mapInnerTextElements(innerElement, styles, source));
                         } else {
                             String text = innerElement.wholeText();
-                            TextNode textNode = new TextNode(text, innerElementStyles);
+                            TextNode textNode = new TextNode(text, styles);
                             textNodes.add(textNode);
                         }
 
@@ -65,12 +66,23 @@ public class TextScrapper {
         }
     }
 
+    private static Map<String, String> getAppliedStyles(Element element, Map<String, String> parentStyles) {
+        //retrieve element styles
+        Map<String, String> innerElementStyles = StyleScrapper.scrapStyles(element);
+        Map<String, String> styles;
+        if (!parentStyles.isEmpty()) {
+            //inherit parent styles
+            styles = new HashMap<>(parentStyles);
+            styles.putAll(innerElementStyles);
+        } else styles = innerElementStyles;
+        return styles;
+    }
+
     private static List<TextNode> mapInnerTextElements(Element element, Map<String, String> parentStyles, String source) {
         List<TextNode> innerTextNodes = new ArrayList<>();
         for (Node innerNode : element.childNodes()) {
             if (innerNode instanceof Element) {
-                Element innerElement = (Element) innerNode;
-                List<TextNode> nodes = scrapText(innerElement, source);
+                List<TextNode> nodes = scrapText((Element) innerNode, source);
                 innerTextNodes.addAll(nodes);
             } else {
                 String text = innerNode.toString();
@@ -79,7 +91,14 @@ public class TextScrapper {
                 }
             }
         }
-        innerTextNodes.forEach(n -> n.addStyles(parentStyles));
+        //add parent styles to children, but don't overwrite them
+        parentStyles.forEach((key, value) -> {
+            innerTextNodes.forEach(textNode -> {
+                if (!textNode.getStyles().containsKey(key)) {
+                    textNode.getStyles().put(key, value);
+                }
+            });
+        });
         return innerTextNodes;
     }
 
@@ -95,10 +114,7 @@ public class TextScrapper {
         if (href.startsWith("/")) {
             href = source.substring(0, source.lastIndexOf('/')) + href;
         }
-        Map<String, String> innerElementStyles = StyleScrapper.scrapStyles(linkElement);
-        HyperlinkNode hyperlinkNode = new HyperlinkNode(linkElement.wholeText(), innerElementStyles, href);
-        if (!elementStyles.isEmpty()) innerElementStyles.putAll(elementStyles);
-        hyperlinkNode.setStyles(innerElementStyles);
-        return hyperlinkNode;
+        Map<String, String> styles = getAppliedStyles(linkElement, elementStyles);
+        return new HyperlinkNode(linkElement.wholeText(), styles, href);
     }
 }

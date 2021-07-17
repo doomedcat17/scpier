@@ -32,4 +32,7 @@ public class HyperlinkNode extends TextNode {
         super(content);
         contentNodeType = ContentNodeType.HYPERLINK;
     }
+
+    public HyperlinkNode() {
+    }
 }
