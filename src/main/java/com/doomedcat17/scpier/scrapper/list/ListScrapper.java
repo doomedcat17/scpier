@@ -27,6 +27,7 @@ public class ListScrapper extends ElementScrapper {
             mapList(element, listNode);
             return listNode;
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ElementScrapperException(e.getMessage());
         }
     }

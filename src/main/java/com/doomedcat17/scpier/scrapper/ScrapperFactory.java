@@ -70,7 +70,7 @@ public class ScrapperFactory {
             case "video":
                 return new VideoScrapper(source);
             default:
-                throw new ScrapperNotDefinedException("Scrapper not defined for " + element.tagName() +" element");
+                throw new ScrapperNotDefinedException("Scrapper not defined for \"" + element.tagName() +"\" element");
         }
     }
 }

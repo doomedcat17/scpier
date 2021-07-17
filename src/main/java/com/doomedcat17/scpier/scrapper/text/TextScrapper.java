@@ -62,6 +62,7 @@ public class TextScrapper {
             }
             return textNodes;
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ElementScrapperException(e.getMessage());
         }
     }

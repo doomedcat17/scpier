@@ -19,6 +19,7 @@ public class ImageScrapper extends ElementScrapper {
                     .attributes().get("src");
             return new EmbedNode(ContentNodeType.IMAGE, imageSource);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ElementScrapperException(e.getMessage());
         }
     }

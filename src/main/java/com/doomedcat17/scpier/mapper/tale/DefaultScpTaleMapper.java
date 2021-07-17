@@ -16,6 +16,7 @@ public class DefaultScpTaleMapper implements ScpTaleMapper {
             mapTale(scpTale, pageContent.getContent());
             return scpTale;
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ScpTaleMapperException(e.getMessage());
         }
     }

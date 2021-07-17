@@ -18,6 +18,7 @@ public class VideoScrapper extends ElementScrapper {
             source = sourceElement.attr("src");
             return new EmbedNode(ContentNodeType.VIDEO, source);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ElementScrapperException(e.getMessage());
         }
     }

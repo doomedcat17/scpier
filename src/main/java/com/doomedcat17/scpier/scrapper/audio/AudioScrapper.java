@@ -26,6 +26,7 @@ public class AudioScrapper extends ElementScrapper {
             }
             return new EmbedNode(ContentNodeType.AUDIO, source);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ElementScrapperException(e.getMessage());
         }
     }

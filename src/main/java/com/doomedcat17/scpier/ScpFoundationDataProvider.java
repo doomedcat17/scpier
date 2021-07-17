@@ -26,7 +26,7 @@ public class ScpFoundationDataProvider {
             return scpWikiData;
         } catch (RuntimeException e) {
             e.printStackTrace();
-            throw new ScpierIternalException(e.getMessage());
+            throw new ScpierIternalException();
         }
     }
 
@@ -38,7 +38,8 @@ public class ScpFoundationDataProvider {
             scpTale.setTags(pageContent.getTags());
             return scpTale;
         } catch (RuntimeException e) {
-            throw new ScpierIternalException(e.getMessage());
+            e.printStackTrace();
+            throw new ScpierIternalException();
         }
     }
 

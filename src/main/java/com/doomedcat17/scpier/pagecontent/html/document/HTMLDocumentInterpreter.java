@@ -31,6 +31,7 @@ public class HTMLDocumentInterpreter {
             }
             documentContentCleanerImpl.clearContentAndUnpackBlocks(content);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new HTMLDocumentInterpreterException(e.getMessage());
         }
     }

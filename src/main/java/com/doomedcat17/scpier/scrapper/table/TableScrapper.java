@@ -19,6 +19,7 @@ public class TableScrapper extends ElementScrapper {
         try {
             return scrapTable(element);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ElementScrapperException(e.getMessage());
         }
     }

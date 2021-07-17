@@ -12,7 +12,7 @@ public class JSONWriter {
     public static void main(String[] args) throws JsonProcessingException {
         ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
         try {
-            ScpWikiData scp = scpFoundationDataProvider.getScpObject("2030", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
+            ScpWikiData scp = scpFoundationDataProvider.getScpObject("173", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
             ScpWikiData scpTale = scpFoundationDataProvider.getScpTale("sympathy-for-an-empath", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
             // ScpObject scpObject = scpFoundationDataProvider.getFirstScpObject("qntm-s-proposal", SCPBranch.ENGLISH, SCPTranslation.POLISH, false);
             System.out.println(asJSONString(scp));

@@ -23,6 +23,7 @@ public class HeadingScrapper extends ElementScrapper {
             headingNode.setContent(textNodes);
             return headingNode;
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ElementScrapperException(e.getMessage());
         }
     }

@@ -23,6 +23,7 @@ public class BlockquoteScrapper extends ElementScrapper {
             blockquoteNode.setContent(contentNodes);
             return blockquoteNode;
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ElementScrapperException(e.getMessage());
         }
     }

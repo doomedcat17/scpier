@@ -24,6 +24,7 @@ public class DivScrapper extends ElementScrapper {
                 return contentNodes.get(0);
             } else return new ListNode<>(ContentNodeType.CONTENT_NODES, contentNodes);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ElementScrapperException(e.getMessage());
         }
     }

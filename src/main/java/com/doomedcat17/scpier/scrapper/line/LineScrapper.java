@@ -39,6 +39,7 @@ public class LineScrapper extends ElementScrapper {
             }
             return new ParagraphNode();
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ElementScrapperException(e.getMessage());
         }
     }

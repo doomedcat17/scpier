@@ -27,6 +27,7 @@ public class DocumentContentCleanerImpl implements DocumentContentCleaner {
             removeTrash(content);
             unpackNodes(content);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new DocumentContentCleanupException(e.getMessage());
         }
     }

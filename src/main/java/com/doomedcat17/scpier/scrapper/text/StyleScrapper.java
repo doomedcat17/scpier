@@ -25,6 +25,7 @@ public class StyleScrapper {
             addClassStyles(element, stylesMap);
             return stylesMap;
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ElementScrapperException(e.getMessage());
         }
 
