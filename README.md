@@ -1,103 +1,85 @@
 # SCPier - SCP Wiki webscrapper
 
-<b>PLEASE KEEP IN MIND IT'S A PROTOTYPE. Check <a href="#status">Status</a>.</b>
+**PLEASE KEEP IN MIND IT'S A PROTOTYPE. Check [Status](#status).**
 
-Scpier is java library for retriving SCPs and Tales directly form <a href="http://www.scpwiki.com/">SCP Foundation
-Wiki</a> (all branches).
+SCPier is java library for retrieving SCPs and Tales directly form [SCP Foundation Wiki](http://www.scpwiki.com/)
 
-
-
-I don't own any of the provided data, please check out <a href="https://scp-wiki.wikidot.com/licensing-guide">Licensing Guide</a>
+I don't own any of the provided data, please check out [Licensing Guide](https://scp-wiki.wikidot.com/licensing-guide)
 if you consider commercial use.
 
-<ul>
-    <li><a href="#how">How it works?</a></li>
-    <li>
-        <a href="#status">Status</a>
-    </li>
-    <li>
-        <a href="#getting-data">Getting data from SCP Wiki</a>
-        <ul>
-            <li><a href="#scp-data">SCPData</a></li>
-            <li><a href="#scp-enums">SCPBranch and SCPTranslation</a></li>
-        </ul>
-    </li>
-    <li><a href="#model">Content data model</a>
-        <ul>
-            <li><a href="#primary">Primary types of ContentNodes</a>
-                <ul>
-                    <li><a href="#text">TEXT</a></li>
-                    <li><a href="#hyperlink">HYPERLINK</a></li>
-                    <li><a href="#embedcontent">IMAGE, VIDEO, AUDIO</a></li>
-                </ul>
-            </li>
-            <li><a href="#listNodes">ListNodes</a>
-                <ul>
-                    <li><a href="#paragraph">PARAGRAPH</a></li>
-                    <li><a href="#block">DIV, BLOCKQUOTE</a></li>
-                    <li><a href="#table">TABLE</a></li>
-                    <li><a href="#lists">LIST_OL, LIST_UL, LIST_DL</a></li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-</ul>
+- [Status](#status)
+- [How it works?](#how-it-works)
+- [Getting data](#getting-data)
+  - [SCPData](#scpdata)
+  - [SCPBranch and SCPTranslation](#scpbranch-and-scptranslation)
+- [Content data model](#content-data-model)
+  - [Primary types of ContentNodes](#primary-types-of-contentnodes)
+    - [TEXT](#text)
+    - [HYPERLINK](#hyperlink)
+    - [IMAGE, VIDEO, AUDIO](#image-video-audio)
+  - [ListNodes](#listnodes)
+      - [PARAGRAPH and HEADING](#paragraph-and-heading)
+      - [DIV and BLOCKQUOTE](#div-and-blockquote)
+      - [TABLE](#table)
+      - [LIST_OL, LIST_UL, LIST_DL](#list_ol-list_ul-list_dl)
+      
+# Status
+SCPier is in its early development stages. It can't handle heavily scripted articles and for some of them additional interpretation is needed.
+Also, some content can be scrapped incorrectly or be missing.
 
-<h1 id="status">Status</h1>
-SCPier is in it's early development stages. It can't handle heavily scripted articles and for some of them additional interpretation is needed.
-Also some content can be scrapped incorrectly or be missing.<br>
+If you meet any bugs or issues, please open new issues in <a href="https://github.com/doomedcat17/scpier/issues">Issues</a> section.
 
-If you meet any bugs or issues, please open new issues in <a href="https://github.com/doomedcat17/scpier/issues">Issues</a> section.<br>
-You can also contact me via <a href="https://t.me/doomedcat17">Telegram</a>.
+You can also contact me via [Telegram](https://t.me/doomedcat17).
 
 
-<h1 id="how">How it works?</h1>
+# How it works?
 
-It's basically webscraper. HTML elements are retrieved using <a href="https://jsoup.org/">jsoup</a>. If particular SCP
-or Tale uses JavaScript, then the script is run by <a href="https://htmlunit.sourceforge.io/">HtmlUnit</a>. Retrieved
-HTML elements are scrapped and interpreted by multiple ```ElementScrapper``` classes.
+It's basically webscraper. HTML elements are retrieved using [jsoup](https://jsoup.org/). If particular SCP
+or Tale uses JavaScript, then the script is run by [HtmlUnit](https://htmlunit.sourceforge.io/). Retrieved
+HTML elements are scrapped and interpreted by multiple ElementScrappers.
 
-<h1 id="getting-data">Getting Data from SCP Wiki</h1>
+# Getting data
 
-Do get data from Scp Wiki simply create instance of ```ScpWikiDataProvider``` class and call ```getScpWikiContent()``` method.<br>
-It has three parameters:<br>
+Do get data from Scp Wiki simply create instance of `ScpWikiDataProvider` class and call `getScpWikiContent()` method.
 
-<span style="font-family: monospace; font-weight: bold">articleName</span> - name of the article.<br>
+It has three parameters:
+
+`articleName` - name of the article.<br>
 SCPier puts it in the URL to search for desired article. If you want to get one of the SCPs, you can only put
 its id ignoring heading zeros.
-(<i>Example: "7", "07" "007", "scp-007" and "SCP-007" will return SCP-007</i>).<br>
+(*Example: "7", "07" "007", "scp-007" and "SCP-007" will return SCP-007*).<br>
 Non-SCPs articles are more complicated case.<br>
 There is no common pattern for article naming in wiki's URLs (RESTful naming).<br>
 Some examples:<br>
-1. "<i>PeppersGhost's Proposal, I guess.</i>" is ```peppersghosts-stupid-proposal```
-2. "<i>Playing God</i>" is ```playing-god```
-3. "<i>Dr Gears' Proposal</i>" is ```dr-gears-s-proposal```
-4. "<i>notgull's Proposal</i>" is ```not-a-seagull-proposal```
-5. "<i>多狼乱な今度の裏切りは撲殺す</i>" is ```3999death```
+1. "*PeppersGhost's Proposal, I guess.*" is ```peppersghosts-stupid-proposal```
+2. "*Playing God*" is `playing-god`
+3. "*Dr Gears' Proposal*" is `dr-gears-s-proposal`
+4. "*notgull's Proposal*" is `not-a-seagull-proposal`
+5. "*多狼乱な今度の裏切りは撲殺す*" is `3999death`
 
 There are some similarities, but they don't apply to every article.<br>
-But if you replace all special chars with '-', it will work for <i>most</i> cases.
+But if you replace all special chars with `-`, it will work for ***most*** cases.
 
-<span style="font-family: monospace; font-weight: bold">scpBranch</span> - ```SCPBranch``` enum of desired branch.
+`scpBranch` - `SCPBranch` enum of desired branch.
 Defines source branch of desired article.<br>
 
-<span style="font-family: monospace; font-weight: bold">scpTranslation</span> - ```SCPTranslation``` enum of desired translation.
+`scpTranslation` - `SCPTranslation` enum of desired translation.
 Defines translation of desired article.<br>
 
 
 
 
-```
+```java
 ScpWikiDataProvider scpWikiDataProvider = new ScpWikiDataProvider();
 
 ScpWikiData object173 = scpWikiDataProvider
     .getScpWikiContent("173", ScpBranch.ENGLISH, ScpTranslation.ORIGINAL);
 ```
-It returns ```ScpWikiData``` object with desired article from Scp Wiki.<br>
-<h3 id="scp-data">ScpWikiData</h3>
+It returns `ScpWikiData` object with desired article from Scp Wiki.<br>
+### ScpWikiData
 This object represents data retrieved form wiki. <br>
 It has the following variables
-```
+```java
 String title;
 
 List<ContentNode<?>> content;
@@ -106,11 +88,14 @@ List<String> tags;
 
 String source;
 ```
-```title``` - title of the article from wiki.<br>
-```content``` - content of the article. <br>
-```tags``` - list of the article tags.<br>
-```source``` - link of selected article.
-```
+`title` - title of the article from wiki.
+
+`content` - content of the article.
+
+`tags` - list of the article tags.
+
+`source` - link of selected article.
+```json
 {
   "title" : "SCP-006",
   "content" : [ {
@@ -232,53 +217,55 @@ String source;
   "source" : "http://www.scp-wiki.wikidot.com/scp-006"
 }
 ```
-<h3 id="scp-enums">SCPBranch and SCPTranslation</h3>
+### SCPBranch and SCPTranslation
 They are enums, which define source branch and desired translation.
-<p style="font-weight: bold;">All branches are available with all translations made by community.</p>
-<p style="font-weight: bold;">SCPier does not transtale anything by itself!</p>
+**All branches are available with all translations made by community.**
+
+**SCPier does not translate anything by itself!**
+
 List of SCP Wiki branches and translations:
 
-```
+```json
 ENGLISH, POLISH, RUSSIAN, JAPANESE, CHINESE, KOREAN,
 FRENCH, SPANISH, THAI, GERMAN, ITALIAN, UKRAINIAN,
 PORTUGUESE, CZECH, GREEK, INDONESIAN, DANISH,
 FINNISH, NORWEGIAN, SWEDISH, TURKISH, VIETNAMESE
 ````
 
-There is one more translation called ```ORIGINAL``` and it is used for getting article in branch's native language.
+***There is one more translation called `ORIGINAL` and it is used for getting article in branch's native language.***
 
-```
+```java
 scpWikiDataProvider
     .getScpWikiContent("173", ScpBranch.ENGLISH, ScpTranslation.ORIGINAL);
 ```
 
 
 
-<h1 id="model">Content data model</h1>
+# Content data model
 
-The main class of the data model is generic ```ContentNode``` class. It has two variables:
+The main class of the data model is generic `ContentNode` class. It has two variables:
 
-```
+```java
 ContentNodeType contentNodeType;
 
 T content;
 ```
 
-```ContentNodeType``` is an enum that defines what type of content particular ```ContentNode``` holds. And content is
+`ContentNodeType` is an enum that defines what type of content particular `ContentNode` holds. And content is
 content, as simple as that.
 
-```ContentNode``` has some child classes which have additional variables.
+`ContentNode` has some child classes which have additional variables.
 
-<h2 id="primary">Primary types of ContentNodes</h2>
+## Primary types of ContentNodes
 
-<h3 id="text">TEXT</h3>
+### TEXT
 
-Defines ContentNode as TextNode. The ```content``` is of ```String``` type and it holds a piece of text.<br>
-It also has ```styles``` variable. It's a ```Map``` of CSS properties and its values applied to the ```content```.
+Defines ContentNode as TextNode. The `content` is of `String` type and it holds a piece of text.<br>
+It also has `styles` variable. It's a `Map` of CSS properties and its values applied to the `content`.
 
-<b style="color: orange;">Only local HTML styles are applied!</b>
+**Only local HTML styles are applied!**
 
-```
+```json
 {
   "contentNodeType": "TEXT",
   "content": "Bold text",
@@ -290,7 +277,7 @@ It also has ```styles``` variable. It's a ```Map``` of CSS properties and its va
 
 Also, styles can be empty.
 
-```
+```json
 {
   "contentNodeType": "TEXT",
   "content": "Plain text",
@@ -298,12 +285,12 @@ Also, styles can be empty.
 }
 ```
 
-<h3 id="hyperlink">HYPERLINK</h3>
+### HYPERLINK
 
-Defines ```ContentNode``` as ```HyperlinkNode```. It corresponds to the ```<a>``` HTML tag.<br>It's subclass
-of ```TextNode``` with additional ```href``` variable of ```String``` type.
+Defines `ContentNode` as `HyperlinkNode`. It corresponds to the `<a>` HTML tag.
+It's subclass of `TextNode` with additional `href` variable of `String` type.
 
-```
+```json
 {
   "contentNodeType": "HYPERLINK",
   "content": "practical physician",
@@ -314,15 +301,14 @@ of ```TextNode``` with additional ```href``` variable of ```String``` type.
 }
 ```
 
-<h3 id="embedcontent">IMAGE, VIDEO, AUDIO</h3>
+### IMAGE, VIDEO, AUDIO
 
-Defines ```ContentNode``` as ```EmbedNode``` that holds URL of resource as ```String```.<br> It also has a variable
-named ```caption```, which is a ``List`` of TextNodes. It defines a description of given content. The description mainly
+Defines `ContentNode` as `EmbedNode` that holds URL of resource as `String`. It also has a variable
+named `caption`, which is a `List` of TextNodes. It defines a description of given content. The description mainly
 applies for images.
 
-ImageNode
-
-```
+`ImageNode`
+```json
 {
   "contentNodeType": "IMAGE",
   "content": "http://scp-wiki.wdfiles.com/local--files/scp-009/SCP-009.jpg",
@@ -336,9 +322,9 @@ ImageNode
 }
 ```
 
-ImageNode with styled caption
+`ImageNode` with styled caption
 
-```
+```json
 {
   "contentNodeType": "IMAGE",
   "content": "http://scp-wiki.wdfiles.com/local--files/scp-009/SCP-009.jpg",
@@ -361,9 +347,9 @@ ImageNode with styled caption
 }
 ```
 
-VideoNode
+`VideoNode`
 
-```
+```json
 {
   "contentNodeType": "VIDEO",
   "content": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
@@ -371,9 +357,9 @@ VideoNode
 }
 ```
 
-AudioNode
+`AudioNode`
 
-```
+```json
 {
   "contentNodeType": "AUDIO",
   "content": "http://www.scp-wiki.net/local--files/scp-049/Addendum0491.mp3",
@@ -381,22 +367,21 @@ AudioNode
 }
 ```
 
-<h2 id="listNodes">ListNodes</h2>
+## ListNodes
 
-```ListNode``` is subclass of ```ContentNode``` with ```List``` of ContentNodes as ```content```.
+`ListNode` is subclass of `ContentNode` with list of ContentNodes as `content`.
 
-<h3 id="paragraph">PARAGRAPH and HEADING</h3>
+### PARAGRAPH and HEADING
 
-```PARAGRAPH``` defines ```ContentNode``` as ```ParagraphNode```. It's subclass of ```ListNode``` and corresponds to ```<p>``` HTML
-tag.<br>
-```HEADING``` defines ```ContentNode``` as ```HeadingNode``` and it's subclass of ```ParagraphNode```.
-They are identical, but  ```HeadingNode``` corresponds to ```<h1-h6>``` HTML tags.
+`PARAGRAPH` defines `ContentNode` as `ParagraphNode`. It's subclass of `ListNode` and corresponds to `<p>` HTML tag.
+`HEADING` defines `ContentNode` as `HeadingNode` and it's subclass of `ParagraphNode`.
+They are identical, but  `HeadingNode` corresponds to ```<h1-h6>``` HTML tags.
 
-They <b>only</b> holds TextNodes and its subclasses (like HyperlinkNodes).
+***They only holds TextNodes and its subclasses*** (like HyperlinkNodes).
 
-Paragraph
+`ParagraphNode`
 
-```
+```json
 {
   "contentNodeType": "PARAGRAPH",
   "content": [
@@ -427,8 +412,8 @@ Paragraph
   ]
 }
 ``` 
-Heading
-```
+`HeadingNode`
+```json
 {
   "contentNodeType": "HEADING",
   "content": [
@@ -444,15 +429,17 @@ Heading
 }
 ``` 
 
-<h3 id="block">DIV and BLOCKQUOTE</h3>
+### DIV and BLOCKQUOTE
 
-These types are instances of ```ListNode```. They corresponds to ```<div>``` and  ```<blockquote>``` HTML tags.
-Usually ```<blockquote>``` defines some type of note or document on wiki with dashed border and ```<div>``` is more like
-content box with solid border. <b>They can hold all types of ContentNodes.</b>
+These types are instances of `ListNode`. They correspond to `<div>` and  `<blockquote>` HTML tags.
+Usually `<blockquote>` defines some type of note or document on wiki with dashed border and `<div>` is more like
+content box with solid border. 
+
+**They can hold all types of ContentNodes.**
 
 Blockquote
 
-```
+```json
 {
   "contentNodeType": "BLOCKQUOTE",
   "content": [
@@ -496,7 +483,7 @@ Blockquote
 
 Div
 
-```
+```json
 {
   "contentNodeType": "DIV",
   "content": [
@@ -526,15 +513,15 @@ Div
 }
 ``` 
 
-<h3 id="table">TABLE</h3>
+### TABLE
 
-Corresponds to ```<table>``` HTML tag.<br> It consists of ListNodes of ```TABLE_ROW``` type (```<tr>``` HTML tag).<br>
-Each ```TABLE_ROW``` can have multiple ListNodes of ```TABLE_CELL``` (```<td>``` HTML tag)
-or ```TABLE_HEADING_CELL``` (```<th>``` HTML tag)
-type. <br>
-<b>```TABLE_CELL``` and ```TABLE_HEADING_CELL``` can hold all types of ContentNodes.<br></b>
+Corresponds to `<table>` HTML tag. It consists of ListNodes of `TABLE_ROW` type (`<tr>` HTML tag).
+Each `TABLE_ROW` can have multiple ListNodes of `TABLE_CELL` (`<td>` HTML tag)
+or `TABLE_HEADING_CELL` (`<th>` HTML tag) type.
 
-```
+**```TABLE_CELL``` and ```TABLE_HEADING_CELL``` can hold all types of ContentNodes.**
+
+```json
 {
   "contentNodeType": "TABLE",
   "content": [
@@ -613,13 +600,13 @@ type. <br>
 
 ``` 
 
-<h3 id="lists">LIST_OL, LIST_UL, LIST_DL</h3>
+### LIST_OL, LIST_UL, LIST_DL
 
-Corresponds to HTML list tags (```<ol>```, ```<ul>``` and ```<dl>```). Each od them consists of ListNodes of
-```LIST_ITEM``` type (```<li>``` HTML tag).<br>
-<b>They can hold all types of ContentNodes.</b>
+Corresponds to HTML list tags (`<ol>`, `<ul>` and `<dl>`). Each od them consists of ListNodes of
+`LIST_ITEM` type (`<li>` HTML tag).<br>
+**They can hold all types of ContentNodes.**
 
-```
+```json
 {
   "contentNodeType": "LIST_UL",
   "content": [
