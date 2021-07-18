@@ -1,8 +1,7 @@
 package com.doomedcat17.scpier.scrapper.table;
 
-import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
-import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.data.content.*;
+import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.ElementScrapper;
 import org.jsoup.nodes.Element;
@@ -16,15 +15,21 @@ public class TableScrapper extends ElementScrapper {
     }
 
     @Override
-    public ContentNode<?> scrapElement(Element element) {
-        return mapTable(element);
+    public ContentNode<?> scrapElement(Element element)  {
+        try {
+            return scrapTable(element);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new ElementScrapperException(e.getMessage());
+        }
     }
 
-    private ContentNode<?> mapTable(Element element) {
+    private ContentNode<?> scrapTable(Element element)  {
         Element tableBody = element.selectFirst("tbody");
         if (tableBody != null) {
             element = tableBody;
         }
+
         if (element.hasClass("scale EN-base") ||
                 (element.is("tbody") &&
                         element.parent().hasClass("scale EN-base") &&
@@ -33,40 +38,40 @@ public class TableScrapper extends ElementScrapper {
         } else return scrapDefaultTable(element);
     }
 
-    private ContentNode<List<ContentNode<?>>> scrapDefaultTable(Element element) {
+    private ListNode<ContentNode<?>> scrapDefaultTable(Element element)  {
         List<ContentNode<?>> tableRows = new ArrayList<>();
         for (Element tableRow: element.children()) {
-            tableRows.add(mapRow(tableRow));
+            tableRows.add(scrapRow(tableRow));
         }
-        return new ContentNode<>(ContentNodeType.TABLE, tableRows);
+        return new ListNode<>(ContentNodeType.TABLE, tableRows);
     }
 
     private ContentNode<?> scrapEnBaseTable(Element element) {
         Element itemHeaders = element.getElementsByClass("item1 EN").get(0);
-        ContentNode<List<ContentNode<List<TextNode>>>> paragraphs = new ContentNode<>(ContentNodeType.PARAGRAPHS, new ArrayList<>());
+        ListNode<ParagraphNode> paragraphs = new ListNode<>(ContentNodeType.PARAGRAPHS);
         for (Element itemElement: itemHeaders.children()) {
-            ContentNode<List<TextNode>> paragraph = new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>());
+            ParagraphNode paragraph = new ParagraphNode();
             String[] splitElements = itemElement.text().split(": ");
             TextNode strongNode = new TextNode(splitElements[0].trim()+": ");
             strongNode.addStyle("font-weight", "bold");
             strongNode.setContent(strongNode.getContent());
-            paragraph.getContent().add(strongNode);
-            paragraph.getContent().add(new TextNode(splitElements[1].trim()));
-            paragraphs.getContent().add(paragraph);
+            paragraph.addElement(strongNode);
+            paragraph.addElement(new TextNode(splitElements[1].trim()));
+            paragraphs.addElement(paragraph);
         }
         return paragraphs;
     }
 
-    private ContentNode<?> mapRow(Element row) {
-        List<ContentNode<List<ContentNode<?>>>> rowCells = new ArrayList<>();
+    private ContentNode<?> scrapRow(Element row)  {
+        List<ListNode<ContentNode<?>>> rowCells = new ArrayList<>();
         for (Element cell: row.children()) {
-            ContentNode<List<ContentNode<?>>> cellNode = new ContentNode<>(ContentNodeType.TABLE_CELL, new ArrayList<>());
-            if (cell.is("th, thead")) cellNode.setContentNodeType(ContentNodeType.TABLE_HEADING_CELL);
             if(cell.children().isEmpty() && cell.text().isBlank()) continue;
-            cellNode.getContent().addAll(ElementContentScrapper.scrapContent(cell, source));
+            ListNode<ContentNode<?>> cellNode = new ListNode<>(ContentNodeType.TABLE_CELL);
+            if (cell.is("th, thead")) cellNode.setContentNodeType(ContentNodeType.TABLE_HEADING_CELL);
+            cellNode.addElements(ElementContentScrapper.scrapContent(cell, source));
             rowCells.add(cellNode);
         }
-        return new ContentNode<>(ContentNodeType.TABLE_ROW, rowCells);
+        return new ListNode<>(ContentNodeType.TABLE_ROW, rowCells);
     }
 
 

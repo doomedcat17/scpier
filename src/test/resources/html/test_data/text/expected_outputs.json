@@ -1,0 +1,221 @@
+{
+  "java.util.HashMap": {
+    "shouldScrapSimpleText": {
+      "java.util.ArrayList": [
+        {
+          "com.doomedcat17.scpier.data.content.TextNode": {
+            "contentNodeType": {
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+            },
+            "content": "Simple Text",
+            "styles": {
+              "java.util.HashMap": {}
+            }
+          }
+        }
+      ]
+    },
+    "shouldScrapSimpleText2": {
+      "java.util.ArrayList": [
+        {
+          "com.doomedcat17.scpier.data.content.TextNode": {
+            "contentNodeType": {
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+            },
+            "content": "Simple Text with broken lines",
+            "styles": {
+              "java.util.HashMap": {}
+            }
+          }
+        }
+      ]
+    },
+    "shouldScrapTextWithStyling1": {
+      "java.util.ArrayList": [
+        {
+          "com.doomedcat17.scpier.data.content.TextNode": {
+            "contentNodeType": {
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+            },
+            "content": "Simple ",
+            "styles": {
+              "java.util.HashMap": {
+                "color": "red"
+              }
+            }
+          }
+        },
+        {
+          "com.doomedcat17.scpier.data.content.TextNode": {
+            "contentNodeType": {
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+            },
+            "content": "Text",
+            "styles": {
+              "java.util.HashMap": {
+                "color": "#2b2b2b"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "shouldScrapTextWithStyling2": {
+      "java.util.ArrayList": [
+        {
+          "com.doomedcat17.scpier.data.content.TextNode": {
+            "contentNodeType": {
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+            },
+            "content": "Simple",
+            "styles": {
+              "java.util.HashMap": {
+                "color": "red",
+                "font-style": "italic"
+              }
+            }
+          }
+        },
+        {
+          "com.doomedcat17.scpier.data.content.TextNode": {
+            "contentNodeType": {
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+            },
+            "content": " Text",
+            "styles": {
+              "java.util.HashMap": {
+                "color": "#2b2b2b"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "shouldScrapTextWithStyling3": {
+      "java.util.ArrayList": [
+        {
+          "com.doomedcat17.scpier.data.content.TextNode": {
+            "contentNodeType": {
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+            },
+            "content": "Simple",
+            "styles": {
+              "java.util.HashMap": {
+                "color": "red",
+                "font-weight": "bold",
+                "font-style": "italic"
+              }
+            }
+          }
+        },
+        {
+          "com.doomedcat17.scpier.data.content.TextNode": {
+            "contentNodeType": {
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+            },
+            "content": "Text",
+            "styles": {
+              "java.util.HashMap": {
+                "color": "#2b2b2b"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "shouldScrapTextWithStyling4": {
+      "java.util.ArrayList": [
+        {
+          "com.doomedcat17.scpier.data.content.TextNode": {
+            "contentNodeType": {
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+            },
+            "content": "Sample",
+            "styles": {
+              "java.util.HashMap": {
+                "color": "red",
+                "font-weight": "bold"
+              }
+            }
+          }
+        },
+        {
+          "com.doomedcat17.scpier.data.content.TextNode": {
+            "contentNodeType": {
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+            },
+            "content": "Co",
+            "styles": {
+              "java.util.HashMap": {
+                "color": "red",
+                "font-style": "italic"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "shouldScrapTextWithStyling5": {
+      "java.util.ArrayList": [
+        {
+          "com.doomedcat17.scpier.data.content.HyperlinkNode": {
+            "contentNodeType": {
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "HYPERLINK"
+            },
+            "content": "Link ",
+            "styles": {
+              "java.util.HashMap": {
+                "color": "red"
+              }
+            },
+            "href": "http://somepage.pl"
+          }
+        },
+        {
+          "com.doomedcat17.scpier.data.content.TextNode": {
+            "contentNodeType": {
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+            },
+            "content": " is link",
+            "styles": {
+              "java.util.HashMap": {
+                "color": "red"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "shouldScrapTextWithStyling6": {
+      "java.util.ArrayList": [
+        {
+          "com.doomedcat17.scpier.data.content.TextNode": {
+            "contentNodeType": {
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+            },
+            "content": "Test",
+            "styles": {
+              "java.util.HashMap": {
+                "color": "red",
+                "font-family": "Arial,serif"
+              }
+            }
+          }
+        },
+        {
+          "com.doomedcat17.scpier.data.content.TextNode": {
+            "contentNodeType": {
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+            },
+            "content": " second Test",
+            "styles": {
+              "java.util.HashMap": {
+                "color": "blue"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

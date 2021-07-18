@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.scrapper;
 
-import com.doomedcat17.scpier.data.contentnode.ContentNode;
+import com.doomedcat17.scpier.data.content.ContentNode;
 import org.jsoup.nodes.Element;
 
 public abstract class ElementScrapper {
@@ -9,7 +9,7 @@ public abstract class ElementScrapper {
         this.source = source;
     }
 
-    public abstract ContentNode<?> scrapElement(Element element);
+    public abstract ContentNode<?> scrapElement(Element element) ;
 
     protected String source;
 

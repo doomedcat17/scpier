@@ -1,7 +1,8 @@
 package com.doomedcat17.scpier.scrapper.div.componetnts;
 
-import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
+import com.doomedcat17.scpier.data.content.ContentNode;
+import com.doomedcat17.scpier.data.content.ContentNodeType;
+import com.doomedcat17.scpier.data.content.ListNode;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import org.jsoup.nodes.Element;
@@ -15,7 +16,7 @@ public class MaterialBoxScrapper extends DivScrapper implements DivScrapperCompo
     }
 
     @Override
-    public List<ContentNode<?>> scrapDivContent(Element element) {
-        return new ArrayList<>(List.of(new ContentNode<>(ContentNodeType.DIV, ElementContentScrapper.scrapContent(element, source))));
+    public List<ContentNode<?>> scrapDivContent(Element element)  {
+        return new ArrayList<>(List.of(new ListNode<>(ContentNodeType.DIV, ElementContentScrapper.scrapContent(element, source))));
     }
 }

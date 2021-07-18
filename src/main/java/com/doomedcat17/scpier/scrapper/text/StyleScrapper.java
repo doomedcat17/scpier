@@ -1,5 +1,6 @@
 package com.doomedcat17.scpier.scrapper.text;
 
+import com.doomedcat17.scpier.exception.ElementScrapperException;
 import org.jsoup.nodes.Element;
 
 import java.util.Arrays;
@@ -10,18 +11,23 @@ import java.util.stream.Collectors;
 
 public class StyleScrapper {
     public static Map<String, String> scrapStyles(Element element) {
-        Map<String, String> stylesMap = new HashMap<>();
-        mapTag(element.tagName(), stylesMap);
-        if (element.hasAttr("style")) {
-            List<String> styles = Arrays.stream(element.attr("style")
-                    .trim()
-                    .split(";"))
-                    .map(String::trim)
-                    .collect(Collectors.toList());
-            styles.forEach(styleText -> mapStyle(styleText, stylesMap));
+        try {
+            Map<String, String> stylesMap = new HashMap<>();
+            mapTag(element.tagName(), stylesMap);
+            if (element.hasAttr("style")) {
+                List<String> styles = Arrays.stream(element.attr("style")
+                                .trim()
+                                .split(";"))
+                        .map(String::trim)
+                        .collect(Collectors.toList());
+                styles.forEach(styleText -> mapStyle(styleText, stylesMap));
+            }
+            addClassStyles(element, stylesMap);
+            return stylesMap;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new ElementScrapperException(e.getMessage());
         }
-        addClassStyles(element, stylesMap);
-        return stylesMap;
 
     }
 
@@ -44,6 +50,7 @@ public class StyleScrapper {
             case "strong":
             case "b":
             case "h4":
+            case "dt":
                 stylesMap.put("font-weight", "bold");
                 break;
             case "em":
@@ -59,6 +66,7 @@ public class StyleScrapper {
                 stylesMap.put("font-size", "smaller");
                 break;
             case "code":
+            case "pre":
                 stylesMap.put("font-family", "monospace");
                 break;
             case "h1":
@@ -81,8 +89,15 @@ public class StyleScrapper {
                 stylesMap.put("font-size", ".67em");
                 stylesMap.put("font-weight", "bold");
                 break;
-            case "a":
-                stylesMap.put("color", "#901");
+            case "u":
+                stylesMap.put("text-decoration", "underline");
+                break;
+            case "del":
+            case "strike":
+                stylesMap.put("text-decoration", "line-through");
+                break;
+            case "center":
+                stylesMap.put("text-align", "center");
                 break;
             case "p":
             case "span":

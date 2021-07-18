@@ -1,8 +1,8 @@
 package com.doomedcat17.scpier.scrapper.div.componetnts;
 
-import com.doomedcat17.scpier.data.contentnode.ContentNode;
-import com.doomedcat17.scpier.data.contentnode.ContentNodeType;
-import com.doomedcat17.scpier.data.contentnode.TextNode;
+import com.doomedcat17.scpier.data.content.ContentNode;
+import com.doomedcat17.scpier.data.content.ParagraphNode;
+import com.doomedcat17.scpier.data.content.TextNode;
 import com.doomedcat17.scpier.scrapper.div.DivScrapper;
 import org.jsoup.nodes.Element;
 
@@ -29,7 +29,7 @@ public class ENbaseDivScrapper extends DivScrapper implements DivScrapperCompone
         TextNode itemHeading = new TextNode(itemStrings[0] + ": ");
         itemHeading.addStyle("font-weight", "bold");
         TextNode itemName = new TextNode(itemStrings[1].trim());
-        return new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>(List.of(itemHeading, itemName)));
+        return new ParagraphNode(new ArrayList<>(List.of(itemHeading, itemName)));
     }
 
     private ContentNode<List<TextNode>> scrapObjectName(Element element) {
@@ -37,7 +37,7 @@ public class ENbaseDivScrapper extends DivScrapper implements DivScrapperCompone
         TextNode objectClassName = new TextNode(capitalizeText(scpClassName));
         TextNode objectClass = new TextNode("Object Class: ");
         objectClass.addStyle("font-weight", "bold");
-        return new ContentNode<>(ContentNodeType.PARAGRAPH, new ArrayList<>(List.of(objectClass, objectClassName)));
+        return new ParagraphNode(new ArrayList<>(List.of(objectClass, objectClassName)));
     }
 
 }

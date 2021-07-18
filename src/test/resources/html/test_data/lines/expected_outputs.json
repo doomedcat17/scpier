@@ -1,0 +1,714 @@
+{
+  "java.util.HashMap": {
+    "shouldMapSimpleLine": {
+      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {}
+                },
+                "content": "Following initial investigations, multiple test subjects were allowed access to the score. In every case, the subjects mutilated themselves in order to use their own blood to finish the piece, resulting in subsequent symptoms of psychosis and massive trauma. Those subjects who managed to finish a section of the piece immediately committed suicide, declaring the piece to be \"impossible to complete\". Attempts to perform the music have resulted in a disagreeable cacophony, with each instrumental part having no correlation or harmony with the other instruments."
+              }
+            }
+          ]
+        }
+      }
+    },
+    "sampleLineWithDeletedContent": {
+      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {}
+                },
+                "content": "Following initial investigations, multiple test subjects were allowed access to the score. In every case, the subjects mutilated themselves in order to use their own blood to finish the piece, resulting in subsequent symptoms of psychosis and massive trauma. Those subjects who managed to finish a section of the piece immediately committed suicide, declaring the piece to be \"impossible to complete\". "
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {
+                    "text-decoration": "line-through"
+                  }
+                },
+                "content": "SCP-3031 is currently assumed to be noncommunicable, as no vector of transmission has been identified to date."
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {}
+                },
+                "content": " Attempts to perform the music have resulted in a disagreeable cacophony, with each instrumental part having no correlation or harmony with the other instruments."
+              }
+            }
+          ]
+        }
+      }
+    },
+    "shouldScrapLineWithHeader": {
+      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {}
+                },
+                "content": "Description:"
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {}
+                },
+                "content": " SCP-012 was retrieved by Archaeologist K.M. Sandoval during the excavation of a northern Italian tomb destroyed in a recent storm. The object, a piece of handwritten musical score entitled \"On Mount Golgotha\", part of a larger set of sheet music, appears to be incomplete. The red/black ink, first thought to be some form of berry or natural dye ink, was later found to be human blood from multiple subjects. The first personnel to locate the sheet (Site 19 Special Salvage) had two (2) members descend into insanity, attempting to use their own blood to finish the composition, ultimately resulting in massive blood loss and internal trauma."
+              }
+            }
+          ]
+        }
+      }
+    },
+    "shouldScrapContentWithStrongElements": {
+      "com.doomedcat17.scpier.data.content.ListNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPHS"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {
+                            "font-weight": "bold"
+                          }
+                        },
+                        "content": "Date:"
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {}
+                        },
+                        "content": " ██/██/████"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {
+                            "font-weight": "bold"
+                          }
+                        },
+                        "content": "Objects Observed:"
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {}
+                        },
+                        "content": " Bibles"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {
+                            "font-weight": "bold"
+                          }
+                        },
+                        "content": "Notes:"
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {}
+                        },
+                        "content": " Due to the wide variation in sizes of individual copies, estimates of the number of Bibles present ranged from 3 billion to 6 billion. The pile was searched for early copies of potential historical significance, but given the number of copies present an exhaustive search was not possible. The earliest copy located dated to 1607."
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "shouldScrapContentWithEmAndIElements": {
+      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {}
+                },
+                "content": "Some normal text! "
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {
+                    "font-style": "italic"
+                  }
+                },
+                "content": "Some italic text! "
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {
+                    "font-style": "italic"
+                  }
+                },
+                "content": "Some more italic text!"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "shouldScrapContentWithInnerSpanElements": {
+      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {}
+                },
+                "content": "Some normal text! "
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {
+                    "color": "red"
+                  }
+                },
+                "content": "Some red text! "
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {
+                    "font-style": "italic"
+                  }
+                },
+                "content": "Some "
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {
+                    "color": "red",
+                    "font-style": "italic"
+                  }
+                },
+                "content": "red "
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {
+                    "font-style": "italic"
+                  }
+                },
+                "content": "italic text!"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "shouldScrapContentWithStylization": {
+      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {
+                    "color": "red"
+                  }
+                },
+                "content": "Some normal red text! "
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {
+                    "color": "red",
+                    "font-style": "italic"
+                  }
+                },
+                "content": "Some red italic text!"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "shouldScrapStrongElement": {
+      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {
+                    "font-weight": "bold"
+                  }
+                },
+                "content": "Appendix!"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "shouldScrapStrongElementAsTextNode": {
+      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {
+                    "font-weight": "bold"
+                  }
+                },
+                "content": "Sample text!"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "shouldScrapLineWithMultipleStrongElements": {
+      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {
+                    "font-weight": "bold"
+                  }
+                },
+                "content": "Appendix!"
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {
+                    "font-weight": "bold"
+                  }
+                },
+                "content": "Sample Strong! "
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.TextNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                },
+                "styles": {
+                  "java.util.HashMap": {
+                    "font-weight": "bold"
+                  }
+                },
+                "content": "Appendix!"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "shouldScrapLine1": {
+      "com.doomedcat17.scpier.data.content.ListNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPHS"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {}
+                        },
+                        "content": "To jest pierwszy paragraf"
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {
+                            "vertical-align": "sub",
+                            "font-size": "smaller"
+                          }
+                        },
+                        "content": "2"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {}
+                        },
+                        "content": "To jest drugi paragraf"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "shouldScrapLine2": {
+      "com.doomedcat17.scpier.data.content.ListNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPHS"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {}
+                        },
+                        "content": "Pierwszy paragraf"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {}
+                        },
+                        "content": "Drugi paragraf"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {}
+                        },
+                        "content": "Trzeci paragraf"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "shouldScrapLine3": {
+      "com.doomedcat17.scpier.data.content.ListNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPHS"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {}
+                        },
+                        "content": "Pierwszy paragraf"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {}
+                        },
+                        "content": "Drugi Paragraf, "
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {}
+                        },
+                        "content": "dalej drugi paragraf"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                        },
+                        "styles": {
+                          "java.util.HashMap": {}
+                        },
+                        "content": "Trzeci paragraf"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
