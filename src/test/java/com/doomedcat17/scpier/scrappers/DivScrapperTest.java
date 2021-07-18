@@ -310,8 +310,8 @@ class DivScrapperTest extends ScrapperTest {
             ContentNode<List<ContentNode<List<TextNode>>>> divNode = (ContentNode<List<ContentNode<List<TextNode>>>>) contentNode;
             assertEquals(3, divNode.getContent().size());
             assertEquals("ADULT CONTENT", divNode.getContent().get(0).getContent().get(0).getContent());
-            assertEquals("The following article contains page of an adult nature.", divNode.getContent().get(1).getContent().get(0).getContent());
-            assertEquals("Do not proceed if you are not over the age of 18 or are not willing to see such page.", divNode.getContent().get(2).getContent().get(0).getContent());
+            assertEquals("The following article contains content of an adult nature.", divNode.getContent().get(1).getContent().get(0).getContent());
+            assertEquals("Do not proceed if you are not over the age of 18 or are not willing to see such content.", divNode.getContent().get(2).getContent().get(0).getContent());
         } catch (Exception e) {
             e.printStackTrace();
             fail();
