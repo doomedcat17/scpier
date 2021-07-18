@@ -75,7 +75,10 @@ ScpWikiDataProvider scpWikiDataProvider = new ScpWikiDataProvider();
 ScpWikiData object173 = scpWikiDataProvider
     .getScpWikiContent("173", ScpBranch.ENGLISH, ScpTranslation.ORIGINAL);
 ```
-It returns `ScpWikiData` object with desired article from Scp Wiki.<br>
+It returns `ScpWikiData` object with desired article from Scp Wiki.
+
+`getScpWikiContent()` throws `SCPierApiException` if any issue occurs.
+
 ### ScpWikiData
 This object represents data retrieved form wiki. <br>
 It has the following variables
