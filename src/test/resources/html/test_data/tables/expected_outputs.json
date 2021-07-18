@@ -1,37 +1,37 @@
 {
   "java.util.HashMap": {
     "shouldScrapSimpleTable": {
-      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+      "com.doomedcat17.scpier.data.content.ListNode": {
         "contentNodeType": {
-          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE"
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_ROW"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_HEADING_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_HEADING_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -48,23 +48,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_HEADING_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_HEADING_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -81,23 +81,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_HEADING_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_HEADING_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -118,30 +118,30 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_ROW"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -158,23 +158,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -191,23 +191,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -228,30 +228,30 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_ROW"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -268,23 +268,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -301,23 +301,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -338,30 +338,30 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_ROW"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -378,23 +378,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -411,23 +411,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -448,30 +448,30 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_ROW"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -488,23 +488,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -521,23 +521,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -562,23 +562,23 @@
       }
     },
     "shouldScrapBlockquoteWithLongLine": {
-      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+      "com.doomedcat17.scpier.data.content.ListNode": {
         "contentNodeType": {
-          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "BLOCKQUOTE"
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "BLOCKQUOTE"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                         },
                         "styles": {
                           "java.util.HashMap": {
@@ -589,9 +589,9 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                      "com.doomedcat17.scpier.data.content.TextNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                         },
                         "styles": {
                           "java.util.HashMap": {}
@@ -608,37 +608,37 @@
       }
     },
     "shouldScrapSimpleTable2": {
-      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+      "com.doomedcat17.scpier.data.content.ListNode": {
         "contentNodeType": {
-          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE"
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_ROW"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_HEADING_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_HEADING_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -655,23 +655,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_HEADING_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_HEADING_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -688,23 +688,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_HEADING_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_HEADING_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -725,30 +725,30 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_ROW"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -765,23 +765,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -798,23 +798,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -835,30 +835,30 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_ROW"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -875,23 +875,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -908,23 +908,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ParagraphNode": {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -945,30 +945,30 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_ROW"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -985,23 +985,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -1018,23 +1018,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -1055,30 +1055,30 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_ROW"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -1095,23 +1095,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -1128,23 +1128,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -1165,30 +1165,30 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_ROW"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -1205,23 +1205,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -1238,23 +1238,23 @@
                       }
                     },
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -1279,30 +1279,30 @@
       }
     },
     "shouldScrapSimpleTableWithStylization": {
-      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+      "com.doomedcat17.scpier.data.content.ListNode": {
         "contentNodeType": {
-          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE"
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE"
         },
         "content": {
           "java.util.ArrayList": [
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_ROW"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_HEADING_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_HEADING_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                 },
                                 "styles": {
                                   "java.util.HashMap": {}
@@ -1319,23 +1319,23 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_ROW"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                 },
                                 "styles": {
                                   "java.util.HashMap": {
@@ -1346,9 +1346,9 @@
                               }
                             },
                             {
-                              "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                 },
                                 "styles": {
                                   "java.util.HashMap": {}
@@ -1365,30 +1365,30 @@
               }
             },
             {
-              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+              "com.doomedcat17.scpier.data.content.ListNode": {
                 "contentNodeType": {
-                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_ROW"
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
                 },
                 "content": {
                   "java.util.ArrayList": [
                     {
-                      "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
                         "contentNodeType": {
-                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TABLE_CELL"
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
                         },
                         "content": {
                           "java.util.ArrayList": [
                             {
-                              "com.doomedcat17.scpier.data.contentnode.ListNode": {
+                              "com.doomedcat17.scpier.data.content.ListNode": {
                                 "contentNodeType": {
-                                  "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "PARAGRAPH"
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
                                 },
                                 "content": {
                                   "java.util.ArrayList": [
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {
@@ -1399,9 +1399,9 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {}
@@ -1410,9 +1410,9 @@
                                       }
                                     },
                                     {
-                                      "com.doomedcat17.scpier.data.contentnode.TextNode": {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
                                         "contentNodeType": {
-                                          "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
                                         },
                                         "styles": {
                                           "java.util.HashMap": {

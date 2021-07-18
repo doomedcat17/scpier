@@ -3,9 +3,9 @@
     "shouldScrapSimpleText": {
       "java.util.ArrayList": [
         {
-          "com.doomedcat17.scpier.data.contentnode.TextNode": {
+          "com.doomedcat17.scpier.data.content.TextNode": {
             "contentNodeType": {
-              "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
             },
             "content": "Simple Text",
             "styles": {
@@ -18,9 +18,9 @@
     "shouldScrapSimpleText2": {
       "java.util.ArrayList": [
         {
-          "com.doomedcat17.scpier.data.contentnode.TextNode": {
+          "com.doomedcat17.scpier.data.content.TextNode": {
             "contentNodeType": {
-              "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
             },
             "content": "Simple Text with broken lines",
             "styles": {
@@ -33,9 +33,9 @@
     "shouldScrapTextWithStyling1": {
       "java.util.ArrayList": [
         {
-          "com.doomedcat17.scpier.data.contentnode.TextNode": {
+          "com.doomedcat17.scpier.data.content.TextNode": {
             "contentNodeType": {
-              "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
             },
             "content": "Simple ",
             "styles": {
@@ -46,9 +46,9 @@
           }
         },
         {
-          "com.doomedcat17.scpier.data.contentnode.TextNode": {
+          "com.doomedcat17.scpier.data.content.TextNode": {
             "contentNodeType": {
-              "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
             },
             "content": "Text",
             "styles": {
@@ -63,9 +63,9 @@
     "shouldScrapTextWithStyling2": {
       "java.util.ArrayList": [
         {
-          "com.doomedcat17.scpier.data.contentnode.TextNode": {
+          "com.doomedcat17.scpier.data.content.TextNode": {
             "contentNodeType": {
-              "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
             },
             "content": "Simple",
             "styles": {
@@ -77,9 +77,9 @@
           }
         },
         {
-          "com.doomedcat17.scpier.data.contentnode.TextNode": {
+          "com.doomedcat17.scpier.data.content.TextNode": {
             "contentNodeType": {
-              "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
             },
             "content": " Text",
             "styles": {
@@ -94,9 +94,9 @@
     "shouldScrapTextWithStyling3": {
       "java.util.ArrayList": [
         {
-          "com.doomedcat17.scpier.data.contentnode.TextNode": {
+          "com.doomedcat17.scpier.data.content.TextNode": {
             "contentNodeType": {
-              "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
             },
             "content": "Simple",
             "styles": {
@@ -109,9 +109,9 @@
           }
         },
         {
-          "com.doomedcat17.scpier.data.contentnode.TextNode": {
+          "com.doomedcat17.scpier.data.content.TextNode": {
             "contentNodeType": {
-              "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
             },
             "content": "Text",
             "styles": {
@@ -126,9 +126,9 @@
     "shouldScrapTextWithStyling4": {
       "java.util.ArrayList": [
         {
-          "com.doomedcat17.scpier.data.contentnode.TextNode": {
+          "com.doomedcat17.scpier.data.content.TextNode": {
             "contentNodeType": {
-              "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
             },
             "content": "Sample",
             "styles": {
@@ -140,9 +140,9 @@
           }
         },
         {
-          "com.doomedcat17.scpier.data.contentnode.TextNode": {
+          "com.doomedcat17.scpier.data.content.TextNode": {
             "contentNodeType": {
-              "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
             },
             "content": "Co",
             "styles": {
@@ -158,9 +158,9 @@
     "shouldScrapTextWithStyling5": {
       "java.util.ArrayList": [
         {
-          "com.doomedcat17.scpier.data.contentnode.HyperlinkNode": {
+          "com.doomedcat17.scpier.data.content.HyperlinkNode": {
             "contentNodeType": {
-              "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "HYPERLINK"
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "HYPERLINK"
             },
             "content": "Link ",
             "styles": {
@@ -172,9 +172,9 @@
           }
         },
         {
-          "com.doomedcat17.scpier.data.contentnode.TextNode": {
+          "com.doomedcat17.scpier.data.content.TextNode": {
             "contentNodeType": {
-              "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
             },
             "content": " is link",
             "styles": {
@@ -189,9 +189,9 @@
     "shouldScrapTextWithStyling6": {
       "java.util.ArrayList": [
         {
-          "com.doomedcat17.scpier.data.contentnode.TextNode": {
+          "com.doomedcat17.scpier.data.content.TextNode": {
             "contentNodeType": {
-              "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
             },
             "content": "Test",
             "styles": {
@@ -203,9 +203,9 @@
           }
         },
         {
-          "com.doomedcat17.scpier.data.contentnode.TextNode": {
+          "com.doomedcat17.scpier.data.content.TextNode": {
             "contentNodeType": {
-              "com.doomedcat17.scpier.data.contentnode.ContentNodeType": "TEXT"
+              "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
             },
             "content": " second Test",
             "styles": {
