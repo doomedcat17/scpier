@@ -18,7 +18,16 @@ public enum SCPTranslation {
     ITALIAN("it","http://fondazionescp.wikidot.com/"),
     UKRAINIAN("ua","http://scp-ukrainian.wikidot.com/"),
     PORTUGUESE("pt","http://scp-pt-br.wikidot.com/"),
-    CZECH("cs","http://scp-cs.wikidot.com/");
+    CZECH("cs","http://scp-cs.wikidot.com/"),
+    GREEK("el","http://scp-el.wikidot.com/"),
+    INDONESIAN("idn","http://scp-idn.wikidot.com/"),
+    DANISH("nd","http://scp-nd.wikidot.com/da:"),
+    FINNISH("nd","http://scp-nd.wikidot.com/fo:"),
+    NORWEGIAN("nd","http://scp-nd.wikidot.com/no:"),
+    SWEDISH("nd","http://scp-nd.wikidot.com/sv:"),
+    TURKISH("tr","http://scpvakfi.wikidot.com/"),
+    VIETNAMESE("vn","http://scp-vn.wikidot.com/");
+
 
     public String identifier;
     public String url;

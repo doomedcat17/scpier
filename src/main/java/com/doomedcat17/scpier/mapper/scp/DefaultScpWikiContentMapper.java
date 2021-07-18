@@ -7,15 +7,14 @@ import com.doomedcat17.scpier.page.PageContent;
 import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
 import org.jsoup.nodes.Element;
 
-public class DefaultScpMapper implements ScpMapper {
+public class DefaultScpWikiContentMapper implements ScpWikiContentMapper {
     @Override
     public ScpWikiData mapToScp(PageContent pageContent)  {
         try {
-            Element content = pageContent.getContent();
             ScpWikiData scpWikiData = new ScpWikiData();
             scpWikiData.setTitle(pageContent.getName());
             scpWikiData.setSource(pageContent.getSourceUrl());
-            mapScp(scpWikiData, content);
+            mapScp(scpWikiData, pageContent.getContent());
             return scpWikiData;
         } catch (ElementScrapperException e) {
             e.printStackTrace();

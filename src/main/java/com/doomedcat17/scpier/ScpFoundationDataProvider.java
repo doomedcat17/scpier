@@ -5,10 +5,8 @@ import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.doomedcat17.scpier.exception.SCPWikiContentNotFound;
 import com.doomedcat17.scpier.exception.ScpierIternalException;
-import com.doomedcat17.scpier.mapper.scp.ScpMapper;
 import com.doomedcat17.scpier.mapper.scp.ScpMapperProvider;
-import com.doomedcat17.scpier.mapper.tale.ScpTaleMapper;
-import com.doomedcat17.scpier.mapper.tale.ScpTaleMapperProvider;
+import com.doomedcat17.scpier.mapper.scp.ScpWikiContentMapper;
 import com.doomedcat17.scpier.page.PageContent;
 import com.doomedcat17.scpier.page.PageContentProvider;
 
@@ -16,30 +14,16 @@ public class ScpFoundationDataProvider {
 
     private final PageContentProvider pageContentProvider = new PageContentProvider();
 
-
-    public ScpWikiData getScpObject(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound, ScpierIternalException {
+    public ScpWikiData getScpWikiData(String articleName, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound, ScpierIternalException {
         try {
-        PageContent pageContent = getPageContent(name, scpBranch, scpTranslation);
-        ScpMapper scpMapper = ScpMapperProvider.getScpMapper(pageContent.getName());
-        ScpWikiData scpWikiData = scpMapper.mapToScp(pageContent);
+        PageContent pageContent = getPageContent(articleName, scpBranch, scpTranslation);
+        ScpWikiContentMapper scpWikiContentMapper = ScpMapperProvider.getScpMapper(pageContent.getName());
+        ScpWikiData scpWikiData = scpWikiContentMapper.mapToScp(pageContent);
         scpWikiData.setTags(pageContent.getTags());
             return scpWikiData;
         } catch (RuntimeException e) {
             e.printStackTrace();
-            throw new ScpierIternalException(name, scpBranch, scpTranslation);
-        }
-    }
-
-    public ScpWikiData getScpTale(String taleTittle, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound, ScpierIternalException {
-        try {
-            PageContent pageContent = getPageContent(taleTittle, scpBranch, scpTranslation);
-            ScpTaleMapper scpTaleMapper = ScpTaleMapperProvider.getScpTaleMapper(taleTittle);
-            ScpWikiData scpTale = scpTaleMapper.mapToTale(pageContent);
-            scpTale.setTags(pageContent.getTags());
-            return scpTale;
-        } catch (RuntimeException e) {
-            e.printStackTrace();
-            throw new ScpierIternalException(taleTittle, scpBranch, scpTranslation);
+            throw new ScpierIternalException(articleName, scpBranch, scpTranslation);
         }
     }
 

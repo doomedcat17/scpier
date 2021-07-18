@@ -35,7 +35,7 @@ public class ScpChecker implements Runnable {
             if (scpTranslation.equals(SCPTranslation.ORIGINAL)) scpNumber.append(" ORIGINAL");
             else scpNumber.append(" ").append(scpTranslation.identifier.toUpperCase());
             try {
-                ScpWikiData scpWikiData = scpFoundationDataProvider.getScpObject(String.valueOf(i), scpBranch, scpTranslation);
+                ScpWikiData scpWikiData = scpFoundationDataProvider.getScpWikiData(String.valueOf(i), scpBranch, scpTranslation);
                 if (scpWikiData.getTitle() == null || scpWikiData.getContent().isEmpty() ||
                         scpWikiData.getContent().stream().anyMatch(ContentNode::isEmpty)) ScpCheck.addInvalidScp(scpNumber.toString());
             } catch (SCPWikiContentNotFound e) {

@@ -17,7 +17,15 @@ public enum SCPBranch {
     ITALIAN("it", "http://fondazionescp.wikidot.com/", SCPIdentifierPlacement.ENDING),
     UKRAINIAN("ua", "http://scp-ukrainian.wikidot.com/", SCPIdentifierPlacement.ENDING),
     PORTUGUESE("pt", "http://scp-pt-br.wikidot.com/", SCPIdentifierPlacement.ENDING),
-    CZECH("cs", "http://scp-cs.wikidot.com/", SCPIdentifierPlacement.ENDING);
+    CZECH("cs", "http://scp-cs.wikidot.com/", SCPIdentifierPlacement.ENDING),
+    GREEK("el","http://scp-el.wikidot.com/", SCPIdentifierPlacement.ENDING),
+    INDONESIAN("idn","http://scp-idn.wikidot.com/", SCPIdentifierPlacement.ENDING),
+    DANISH("nd","http://scp-nd.wikidot.com/da:", SCPIdentifierPlacement.ENDING),
+    FINNISH("nd","http://scp-nd.wikidot.com/fo:", SCPIdentifierPlacement.ENDING),
+    NORWEGIAN("nd","http://scp-nd.wikidot.com/no:", SCPIdentifierPlacement.ENDING),
+    SWEDISH("nd","http://scp-nd.wikidot.com/sv:", SCPIdentifierPlacement.ENDING),
+    TURKISH("tr","http://scpvakfi.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
+    VIETNAMESE("vn","http://scp-vn.wikidot.com/", SCPIdentifierPlacement.ENDING);
 
     public String identifier;
 

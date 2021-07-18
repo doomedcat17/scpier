@@ -2,14 +2,13 @@ package com.doomedcat17.scpier.data.scp;
 
 import com.doomedcat17.scpier.data.content.ContentNode;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ScpWikiData {
 
     private String title;
 
-    private List<ContentNode<?>> content = new ArrayList<>();
+    private List<ContentNode<?>> content;
 
     private List<String> tags;
 

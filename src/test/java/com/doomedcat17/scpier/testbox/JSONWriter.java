@@ -13,10 +13,9 @@ public class JSONWriter {
     public static void main(String[] args) throws JsonProcessingException {
         ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
         try {
-            ScpWikiData scp = scpFoundationDataProvider.getScpObject("173", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
-            ScpWikiData scpTale = scpFoundationDataProvider.getScpTale("sympathy-for-an-empath", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
-            // ScpObject scpObject = scpFoundationDataProvider.getFirstScpObject("qntm-s-proposal", SCPBranch.ENGLISH, SCPTranslation.POLISH, false);
-            System.out.println(asJSONString(scp));
+            ObjectMapper objectMapper = new ObjectMapper();
+            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("07", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
+            System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(scp));
         } catch (Exception e) {
             e.printStackTrace();
         }
