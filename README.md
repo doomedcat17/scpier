@@ -1,4 +1,4 @@
-# SCPier - SCP Wiki webscrapper
+# SCPier - SCP Wiki webscraper
 
 **PLEASE KEEP IN MIND IT'S A PROTOTYPE. Check [Status](#status).**
 
@@ -36,7 +36,7 @@ You can also contact me via [Telegram](https://t.me/doomedcat17).
 
 It's basically webscraper. HTML elements are retrieved using [jsoup](https://jsoup.org/). If particular SCP
 or Tale uses JavaScript, then the script is run by [HtmlUnit](https://htmlunit.sourceforge.io/). Retrieved
-HTML elements are scrapped and interpreted by multiple ElementScrappers.
+HTML elements are scraped and interpreted by multiple ElementScrappers.
 
 # Getting data
 
