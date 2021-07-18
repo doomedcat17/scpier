@@ -673,5 +673,3 @@ Corresponds to HTML list tags (`<ol>`, `<ul>` and `<dl>`). Each od them consists
   ]
 }
 ```
-
-
