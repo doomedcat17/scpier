@@ -10,7 +10,7 @@ if you consider commercial use.
 - [Status](#status)
 - [How it works?](#how-it-works)
 - [Getting data](#getting-data)
-  - [SCPData](#scpdata)
+  - [SCPData](#scpwikidata)
   - [SCPBranch and SCPTranslation](#scpbranch-and-scptranslation)
 - [Content data model](#content-data-model)
   - [Primary types of ContentNodes](#primary-types-of-contentnodes)
