@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.scrappers;
 
 import com.doomedcat17.scpier.data.content.ContentNode;
-import com.doomedcat17.scpier.scrapper.blockquote.BlockquoteScrapper;
+import com.doomedcat17.scpier.scraper.blockquote.BlockquoteScraper;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.jsoup.nodes.Element;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class BlockquoteScrapperTest extends ScrapperTest {
 
 
-    private final BlockquoteScrapper blockquoteScrapper = new BlockquoteScrapper(SOURCE);
+    private final BlockquoteScraper blockquoteScrapper = new BlockquoteScraper(SOURCE);
 
     private final Element sampleLines = TestDataProvider
             .getSampleElements("src/test/resources/html/test_data/blockquotes/sample-blockquote-elements.html");

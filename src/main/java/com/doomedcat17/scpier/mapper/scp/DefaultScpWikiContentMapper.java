@@ -4,7 +4,7 @@ import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.doomedcat17.scpier.exception.ElementScrapperException;
 import com.doomedcat17.scpier.exception.ScpMapperException;
 import com.doomedcat17.scpier.page.PageContent;
-import com.doomedcat17.scpier.scrapper.ElementContentScrapper;
+import com.doomedcat17.scpier.scraper.ElementContentScraper;
 import org.jsoup.nodes.Element;
 
 public class DefaultScpWikiContentMapper implements ScpWikiContentMapper {
@@ -22,6 +22,6 @@ public class DefaultScpWikiContentMapper implements ScpWikiContentMapper {
         }
     }
     private void mapScp(ScpWikiData scpWikiData, Element content)  {
-        scpWikiData.setContent(ElementContentScrapper.scrapContent(content, scpWikiData.getSource()));
+        scpWikiData.setContent(ElementContentScraper.scrapContent(content, scpWikiData.getSource()));
     }
 }

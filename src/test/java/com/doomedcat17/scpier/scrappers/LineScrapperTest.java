@@ -3,8 +3,8 @@ package com.doomedcat17.scpier.scrappers;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.content.ParagraphNode;
 import com.doomedcat17.scpier.data.content.TextNode;
-import com.doomedcat17.scpier.scrapper.line.LineScrapper;
-import com.doomedcat17.scpier.scrapper.line.TextNodeSplitter;
+import com.doomedcat17.scpier.scraper.line.LineScraper;
+import com.doomedcat17.scpier.scraper.line.TextNodeSplitter;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LineScrapperTest extends ScrapperTest {
 
-    private final LineScrapper lineScrapper = new LineScrapper(SOURCE);
+    private final LineScraper lineScrapper = new LineScraper(SOURCE);
 
     private final Element sampleLines = TestDataProvider
             .getSampleElements("src/test/resources/html/test_data/lines/sample-lines-elements.html");
