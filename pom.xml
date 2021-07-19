@@ -5,10 +5,18 @@
 
     <groupId>com.doomedcat17</groupId>
     <artifactId>scpier</artifactId>
-    <version>0.7.1</version>
+    <version>0.5.0</version>
     <name>scpier</name>
     <description>SCPier</description>
     <packaging>jar</packaging>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/doomedcat17/scpier/blob/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <properties>
         <java.version>11</java.version>

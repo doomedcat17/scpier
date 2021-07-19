@@ -15,6 +15,10 @@ public class ScpFoundationDataProvider {
 
     private final PageContentProvider pageContentProvider = new PageContentProvider();
 
+    public ScpWikiData getScpWikiData(String articleName, SCPBranch scpBranch) throws SCPierApiException {
+        return getScpWikiData(articleName, scpBranch, SCPTranslation.ORIGINAL);
+    }
+
     public ScpWikiData getScpWikiData(String articleName, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPierApiException {
         try {
         PageContent pageContent = getPageContent(articleName, scpBranch, scpTranslation);
