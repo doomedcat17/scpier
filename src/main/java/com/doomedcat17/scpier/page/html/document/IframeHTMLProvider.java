@@ -1,6 +1,8 @@
 package com.doomedcat17.scpier.page.html.document;
 
+import com.doomedcat17.scpier.exception.WikiPresetNotFound;
 import com.doomedcat17.scpier.page.PageContent;
+import com.doomedcat17.scpier.page.html.document.js.ScriptedHTMLDocumentProvider;
 import com.doomedcat17.scpier.page.html.document.js.ScriptedPageContentProvider;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -8,6 +10,8 @@ import org.jsoup.select.Elements;
 public class IframeHTMLProvider {
 
     private final ScriptedPageContentProvider scriptedPageContentProvider;
+
+    private final ScriptedHTMLDocumentProvider scriptedHTMLDocumentProvider;
 
     private final DocumentContentCleaner documentContentCleaner;
 
@@ -35,7 +39,12 @@ public class IframeHTMLProvider {
                 source = pageSource.substring(0, pageSource.lastIndexOf('/')) + source;
             }
             try {
-                PageContent webpageContent = scriptedPageContentProvider.runJsAndGetContent(title, langIdentifier, source);
+                PageContent webpageContent;
+                try {
+                    webpageContent = scriptedPageContentProvider.runJsAndGetContent(title, langIdentifier, source);
+                } catch (WikiPresetNotFound e) {
+                    webpageContent = scriptedHTMLDocumentProvider.getWebpageContent(source);
+                }
                 webpageContent.setName(title);
                 webpageContent.setLangIdentifier(langIdentifier);
                 webpageContent.setSourceUrl(source);
@@ -56,8 +65,9 @@ public class IframeHTMLProvider {
         } else iframe.remove();
     }
 
-    public IframeHTMLProvider(HTMLDocumentProvider htmlDocumentProvider, DocumentContentCleaner documentContentCleaner) {
+    public IframeHTMLProvider(ScriptedHTMLDocumentProvider scriptedHTMLDocumentProvider, DocumentContentCleaner documentContentCleaner) {
         this.scriptedPageContentProvider = new ScriptedPageContentProvider();
+        this.scriptedHTMLDocumentProvider = scriptedHTMLDocumentProvider;
         this.documentContentCleaner = documentContentCleaner;
     }
 }

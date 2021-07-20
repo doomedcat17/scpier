@@ -11,8 +11,6 @@ public class ScpInputPreset {
 
     private SCPBranch scpBranch;
 
-    private String test;
-
     private List<WikiElement> wikiElements;
 
 

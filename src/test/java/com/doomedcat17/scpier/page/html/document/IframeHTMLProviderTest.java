@@ -1,6 +1,7 @@
 package com.doomedcat17.scpier.page.html.document;
 
 import com.doomedcat17.scpier.page.PageContent;
+import com.doomedcat17.scpier.page.html.document.js.ScriptedHTMLDocumentProvider;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class IframeHTMLProviderTest {
     @Mock
-    private HTMLDocumentProvider htmlDocumentProvider;
+    private ScriptedHTMLDocumentProvider htmlDocumentProvider;
 
     private IframeHTMLProvider iframeHTMLProvider;
 

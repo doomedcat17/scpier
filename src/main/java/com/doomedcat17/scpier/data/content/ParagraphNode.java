@@ -15,4 +15,8 @@ public class ParagraphNode extends ListNode<TextNode>{
     public ParagraphNode() {
         super(ContentNodeType.PARAGRAPH, new ArrayList<>());
     }
+
+    public void stripTrailing() {
+        content.get(content.size() - 1).setContent(content.get(content.size() - 1).getContent().stripTrailing());
+    }
 }

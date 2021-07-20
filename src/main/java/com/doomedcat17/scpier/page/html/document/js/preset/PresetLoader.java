@@ -16,7 +16,6 @@ public class PresetLoader {
                     new File("src/main/resources/presets/" + langIdentifier + "/" + name + ".yaml"),
                     ScpInputPreset.class);
         } catch (IOException e) {
-            e.printStackTrace();
             throw new WikiPresetNotFound(name);
         }
     }

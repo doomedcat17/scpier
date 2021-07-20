@@ -53,17 +53,19 @@ public class ListScraper extends ElementScraper {
                     List<TextNode> textNodes = contentNodes.stream()
                             .map(contentNode -> (TextNode) contentNode).collect(Collectors.toList());
                     ParagraphNode paragraphNode = new ParagraphNode(textNodes);
+                    paragraphNode.stripTrailing();
                     listItem.addElement(paragraphNode);
-                } else if (contentNodes.stream().anyMatch(contentNode -> contentNode instanceof ParagraphNode)
-                        || (contentNodes.stream().anyMatch(contentNode -> contentNode instanceof TextNode)
-                        && row.select("p").isEmpty())) {
+                } else if (contentNodes.stream().allMatch(contentNode -> contentNode instanceof ParagraphNode
+                        || contentNode instanceof TextNode) && row.select("p").isEmpty()) {
                     List<TextNode> textNodes = new ArrayList<>();
                     contentNodes.forEach(contentNode -> {
                         if (contentNode instanceof ParagraphNode) {
                             textNodes.addAll(((ParagraphNode) contentNode).getContent());
                         } else textNodes.add((TextNode) contentNode);
                     });
-                    listItem.addElement(new ParagraphNode(textNodes));
+                    ParagraphNode paragraphNode = new ParagraphNode(textNodes);
+                    paragraphNode.stripTrailing();
+                    listItem.addElement(paragraphNode);
                 } else listItem.addElements(contentNodes);
             }
         }
