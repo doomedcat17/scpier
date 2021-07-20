@@ -30,7 +30,6 @@ public class ScraperFactory {
             case "br":
             case "pre":
             case "code":
-            case "summary":
             case "script":
             case "dd":
             case "dt":
@@ -46,6 +45,7 @@ public class ScraperFactory {
             case "h4":
             case "h5":
             case "h6":
+            case "summary":
                 return new HeadingScraper(source);
             case "audio":
             case "audio-player":
@@ -54,6 +54,7 @@ public class ScraperFactory {
             case "section":
             case "details":
             case "header":
+            case "footer":
                 //some divs has "blockquote class"
                 if (element.hasClass("blockquote")) return new BlockquoteScraper(source);
                 else return new DivScraper(source);

@@ -37,8 +37,8 @@ public class PresetExecutor {
                 HtmlForm form = page.querySelector(selector);
                 //TODO skoncz to kurde
             }
-            JS_RUNNER.waitForBackgroundJavaScript(100);
         }
+        JS_RUNNER.waitForBackgroundJavaScript(1500);
         String html = page.executeJavaScript("document.body.parentNode.outerHTML")
                 .getJavaScriptResult()
                 .toString();

@@ -37,7 +37,7 @@ public class ElementContentScraper {
                             }
                         }
                     }
-                    contentNodes.add(new ParagraphNode(new ArrayList<>(List.of(new TextNode(text.trim())))));
+                    contentNodes.add(new ParagraphNode(new ArrayList<>(List.of(new TextNode(text.stripLeading())))));
                 }
             }
 

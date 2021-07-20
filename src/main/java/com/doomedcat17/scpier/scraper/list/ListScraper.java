@@ -7,6 +7,7 @@ import com.doomedcat17.scpier.scraper.ElementScraper;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,6 +54,16 @@ public class ListScraper extends ElementScraper {
                             .map(contentNode -> (TextNode) contentNode).collect(Collectors.toList());
                     ParagraphNode paragraphNode = new ParagraphNode(textNodes);
                     listItem.addElement(paragraphNode);
+                } else if (contentNodes.stream().anyMatch(contentNode -> contentNode instanceof ParagraphNode)
+                        || (contentNodes.stream().anyMatch(contentNode -> contentNode instanceof TextNode)
+                        && row.select("p").isEmpty())) {
+                    List<TextNode> textNodes = new ArrayList<>();
+                    contentNodes.forEach(contentNode -> {
+                        if (contentNode instanceof ParagraphNode) {
+                            textNodes.addAll(((ParagraphNode) contentNode).getContent());
+                        } else textNodes.add((TextNode) contentNode);
+                    });
+                    listItem.addElement(new ParagraphNode(textNodes));
                 } else listItem.addElements(contentNodes);
             }
         }

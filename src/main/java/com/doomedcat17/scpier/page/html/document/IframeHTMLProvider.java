@@ -36,6 +36,10 @@ public class IframeHTMLProvider {
             }
             try {
                 PageContent webpageContent = scriptedPageContentProvider.runJsAndGetContent(title, langIdentifier, source);
+                webpageContent.setName(title);
+                webpageContent.setLangIdentifier(langIdentifier);
+                webpageContent.setSourceUrl(source);
+                provideIframesContent(webpageContent);
                 iframeContent = webpageContent.getContent();
                 documentContentCleaner.removeTrash(iframeContent);
             } catch (Exception ignored) {
@@ -49,7 +53,7 @@ public class IframeHTMLProvider {
                 iframeContent.children().forEach(iframe::after);
                 iframe.remove();
             }
-        }
+        } else iframe.remove();
     }
 
     public IframeHTMLProvider(HTMLDocumentProvider htmlDocumentProvider, DocumentContentCleaner documentContentCleaner) {
