@@ -6,7 +6,6 @@ import com.doomedcat17.scpier.page.PageContent;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
-import com.gargoylesoftware.htmlunit.html.HtmlInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -40,7 +39,6 @@ public class HTMLDocumentProviderFactory {
                        if (translation.equals(SCPTranslation.ORIGINAL)) source = source.replace(".wikidot", "");
                        HtmlPage page = webClient.getPage(source);
                        HtmlAnchor anchor = (HtmlAnchor) page.getElementById("proceed");
-                       HtmlInput input;
                        page = anchor.click();
                        webClient.waitForBackgroundJavaScript(1200);
                        String htmlContent = page.executeJavaScript("document.body.parentNode.outerHTML")

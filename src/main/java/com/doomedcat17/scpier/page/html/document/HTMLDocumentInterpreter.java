@@ -2,6 +2,7 @@ package com.doomedcat17.scpier.page.html.document;
 
 import com.doomedcat17.scpier.exception.HTMLDocumentInterpreterException;
 import com.doomedcat17.scpier.page.PageContent;
+import com.doomedcat17.scpier.page.html.document.js.ScriptedHTMLDocumentProvider;
 import org.jsoup.nodes.Element;
 
 import java.util.List;

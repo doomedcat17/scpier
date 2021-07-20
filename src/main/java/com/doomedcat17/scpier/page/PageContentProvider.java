@@ -11,7 +11,7 @@ public class PageContentProvider {
 
     public PageContent getPageContent(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound {
         try {
-            HTMLDocumentProvider htmlDocumentProvider = HTMLDocumentProviderFactory.getHTMLDocumentProvider(name, scpBranch, scpTranslation);
+            HTMLDocumentProvider htmlDocumentProvider = new DefaultHTMLDocumentProvider();
             HTMLDocumentInterpreter htmlDocumentInterpreter =
                     new HTMLDocumentInterpreter(new HTMLDocumentContentCleanerImpl(),
                             new HTMLRedirectionHandler(htmlDocumentProvider),
