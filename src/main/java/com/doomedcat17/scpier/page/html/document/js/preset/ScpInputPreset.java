@@ -1,16 +1,19 @@
 package com.doomedcat17.scpier.page.html.document.js.preset;
 
 import com.doomedcat17.scpier.data.scp.SCPBranch;
+import com.doomedcat17.scpier.page.html.document.js.preset.elements.WikiElement;
 
 import java.util.List;
 
 public class ScpInputPreset {
 
-    private final String name;
+    private String name;
 
-    private final SCPBranch scpBranch;
+    private SCPBranch scpBranch;
 
-    private final List<WikiElement> wikiElements;
+    private String test;
+
+    private List<WikiElement> wikiElements;
 
 
     public ScpInputPreset(String name, SCPBranch scpBranch, List<WikiElement> wikiElements) {
@@ -29,5 +32,8 @@ public class ScpInputPreset {
 
     public List<WikiElement> getWikiElements() {
         return wikiElements;
+    }
+
+    public ScpInputPreset() {
     }
 }

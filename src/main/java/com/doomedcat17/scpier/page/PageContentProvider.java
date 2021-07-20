@@ -19,9 +19,8 @@ public class PageContentProvider {
                     );
             String url = SourceBuilder.buildSource(name, scpBranch, scpTranslation);
             PageContent pageContent = htmlDocumentProvider.getWebpageContent(url);
-            if (scpTranslation.equals(SCPTranslation.ORIGINAL)) {
-                pageContent.setLangIdentifier(scpBranch.identifier);
-            } else pageContent.setLangIdentifier(scpTranslation.identifier);
+            pageContent.setLangIdentifier(scpBranch.identifier);
+            pageContent.setTranslationIdentifier(scpTranslation.identifier);
             htmlDocumentInterpreter.mapContent(pageContent);
             return pageContent;
         } catch (IOException e) {

@@ -35,8 +35,8 @@ public class ScpFoundationDataProvider {
     private PageContent getPageContent(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound {
         PageContent pageContent = pageContentProvider.getPageContent(name, scpBranch, scpTranslation);
         if (scpTranslation.equals(SCPTranslation.ORIGINAL)) {
-            pageContent.setLangIdentifier(scpBranch.identifier);
-        } else pageContent.setLangIdentifier(scpTranslation.identifier);
+            pageContent.setTranslationIdentifier(scpBranch.identifier);
+        } else pageContent.setTranslationIdentifier(scpTranslation.identifier);
         return pageContent;
     }
 }

@@ -1,0 +1,5 @@
+name: "3211"
+scpBranch: "ENGLISH"
+wikiElements:
+  - selector: "proceed"
+    elementType: "BUTTON"

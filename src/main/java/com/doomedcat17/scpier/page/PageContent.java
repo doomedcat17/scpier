@@ -10,18 +10,20 @@ public class PageContent {
 
     private Element content;
 
+    private String translationIdentifier;
+
     private String langIdentifier;
 
     private String sourceUrl;
 
     private List<String> tags;
 
-    public String getLangIdentifier() {
-        return langIdentifier;
+    public String getTranslationIdentifier() {
+        return translationIdentifier;
     }
 
-    public void setLangIdentifier(String langIdentifier) {
-        this.langIdentifier = langIdentifier;
+    public void setTranslationIdentifier(String translationIdentifier) {
+        this.translationIdentifier = translationIdentifier;
     }
 
     public String getName() {
@@ -58,6 +60,14 @@ public class PageContent {
 
     public PageContent(Element content) {
         this.content = content;
+    }
+
+    public String getLangIdentifier() {
+        return langIdentifier;
+    }
+
+    public void setLangIdentifier(String langIdentifier) {
+        this.langIdentifier = langIdentifier;
     }
 
     public PageContent() {
