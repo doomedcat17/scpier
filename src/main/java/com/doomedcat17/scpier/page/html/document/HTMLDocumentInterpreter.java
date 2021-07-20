@@ -26,7 +26,7 @@ public class HTMLDocumentInterpreter {
             tagNames.ifPresent(pageContent::setTags);
             pageContent.setContent(content);
             if (!content.getElementsByTag("iframe").isEmpty()) {
-                IframeHTMLProvider iframeHTMLProvider = new IframeHTMLProvider(new DefaultHTMLDocumentProvider(), documentContentCleanerImpl);
+                IframeHTMLProvider iframeHTMLProvider = new IframeHTMLProvider(new ScriptedHTMLDocumentProvider(), documentContentCleanerImpl);
                 iframeHTMLProvider.provideIframesContent(pageContent);
             }
             documentContentCleanerImpl.clearContentAndUnpackBlocks(content);

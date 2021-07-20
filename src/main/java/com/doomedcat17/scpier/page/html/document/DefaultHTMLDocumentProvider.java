@@ -15,6 +15,7 @@ public class DefaultHTMLDocumentProvider implements HTMLDocumentProvider {
         PageContent pageContent = new PageContent();
         pageContent.setContent(webpageContent.getElementsByTag("body").first());
         pageContent.setSourceUrl(url);
+
         return pageContent;
     }
 
