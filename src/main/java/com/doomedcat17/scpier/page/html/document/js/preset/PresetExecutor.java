@@ -20,11 +20,11 @@ import java.io.IOException;
 public class PresetExecutor {
 
 
-    public PageContent execute(ScpInputPreset scpInputPreset, String src) throws PresetExecutorException {
+    public PageContent execute(ScpPreset scpPreset, String src) throws PresetExecutorException {
         try {
             WebClient webClient = WebClientProvider.getWebClient();
             HtmlPage page = webClient.getPage(src);
-            for (WikiElement element : scpInputPreset.getWikiElements()) {
+            for (WikiElement element : scpPreset.getWikiElements()) {
                 String selector = element.getSelector();
                 if (element instanceof ButtonWikiElement) {
                     HtmlAnchor button = page.querySelector(selector);
@@ -39,7 +39,7 @@ public class PresetExecutor {
                     //TODO skoncz to kurde
                 }
             }
-            webClient.waitForBackgroundJavaScript(1500);
+            webClient.waitForBackgroundJavaScript(scpPreset.getJsTime());
             String html = page.executeJavaScript("document.body.parentNode.outerHTML")
                     .getJavaScriptResult()
                     .toString();

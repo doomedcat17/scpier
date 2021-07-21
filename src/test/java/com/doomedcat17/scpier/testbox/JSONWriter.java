@@ -4,7 +4,7 @@ import com.doomedcat17.scpier.ScpFoundationDataProvider;
 import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
-import com.doomedcat17.scpier.page.html.document.js.preset.ScpInputPreset;
+import com.doomedcat17.scpier.page.html.document.js.preset.ScpPreset;
 import com.doomedcat17.scpier.page.html.document.js.preset.elements.InputWikiElement;
 import com.doomedcat17.scpier.page.html.document.js.preset.elements.WikiElement;
 import com.doomedcat17.scpier.page.html.document.js.preset.elements.WikiElementType;
@@ -25,7 +25,7 @@ public class JSONWriter {
             ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("3211", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
             WikiElement wikiElement = new WikiElement("button", WikiElementType.SIMPLE);
             WikiElement inputWikiElement = new InputWikiElement("#text_field", "input text");
-            ScpInputPreset scpInputPreset = new ScpInputPreset("173", SCPBranch.ENGLISH, List.of(inputWikiElement, wikiElement));
+            ScpPreset scpPreset = new ScpPreset("173", SCPBranch.ENGLISH, 12, List.of(inputWikiElement, wikiElement));
             System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(scp));
         } catch (Exception e) {
             e.printStackTrace();

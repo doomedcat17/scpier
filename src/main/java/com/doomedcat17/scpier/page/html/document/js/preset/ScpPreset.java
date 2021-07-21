@@ -5,19 +5,22 @@ import com.doomedcat17.scpier.page.html.document.js.preset.elements.WikiElement;
 
 import java.util.List;
 
-public class ScpInputPreset {
+public class ScpPreset {
 
     private String name;
 
     private SCPBranch scpBranch;
 
+    private int jsTime;
+
     private List<WikiElement> wikiElements;
 
 
-    public ScpInputPreset(String name, SCPBranch scpBranch, List<WikiElement> wikiElements) {
+    public ScpPreset(String name, SCPBranch scpBranch, int jsTime, List<WikiElement> wikiElements) {
         this.name = name;
         this.scpBranch = scpBranch;
         this.wikiElements = wikiElements;
+        this.jsTime = jsTime;
     }
 
     public String getName() {
@@ -32,6 +35,10 @@ public class ScpInputPreset {
         return wikiElements;
     }
 
-    public ScpInputPreset() {
+    public int getJsTime() {
+        return jsTime;
+    }
+
+    public ScpPreset() {
     }
 }

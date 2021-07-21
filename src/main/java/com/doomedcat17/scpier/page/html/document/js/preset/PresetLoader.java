@@ -9,12 +9,12 @@ import java.io.IOException;
 
 public class PresetLoader {
 
-    public static ScpInputPreset loadPreset(String name, String langIdentifier) {
+    public static ScpPreset loadPreset(String name, String langIdentifier) {
         try {
             ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
             return mapper.readValue(
                     new File("src/main/resources/presets/" + langIdentifier + "/" + name + ".yaml"),
-                    ScpInputPreset.class);
+                    ScpPreset.class);
         } catch (IOException e) {
             throw new WikiPresetNotFound(name);
         }
