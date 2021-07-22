@@ -25,19 +25,7 @@ public class PresetExecutor {
             WebClient webClient = WebClientProvider.getWebClient();
             HtmlPage page = webClient.getPage(src);
             for (WikiElement element : scpPreset.getWikiElements()) {
-                String selector = element.getSelector();
-                if (element instanceof ButtonWikiElement) {
-                    HtmlAnchor button = page.querySelector(selector);
-                    button.click();
-                } else if (element instanceof InputWikiElement) {
-                    InputWikiElement inputWikiElement = (InputWikiElement) element;
-                    HtmlInput input = page.querySelector(selector);
-                    input.setValueAttribute(inputWikiElement.getInputValue());
-                } else if (element instanceof FormWikiElement) {
-                    FormWikiElement formWikiElement = (FormWikiElement) element;
-                    HtmlForm form = page.querySelector(selector);
-                    //TODO skoncz to kurde
-                }
+                handleElement(element, page);
             }
             webClient.waitForBackgroundJavaScript(scpPreset.getJsTime());
             String html = page.executeJavaScript("document.body.parentNode.outerHTML")
@@ -51,6 +39,27 @@ public class PresetExecutor {
             e.printStackTrace();
             throw new PresetExecutorException(e.getMessage());
         }
+    }
+
+    private void handleElement(WikiElement element, HtmlPage page) throws IOException {
+        String selector = element.getSelector();
+        if (element instanceof ButtonWikiElement) {
+            HtmlAnchor button = page.querySelector(selector);
+            button.click();
+        } else if (element instanceof InputWikiElement) {
+            InputWikiElement inputWikiElement = (InputWikiElement) element;
+            HtmlInput input = page.querySelector(selector);
+            input.setValueAttribute(inputWikiElement.getInputValue());
+        } else if (element instanceof FormWikiElement) {
+            FormWikiElement formWikiElement = (FormWikiElement) element;
+            HtmlForm form = page.querySelector(selector);
+            handleForm(formWikiElement, form);
+        }
+
+    }
+
+    private void handleForm(FormWikiElement formWikiElement, HtmlForm form) {
+
     }
 
 }
