@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.page.html.document;
+package com.doomedcat17.scpier.page.html.document.cleaner;
 
 import com.doomedcat17.scpier.exception.DocumentContentCleanupException;
 import com.fasterxml.jackson.core.type.TypeReference;

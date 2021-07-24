@@ -1,8 +1,12 @@
-package com.doomedcat17.scpier.page.html.document;
+package com.doomedcat17.scpier.page.html.document.interpreter;
 
 import com.doomedcat17.scpier.exception.HTMLDocumentInterpreterException;
 import com.doomedcat17.scpier.page.PageContent;
+import com.doomedcat17.scpier.page.html.document.cleaner.DocumentContentCleaner;
 import com.doomedcat17.scpier.page.html.document.js.ScriptedHTMLDocumentProvider;
+import com.doomedcat17.scpier.page.html.document.provider.IframeHTMLProvider;
+import com.doomedcat17.scpier.page.html.document.redirection.HTMLRedirectionHandler;
+import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapper;
 import org.jsoup.nodes.Element;
 
 import java.util.List;

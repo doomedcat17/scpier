@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.page.html.document.js;
 
 import com.doomedcat17.scpier.page.PageContent;
-import com.doomedcat17.scpier.page.html.document.HTMLDocumentProvider;
+import com.doomedcat17.scpier.page.html.document.provider.HTMLDocumentProvider;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import org.jsoup.Jsoup;

@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.page.html.document;
+package com.doomedcat17.scpier.page.html.document.provider;
 
 import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPTranslation;

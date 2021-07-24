@@ -1,6 +1,7 @@
-package com.doomedcat17.scpier.page.html.document;
+package com.doomedcat17.scpier.page.html.document.redirection;
 
 import com.doomedcat17.scpier.page.PageContent;
+import com.doomedcat17.scpier.page.html.document.provider.HTMLDocumentProvider;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.nodes.Element;

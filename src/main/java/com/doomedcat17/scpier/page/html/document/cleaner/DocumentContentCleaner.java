@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.page.html.document;
+package com.doomedcat17.scpier.page.html.document.cleaner;
 
 import org.jsoup.nodes.Element;
 
