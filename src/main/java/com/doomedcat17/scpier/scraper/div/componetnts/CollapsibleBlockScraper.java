@@ -34,7 +34,7 @@ public class CollapsibleBlockScraper extends DivScraper implements DivScraperCom
             return List.of(elementScraper.scrapElement(collapsibleBlockContent.children().get(0)));
         } else if (collapsibleBlockContent.children().isEmpty()) {
             // in some cases content is empty and its content is in element with "fadeintext" class
-            collapsibleBlockContent = element.selectFirst(".fadeintext");
+            collapsibleBlockContent = element.selectFirst(".fadeintext, .terminal");
             if (collapsibleBlockContent == null) return blockContent;
         }
         List<ContentNode<?>> contentNodes = ElementContentScraper.scrapContent(collapsibleBlockContent, source);

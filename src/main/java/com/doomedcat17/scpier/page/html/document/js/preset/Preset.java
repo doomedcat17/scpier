@@ -11,16 +11,16 @@ public class Preset {
 
     private SCPBranch scpBranch;
 
-    private int jsTime;
+    private int jsRuntime;
 
     private List<WikiElement> wikiElements;
 
 
-    public Preset(String name, SCPBranch scpBranch, int jsTime, List<WikiElement> wikiElements) {
+    public Preset(String name, SCPBranch scpBranch, int jsRuntime, List<WikiElement> wikiElements) {
         this.name = name;
         this.scpBranch = scpBranch;
         this.wikiElements = wikiElements;
-        this.jsTime = jsTime;
+        this.jsRuntime = jsRuntime;
     }
 
     public String getName() {
@@ -35,8 +35,8 @@ public class Preset {
         return wikiElements;
     }
 
-    public int getJsTime() {
-        return jsTime;
+    public int getJsRuntime() {
+        return jsRuntime;
     }
 
     public Preset() {

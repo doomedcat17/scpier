@@ -57,6 +57,7 @@ public class ScraperFactory {
             case "header":
             case "footer":
             case "article":
+            case "form":
                 //some divs has "blockquote class"
                 if (element.hasClass("blockquote")) return new BlockquoteScraper(source);
                 else return new DivScraper(source);

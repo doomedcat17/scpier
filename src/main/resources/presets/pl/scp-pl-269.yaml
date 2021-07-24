@@ -1,6 +1,6 @@
 name: "269"
 scpBranch: "POLISH"
-jsTime: 1500
+jsRuntime: 1500
 wikiElements:
   - selector: "#form"
     elementType: "FORM"

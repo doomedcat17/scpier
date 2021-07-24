@@ -1,6 +1,6 @@
 name: "3211"
 scpBranch: "ENGLISH"
-jsTime: 1500
+jsRuntime: 1500
 wikiElements:
   - selector: "#proceed"
     elementType: "BUTTON"
