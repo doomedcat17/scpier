@@ -38,7 +38,7 @@ public class HTMLDocumentContentCleanerImpl implements DocumentContentCleaner {
     }
 
     private void unpackNodes(Element content)  {
-        //in some cases content has less than 5 elements then it's unpacked
+        //in some cases content has less than 5 element then it's unpacked
         List<Element> divs = content.children().stream().filter(element ->
                 element.is("div, blockquote, section"))
                 .filter(element ->
@@ -88,7 +88,7 @@ public class HTMLDocumentContentCleanerImpl implements DocumentContentCleaner {
                 elements.forEach(Node::remove);
             }
         }
-        //deleting <br> elements only from <div id="content-content">
+        //deleting <br> element only from <div id="content-content">
         Elements elements = content.children();
         for (Element element: elements) {
             if (element.is("br")) element.remove();

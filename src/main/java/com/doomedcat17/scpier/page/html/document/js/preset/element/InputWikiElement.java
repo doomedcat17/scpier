@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.page.html.document.js.preset.elements;
+package com.doomedcat17.scpier.page.html.document.js.preset.element;
 
 public class InputWikiElement extends WikiElement {
 

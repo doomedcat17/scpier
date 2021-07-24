@@ -20,7 +20,7 @@ class ElementScraperTest extends ScrapperTest  {
     private final ElementScraper elementScraper = new DivScraper(SOURCE);
 
     private final Element sampleDivs = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/divs/sample-divs-elements.html");
+            .getSampleElements("src/test/resources/html/test_data/divs/sample-divs-element.html");
 
     @Test
     void shouldScrapMath()  {

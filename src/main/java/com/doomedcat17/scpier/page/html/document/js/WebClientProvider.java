@@ -7,15 +7,12 @@ import java.util.logging.Level;
 
 public class WebClientProvider {
 
-    private static WebClient webClient;
 
     public static synchronized WebClient getWebClient() {
-        if(webClient == null){
-            webClient = new WebClient(BrowserVersion.CHROME);
-            java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
-            webClient.getOptions().setJavaScriptEnabled(true);
-            webClient.getOptions().setThrowExceptionOnScriptError(false);
-        }
+        WebClient webClient = new WebClient(BrowserVersion.CHROME);
+        java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
+        webClient.getOptions().setJavaScriptEnabled(true);
+        webClient.getOptions().setThrowExceptionOnScriptError(false);
         return webClient;
 
 

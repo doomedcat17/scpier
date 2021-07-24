@@ -19,7 +19,7 @@ class TableScrapperTest extends ScrapperTest {
     private final TableScraper tableMapper = new TableScraper(SOURCE);
 
     private final Element sampleTables = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/tables/sample-table-elements.html");
+            .getSampleElements("src/test/resources/html/test_data/tables/sample-table-element.html");
 
     private final Map<String, ContentNode<?>> expectedOutputs =
             getExpectedContentNodeOutputs("src/test/resources/html/test_data/tables/expected_outputs.json");

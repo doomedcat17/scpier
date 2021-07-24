@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.page.html.document.js.preset.elements;
+package com.doomedcat17.scpier.page.html.document.js.preset.element;
 
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
