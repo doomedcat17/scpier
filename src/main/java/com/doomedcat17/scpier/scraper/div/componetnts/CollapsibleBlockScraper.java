@@ -32,6 +32,10 @@ public class CollapsibleBlockScraper extends DivScraper implements DivScraperCom
         if (collapsibleBlockContent.children().size() == 1) {
             ElementScraper elementScraper = ScraperFactory.getHtmlScrapper(collapsibleBlockContent.children().get(0), source);
             return List.of(elementScraper.scrapElement(collapsibleBlockContent.children().get(0)));
+        } else if (collapsibleBlockContent.children().isEmpty()) {
+            // in some cases content is empty and its content is in element with "fadeintext" class
+            collapsibleBlockContent = element.selectFirst(".fadeintext");
+            if (collapsibleBlockContent == null) return blockContent;
         }
         List<ContentNode<?>> contentNodes = ElementContentScraper.scrapContent(collapsibleBlockContent, source);
         blockContent.addAll(contentNodes);

@@ -4,10 +4,7 @@ import com.doomedcat17.scpier.exception.PresetExecutorException;
 import com.doomedcat17.scpier.page.PageContent;
 import com.doomedcat17.scpier.page.html.document.js.WebClientProvider;
 import com.doomedcat17.scpier.page.html.document.js.preset.Preset;
-import com.doomedcat17.scpier.page.html.document.js.preset.element.ButtonWikiElement;
-import com.doomedcat17.scpier.page.html.document.js.preset.element.FormWikiElement;
-import com.doomedcat17.scpier.page.html.document.js.preset.element.InputWikiElement;
-import com.doomedcat17.scpier.page.html.document.js.preset.element.WikiElement;
+import com.doomedcat17.scpier.page.html.document.js.preset.element.*;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.*;
 import org.jsoup.Jsoup;
@@ -52,14 +49,24 @@ public class PresetExecutor {
             FormWikiElement formWikiElement = (FormWikiElement) element;
             HtmlForm form = htmlElement.querySelector(selector);
             handleForm(formWikiElement, form);
+        } else if (element instanceof CheckBoxWikiElement) {
+            CheckBoxWikiElement checkBoxWikiElement = (CheckBoxWikiElement) element;
+            HtmlCheckBoxInput checkBoxInput = htmlElement.querySelector(selector);
+            checkBoxInput.click();
+        } else if (element instanceof RadioWikiElement) {
+            RadioWikiElement radioWikiElement = (RadioWikiElement) element;
+            HtmlRadioButtonInput radioInput = htmlElement.querySelector(selector);
+            radioInput.click();
         }
 
     }
 
-    private void handleForm(FormWikiElement formWikiElement, HtmlForm form) {
+    private void handleForm(FormWikiElement formWikiElement, HtmlForm form) throws IOException {
         for(WikiElement wikiElement: formWikiElement.getWikiElements()) {
-
+            handleElement(wikiElement, form);
         }
+        HtmlButton submit = form.querySelector(formWikiElement.getSubmitSelector());
+        if (submit != null) submit.click();
     }
 
 }
