@@ -50,11 +50,9 @@ public class PresetExecutor {
             HtmlForm form = htmlElement.querySelector(selector);
             handleForm(formWikiElement, form);
         } else if (element instanceof CheckBoxWikiElement) {
-            CheckBoxWikiElement checkBoxWikiElement = (CheckBoxWikiElement) element;
             HtmlCheckBoxInput checkBoxInput = htmlElement.querySelector(selector);
             checkBoxInput.click();
         } else if (element instanceof RadioWikiElement) {
-            RadioWikiElement radioWikiElement = (RadioWikiElement) element;
             HtmlRadioButtonInput radioInput = htmlElement.querySelector(selector);
             radioInput.click();
         }
@@ -65,8 +63,11 @@ public class PresetExecutor {
         for(WikiElement wikiElement: formWikiElement.getWikiElements()) {
             handleElement(wikiElement, form);
         }
-        HtmlButton submit = form.querySelector(formWikiElement.getSubmitSelector());
-        if (submit != null) submit.click();
+        String selector = formWikiElement.getSubmitSelector();
+        if (!selector.isBlank()) {
+            HtmlButton submit = form.querySelector(selector);
+            submit.click();
+        }
     }
 
 }

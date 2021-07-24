@@ -43,6 +43,7 @@ public class IframeHTMLProvider {
                 try {
                     webpageContent = scriptedPageContentProvider.runJsAndGetContent(title, langIdentifier, source);
                 } catch (WikiPresetNotFound e) {
+                    e.printStackTrace();
                     webpageContent = scriptedHTMLDocumentProvider.getWebpageContent(source);
                 }
                 webpageContent.setName(title);

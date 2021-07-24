@@ -23,7 +23,7 @@ public class JSONWriter {
             ObjectMapper objectMapper = new ObjectMapper();
              // objectMapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.USE_NATIVE_TYPE_ID));
 
-            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("269", SCPBranch.POLISH, SCPTranslation.ORIGINAL);
+            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("4205", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
             WikiElement wikiElement = new WikiElement("button", WikiElementType.SIMPLE);
             WikiElement inputWikiElement = new InputWikiElement("#text_field", "input text");
             WikiElement form = new FormWikiElement("#form", List.of(inputWikiElement, wikiElement), "#submit");

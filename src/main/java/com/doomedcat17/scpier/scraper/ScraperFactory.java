@@ -38,6 +38,7 @@ public class ScraperFactory {
             case "font":
             case "del":
             case "strike":
+            case "label":
                 return new LineScraper(source);
             case "h1":
             case "h2":
@@ -55,10 +56,12 @@ public class ScraperFactory {
             case "details":
             case "header":
             case "footer":
+            case "article":
                 //some divs has "blockquote class"
                 if (element.hasClass("blockquote")) return new BlockquoteScraper(source);
                 else return new DivScraper(source);
             case "img":
+            case "picture":
                 return new ImageScraper(source);
             case "table":
             case "tbody":
@@ -71,6 +74,7 @@ public class ScraperFactory {
             case "center":
                 return new BlockquoteScraper(source);
             case "video":
+            case "figure":
                 return new VideoScraper(source);
             default:
                 throw new ScrapperNotDefinedException("Scrapper not defined for \"" + element.tagName() +"\" element");
