@@ -3,6 +3,7 @@ package com.doomedcat17.scpier.page.html.document.preset;
 import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.page.html.document.preset.element.WikiElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Preset {
@@ -13,9 +14,9 @@ public class Preset {
 
     private int jsRuntime = 0;
 
-    private List<WikiElement> wikiElements;
+    private List<WikiElement> wikiElements = new ArrayList<>();
 
-    private List<String> removalDefinitions;
+    private List<String> removalDefinitions = new ArrayList<>();
 
 
     public Preset(String name, SCPBranch scpBranch, int jsRuntime, List<WikiElement> wikiElements, List<String> removalDefinitions) {

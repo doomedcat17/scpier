@@ -21,7 +21,7 @@ public class JSONWriter {
         ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-             // objectMapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.USE_NATIVE_TYPE_ID));
+            // objectMapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.USE_NATIVE_TYPE_ID));
 
             ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("3211", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
             WikiElement wikiElement = new WikiElement("button", WikiElementType.SIMPLE, 0);

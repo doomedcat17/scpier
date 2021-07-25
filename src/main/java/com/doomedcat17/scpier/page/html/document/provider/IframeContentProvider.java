@@ -18,11 +18,6 @@ public class IframeContentProvider {
         iframes.forEach(element -> replaceWithIframeContent(element, wikiContent.getSourceUrl(), wikiContent.getName(), wikiContent.getLangIdentifier(), preset));
     }
 
-    public void provideIframesContent(WikiContent wikiContent) {
-        Elements iframes = wikiContent.getContent().getElementsByTag("iframe");
-        iframes.forEach(element -> replaceWithIframeContent(element, wikiContent.getSourceUrl(), wikiContent.getName(), wikiContent.getLangIdentifier(), new Preset()));
-    }
-
     private void replaceWithIframeContent(Element iframe, String pageSource, String title, String langIdentifier, Preset preset) {
         String source = iframe.attr("src");
         Element iframeContent = new Element("div");
@@ -40,7 +35,7 @@ public class IframeContentProvider {
                 webpageContent.setName(title);
                 webpageContent.setLangIdentifier(langIdentifier);
                 webpageContent.setSourceUrl(source);
-                provideIframesContent(webpageContent);
+                provideIframesContent(webpageContent, preset);
                 iframeContent = webpageContent.getContent();
                 wikiContentCleaner.removeTrash(iframeContent);
             } catch (Exception ignored) {
