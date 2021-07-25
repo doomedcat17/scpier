@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.testbox;
 
 import com.doomedcat17.scpier.data.content.ContentNode;
-import com.doomedcat17.scpier.page.PageContent;
+import com.doomedcat17.scpier.page.WikiContent;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -62,12 +62,12 @@ public class TestDataProvider {
         return document;
     }
 
-    public static PageContent getPageContent(String path) {
+    public static WikiContent getPageContent(String path) {
         Document scpDocument = loadDocumentFormHTML(path);
-        PageContent pageContent = new PageContent();
-        pageContent.setContent(scpDocument.getElementsByTag("body").first());
-        pageContent.setSourceUrl("url");
-        return pageContent;
+        WikiContent wikiContent = new WikiContent();
+        wikiContent.setContent(scpDocument.getElementsByTag("body").first());
+        wikiContent.setSourceUrl("url");
+        return wikiContent;
     }
 
     public static Element getSampleElements(String path) {

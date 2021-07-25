@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.page.html.document.preset.executor;
 
 import com.doomedcat17.scpier.exception.PresetExecutorException;
-import com.doomedcat17.scpier.page.PageContent;
+import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.WebClientProvider;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.element.WikiElement;
@@ -15,7 +15,7 @@ import java.io.IOException;
 public class PresetExecutor {
 
 
-    public PageContent execute(Preset preset, String src) throws PresetExecutorException {
+    public WikiContent execute(Preset preset, String src) throws PresetExecutorException {
         try {
             WebClient webClient = WebClientProvider.getWebClient();
             HtmlPage page = webClient.getPage(src);
@@ -27,9 +27,9 @@ public class PresetExecutor {
                     .getJavaScriptResult()
                     .toString();
             Document document = Jsoup.parse(html);
-            PageContent pageContent = new PageContent();
-            pageContent.setContent(document.getElementsByTag("body").first());
-            return pageContent;
+            WikiContent wikiContent = new WikiContent();
+            wikiContent.setContent(document.getElementsByTag("body").first());
+            return wikiContent;
         } catch (IOException e) {
             throw new PresetExecutorException(e.getMessage());
         }

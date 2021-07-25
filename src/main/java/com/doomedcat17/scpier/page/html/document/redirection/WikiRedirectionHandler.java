@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.page.html.document.redirection;
 
-import com.doomedcat17.scpier.page.PageContent;
+import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,7 +14,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Optional;
 
-public class HTMLRedirectionHandler {
+public class WikiRedirectionHandler {
 
     private final String REDIRECTION_DEFINITIONS_PATH = "redirectionElementsDefinitions.json";
 
@@ -28,7 +28,7 @@ public class HTMLRedirectionHandler {
             int charPosition = scpUrl.lastIndexOf('/');
             redirectionLink = scpUrl.substring(0, charPosition) + redirectionLink;
         }
-        PageContent webpageContent = wikiPageProvider.getWebpageContent(redirectionLink);
+        WikiContent webpageContent = wikiPageProvider.getWebpageContent(redirectionLink);
         return webpageContent.getContent().getElementById("page-content");
     }
 
@@ -47,7 +47,7 @@ public class HTMLRedirectionHandler {
         return Optional.empty();
     }
 
-    public HTMLRedirectionHandler(WikiPageProvider wikiPageProvider) {
+    public WikiRedirectionHandler(WikiPageProvider wikiPageProvider) {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(REDIRECTION_DEFINITIONS_PATH);
         BufferedReader streamReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));

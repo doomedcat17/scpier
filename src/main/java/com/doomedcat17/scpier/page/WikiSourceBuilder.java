@@ -5,7 +5,7 @@ import com.doomedcat17.scpier.data.scp.SCPIdentifierPlacement;
 import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import org.jsoup.internal.StringUtil;
 
-public class SourceBuilder {
+public class WikiSourceBuilder {
 
     public static String buildSource(String objectName, SCPBranch scpBranch, SCPTranslation scpTranslation) {
         StringBuilder sourceBuilder = new StringBuilder(objectName);

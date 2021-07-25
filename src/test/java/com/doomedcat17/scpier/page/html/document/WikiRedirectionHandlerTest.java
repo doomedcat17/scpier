@@ -1,8 +1,8 @@
 package com.doomedcat17.scpier.page.html.document;
 
-import com.doomedcat17.scpier.page.PageContent;
+import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
-import com.doomedcat17.scpier.page.html.document.redirection.HTMLRedirectionHandler;
+import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -18,17 +18,17 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-class HTMLRedirectionHandlerTest {
+class WikiRedirectionHandlerTest {
 
     @Mock
     private WikiPageProvider wikiPageProvider;
 
-    private HTMLRedirectionHandler htmlRedirectionHandler;
+    private WikiRedirectionHandler wikiRedirectionHandler;
 
     @BeforeEach
     void init() {
         MockitoAnnotations.initMocks(this);
-        htmlRedirectionHandler = new HTMLRedirectionHandler(wikiPageProvider);
+        wikiRedirectionHandler = new WikiRedirectionHandler(wikiPageProvider);
     }
 
     @Test
@@ -39,7 +39,7 @@ class HTMLRedirectionHandlerTest {
                 .getElementById("page-content");
         //when
         Optional<Element> foundRedirection =
-                htmlRedirectionHandler.checkForRedirection(content);
+                wikiRedirectionHandler.checkForRedirection(content);
         //then
         assertTrue(foundRedirection.isPresent());
     }
@@ -52,7 +52,7 @@ class HTMLRedirectionHandlerTest {
                 .getElementById("page-content");
         //when
         Optional<Element> foundRedirection =
-                htmlRedirectionHandler.checkForRedirection(content);
+                wikiRedirectionHandler.checkForRedirection(content);
         //then
         assertTrue(foundRedirection.isEmpty());
     }
@@ -62,19 +62,19 @@ class HTMLRedirectionHandlerTest {
         //given
         Document document = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/document/redirectedScp.html");
         Mockito.when(wikiPageProvider.getWebpageContent("http://www.scpwiki.com/adult:scp-597/noredirect/true"))
-                .thenReturn(new PageContent(document.getElementsByTag("body").first()));
+                .thenReturn(new WikiContent(document.getElementsByTag("body").first()));
         Element content = TestDataProvider
                 .getSampleElements("src/test/resources/html/test_data/document/sampleScpWithRedirection.html")
                 .getElementById("page-content");
 
         //when
         Optional<Element> foundRedirection =
-                htmlRedirectionHandler.checkForRedirection(content);
+                wikiRedirectionHandler.checkForRedirection(content);
 
         if (foundRedirection.isEmpty()) fail();
         Element redirectionElement = foundRedirection.get();
         Element redirectedContent =
-                htmlRedirectionHandler.getRedirectionContent(redirectionElement, "http://www.scpwiki.com/scp-597");
+                wikiRedirectionHandler.getRedirectionContent(redirectionElement, "http://www.scpwiki.com/scp-597");
         //then
         assertEquals(document.getElementById("page-content"), redirectedContent);
     }

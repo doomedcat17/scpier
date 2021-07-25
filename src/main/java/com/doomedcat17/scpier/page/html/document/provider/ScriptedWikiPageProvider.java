@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.page.html.document.provider;
 
-import com.doomedcat17.scpier.page.PageContent;
+import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.WebClientProvider;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -12,7 +12,7 @@ import java.io.IOException;
 public class ScriptedWikiPageProvider implements WikiPageProvider {
 
     @Override
-    public PageContent getWebpageContent(String url) throws IOException {
+    public WikiContent getWebpageContent(String url) throws IOException {
         WebClient webClient = WebClientProvider.getWebClient();
         HtmlPage page = webClient.getPage(url);
         webClient.waitForBackgroundJavaScript(300);
@@ -20,10 +20,10 @@ public class ScriptedWikiPageProvider implements WikiPageProvider {
                 .getJavaScriptResult()
                 .toString();
         Document webpageContent = Jsoup.parse(htmlContent);
-        PageContent pageContent = new PageContent();
-        pageContent.setContent(webpageContent.getElementsByTag("body").first());
-        pageContent.setSourceUrl(url);
-        return pageContent;
+        WikiContent wikiContent = new WikiContent();
+        wikiContent.setContent(webpageContent.getElementsByTag("body").first());
+        wikiContent.setSourceUrl(url);
+        return wikiContent;
     }
 
 

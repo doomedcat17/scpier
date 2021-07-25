@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.page.html.document;
 
-import com.doomedcat17.scpier.page.PageContent;
+import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.HTMLDocumentContentCleanerImpl;
 import com.doomedcat17.scpier.page.html.document.provider.IframeHTMLProvider;
 import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
@@ -35,11 +35,11 @@ class IframeHTMLProviderTest {
     void shouldProvideIframesAudio() throws IOException {
         //given
         Element content = testData.getElementById("shouldProvideIframesContent");
-        PageContent pageContent = new PageContent();
-        pageContent.setContent(content);
-        pageContent.setSourceUrl("http://www.scpwiki.com/scp-049");
+        WikiContent wikiContent = new WikiContent();
+        wikiContent.setContent(content);
+        wikiContent.setSourceUrl("http://www.scpwiki.com/scp-049");
         Mockito.when(htmlDocumentProvider.getWebpageContent(Mockito.anyString()))
-                .thenReturn(new PageContent()
+                .thenReturn(new WikiContent()
                 );
         Mockito.when(htmlDocumentProvider.getWebpageContent("http://www.scpwiki.com/scp-049/html/8e52f60fe1f51880be5cf6c40ae5adc7c409c633-3574545131663911736"))
                 .thenReturn(TestDataProvider
@@ -55,7 +55,7 @@ class IframeHTMLProviderTest {
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-049-audio3.html")
                 );
         //when
-        iframeHTMLProvider.provideIframesContent(pageContent);
+        iframeHTMLProvider.provideIframesContent(wikiContent);
         //then
         assertEquals(3L, content.children().stream().filter(element -> element.is("audio")).count());
         assertEquals(89, content.childNodeSize());
@@ -65,14 +65,14 @@ class IframeHTMLProviderTest {
     void shouldProvideIframeImage() throws IOException {
         //given
         Element content = testData.getElementById("shouldProvideImageIframe");
-        PageContent pageContent = new PageContent();
-        pageContent.setContent(content);
-        pageContent.setSourceUrl("http://www.scpwiki.com/scp-087");
+        WikiContent wikiContent = new WikiContent();
+        wikiContent.setContent(content);
+        wikiContent.setSourceUrl("http://www.scpwiki.com/scp-087");
         Mockito.when(htmlDocumentProvider.getWebpageContent("http://www.scpwiki.com/scp-087/html/40c580244cd3046f096f5d7e92d05183615180f5-110699635795523362"))
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-087-image1.html")
                 );
-        iframeHTMLProvider.provideIframesContent(pageContent);
+        iframeHTMLProvider.provideIframesContent(wikiContent);
         //then
         assertEquals(4, content.select("img").size());
         assertEquals(29, content.childNodeSize());
@@ -82,14 +82,14 @@ class IframeHTMLProviderTest {
     void shouldProvideIframeContent() throws IOException {
         //given
         Element content = testData.getElementById("shouldProvideIframeContent");
-        PageContent pageContent = new PageContent();
-        pageContent.setContent(content);
-        pageContent.setSourceUrl("http://www.scpwiki.com/scp-139");
+        WikiContent wikiContent = new WikiContent();
+        wikiContent.setContent(content);
+        wikiContent.setSourceUrl("http://www.scpwiki.com/scp-139");
         Mockito.when(htmlDocumentProvider.getWebpageContent("http://www.scpwiki.com/scp-139/html/995a854d7cadae48a0af18803de323f18334cd32-1586188541109417535"))
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-139-divs.html")
                 );
-        iframeHTMLProvider.provideIframesContent(pageContent);
+        iframeHTMLProvider.provideIframesContent(wikiContent);
         //then
         assertNotNull(content.getElementById("firstText"));
         assertNotNull(content.getElementById("firstCollapsible"));
@@ -100,9 +100,9 @@ class IframeHTMLProviderTest {
     void shouldProvideIframeContent2() throws IOException {
         //given
         Element content = testData.getElementById("shouldProvideIframeContent2");
-        PageContent pageContent = new PageContent();
-        pageContent.setContent(content);
-        pageContent.setSourceUrl("http://www.scpwiki.com/scp-474");
+        WikiContent wikiContent = new WikiContent();
+        wikiContent.setContent(content);
+        wikiContent.setSourceUrl("http://www.scpwiki.com/scp-474");
         Mockito.when(htmlDocumentProvider.getWebpageContent("http://www.scpwiki.com/scp-474/html/66cd7b5eeaeaa67270f976b50a83b76529bab540-894703701701610910"))
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-474-divs1.html")
@@ -128,7 +128,7 @@ class IframeHTMLProviderTest {
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-474-divs6.html")
                 );
         //when
-        iframeHTMLProvider.provideIframesContent(pageContent);
+        iframeHTMLProvider.provideIframesContent(wikiContent);
         //then
         assertEquals(6, content.select("audio-player").size());
     }
@@ -137,11 +137,11 @@ class IframeHTMLProviderTest {
     void shouldProvideYtVideoContent()  {
         //given
         Element content = testData.getElementById("shouldProvideYtVideoContent");
-        PageContent pageContent = new PageContent();
-        pageContent.setContent(content);
-        pageContent.setSourceUrl("http://www.scpwiki.com/scp-506");
+        WikiContent wikiContent = new WikiContent();
+        wikiContent.setContent(content);
+        wikiContent.setSourceUrl("http://www.scpwiki.com/scp-506");
         //when
-        iframeHTMLProvider.provideIframesContent(pageContent);
+        iframeHTMLProvider.provideIframesContent(wikiContent);
         //then
         assertEquals(1, content.select("video").size());
         assertTrue(content.selectFirst("video").hasClass("youtube-video"));
@@ -151,15 +151,15 @@ class IframeHTMLProviderTest {
     void shouldProvideVideoContent() throws IOException {
         //given
         Element content = testData.getElementById("shouldProvideVideoContent");
-        PageContent pageContent = new PageContent();
-        pageContent.setContent(content);
-        pageContent.setSourceUrl("http://www.scpwiki.com/scp-720");
+        WikiContent wikiContent = new WikiContent();
+        wikiContent.setContent(content);
+        wikiContent.setSourceUrl("http://www.scpwiki.com/scp-720");
         Mockito.when(htmlDocumentProvider.getWebpageContent("http://www.scpwiki.com/scp-720/html/e33d7d82abfc8fa3ad4fcfd307c0deb32bad66d1-3515188031212119672"))
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-720-video.html")
                 );
         //when
-        iframeHTMLProvider.provideIframesContent(pageContent);
+        iframeHTMLProvider.provideIframesContent(wikiContent);
         //then
         assertEquals(1, content.select("video").size());
     }

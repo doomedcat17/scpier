@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.page.html.document.provider;
 
 import com.doomedcat17.scpier.exception.WikiPresetNotFound;
-import com.doomedcat17.scpier.page.PageContent;
+import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DocumentContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.PresetWikiContentProvider;
 import org.jsoup.nodes.Element;
@@ -15,9 +15,9 @@ public class IframeHTMLProvider {
 
     private final DocumentContentCleaner documentContentCleaner;
 
-    public void provideIframesContent(PageContent pageContent) {
-        Elements iframes = pageContent.getContent().getElementsByTag("iframe");
-        iframes.forEach(element -> replaceWithIframeContent(element, pageContent.getSourceUrl(), pageContent.getName(), pageContent.getLangIdentifier()));
+    public void provideIframesContent(WikiContent wikiContent) {
+        Elements iframes = wikiContent.getContent().getElementsByTag("iframe");
+        iframes.forEach(element -> replaceWithIframeContent(element, wikiContent.getSourceUrl(), wikiContent.getName(), wikiContent.getLangIdentifier()));
     }
 
     private void replaceWithIframeContent(Element iframe, String pageSource, String title, String langIdentifier) {
@@ -30,7 +30,7 @@ public class IframeHTMLProvider {
                 source = pageSource.substring(0, pageSource.lastIndexOf('/')) + source;
             }
             try {
-                PageContent webpageContent;
+                WikiContent webpageContent;
                 try {
                     webpageContent = presetWikiContentProvider.runJsAndGetContent(title, langIdentifier, source);
                 } catch (WikiPresetNotFound e) {

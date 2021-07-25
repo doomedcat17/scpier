@@ -4,7 +4,7 @@ import org.jsoup.nodes.Element;
 
 import java.util.List;
 
-public class PageContent {
+public class WikiContent {
 
     private String name;
 
@@ -58,7 +58,7 @@ public class PageContent {
         this.tags = tags;
     }
 
-    public PageContent(Element content) {
+    public WikiContent(Element content) {
         this.content = content;
     }
 
@@ -70,6 +70,6 @@ public class PageContent {
         this.langIdentifier = langIdentifier;
     }
 
-    public PageContent() {
+    public WikiContent() {
     }
 }
