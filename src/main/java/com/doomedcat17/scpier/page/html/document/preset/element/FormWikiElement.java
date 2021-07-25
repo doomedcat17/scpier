@@ -8,8 +8,8 @@ public class FormWikiElement extends WikiElement {
 
     private String submitSelector;
 
-    public FormWikiElement(String selector, List<WikiElement> wikiElements, String submitSelector) {
-        super(selector, WikiElementType.FORM);
+    public FormWikiElement(String selector, List<WikiElement> wikiElements, String submitSelector, int jsRuntime) {
+        super(selector, WikiElementType.FORM, jsRuntime);
         this.wikiElements = wikiElements;
         this.submitSelector = submitSelector;
     }

@@ -4,8 +4,8 @@ public class InputWikiElement extends WikiElement {
 
     private String inputValue;
 
-    public InputWikiElement(String selector, String inputValue) {
-        super(selector, WikiElementType.INPUT);
+    public InputWikiElement(String selector, String inputValue, int jsRuntime) {
+        super(selector, WikiElementType.INPUT, jsRuntime);
         this.inputValue = inputValue;
     }
 

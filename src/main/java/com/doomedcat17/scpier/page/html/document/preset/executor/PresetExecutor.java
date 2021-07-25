@@ -21,6 +21,7 @@ public class PresetExecutor {
             HtmlPage page = webClient.getPage(src);
             for (WikiElement element : preset.getWikiElements()) {
                 WikiElementHandler.handleElement(element, page);
+                webClient.waitForBackgroundJavaScript(element.getJsRuntime());
             }
             webClient.waitForBackgroundJavaScript(preset.getJsRuntime());
             String html = page.executeJavaScript("document.body.parentNode.outerHTML")

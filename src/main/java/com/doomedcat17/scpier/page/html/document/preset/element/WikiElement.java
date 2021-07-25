@@ -19,7 +19,9 @@ public class WikiElement {
 
     protected WikiElementType elementType;
 
-    public WikiElement(String selector, WikiElementType elementType) {
+    protected int jsRuntime;
+
+    public WikiElement(String selector, WikiElementType elementType, int jsRuntime) {
         this.selector = selector;
         this.elementType = elementType;
     }
@@ -33,5 +35,9 @@ public class WikiElement {
     }
 
     public WikiElement() {
+    }
+
+    public int getJsRuntime() {
+        return jsRuntime;
     }
 }

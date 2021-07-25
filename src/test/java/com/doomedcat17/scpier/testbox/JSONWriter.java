@@ -23,10 +23,10 @@ public class JSONWriter {
             ObjectMapper objectMapper = new ObjectMapper();
              // objectMapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.USE_NATIVE_TYPE_ID));
 
-            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("3031", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
-            WikiElement wikiElement = new WikiElement("button", WikiElementType.SIMPLE);
-            WikiElement inputWikiElement = new InputWikiElement("#text_field", "input text");
-            WikiElement form = new FormWikiElement("#form", List.of(inputWikiElement, wikiElement), "#submit");
+            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("3211", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
+            WikiElement wikiElement = new WikiElement("button", WikiElementType.SIMPLE, 0);
+            WikiElement inputWikiElement = new InputWikiElement("#text_field", "input text", 0);
+            WikiElement form = new FormWikiElement("#form", List.of(inputWikiElement, wikiElement), "#submit", 0);
             Preset preset = new Preset("173", SCPBranch.ENGLISH, 12, List.of(form));
             System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(scp));
         } catch (Exception e) {
