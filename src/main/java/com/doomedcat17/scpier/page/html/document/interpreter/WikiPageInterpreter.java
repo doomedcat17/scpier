@@ -3,7 +3,7 @@ package com.doomedcat17.scpier.page.html.document.interpreter;
 import com.doomedcat17.scpier.exception.HTMLDocumentInterpreterException;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
-import com.doomedcat17.scpier.page.html.document.provider.IframeHTMLProvider;
+import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
 import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapper;
@@ -31,8 +31,8 @@ public class WikiPageInterpreter {
             tagNames.ifPresent(wikiContent::setTags);
             wikiContent.setContent(content);
             if (!content.getElementsByTag("iframe").isEmpty()) {
-                IframeHTMLProvider iframeHTMLProvider = new IframeHTMLProvider(new ScriptedWikiPageProvider(), wikiContentCleanerImpl);
-                iframeHTMLProvider.provideIframesContent(wikiContent);
+                IframeContentProvider iframeContentProvider = new IframeContentProvider(new ScriptedWikiPageProvider(), wikiContentCleanerImpl);
+                iframeContentProvider.provideIframesContent(wikiContent);
             }
             wikiContentCleanerImpl.clearContentAndUnpackBlocks(content);
         } catch (Exception e) {

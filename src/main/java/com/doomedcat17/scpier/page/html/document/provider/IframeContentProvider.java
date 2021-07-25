@@ -7,7 +7,7 @@ import com.doomedcat17.scpier.page.html.document.preset.PresetWikiContentProvide
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class IframeHTMLProvider {
+public class IframeContentProvider {
 
     private final PresetWikiContentProvider presetWikiContentProvider;
 
@@ -69,7 +69,7 @@ public class IframeHTMLProvider {
         iframeContent.appendChild(videoElement);
     }
 
-    public IframeHTMLProvider(ScriptedWikiPageProvider scriptedHTMLDocumentProvider, WikiContentCleaner wikiContentCleaner) {
+    public IframeContentProvider(ScriptedWikiPageProvider scriptedHTMLDocumentProvider, WikiContentCleaner wikiContentCleaner) {
         this.presetWikiContentProvider = new PresetWikiContentProvider();
         this.scriptedHTMLDocumentProvider = scriptedHTMLDocumentProvider;
         this.wikiContentCleaner = wikiContentCleaner;

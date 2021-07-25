@@ -2,7 +2,7 @@ package com.doomedcat17.scpier.page.html.document;
 
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
-import com.doomedcat17.scpier.page.html.document.provider.IframeHTMLProvider;
+import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
 import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
@@ -16,11 +16,11 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class IframeHTMLProviderTest {
+class IframeContentProviderTest {
     @Mock
     private ScriptedWikiPageProvider htmlDocumentProvider;
 
-    private IframeHTMLProvider iframeHTMLProvider;
+    private IframeContentProvider iframeContentProvider;
 
     private final Element testData = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/document/iframe/page-contents.html");
 
@@ -28,7 +28,7 @@ class IframeHTMLProviderTest {
     @BeforeEach
     void init() {
         MockitoAnnotations.initMocks(this);
-        iframeHTMLProvider = new IframeHTMLProvider(htmlDocumentProvider, new DefaultWikiContentCleaner());
+        iframeContentProvider = new IframeContentProvider(htmlDocumentProvider, new DefaultWikiContentCleaner());
     }
 
     @Test
@@ -55,7 +55,7 @@ class IframeHTMLProviderTest {
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-049-audio3.html")
                 );
         //when
-        iframeHTMLProvider.provideIframesContent(wikiContent);
+        iframeContentProvider.provideIframesContent(wikiContent);
         //then
         assertEquals(3L, content.children().stream().filter(element -> element.is("audio")).count());
         assertEquals(89, content.childNodeSize());
@@ -72,7 +72,7 @@ class IframeHTMLProviderTest {
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-087-image1.html")
                 );
-        iframeHTMLProvider.provideIframesContent(wikiContent);
+        iframeContentProvider.provideIframesContent(wikiContent);
         //then
         assertEquals(4, content.select("img").size());
         assertEquals(29, content.childNodeSize());
@@ -89,7 +89,7 @@ class IframeHTMLProviderTest {
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-139-divs.html")
                 );
-        iframeHTMLProvider.provideIframesContent(wikiContent);
+        iframeContentProvider.provideIframesContent(wikiContent);
         //then
         assertNotNull(content.getElementById("firstText"));
         assertNotNull(content.getElementById("firstCollapsible"));
@@ -128,7 +128,7 @@ class IframeHTMLProviderTest {
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-474-divs6.html")
                 );
         //when
-        iframeHTMLProvider.provideIframesContent(wikiContent);
+        iframeContentProvider.provideIframesContent(wikiContent);
         //then
         assertEquals(6, content.select("audio-player").size());
     }
@@ -141,7 +141,7 @@ class IframeHTMLProviderTest {
         wikiContent.setContent(content);
         wikiContent.setSourceUrl("http://www.scpwiki.com/scp-506");
         //when
-        iframeHTMLProvider.provideIframesContent(wikiContent);
+        iframeContentProvider.provideIframesContent(wikiContent);
         //then
         assertEquals(1, content.select("video").size());
         assertTrue(content.selectFirst("video").hasClass("youtube-video"));
@@ -159,7 +159,7 @@ class IframeHTMLProviderTest {
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-720-video.html")
                 );
         //when
-        iframeHTMLProvider.provideIframesContent(wikiContent);
+        iframeContentProvider.provideIframesContent(wikiContent);
         //then
         assertEquals(1, content.select("video").size());
     }
