@@ -25,16 +25,7 @@ public class IframeHTMLProvider {
         String source = iframe.attr("src");
         Element iframeContent = new Element("div");
         if (source.contains("youtube")) {
-            StringBuilder src = new StringBuilder(source);
-            if (source.startsWith("/")) {
-                while(src.charAt(0) == '/') src.deleteCharAt(0);
-            }
-            Element videoElement = new Element("video");
-            videoElement.addClass("youtube-video");
-            Element sourceElement = new Element("source");
-            sourceElement.attr("src", src.toString());
-            videoElement.appendChild(sourceElement);
-            iframeContent.appendChild(videoElement);
+            provideYtVideo(iframeContent, source);
         } else {
             if (source.startsWith("/")) {
                 source = pageSource.substring(0, pageSource.lastIndexOf('/')) + source;
@@ -53,7 +44,9 @@ public class IframeHTMLProvider {
                 provideIframesContent(webpageContent);
                 iframeContent = webpageContent.getContent();
                 documentContentCleaner.removeTrash(iframeContent);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException("Iframe content replace exception");
             }
         }
         if (!iframeContent.childNodes().isEmpty()) {
@@ -65,6 +58,19 @@ public class IframeHTMLProvider {
                 iframe.remove();
             }
         } else iframe.remove();
+    }
+
+    private void provideYtVideo(Element iframeContent, String source) {
+        StringBuilder src = new StringBuilder(source);
+        if (source.startsWith("/")) {
+            while(src.charAt(0) == '/') src.deleteCharAt(0);
+        }
+        Element videoElement = new Element("video");
+        videoElement.addClass("youtube-video");
+        Element sourceElement = new Element("source");
+        sourceElement.attr("src", src.toString());
+        videoElement.appendChild(sourceElement);
+        iframeContent.appendChild(videoElement);
     }
 
     public IframeHTMLProvider(ScriptedHTMLDocumentProvider scriptedHTMLDocumentProvider, DocumentContentCleaner documentContentCleaner) {
