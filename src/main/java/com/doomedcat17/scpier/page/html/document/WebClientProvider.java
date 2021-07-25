@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.page.html.document.js;
+package com.doomedcat17.scpier.page.html.document;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;

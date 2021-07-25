@@ -1,6 +1,6 @@
-package com.doomedcat17.scpier.page.html.document.js.preset.executor;
+package com.doomedcat17.scpier.page.html.document.preset.executor;
 
-import com.doomedcat17.scpier.page.html.document.js.preset.element.*;
+import com.doomedcat17.scpier.page.html.document.preset.element.*;
 import com.gargoylesoftware.htmlunit.html.*;
 
 import java.io.IOException;

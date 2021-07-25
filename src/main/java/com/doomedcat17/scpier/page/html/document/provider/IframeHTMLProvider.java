@@ -3,14 +3,13 @@ package com.doomedcat17.scpier.page.html.document.provider;
 import com.doomedcat17.scpier.exception.WikiPresetNotFound;
 import com.doomedcat17.scpier.page.PageContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DocumentContentCleaner;
-import com.doomedcat17.scpier.page.html.document.js.ScriptedPageContentProvider;
-import com.doomedcat17.scpier.page.html.document.js.ScriptedWikiPageProvider;
+import com.doomedcat17.scpier.page.html.document.preset.PresetWikiContentProvider;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class IframeHTMLProvider {
 
-    private final ScriptedPageContentProvider scriptedPageContentProvider;
+    private final PresetWikiContentProvider presetWikiContentProvider;
 
     private final ScriptedWikiPageProvider scriptedHTMLDocumentProvider;
 
@@ -33,7 +32,7 @@ public class IframeHTMLProvider {
             try {
                 PageContent webpageContent;
                 try {
-                    webpageContent = scriptedPageContentProvider.runJsAndGetContent(title, langIdentifier, source);
+                    webpageContent = presetWikiContentProvider.runJsAndGetContent(title, langIdentifier, source);
                 } catch (WikiPresetNotFound e) {
                     webpageContent = scriptedHTMLDocumentProvider.getWebpageContent(source);
                 }
@@ -71,7 +70,7 @@ public class IframeHTMLProvider {
     }
 
     public IframeHTMLProvider(ScriptedWikiPageProvider scriptedHTMLDocumentProvider, DocumentContentCleaner documentContentCleaner) {
-        this.scriptedPageContentProvider = new ScriptedPageContentProvider();
+        this.presetWikiContentProvider = new PresetWikiContentProvider();
         this.scriptedHTMLDocumentProvider = scriptedHTMLDocumentProvider;
         this.documentContentCleaner = documentContentCleaner;
     }

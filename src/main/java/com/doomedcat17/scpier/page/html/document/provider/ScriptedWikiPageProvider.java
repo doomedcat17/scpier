@@ -1,7 +1,7 @@
-package com.doomedcat17.scpier.page.html.document.js;
+package com.doomedcat17.scpier.page.html.document.provider;
 
 import com.doomedcat17.scpier.page.PageContent;
-import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
+import com.doomedcat17.scpier.page.html.document.WebClientProvider;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import org.jsoup.Jsoup;

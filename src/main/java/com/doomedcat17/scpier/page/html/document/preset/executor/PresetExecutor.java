@@ -1,10 +1,10 @@
-package com.doomedcat17.scpier.page.html.document.js.preset.executor;
+package com.doomedcat17.scpier.page.html.document.preset.executor;
 
 import com.doomedcat17.scpier.exception.PresetExecutorException;
 import com.doomedcat17.scpier.page.PageContent;
-import com.doomedcat17.scpier.page.html.document.js.WebClientProvider;
-import com.doomedcat17.scpier.page.html.document.js.preset.Preset;
-import com.doomedcat17.scpier.page.html.document.js.preset.element.WikiElement;
+import com.doomedcat17.scpier.page.html.document.WebClientProvider;
+import com.doomedcat17.scpier.page.html.document.preset.Preset;
+import com.doomedcat17.scpier.page.html.document.preset.element.WikiElement;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import org.jsoup.Jsoup;

@@ -1,7 +1,7 @@
-package com.doomedcat17.scpier.page.html.document.js.preset;
+package com.doomedcat17.scpier.page.html.document.preset;
 
 import com.doomedcat17.scpier.data.scp.SCPBranch;
-import com.doomedcat17.scpier.page.html.document.js.preset.element.WikiElement;
+import com.doomedcat17.scpier.page.html.document.preset.element.WikiElement;
 
 import java.util.List;
 

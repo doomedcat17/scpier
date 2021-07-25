@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.page.html.document.js.preset;
+package com.doomedcat17.scpier.page.html.document.preset;
 
 import com.doomedcat17.scpier.exception.WikiPresetNotFound;
 import com.fasterxml.jackson.databind.ObjectMapper;

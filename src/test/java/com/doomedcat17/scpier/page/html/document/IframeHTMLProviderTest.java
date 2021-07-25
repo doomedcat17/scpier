@@ -2,8 +2,8 @@ package com.doomedcat17.scpier.page.html.document;
 
 import com.doomedcat17.scpier.page.PageContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.HTMLDocumentContentCleanerImpl;
-import com.doomedcat17.scpier.page.html.document.js.ScriptedWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.IframeHTMLProvider;
+import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.BeforeEach;
