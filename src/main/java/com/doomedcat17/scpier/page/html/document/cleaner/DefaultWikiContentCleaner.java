@@ -18,8 +18,6 @@ import java.util.stream.Collectors;
 
 public class DefaultWikiContentCleaner implements WikiContentCleaner {
 
-    private final String REMOVAL_DEFINITIONS_PATH = "removalElementsDefinitions.json";
-
     private final List<String> removalDefinitions;
 
     public void clearContentAndUnpackBlocks(Element content) {
@@ -35,6 +33,11 @@ public class DefaultWikiContentCleaner implements WikiContentCleaner {
     public void removeTrash(Element content) {
         removeTrashElements(content);
         removeEmptyNodes(content);
+    }
+
+    @Override
+    public void additionalRemovalDefinitions(List<String> definitions) {
+        removalDefinitions.addAll(definitions);
     }
 
     private void unpackNodes(Element content)  {
@@ -116,6 +119,7 @@ public class DefaultWikiContentCleaner implements WikiContentCleaner {
 
     public DefaultWikiContentCleaner() {
         ObjectMapper objectMapper = new ObjectMapper();
+        String REMOVAL_DEFINITIONS_PATH = "removalElementsDefinitions.json";
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(REMOVAL_DEFINITIONS_PATH);
         BufferedReader streamReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
         try {
@@ -131,4 +135,5 @@ public class DefaultWikiContentCleaner implements WikiContentCleaner {
             throw new RuntimeException("Could not find Removal Definitions!");
         }
     }
+
 }

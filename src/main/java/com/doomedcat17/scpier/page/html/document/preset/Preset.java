@@ -11,16 +11,23 @@ public class Preset {
 
     private SCPBranch scpBranch;
 
-    private int jsRuntime;
+    private int jsRuntime = 0;
 
     private List<WikiElement> wikiElements;
 
+    private List<String> removalDefinitions;
 
-    public Preset(String name, SCPBranch scpBranch, int jsRuntime, List<WikiElement> wikiElements) {
+
+    public Preset(String name, SCPBranch scpBranch, int jsRuntime, List<WikiElement> wikiElements, List<String> removalDefinitions) {
         this.name = name;
         this.scpBranch = scpBranch;
         this.wikiElements = wikiElements;
         this.jsRuntime = jsRuntime;
+        this.removalDefinitions = removalDefinitions;
+    }
+
+    public List<String> getRemovalDefinitions() {
+        return removalDefinitions;
     }
 
     public String getName() {

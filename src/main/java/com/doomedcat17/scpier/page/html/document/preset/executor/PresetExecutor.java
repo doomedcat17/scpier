@@ -14,8 +14,7 @@ import java.io.IOException;
 
 public class PresetExecutor {
 
-
-    public WikiContent execute(Preset preset, String src) throws PresetExecutorException {
+    public static WikiContent execute(Preset preset, String src) throws PresetExecutorException {
         try {
             WebClient webClient = WebClientProvider.getWebClient();
             HtmlPage page = webClient.getPage(src);

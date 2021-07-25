@@ -19,11 +19,12 @@ public class WikiElement {
 
     protected WikiElementType elementType;
 
-    protected int jsRuntime;
+    protected int jsRuntime = 0;
 
     public WikiElement(String selector, WikiElementType elementType, int jsRuntime) {
         this.selector = selector;
         this.elementType = elementType;
+        this.jsRuntime = jsRuntime;
     }
 
     public String getSelector() {
