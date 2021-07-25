@@ -35,7 +35,6 @@ public class IframeHTMLProvider {
                 try {
                     webpageContent = scriptedPageContentProvider.runJsAndGetContent(title, langIdentifier, source);
                 } catch (WikiPresetNotFound e) {
-                    e.printStackTrace();
                     webpageContent = scriptedHTMLDocumentProvider.getWebpageContent(source);
                 }
                 webpageContent.setName(title);
@@ -44,9 +43,7 @@ public class IframeHTMLProvider {
                 provideIframesContent(webpageContent);
                 iframeContent = webpageContent.getContent();
                 documentContentCleaner.removeTrash(iframeContent);
-            } catch (Exception e) {
-                e.printStackTrace();
-                throw new RuntimeException("Iframe content replace exception");
+            } catch (Exception ignored) {
             }
         }
         if (!iframeContent.childNodes().isEmpty()) {

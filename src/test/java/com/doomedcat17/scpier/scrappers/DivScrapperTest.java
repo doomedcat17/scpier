@@ -18,7 +18,7 @@ class DivScrapperTest extends ScrapperTest {
     private final DivScraper divMapper = new DivScraper(SOURCE);
 
     protected final Element sampleDivs = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/divs/sample-divs-element.html");
+            .getSampleElements("src/test/resources/html/test_data/divs/sample-divs-elements.html");
 
     @Test
     void shouldMapDivAsText()  {

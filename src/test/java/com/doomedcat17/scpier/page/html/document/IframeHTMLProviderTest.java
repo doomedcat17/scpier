@@ -38,6 +38,9 @@ class IframeHTMLProviderTest {
         PageContent pageContent = new PageContent();
         pageContent.setContent(content);
         pageContent.setSourceUrl("http://www.scpwiki.com/scp-049");
+        Mockito.when(htmlDocumentProvider.getWebpageContent(Mockito.anyString()))
+                .thenReturn(new PageContent()
+                );
         Mockito.when(htmlDocumentProvider.getWebpageContent("http://www.scpwiki.com/scp-049/html/8e52f60fe1f51880be5cf6c40ae5adc7c409c633-3574545131663911736"))
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-049-audio1.html")

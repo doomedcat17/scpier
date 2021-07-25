@@ -35,7 +35,7 @@ class HTMLDocumentContentCleanerImplTest {
         //when
         documentContentCleaner.removeTrash(content);
         //then
-        assertEquals(13, content.childrenSize());
+        assertEquals(12, content.childrenSize());
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
     }
 
@@ -57,7 +57,7 @@ class HTMLDocumentContentCleanerImplTest {
         //when
         documentContentCleaner.removeTrash(content);
         //then
-        assertEquals(30, content.childrenSize());
+        assertEquals(29, content.childrenSize());
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
     }
 

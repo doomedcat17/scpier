@@ -20,7 +20,7 @@ class LineScrapperTest extends ScrapperTest {
     private final LineScraper lineScrapper = new LineScraper(SOURCE);
 
     private final Element sampleLines = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/lines/sample-lines-element.html");
+            .getSampleElements("src/test/resources/html/test_data/lines/sample-lines-elements.html");
 
     private final Map<String, ContentNode<?>> expectedOutputs = getExpectedContentNodeOutputs("src/test/resources/html/test_data/lines/expected_outputs.json");
 

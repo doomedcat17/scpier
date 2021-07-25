@@ -34,7 +34,7 @@ public class TestDataProvider {
         return null;
     }
 
-    private static Element loadElementFormHTML(String path) {
+    private static Element loadElementFromHTML(String path) {
         Element element = null;
         try {
             element = Jsoup.parse(
@@ -71,7 +71,7 @@ public class TestDataProvider {
     }
 
     public static Element getSampleElements(String path) {
-        return loadElementFormHTML(path)
+        return loadElementFromHTML(path)
                 .getElementById("page-content");
 
     }
