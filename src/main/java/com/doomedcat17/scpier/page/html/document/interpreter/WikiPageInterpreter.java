@@ -2,7 +2,7 @@ package com.doomedcat17.scpier.page.html.document.interpreter;
 
 import com.doomedcat17.scpier.exception.HTMLDocumentInterpreterException;
 import com.doomedcat17.scpier.page.WikiContent;
-import com.doomedcat17.scpier.page.html.document.cleaner.DocumentContentCleaner;
+import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.provider.IframeHTMLProvider;
 import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
@@ -14,7 +14,7 @@ import java.util.Optional;
 
 public class WikiPageInterpreter {
 
-    private final DocumentContentCleaner documentContentCleanerImpl;
+    private final WikiContentCleaner wikiContentCleanerImpl;
 
     private final WikiRedirectionHandler wikiRedirectionHandler;
 
@@ -31,18 +31,18 @@ public class WikiPageInterpreter {
             tagNames.ifPresent(wikiContent::setTags);
             wikiContent.setContent(content);
             if (!content.getElementsByTag("iframe").isEmpty()) {
-                IframeHTMLProvider iframeHTMLProvider = new IframeHTMLProvider(new ScriptedWikiPageProvider(), documentContentCleanerImpl);
+                IframeHTMLProvider iframeHTMLProvider = new IframeHTMLProvider(new ScriptedWikiPageProvider(), wikiContentCleanerImpl);
                 iframeHTMLProvider.provideIframesContent(wikiContent);
             }
-            documentContentCleanerImpl.clearContentAndUnpackBlocks(content);
+            wikiContentCleanerImpl.clearContentAndUnpackBlocks(content);
         } catch (Exception e) {
             e.printStackTrace();
             throw new HTMLDocumentInterpreterException(e.getMessage());
         }
     }
 
-    public WikiPageInterpreter(DocumentContentCleaner documentContentCleanerImpl, WikiRedirectionHandler wikiRedirectionHandler, PageTagsScrapper pageTagsScrapper) {
-        this.documentContentCleanerImpl = documentContentCleanerImpl;
+    public WikiPageInterpreter(WikiContentCleaner wikiContentCleanerImpl, WikiRedirectionHandler wikiRedirectionHandler, PageTagsScrapper pageTagsScrapper) {
+        this.wikiContentCleanerImpl = wikiContentCleanerImpl;
         this.wikiRedirectionHandler = wikiRedirectionHandler;
         this.pageTagsScrapper = pageTagsScrapper;
     }

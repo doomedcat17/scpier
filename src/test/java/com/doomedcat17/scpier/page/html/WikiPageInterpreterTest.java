@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.page.html;
 
 import com.doomedcat17.scpier.page.WikiContent;
-import com.doomedcat17.scpier.page.html.document.cleaner.HTMLDocumentContentCleanerImpl;
+import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class WikiPageInterpreterTest {
 
     private final WikiPageInterpreter wikiPageInterpreter = new WikiPageInterpreter(
-            new HTMLDocumentContentCleanerImpl(),
+            new DefaultWikiContentCleaner(),
             new WikiRedirectionHandler(new DefaultWikiPageProvider()),
             new PageTagsScrapperImpl()
     );

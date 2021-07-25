@@ -2,7 +2,7 @@ package com.doomedcat17.scpier.page.html.document.provider;
 
 import com.doomedcat17.scpier.exception.WikiPresetNotFound;
 import com.doomedcat17.scpier.page.WikiContent;
-import com.doomedcat17.scpier.page.html.document.cleaner.DocumentContentCleaner;
+import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.PresetWikiContentProvider;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -13,7 +13,7 @@ public class IframeHTMLProvider {
 
     private final ScriptedWikiPageProvider scriptedHTMLDocumentProvider;
 
-    private final DocumentContentCleaner documentContentCleaner;
+    private final WikiContentCleaner wikiContentCleaner;
 
     public void provideIframesContent(WikiContent wikiContent) {
         Elements iframes = wikiContent.getContent().getElementsByTag("iframe");
@@ -41,7 +41,7 @@ public class IframeHTMLProvider {
                 webpageContent.setSourceUrl(source);
                 provideIframesContent(webpageContent);
                 iframeContent = webpageContent.getContent();
-                documentContentCleaner.removeTrash(iframeContent);
+                wikiContentCleaner.removeTrash(iframeContent);
             } catch (Exception ignored) {
             }
         }
@@ -69,9 +69,9 @@ public class IframeHTMLProvider {
         iframeContent.appendChild(videoElement);
     }
 
-    public IframeHTMLProvider(ScriptedWikiPageProvider scriptedHTMLDocumentProvider, DocumentContentCleaner documentContentCleaner) {
+    public IframeHTMLProvider(ScriptedWikiPageProvider scriptedHTMLDocumentProvider, WikiContentCleaner wikiContentCleaner) {
         this.presetWikiContentProvider = new PresetWikiContentProvider();
         this.scriptedHTMLDocumentProvider = scriptedHTMLDocumentProvider;
-        this.documentContentCleaner = documentContentCleaner;
+        this.wikiContentCleaner = wikiContentCleaner;
     }
 }

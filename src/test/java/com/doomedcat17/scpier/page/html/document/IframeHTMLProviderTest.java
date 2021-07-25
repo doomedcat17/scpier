@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.page.html.document;
 
 import com.doomedcat17.scpier.page.WikiContent;
-import com.doomedcat17.scpier.page.html.document.cleaner.HTMLDocumentContentCleanerImpl;
+import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.provider.IframeHTMLProvider;
 import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
@@ -28,7 +28,7 @@ class IframeHTMLProviderTest {
     @BeforeEach
     void init() {
         MockitoAnnotations.initMocks(this);
-        iframeHTMLProvider = new IframeHTMLProvider(htmlDocumentProvider, new HTMLDocumentContentCleanerImpl());
+        iframeHTMLProvider = new IframeHTMLProvider(htmlDocumentProvider, new DefaultWikiContentCleaner());
     }
 
     @Test

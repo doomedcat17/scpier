@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class HTMLDocumentContentCleanerImpl implements DocumentContentCleaner {
+public class DefaultWikiContentCleaner implements WikiContentCleaner {
 
     private final String REMOVAL_DEFINITIONS_PATH = "removalElementsDefinitions.json";
 
@@ -114,7 +114,7 @@ public class HTMLDocumentContentCleanerImpl implements DocumentContentCleaner {
         return nodes;
     }
 
-    public HTMLDocumentContentCleanerImpl() {
+    public DefaultWikiContentCleaner() {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(REMOVAL_DEFINITIONS_PATH);
         BufferedReader streamReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));

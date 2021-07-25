@@ -2,7 +2,7 @@ package com.doomedcat17.scpier.page.html.document.cleaner;
 
 import org.jsoup.nodes.Element;
 
-public interface DocumentContentCleaner {
+public interface WikiContentCleaner {
 
     void clearContentAndUnpackBlocks(Element content);
 

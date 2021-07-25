@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.page.html.document;
 
-import com.doomedcat17.scpier.page.html.document.cleaner.DocumentContentCleaner;
-import com.doomedcat17.scpier.page.html.document.cleaner.HTMLDocumentContentCleanerImpl;
+import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
+import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class HTMLDocumentContentCleanerImplTest {
+class DefaultWikiContentCleanerTest {
 
-    private final DocumentContentCleaner documentContentCleaner = new HTMLDocumentContentCleanerImpl();
+    private final WikiContentCleaner wikiContentCleaner = new DefaultWikiContentCleaner();
 
     private final Element testData = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/document/cleaner/page-contents.html");
 
@@ -22,7 +22,7 @@ class HTMLDocumentContentCleanerImplTest {
         //given
         Element content = testData.getElementById("shouldCleanSimpleDocument");
         //when
-        documentContentCleaner.removeTrash(content);
+        wikiContentCleaner.removeTrash(content);
         //then
         assertEquals(15, content.childrenSize());
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
@@ -33,7 +33,7 @@ class HTMLDocumentContentCleanerImplTest {
         //given
         Element content = testData.getElementById("shouldClearSimpleDocument2");
         //when
-        documentContentCleaner.removeTrash(content);
+        wikiContentCleaner.removeTrash(content);
         //then
         assertEquals(12, content.childrenSize());
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
@@ -44,7 +44,7 @@ class HTMLDocumentContentCleanerImplTest {
         //given
         Element content = testData.getElementById("shouldClearSimpleDocument3");
         //when
-        documentContentCleaner.removeTrash(content);
+        wikiContentCleaner.removeTrash(content);
         //then
         assertEquals(109, content.childrenSize());
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
@@ -55,7 +55,7 @@ class HTMLDocumentContentCleanerImplTest {
         //given
         Element content = testData.getElementById("shouldClearSimpleDocument4");
         //when
-        documentContentCleaner.removeTrash(content);
+        wikiContentCleaner.removeTrash(content);
         //then
         assertEquals(29, content.childrenSize());
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
@@ -66,7 +66,7 @@ class HTMLDocumentContentCleanerImplTest {
         //given
         Element content = testData.getElementById("shouldClearSimpleDocument5");
         //when
-        documentContentCleaner.removeTrash(content);
+        wikiContentCleaner.removeTrash(content);
         //then
         assertEquals(12, content.childNodeSize());
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
@@ -77,7 +77,7 @@ class HTMLDocumentContentCleanerImplTest {
         //given
         Element content = testData.getElementById("shouldClearSimpleDocument6");
         //when
-        documentContentCleaner.removeTrash(content);
+        wikiContentCleaner.removeTrash(content);
         //then
         assertEquals(4, content.childNodeSize());
     }
@@ -87,7 +87,7 @@ class HTMLDocumentContentCleanerImplTest {
         //given
         Element content = testData.getElementById("shouldClearSimpleDocument7");
         //when
-        documentContentCleaner.removeTrash(content);
+        wikiContentCleaner.removeTrash(content);
         //then
         assertEquals(4, content.childNodeSize());
     }
@@ -97,7 +97,7 @@ class HTMLDocumentContentCleanerImplTest {
         //given
         Element content = testData.getElementById("shouldClearSimpleDocument8");
         //when
-        documentContentCleaner.removeTrash(content);
+        wikiContentCleaner.removeTrash(content);
         //then
         assertEquals(6, content.childNodeSize());
     }
@@ -107,7 +107,7 @@ class HTMLDocumentContentCleanerImplTest {
         //given
         Element content = testData.getElementById("shouldClearAndUnpackSimpleDocument");
         //when
-        documentContentCleaner.clearContentAndUnpackBlocks(content);
+        wikiContentCleaner.clearContentAndUnpackBlocks(content);
         //then
         assertEquals(13, content.childNodeSize());
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
@@ -118,7 +118,7 @@ class HTMLDocumentContentCleanerImplTest {
         //given
         Element content = testData.getElementById("shouldClearAndUnpackSimpleDocument2");
         //when
-        documentContentCleaner.clearContentAndUnpackBlocks(content);
+        wikiContentCleaner.clearContentAndUnpackBlocks(content);
         //then
         assertEquals(12, content.childNodeSize());
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
@@ -129,7 +129,7 @@ class HTMLDocumentContentCleanerImplTest {
         //given
         Element content = testData.getElementById("shouldClearAndUnpackSimpleDocument3");
         //when
-        documentContentCleaner.clearContentAndUnpackBlocks(content);
+        wikiContentCleaner.clearContentAndUnpackBlocks(content);
         //then
         assertEquals(4, content.childNodeSize());
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty() && !element.is("img")));
@@ -140,7 +140,7 @@ class HTMLDocumentContentCleanerImplTest {
         //given
         Element content = testData.getElementById("shouldClearAndUnpackSimpleDocument4");
         //when
-        documentContentCleaner.clearContentAndUnpackBlocks(content);
+        wikiContentCleaner.clearContentAndUnpackBlocks(content);
         //then
         assertEquals(8, content.childNodeSize());
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty() && !element.is("img")));
@@ -150,7 +150,7 @@ class HTMLDocumentContentCleanerImplTest {
         //given
         Element content = testData.getElementById("shouldClearAndUnpackSimpleDocument5");
         //when
-        documentContentCleaner.clearContentAndUnpackBlocks(content);
+        wikiContentCleaner.clearContentAndUnpackBlocks(content);
         //then
         assertEquals(4, content.childNodeSize());
     }

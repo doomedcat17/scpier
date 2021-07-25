@@ -3,7 +3,7 @@ package com.doomedcat17.scpier.page;
 import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import com.doomedcat17.scpier.exception.SCPWikiContentNotFound;
-import com.doomedcat17.scpier.page.html.document.cleaner.HTMLDocumentContentCleanerImpl;
+import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
@@ -18,7 +18,7 @@ public class WikiContentProvider {
         try {
             WikiPageProvider wikiPageProvider = new DefaultWikiPageProvider();
             WikiPageInterpreter wikiPageInterpreter =
-                    new WikiPageInterpreter(new HTMLDocumentContentCleanerImpl(),
+                    new WikiPageInterpreter(new DefaultWikiContentCleaner(),
                             new WikiRedirectionHandler(wikiPageProvider),
                             new PageTagsScrapperImpl()
                     );
