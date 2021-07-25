@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.page.html.document;
 
 import com.doomedcat17.scpier.page.PageContent;
-import com.doomedcat17.scpier.page.html.document.provider.HTMLDocumentProvider;
+import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.HTMLRedirectionHandler;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Document;
@@ -21,14 +21,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class HTMLRedirectionHandlerTest {
 
     @Mock
-    private HTMLDocumentProvider htmlDocumentProvider;
+    private WikiPageProvider wikiPageProvider;
 
     private HTMLRedirectionHandler htmlRedirectionHandler;
 
     @BeforeEach
     void init() {
         MockitoAnnotations.initMocks(this);
-        htmlRedirectionHandler = new HTMLRedirectionHandler(htmlDocumentProvider);
+        htmlRedirectionHandler = new HTMLRedirectionHandler(wikiPageProvider);
     }
 
     @Test
@@ -61,7 +61,7 @@ class HTMLRedirectionHandlerTest {
     void shouldRedirect() throws IOException {
         //given
         Document document = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/document/redirectedScp.html");
-        Mockito.when(htmlDocumentProvider.getWebpageContent("http://www.scpwiki.com/adult:scp-597/noredirect/true"))
+        Mockito.when(wikiPageProvider.getWebpageContent("http://www.scpwiki.com/adult:scp-597/noredirect/true"))
                 .thenReturn(new PageContent(document.getElementsByTag("body").first()));
         Element content = TestDataProvider
                 .getSampleElements("src/test/resources/html/test_data/document/sampleScpWithRedirection.html")

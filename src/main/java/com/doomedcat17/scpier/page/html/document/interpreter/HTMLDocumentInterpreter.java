@@ -3,7 +3,7 @@ package com.doomedcat17.scpier.page.html.document.interpreter;
 import com.doomedcat17.scpier.exception.HTMLDocumentInterpreterException;
 import com.doomedcat17.scpier.page.PageContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DocumentContentCleaner;
-import com.doomedcat17.scpier.page.html.document.js.ScriptedHTMLDocumentProvider;
+import com.doomedcat17.scpier.page.html.document.js.ScriptedWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.IframeHTMLProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.HTMLRedirectionHandler;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapper;
@@ -31,7 +31,7 @@ public class HTMLDocumentInterpreter {
             tagNames.ifPresent(pageContent::setTags);
             pageContent.setContent(content);
             if (!content.getElementsByTag("iframe").isEmpty()) {
-                IframeHTMLProvider iframeHTMLProvider = new IframeHTMLProvider(new ScriptedHTMLDocumentProvider(), documentContentCleanerImpl);
+                IframeHTMLProvider iframeHTMLProvider = new IframeHTMLProvider(new ScriptedWikiPageProvider(), documentContentCleanerImpl);
                 iframeHTMLProvider.provideIframesContent(pageContent);
             }
             documentContentCleanerImpl.clearContentAndUnpackBlocks(content);

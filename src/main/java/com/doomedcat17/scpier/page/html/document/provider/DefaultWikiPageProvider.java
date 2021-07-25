@@ -7,7 +7,7 @@ import org.jsoup.nodes.Document;
 
 import java.io.IOException;
 
-public class DefaultHTMLDocumentProvider implements HTMLDocumentProvider {
+public class DefaultWikiPageProvider implements WikiPageProvider {
 
     public PageContent getWebpageContent(String url) throws IOException {
         Connection conn = Jsoup.connect(url);

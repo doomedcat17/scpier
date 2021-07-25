@@ -3,7 +3,7 @@ package com.doomedcat17.scpier.page.html;
 import com.doomedcat17.scpier.page.PageContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.HTMLDocumentContentCleanerImpl;
 import com.doomedcat17.scpier.page.html.document.interpreter.HTMLDocumentInterpreter;
-import com.doomedcat17.scpier.page.html.document.provider.DefaultHTMLDocumentProvider;
+import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.HTMLRedirectionHandler;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
@@ -15,7 +15,7 @@ class HTMLDocumentInterpreterTest {
 
     private final HTMLDocumentInterpreter htmlDocumentInterpreter = new HTMLDocumentInterpreter(
             new HTMLDocumentContentCleanerImpl(),
-            new HTMLRedirectionHandler(new DefaultHTMLDocumentProvider()),
+            new HTMLRedirectionHandler(new DefaultWikiPageProvider()),
             new PageTagsScrapperImpl()
     );
 

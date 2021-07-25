@@ -4,7 +4,7 @@ import com.doomedcat17.scpier.page.PageContent;
 
 import java.io.IOException;
 
-public interface HTMLDocumentProvider {
+public interface WikiPageProvider {
 
     PageContent getWebpageContent(String url) throws IOException;
 }

@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.page.html.document.redirection;
 
 import com.doomedcat17.scpier.page.PageContent;
-import com.doomedcat17.scpier.page.html.document.provider.HTMLDocumentProvider;
+import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.nodes.Element;
@@ -20,7 +20,7 @@ public class HTMLRedirectionHandler {
 
     private final List<String> redirectionDefinitions;
 
-    private final HTMLDocumentProvider htmlDocumentProvider;
+    private final WikiPageProvider wikiPageProvider;
 
     public Element getRedirectionContent(Element element, String scpUrl) throws IOException {
         String redirectionLink = element.attr("href");
@@ -28,7 +28,7 @@ public class HTMLRedirectionHandler {
             int charPosition = scpUrl.lastIndexOf('/');
             redirectionLink = scpUrl.substring(0, charPosition) + redirectionLink;
         }
-        PageContent webpageContent = htmlDocumentProvider.getWebpageContent(redirectionLink);
+        PageContent webpageContent = wikiPageProvider.getWebpageContent(redirectionLink);
         return webpageContent.getContent().getElementById("page-content");
     }
 
@@ -47,7 +47,7 @@ public class HTMLRedirectionHandler {
         return Optional.empty();
     }
 
-    public HTMLRedirectionHandler(HTMLDocumentProvider htmlDocumentProvider) {
+    public HTMLRedirectionHandler(WikiPageProvider wikiPageProvider) {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(REDIRECTION_DEFINITIONS_PATH);
         BufferedReader streamReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
@@ -63,6 +63,6 @@ public class HTMLRedirectionHandler {
         } catch (IOException e) {
             throw new RuntimeException("Could not find Removal Definitions!");
         }
-        this.htmlDocumentProvider = htmlDocumentProvider;
+        this.wikiPageProvider = wikiPageProvider;
     }
 }

@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.page.html.document.js;
 
 import com.doomedcat17.scpier.page.PageContent;
-import com.doomedcat17.scpier.page.html.document.provider.HTMLDocumentProvider;
+import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import org.jsoup.Jsoup;
@@ -9,7 +9,7 @@ import org.jsoup.nodes.Document;
 
 import java.io.IOException;
 
-public class ScriptedHTMLDocumentProvider implements HTMLDocumentProvider {
+public class ScriptedWikiPageProvider implements WikiPageProvider {
 
     @Override
     public PageContent getWebpageContent(String url) throws IOException {

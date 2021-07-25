@@ -3,8 +3,8 @@ package com.doomedcat17.scpier.page.html.document.provider;
 import com.doomedcat17.scpier.exception.WikiPresetNotFound;
 import com.doomedcat17.scpier.page.PageContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DocumentContentCleaner;
-import com.doomedcat17.scpier.page.html.document.js.ScriptedHTMLDocumentProvider;
 import com.doomedcat17.scpier.page.html.document.js.ScriptedPageContentProvider;
+import com.doomedcat17.scpier.page.html.document.js.ScriptedWikiPageProvider;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
@@ -12,7 +12,7 @@ public class IframeHTMLProvider {
 
     private final ScriptedPageContentProvider scriptedPageContentProvider;
 
-    private final ScriptedHTMLDocumentProvider scriptedHTMLDocumentProvider;
+    private final ScriptedWikiPageProvider scriptedHTMLDocumentProvider;
 
     private final DocumentContentCleaner documentContentCleaner;
 
@@ -73,7 +73,7 @@ public class IframeHTMLProvider {
         iframeContent.appendChild(videoElement);
     }
 
-    public IframeHTMLProvider(ScriptedHTMLDocumentProvider scriptedHTMLDocumentProvider, DocumentContentCleaner documentContentCleaner) {
+    public IframeHTMLProvider(ScriptedWikiPageProvider scriptedHTMLDocumentProvider, DocumentContentCleaner documentContentCleaner) {
         this.scriptedPageContentProvider = new ScriptedPageContentProvider();
         this.scriptedHTMLDocumentProvider = scriptedHTMLDocumentProvider;
         this.documentContentCleaner = documentContentCleaner;
