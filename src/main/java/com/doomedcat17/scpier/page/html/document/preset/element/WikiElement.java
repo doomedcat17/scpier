@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonSubTypes({
         @JsonSubTypes.Type(value=WikiElement.class, name = "SIMPLE"),
         @JsonSubTypes.Type(value=InputWikiElement.class, name = "INPUT"),
-        @JsonSubTypes.Type(value=FormWikiElement.class, name = "FORM"),
         @JsonSubTypes.Type(value=ButtonWikiElement.class, name = "BUTTON"),
         @JsonSubTypes.Type(value=RadioWikiElement.class, name = "RADIO"),
         @JsonSubTypes.Type(value=CheckBoxWikiElement.class, name = "CHECKBOX")

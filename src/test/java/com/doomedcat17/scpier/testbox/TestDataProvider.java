@@ -2,9 +2,12 @@ package com.doomedcat17.scpier.testbox;
 
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.page.WikiContent;
+import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -62,6 +65,16 @@ public class TestDataProvider {
         return document;
     }
 
+    public static Preset loadPresetFromYAML(String path) {
+       ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.USE_NATIVE_TYPE_ID));
+       try {
+           return objectMapper.readValue(new File(path), new TypeReference<Preset>(){});
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+       return null;
+    }
+
     public static WikiContent getPageContent(String path) {
         Document scpDocument = loadDocumentFormHTML(path);
         WikiContent wikiContent = new WikiContent();
@@ -70,7 +83,7 @@ public class TestDataProvider {
         return wikiContent;
     }
 
-    public static Element getSampleElements(String path) {
+    public static Element getSampleElement(String path) {
         return loadElementFromHTML(path)
                 .getElementById("page-content");
 

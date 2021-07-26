@@ -1,6 +1,6 @@
 name: "3125"
 scpBranch: "ENGLISH"
-jsRuntime: 1000
+jsRuntime: 0
 wikiElements:
   - selector: "tbody tr:nth-child(3) td:nth-child(2)"
     elementType: "BUTTON"

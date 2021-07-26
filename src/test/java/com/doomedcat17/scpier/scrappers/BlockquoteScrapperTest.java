@@ -17,7 +17,7 @@ class BlockquoteScrapperTest extends ScrapperTest {
     private final BlockquoteScraper blockquoteScrapper = new BlockquoteScraper(SOURCE);
 
     private final Element sampleLines = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/blockquotes/sample-blockquote-elements.html");
+            .getSampleElement("src/test/resources/html/test_data/blockquotes/sample-blockquote-elements.html");
 
     private final Map<String, ContentNode<?>> expectedOutputs =
             getExpectedContentNodeOutputs("src/test/resources/html/test_data/blockquotes/expected_outputs.json");

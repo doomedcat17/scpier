@@ -10,7 +10,7 @@ import java.util.Locale;
 
 public class PresetLoader {
 
-    public static Preset loadPreset(String name, String langIdentifier) {
+    public Preset loadPreset(String name, String langIdentifier) {
         try {
             ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
             String source = "src/main/resources/presets/" + langIdentifier + "/" + name.toLowerCase(Locale.ROOT) + ".yaml";

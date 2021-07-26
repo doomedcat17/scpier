@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class StyleScrapperTest {
 
     private final Element sampleLines = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/lines/sample-lines-elements.html");
+            .getSampleElement("src/test/resources/html/test_data/lines/sample-lines-elements.html");
 
     @Test
     void shouldScrapStylesFromStrongElement() {

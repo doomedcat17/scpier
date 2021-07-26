@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function writeText() {
+            let paragraph = document.getElementById("jsText");
+            if (paragraph === null) {
+                paragraph =document.createElement("p");
+                paragraph.setAttribute("id", "jsText");
+                let body = document.getElementsByTagName("body")[0];
+                body.appendChild(paragraph);
+            }
+            paragraph.innerHTML = document.getElementById("inputText").value;
+        }
+    </script>
+</head>
+<body id="page-content">
+    <p>Hello!</p>
+    <input id="inputText" type="text">
+    <button id="submit" onclick="writeText()">Click me</button>
+</body>
+</html>

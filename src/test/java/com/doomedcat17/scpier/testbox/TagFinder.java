@@ -1,8 +1,14 @@
 package com.doomedcat17.scpier.testbox;
 
+import com.doomedcat17.scpier.page.WikiContent;
+import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
+import com.doomedcat17.scpier.page.html.document.preset.Preset;
+import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
+import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
@@ -18,7 +24,14 @@ public class TagFinder {
             scpNumber.insert(0, "scp-");
             Connection conn = Jsoup.connect(url+ scpNumber);
             Document document =  conn.get();
-            Elements elements = document.select("#page-content iframe");
+            Element content = document.selectFirst("#page-content");
+            WikiContent wikiContent = new WikiContent();
+            wikiContent.setSourceUrl(url+scpNumber);
+            wikiContent.setLangIdentifier("eng");
+            wikiContent.setContent(content);
+            IframeContentProvider iframeContentProvider = new IframeContentProvider(new ScriptedWikiPageProvider(), new DefaultWikiContentCleaner());
+            iframeContentProvider.provideIframesContent(wikiContent, new Preset());
+            Elements elements = content.select("form");
             if (!elements.isEmpty()) {
                 System.out.println(scpNumber);
             }

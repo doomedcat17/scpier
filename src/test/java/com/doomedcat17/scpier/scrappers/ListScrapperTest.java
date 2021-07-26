@@ -16,7 +16,7 @@ class ListScrapperTest extends ScrapperTest {
     private final ListScraper listMapper = new ListScraper(SOURCE);
 
     private final Element sampleLists = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/lists/sample-lists-elements.html");
+            .getSampleElement("src/test/resources/html/test_data/lists/sample-lists-elements.html");
 
     private final Map<String, ContentNode<?>> expectedOutputs =
             getExpectedContentNodeOutputs("src/test/resources/html/test_data/lists/expected_outputs.json");

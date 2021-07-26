@@ -23,6 +23,8 @@ public class WikiPageInterpreter {
 
     private final PageTagsScrapper pageTagsScrapper;
 
+    private final PresetLoader presetLoader;
+
     public void mapContent(WikiContent wikiContent)  {
         try {
             Element content = wikiContent.getContent().getElementById("page-content");
@@ -35,7 +37,7 @@ public class WikiPageInterpreter {
             wikiContent.setContent(content);
             Preset preset = new Preset();
             try {
-                preset = PresetLoader.loadPreset(wikiContent.getName(), wikiContent.getLangIdentifier());
+                preset = presetLoader.loadPreset(wikiContent.getName(), wikiContent.getLangIdentifier());
                 wikiContentCleaner.additionalRemovalDefinitions(preset.getRemovalDefinitions());
             } catch (WikiPresetNotFound ignored) {
             }
@@ -50,9 +52,10 @@ public class WikiPageInterpreter {
         }
     }
 
-    public WikiPageInterpreter(WikiContentCleaner wikiContentCleaner, WikiRedirectionHandler wikiRedirectionHandler, PageTagsScrapper pageTagsScrapper) {
+    public WikiPageInterpreter(WikiContentCleaner wikiContentCleaner, WikiRedirectionHandler wikiRedirectionHandler, PageTagsScrapper pageTagsScrapper, PresetLoader presetLoader) {
         this.wikiContentCleaner = wikiContentCleaner;
         this.wikiRedirectionHandler = wikiRedirectionHandler;
         this.pageTagsScrapper = pageTagsScrapper;
+        this.presetLoader = presetLoader;
     }
 }

@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class TextScraperTest extends ScrapperTest {
 
     private final Element sampleLines = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/text/sample-text-elements.html");
+            .getSampleElement("src/test/resources/html/test_data/text/sample-text-elements.html");
 
     private final Map<String, List<TextNode>> expectedOutputs = getListOfExpectedTextNodes("src/test/resources/html/test_data/text/expected_outputs.json");
 

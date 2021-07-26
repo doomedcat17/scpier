@@ -5,6 +5,5 @@ public enum WikiElementType {
     RADIO,
     BUTTON,
     INPUT,
-    FORM,
     SIMPLE
 }

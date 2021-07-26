@@ -1,0 +1,12 @@
+name: "TEST"
+scpBranch: "ENGLISH"
+wikiElements:
+  - selector: "#firstButton"
+    elementType: "BUTTON"
+    jsRuntime: 100
+  - selector: "#secondButton"
+    elementType: "BUTTON"
+    jsRuntime: 100
+  - selector: "#thirdButton"
+    elementType: "BUTTON"
+    jsRuntime: 100
