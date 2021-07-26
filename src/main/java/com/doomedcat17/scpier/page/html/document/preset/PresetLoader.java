@@ -6,14 +6,16 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Locale;
 
 public class PresetLoader {
 
     public static Preset loadPreset(String name, String langIdentifier) {
         try {
             ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+            String source = "src/main/resources/presets/" + langIdentifier + "/" + name.toLowerCase(Locale.ROOT) + ".yaml";
             return mapper.readValue(
-                    new File("src/main/resources/presets/" + langIdentifier + "/" + name + ".yaml"),
+                    new File(source),
                     Preset.class);
         } catch (IOException e) {
             throw new WikiPresetNotFound(name);

@@ -3,6 +3,7 @@ package com.doomedcat17.scpier.page.html.document.cleaner;
 import com.doomedcat17.scpier.exception.DocumentContentCleanupException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.jsoup.nodes.Comment;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
@@ -104,11 +105,13 @@ public class DefaultWikiContentCleaner implements WikiContentCleaner {
         for (Node node : nodes) {
             if (node instanceof Element) {
                 Element element = (Element) node;
-                if ((!element.is("img, audio, iframe, audio-player, video") && element.select("img, audio, iframe, audio-player, video").isEmpty()) && (element.childNodes().isEmpty() || !element.hasText())) {
+                if ((!element.is("img, audio, iframe, audio-player, video")
+                        && element.select("img, audio, iframe, audio-player, video").isEmpty())
+                        && (element.childNodes().isEmpty() || !element.hasText())) {
                     nodesToRemove.add(node);
                 }
             } else {
-                if (node.childNodes().isEmpty() && node.toString().isBlank()) {
+                if ((node.childNodes().isEmpty() && node.toString().isBlank()) || node instanceof Comment) {
                     nodesToRemove.add(node);
                 }
             }

@@ -11,7 +11,7 @@ public class WikiElementHandler {
     public static void handleElement(WikiElement element, DomNode htmlElement) throws IOException {
         String selector = element.getSelector();
         if (element instanceof ButtonWikiElement) {
-            HtmlAnchor button = htmlElement.querySelector(selector);
+            DomElement button = htmlElement.querySelector(selector);
             button.click();
         } else if (element instanceof InputWikiElement) {
             InputWikiElement inputWikiElement = (InputWikiElement) element;

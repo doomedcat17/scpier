@@ -52,10 +52,10 @@ public class LineScraper extends ElementScraper {
             if (node instanceof Element) {
                 //in some cases node.toString() throws NullPointerException for Element
                 Element e = (Element) node;
-                firstNodeText = e.text();
+                firstNodeText = e.wholeText();
             } else firstNodeText = node.toString();
             //removing first node if empty or has only Unicode Byte Order Mark
-            if (firstNodeText.length() == 0 || (firstNodeText.charAt(0) == 65279 && firstNodeText.length() == 1)) {
+            if (firstNodeText.length() == 0 || ((firstNodeText.charAt(0) == 65279 || firstNodeText.charAt(0) == 8203) && firstNodeText.length() == 1)) {
                 element.childNodes().get(0).remove();
             }
         }
