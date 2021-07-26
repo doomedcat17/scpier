@@ -16,7 +16,7 @@ class AudioScrapperTest extends ScrapperTest {
     private final AudioScraper audioScrapper = new AudioScraper(SOURCE);
 
     private final Element sampleElements = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/audio/sample-audio-elements.html");
+            .getSampleElement("src/test/resources/html/test_data/audio/sample-audio-elements.html");
 
     @Test
     void shouldScrapAudioElement()  {

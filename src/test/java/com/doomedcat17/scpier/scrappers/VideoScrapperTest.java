@@ -15,7 +15,7 @@ class VideoScrapperTest extends ScrapperTest {
     private final VideoScraper videoScrapper = new VideoScraper(SOURCE);
 
     private final Element sampleElements = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/video/sample-video-elements.html");
+            .getSampleElement("src/test/resources/html/test_data/video/sample-video-elements.html");
 
     @Test
     void shouldScrapVideo()  {

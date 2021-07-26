@@ -1,0 +1,9 @@
+name: "TEST"
+scpBranch: "ENGLISH"
+wikiElements:
+  - selector: "#inputText"
+    elementType: "INPUT"
+    inputValue: "TEST"
+  - selector: "#submit"
+    elementType: "BUTTON"
+    jsRuntime: 100

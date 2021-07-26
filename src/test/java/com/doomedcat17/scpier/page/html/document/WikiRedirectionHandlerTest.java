@@ -35,7 +35,7 @@ class WikiRedirectionHandlerTest {
     void shouldFindRedirection() {
         //given
         Element content = TestDataProvider
-                .getSampleElements("src/test/resources/html/test_data/document/sampleScpWithRedirection.html")
+                .getSampleElement("src/test/resources/html/test_data/document/sampleScpWithRedirection.html")
                 .getElementById("page-content");
         //when
         Optional<Element> foundRedirection =
@@ -48,7 +48,7 @@ class WikiRedirectionHandlerTest {
     void shouldNotFindRedirection() {
         //given
         Element content = TestDataProvider
-                .getSampleElements("src/test/resources/html/test_data/document/sampleScpWithoutRedirection.html")
+                .getSampleElement("src/test/resources/html/test_data/document/sampleScpWithoutRedirection.html")
                 .getElementById("page-content");
         //when
         Optional<Element> foundRedirection =
@@ -64,7 +64,7 @@ class WikiRedirectionHandlerTest {
         Mockito.when(wikiPageProvider.getWebpageContent("http://www.scpwiki.com/adult:scp-597/noredirect/true"))
                 .thenReturn(new WikiContent(document.getElementsByTag("body").first()));
         Element content = TestDataProvider
-                .getSampleElements("src/test/resources/html/test_data/document/sampleScpWithRedirection.html")
+                .getSampleElement("src/test/resources/html/test_data/document/sampleScpWithRedirection.html")
                 .getElementById("page-content");
 
         //when

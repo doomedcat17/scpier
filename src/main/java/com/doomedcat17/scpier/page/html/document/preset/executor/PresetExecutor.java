@@ -2,7 +2,6 @@ package com.doomedcat17.scpier.page.html.document.preset.executor;
 
 import com.doomedcat17.scpier.exception.PresetExecutorException;
 import com.doomedcat17.scpier.page.WikiContent;
-import com.doomedcat17.scpier.page.html.document.WebClientProvider;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.element.WikiElement;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -14,9 +13,8 @@ import java.io.IOException;
 
 public class PresetExecutor {
 
-    public static WikiContent execute(Preset preset, String src) throws PresetExecutorException {
+    public static WikiContent execute(WebClient webClient, Preset preset, String src) throws PresetExecutorException {
         try {
-            WebClient webClient = WebClientProvider.getWebClient();
             HtmlPage page = webClient.getPage(src);
             for (WikiElement element : preset.getWikiElements()) {
                 WikiElementHandler.handleElement(element, page);

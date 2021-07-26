@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function writeText(text) {
+            let paragraph = document.getElementById("jsText");
+            if (paragraph === null) {
+                paragraph =document.createElement("p");
+                paragraph.setAttribute("id", "jsText");
+                let body = document.getElementsByTagName("body")[0];
+                body.appendChild(paragraph);
+            }
+            let textNode = document.createTextNode(text);
+            paragraph.appendChild(textNode);
+        }
+    </script>
+</head>
+<body id="page-content">
+    <p>Hello!</p>
+    <button id="firstButton" onclick="writeText('First ')">Click me</button>
+    <button id="secondButton" onclick="writeText('Second ')">And me</button>
+    <button id="thirdButton" onclick="writeText('Third')">And also mee</button>
+</body>
+</html>

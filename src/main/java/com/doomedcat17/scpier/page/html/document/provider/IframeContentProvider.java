@@ -1,6 +1,7 @@
 package com.doomedcat17.scpier.page.html.document.provider;
 
 import com.doomedcat17.scpier.page.WikiContent;
+import com.doomedcat17.scpier.page.html.document.WebClientProvider;
 import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
@@ -40,7 +41,7 @@ public class IframeContentProvider {
                 WikiContent webpageContent;
                 if (preset.getName() != null) {
                     try {
-                        webpageContent = PresetExecutor.execute(preset, source);
+                        webpageContent = PresetExecutor.execute(WebClientProvider.getWebClient(), preset, source);
                     } catch (NullPointerException e) {
                         // preset DOES NOT apply to all iframe elements, so default content is provided
                         webpageContent = scriptedHTMLDocumentProvider.getWebpageContent(source);

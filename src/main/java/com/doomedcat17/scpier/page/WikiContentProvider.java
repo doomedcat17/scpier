@@ -5,6 +5,7 @@ import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import com.doomedcat17.scpier.exception.SCPWikiContentNotFound;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter;
+import com.doomedcat17.scpier.page.html.document.preset.PresetLoader;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
@@ -20,7 +21,8 @@ public class WikiContentProvider {
             WikiPageInterpreter wikiPageInterpreter =
                     new WikiPageInterpreter(new DefaultWikiContentCleaner(),
                             new WikiRedirectionHandler(wikiPageProvider),
-                            new PageTagsScrapperImpl()
+                            new PageTagsScrapperImpl(),
+                            new PresetLoader()
                     );
             String url = WikiSourceBuilder.buildSource(name, scpBranch, scpTranslation);
             WikiContent wikiContent = wikiPageProvider.getWebpageContent(url);
