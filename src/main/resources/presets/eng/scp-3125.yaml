@@ -1,0 +1,19 @@
+name: "3125"
+scpBranch: "ENGLISH"
+jsRuntime: 1000
+wikiElements:
+  - selector: "tbody tr:nth-child(3) td:nth-child(2)"
+    elementType: "BUTTON"
+  - selector: "tbody tr:nth-child(3) td:nth-child(2)"
+    elementType: "BUTTON"
+  - selector: "tbody tr:nth-child(3) td:nth-child(2)"
+    elementType: "BUTTON"
+  - selector: "tbody tr:nth-child(3) td:nth-child(2)"
+    elementType: "BUTTON"
+  - selector: "tbody tr:nth-child(3) td:nth-child(2)"
+    elementType: "BUTTON"
+  - selector: "td.go-button"
+    elementType: "BUTTON"
+    jsRuntime: 1000
+removalDefinitions:
+  - ".keypad"

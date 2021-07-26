@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.scrappers;
 
 import com.doomedcat17.scpier.data.content.ContentNode;
-import com.doomedcat17.scpier.scrapper.list.ListScrapper;
+import com.doomedcat17.scpier.scraper.list.ListScraper;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ListScrapperTest extends ScrapperTest {
 
-    private final ListScrapper listMapper = new ListScrapper(SOURCE);
+    private final ListScraper listMapper = new ListScraper(SOURCE);
 
     private final Element sampleLists = TestDataProvider
             .getSampleElements("src/test/resources/html/test_data/lists/sample-lists-elements.html");
