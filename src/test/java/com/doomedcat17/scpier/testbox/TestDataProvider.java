@@ -1,10 +1,13 @@
 package com.doomedcat17.scpier.testbox;
 
 import com.doomedcat17.scpier.data.content.ContentNode;
-import com.doomedcat17.scpier.page.PageContent;
+import com.doomedcat17.scpier.page.WikiContent;
+import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -34,7 +37,7 @@ public class TestDataProvider {
         return null;
     }
 
-    private static Element loadElementFormHTML(String path) {
+    private static Element loadElementFromHTML(String path) {
         Element element = null;
         try {
             element = Jsoup.parse(
@@ -62,16 +65,26 @@ public class TestDataProvider {
         return document;
     }
 
-    public static PageContent getPageContent(String path) {
-        Document scpDocument = loadDocumentFormHTML(path);
-        PageContent pageContent = new PageContent();
-        pageContent.setContent(scpDocument.getElementsByTag("body").first());
-        pageContent.setSourceUrl("url");
-        return pageContent;
+    public static Preset loadPresetFromYAML(String path) {
+       ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.USE_NATIVE_TYPE_ID));
+       try {
+           return objectMapper.readValue(new File(path), new TypeReference<Preset>(){});
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+       return null;
     }
 
-    public static Element getSampleElements(String path) {
-        return loadElementFormHTML(path)
+    public static WikiContent getPageContent(String path) {
+        Document scpDocument = loadDocumentFormHTML(path);
+        WikiContent wikiContent = new WikiContent();
+        wikiContent.setContent(scpDocument.getElementsByTag("body").first());
+        wikiContent.setSourceUrl("url");
+        return wikiContent;
+    }
+
+    public static Element getSampleElement(String path) {
+        return loadElementFromHTML(path)
                 .getElementById("page-content");
 
     }

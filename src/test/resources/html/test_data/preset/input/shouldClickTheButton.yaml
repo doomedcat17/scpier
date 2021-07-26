@@ -1,0 +1,6 @@
+name: "TEST"
+scpBranch: "ENGLISH"
+wikiElements:
+  - selector: "#button"
+    elementType: "BUTTON"
+    jsRuntime: 300

@@ -8,19 +8,23 @@ import com.doomedcat17.scpier.exception.SCPierApiException;
 import com.doomedcat17.scpier.exception.SCPierApiInternalException;
 import com.doomedcat17.scpier.mapper.scp.ScpMapperProvider;
 import com.doomedcat17.scpier.mapper.scp.ScpWikiContentMapper;
-import com.doomedcat17.scpier.page.PageContent;
-import com.doomedcat17.scpier.page.PageContentProvider;
+import com.doomedcat17.scpier.page.WikiContent;
+import com.doomedcat17.scpier.page.WikiContentProvider;
 
 public class ScpFoundationDataProvider {
 
-    private final PageContentProvider pageContentProvider = new PageContentProvider();
+    private final WikiContentProvider wikiContentProvider = new WikiContentProvider();
+
+    public ScpWikiData getScpWikiData(String articleName, SCPBranch scpBranch) throws SCPierApiException {
+        return getScpWikiData(articleName, scpBranch, SCPTranslation.ORIGINAL);
+    }
 
     public ScpWikiData getScpWikiData(String articleName, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPierApiException {
         try {
-        PageContent pageContent = getPageContent(articleName, scpBranch, scpTranslation);
-        ScpWikiContentMapper scpWikiContentMapper = ScpMapperProvider.getScpMapper(pageContent.getName());
-        ScpWikiData scpWikiData = scpWikiContentMapper.mapToScp(pageContent);
-        scpWikiData.setTags(pageContent.getTags());
+        WikiContent wikiContent = getPageContent(articleName, scpBranch, scpTranslation);
+        ScpWikiContentMapper scpWikiContentMapper = ScpMapperProvider.getScpMapper(wikiContent.getName());
+        ScpWikiData scpWikiData = scpWikiContentMapper.mapToScp(wikiContent);
+        scpWikiData.setTags(wikiContent.getTags());
             return scpWikiData;
         } catch (RuntimeException e) {
             e.printStackTrace();
@@ -28,11 +32,11 @@ public class ScpFoundationDataProvider {
         }
     }
 
-    private PageContent getPageContent(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound {
-        PageContent pageContent = pageContentProvider.getPageContent(name, scpBranch, scpTranslation);
+    private WikiContent getPageContent(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound {
+        WikiContent wikiContent = wikiContentProvider.getPageContent(name, scpBranch, scpTranslation);
         if (scpTranslation.equals(SCPTranslation.ORIGINAL)) {
-            pageContent.setLangIdentifier(scpBranch.identifier);
-        } else pageContent.setLangIdentifier(scpTranslation.identifier);
-        return pageContent;
+            wikiContent.setTranslationIdentifier(scpBranch.identifier);
+        } else wikiContent.setTranslationIdentifier(scpTranslation.identifier);
+        return wikiContent;
     }
 }

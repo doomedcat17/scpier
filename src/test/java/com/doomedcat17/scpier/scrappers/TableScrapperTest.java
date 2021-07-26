@@ -4,7 +4,7 @@ package com.doomedcat17.scpier.scrappers;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.content.ContentNodeType;
 import com.doomedcat17.scpier.data.content.TextNode;
-import com.doomedcat17.scpier.scrapper.table.TableScrapper;
+import com.doomedcat17.scpier.scraper.table.TableScraper;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -16,10 +16,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TableScrapperTest extends ScrapperTest {
 
-    private final TableScrapper tableMapper = new TableScrapper(SOURCE);
+    private final TableScraper tableMapper = new TableScraper(SOURCE);
 
     private final Element sampleTables = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/tables/sample-table-elements.html");
+            .getSampleElement("src/test/resources/html/test_data/tables/sample-table-elements.html");
 
     private final Map<String, ContentNode<?>> expectedOutputs =
             getExpectedContentNodeOutputs("src/test/resources/html/test_data/tables/expected_outputs.json");

@@ -25,9 +25,9 @@ if you consider commercial use.
       
 # Status
 SCPier is in its early development stages. It can't handle heavily scripted articles and for some of them additional interpretation is needed.
-Also, some content can be scrapped incorrectly or be missing.
+Also some content can be scrapped incorrectly or be missing.
 
-If you meet any bugs or issues, please open new issues in <a href="https://github.com/doomedcat17/scpier/issues">Issues</a> section.
+If you find any bugs or issues, please open new issues in <a href="https://github.com/doomedcat17/scpier/issues">Issues</a> section.
 
 You can also contact me via [Telegram](https://t.me/doomedcat17).
 
@@ -40,17 +40,17 @@ HTML elements are scraped and interpreted by multiple ElementScrappers.
 
 # Getting data
 
-Do get data from Scp Wiki simply create instance of `ScpWikiDataProvider` class and call `getScpWikiContent()` method.
+To get data from Scp Wiki simply create instance of `ScpWikiDataProvider` class and call `getScpWikiContent()` method.
 
 It has three parameters:
 
 `articleName` - name of the article.<br>
-SCPier puts it in the URL to search for desired article. If you want to get one of the SCPs, you can only put
-its id ignoring heading zeros.
+SCPier puts it in the URL to search for desired article. If you want to get one of the SCPs, you can provide its full name or just a number.
 (*Example: "7", "07" "007", "scp-007" and "SCP-007" will return SCP-007*).<br>
-Non-SCPs articles are more complicated case.<br>
+Other articles are more complicated case.<br>
 There is no common pattern for article naming in wiki's URLs (RESTful naming).<br>
-Some examples:<br>
+Some examples:
+
 1. "*PeppersGhost's Proposal, I guess.*" is ```peppersghosts-stupid-proposal```
 2. "*Playing God*" is `playing-god`
 3. "*Dr Gears' Proposal*" is `dr-gears-s-proposal`
@@ -58,13 +58,13 @@ Some examples:<br>
 5. "*多狼乱な今度の裏切りは撲殺す*" is `3999death`
 
 There are some similarities, but they don't apply to every article.<br>
-But if you replace all special chars with `-`, it will work for ***most*** cases.
+If you replace all special chars with `-`, it should work for ***most*** cases.
 
 `scpBranch` - `SCPBranch` enum of desired branch.
 Defines source branch of desired article.<br>
 
 `scpTranslation` - `SCPTranslation` enum of desired translation.
-Defines translation of desired article.<br>
+Defines translation language of desired article.
 
 
 
@@ -222,9 +222,8 @@ String source;
 ```
 ### SCPBranch and SCPTranslation
 They are enums, which define source branch and desired translation.
-**All branches are available with all translations made by community.**
+**All official branches are supported. Translations are made by SCP community, SCPier does not translate anything by itself**
 
-**SCPier does not translate anything by itself!**
 
 List of SCP Wiki branches and translations:
 

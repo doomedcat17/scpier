@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function onLoad() {
+            var paragraph = document.createElement("p");
+            paragraph.setAttribute("id", "jsText");
+            var text = document.createTextNode("This text comes from the script!");
+            paragraph.appendChild(text);
+            var body = document.getElementsByTagName("body")[0];
+            body.appendChild(paragraph);
+        }
+    </script>
+</head>
+<body id="page-content" onload="onLoad()">
+    <p>Hello!</p>
+</body>
+</html>

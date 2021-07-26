@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.scrappers;
 
-import com.doomedcat17.scpier.scrapper.text.StyleScrapper;
+import com.doomedcat17.scpier.scraper.text.StyleScraper;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -12,14 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class StyleScrapperTest {
 
     private final Element sampleLines = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/lines/sample-lines-elements.html");
+            .getSampleElement("src/test/resources/html/test_data/lines/sample-lines-elements.html");
 
     @Test
     void shouldScrapStylesFromStrongElement() {
         //given
         Element strongElement = sampleLines.getElementById("sampleStrong");
         //when
-        Map<String, String> styles = StyleScrapper.scrapStyles(strongElement);
+        Map<String, String> styles = StyleScraper.scrapStyles(strongElement);
         //then
         assertAll(
                 () -> assertTrue(styles.containsKey("font-weight")),
@@ -33,7 +33,7 @@ class StyleScrapperTest {
         //given
         Element strongElement = sampleLines.getElementById("shouldScrapStylesFromStrongElementWithStyleAttribute");
         //when
-        Map<String, String> styles = StyleScrapper.scrapStyles(strongElement);
+        Map<String, String> styles = StyleScraper.scrapStyles(strongElement);
         //then
         assertAll(
                 () -> assertTrue(styles.containsKey("font-weight")),
@@ -49,7 +49,7 @@ class StyleScrapperTest {
         //given
         Element strongElement = sampleLines.getElementById("shouldScrapStylesFromStrongElementWithStyleAttribute2");
         //when
-        Map<String, String> styles = StyleScrapper.scrapStyles(strongElement);
+        Map<String, String> styles = StyleScraper.scrapStyles(strongElement);
         //then
         assertAll(
                 () -> assertTrue(styles.containsKey("font-weight")),
@@ -67,7 +67,7 @@ class StyleScrapperTest {
         //given
         Element spanElement = sampleLines.getElementById("shouldScrapStylesFromSpanElementWithStyleAttribute");
         //when
-        Map<String, String> styles = StyleScrapper.scrapStyles(spanElement);
+        Map<String, String> styles = StyleScraper.scrapStyles(spanElement);
         //then
         assertAll(
                 () -> assertTrue(styles.containsKey("font-style")),
@@ -83,7 +83,7 @@ class StyleScrapperTest {
         //given
         Element subElement = sampleLines.getElementById("shouldScrapStylesFromSubElement");
         //when
-        Map<String, String> styles = StyleScrapper.scrapStyles(subElement);
+        Map<String, String> styles = StyleScraper.scrapStyles(subElement);
         //then
         assertAll(
                 () -> assertTrue(styles.containsKey("font-style")),
@@ -103,7 +103,7 @@ class StyleScrapperTest {
         //given
         Element subElement = sampleLines.getElementById("shouldScrapStylesFromSupElement");
         //when
-        Map<String, String> styles = StyleScrapper.scrapStyles(subElement);
+        Map<String, String> styles = StyleScraper.scrapStyles(subElement);
         //then
         assertAll(
                 () -> assertTrue(styles.containsKey("font-style")),
@@ -123,7 +123,7 @@ class StyleScrapperTest {
         //given
         Element iElement = sampleLines.getElementById("shouldScrapStylesFromIElement");
         //when
-        Map<String, String> styles = StyleScrapper.scrapStyles(iElement);
+        Map<String, String> styles = StyleScraper.scrapStyles(iElement);
         //then
         assertAll(
                 () -> assertTrue(styles.containsKey("font-style")),
@@ -137,7 +137,7 @@ class StyleScrapperTest {
         //given
         Element emElement = sampleLines.getElementById("shouldScrapStylesFromEmElement");
         //when
-        Map<String, String> styles = StyleScrapper.scrapStyles(emElement);
+        Map<String, String> styles = StyleScraper.scrapStyles(emElement);
         //then
         assertAll(
                 () -> assertTrue(styles.containsKey("font-style")),
@@ -150,7 +150,7 @@ class StyleScrapperTest {
         //given
         Element emElement = sampleLines.getElementById("shouldScrapContentWithStylization");
         //when
-        Map<String, String> styles = StyleScrapper.scrapStyles(emElement);
+        Map<String, String> styles = StyleScraper.scrapStyles(emElement);
         //then
         assertAll(
                 () -> assertTrue(styles.containsKey("color")),

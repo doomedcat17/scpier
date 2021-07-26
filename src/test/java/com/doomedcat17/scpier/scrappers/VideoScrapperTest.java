@@ -2,7 +2,7 @@ package com.doomedcat17.scpier.scrappers;
 
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.content.EmbedNode;
-import com.doomedcat17.scpier.scrapper.video.VideoScrapper;
+import com.doomedcat17.scpier.scraper.video.VideoScraper;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -12,10 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class VideoScrapperTest extends ScrapperTest {
 
-    private final VideoScrapper videoScrapper = new VideoScrapper(SOURCE);
+    private final VideoScraper videoScrapper = new VideoScraper(SOURCE);
 
     private final Element sampleElements = TestDataProvider
-            .getSampleElements("src/test/resources/html/test_data/video/sample-video-elements.html");
+            .getSampleElement("src/test/resources/html/test_data/video/sample-video-elements.html");
 
     @Test
     void shouldScrapVideo()  {
