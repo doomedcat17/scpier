@@ -14,7 +14,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class DefaultWikiContentCleaner implements WikiContentCleaner {
@@ -86,15 +88,16 @@ public class DefaultWikiContentCleaner implements WikiContentCleaner {
     }
 
     private void removeTrashElements(Element content) {
-        List<Element> elementsToRemove = new ArrayList<>();
+        Set<Element> elementsToRemove = new HashSet<>();
         for (String name: removalDefinitions) {
             elementsToRemove.addAll(content.select(name));
         }
         //deleting <br> element only from <div id="page-content">
         Elements brElements = content.select("#page-content > br");
         elementsToRemove.addAll(brElements);
-        elementsToRemove.forEach(Node::remove);
-        content.children().removeAll(elementsToRemove);
+        for(Element element: elementsToRemove) {
+            element.remove();
+        }
     }
 
     //deleting empty nodes from content
