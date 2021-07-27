@@ -39,7 +39,7 @@ class WikiRedirectionHandlerTest {
                 .getElementById("page-content");
         //when
         Optional<Element> foundRedirection =
-                wikiRedirectionHandler.checkForRedirection(content);
+                wikiRedirectionHandler.provideRedirectedContent(content);
         //then
         assertTrue(foundRedirection.isPresent());
     }
@@ -52,7 +52,7 @@ class WikiRedirectionHandlerTest {
                 .getElementById("page-content");
         //when
         Optional<Element> foundRedirection =
-                wikiRedirectionHandler.checkForRedirection(content);
+                wikiRedirectionHandler.provideRedirectedContent(content);
         //then
         assertTrue(foundRedirection.isEmpty());
     }
@@ -69,7 +69,7 @@ class WikiRedirectionHandlerTest {
 
         //when
         Optional<Element> foundRedirection =
-                wikiRedirectionHandler.checkForRedirection(content);
+                wikiRedirectionHandler.provideRedirectedContent(content);
 
         if (foundRedirection.isEmpty()) fail();
         Element redirectionElement = foundRedirection.get();

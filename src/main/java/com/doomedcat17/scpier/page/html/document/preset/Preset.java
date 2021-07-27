@@ -18,13 +18,16 @@ public class Preset {
 
     private List<String> removalDefinitions = new ArrayList<>();
 
+    private List<String> outerContentNames = new ArrayList<>();
 
-    public Preset(String name, SCPBranch scpBranch, int jsRuntime, List<WikiElement> wikiElements, List<String> removalDefinitions) {
+
+    public Preset(String name, SCPBranch scpBranch, int jsRuntime, List<WikiElement> wikiElements, List<String> removalDefinitions, List<String> outerContentNames) {
         this.name = name;
         this.scpBranch = scpBranch;
         this.wikiElements = wikiElements;
         this.jsRuntime = jsRuntime;
         this.removalDefinitions = removalDefinitions;
+        this.outerContentNames = outerContentNames;
     }
 
     public List<String> getRemovalDefinitions() {
@@ -45,6 +48,10 @@ public class Preset {
 
     public int getJsRuntime() {
         return jsRuntime;
+    }
+
+    public List<String> getOuterContentNames() {
+        return outerContentNames;
     }
 
     public Preset() {

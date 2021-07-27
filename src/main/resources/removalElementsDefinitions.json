@@ -15,7 +15,6 @@
   "style",
   ".log-form",
   ".form",
-  ".code",
   "#loadingpage",
   "#buttons",
   "#loading",
@@ -27,6 +26,6 @@
   "textarea",
   "hl-main",
   "noscript",
-  "svg"
-
+  "svg",
+  "canvas"
 ]

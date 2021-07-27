@@ -32,7 +32,7 @@ public class WikiRedirectionHandler {
         return webpageContent.getContent().getElementById("page-content");
     }
 
-    public Optional<Element> checkForRedirection(Element content) {
+    public Optional<Element> provideRedirectedContent(Element content) {
         for (String elementDefinition : redirectionDefinitions) {
             Element foundRedirectionElement = content.selectFirst(elementDefinition);
             if (foundRedirectionElement != null) {

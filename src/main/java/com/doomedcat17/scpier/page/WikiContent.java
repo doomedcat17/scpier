@@ -1,5 +1,6 @@
 package com.doomedcat17.scpier.page;
 
+import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import org.jsoup.nodes.Element;
 
 import java.util.List;
@@ -17,6 +18,8 @@ public class WikiContent {
     private String sourceUrl;
 
     private List<String> tags;
+
+    private Preset preset;
 
     public String getTranslationIdentifier() {
         return translationIdentifier;
@@ -68,6 +71,14 @@ public class WikiContent {
 
     public void setLangIdentifier(String langIdentifier) {
         this.langIdentifier = langIdentifier;
+    }
+
+    public Preset getPreset() {
+        return preset;
+    }
+
+    public void setPreset(Preset preset) {
+        this.preset = preset;
     }
 
     public WikiContent() {

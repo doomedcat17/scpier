@@ -29,17 +29,6 @@ class DefaultWikiContentCleanerTest {
     }
 
     @Test
-    void shouldClearSimpleDocument2() {
-        //given
-        Element content = testData.getElementById("shouldClearSimpleDocument2");
-        //when
-        wikiContentCleaner.removeTrash(content);
-        //then
-        assertEquals(12, content.childrenSize());
-        assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
-    }
-
-    @Test
     void shouldClearSimpleDocument3() {
         //given
         Element content = testData.getElementById("shouldClearSimpleDocument3");
@@ -50,16 +39,6 @@ class DefaultWikiContentCleanerTest {
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
     }
 
-    @Test
-    void shouldClearSimpleDocument4() {
-        //given
-        Element content = testData.getElementById("shouldClearSimpleDocument4");
-        //when
-        wikiContentCleaner.removeTrash(content);
-        //then
-        assertEquals(29, content.childrenSize());
-        assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
-    }
 
     @Test
     void shouldClearSimpleDocument5() {

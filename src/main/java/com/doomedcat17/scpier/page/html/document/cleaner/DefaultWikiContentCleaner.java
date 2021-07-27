@@ -86,17 +86,15 @@ public class DefaultWikiContentCleaner implements WikiContentCleaner {
     }
 
     private void removeTrashElements(Element content) {
+        List<Element> elementsToRemove = new ArrayList<>();
         for (String name: removalDefinitions) {
-            Elements elements = content.select(name);
-            if (!elements.isEmpty()) {
-                elements.forEach(Node::remove);
-            }
+            elementsToRemove.addAll(content.select(name));
         }
-        //deleting <br> element only from <div id="content-content">
-        Elements elements = content.children();
-        for (Element element: elements) {
-            if (element.is("br")) element.remove();
-        }
+        //deleting <br> element only from <div id="page-content">
+        Elements brElements = content.select("#page-content > br");
+        elementsToRemove.addAll(brElements);
+        elementsToRemove.forEach(Node::remove);
+        content.children().removeAll(elementsToRemove);
     }
 
     //deleting empty nodes from content

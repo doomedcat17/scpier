@@ -31,7 +31,7 @@ public class TagFinder {
             wikiContent.setContent(content);
             IframeContentProvider iframeContentProvider = new IframeContentProvider(new ScriptedWikiPageProvider(), new DefaultWikiContentCleaner());
             iframeContentProvider.provideIframesContent(wikiContent, new Preset());
-            Elements elements = content.select("form");
+            Elements elements = content.select("p > br");
             if (!elements.isEmpty()) {
                 System.out.println(scpNumber);
             }

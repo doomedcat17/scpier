@@ -1,0 +1,5 @@
+name: "3031"
+scpBranch: "ENGLISH"
+jsRuntime: 0
+removalDefinitions:
+  - ".code"

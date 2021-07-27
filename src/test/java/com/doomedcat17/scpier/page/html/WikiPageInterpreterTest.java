@@ -3,7 +3,6 @@ package com.doomedcat17.scpier.page.html;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter;
-import com.doomedcat17.scpier.page.html.document.preset.PresetLoader;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
@@ -17,8 +16,7 @@ class WikiPageInterpreterTest {
     private final WikiPageInterpreter wikiPageInterpreter = new WikiPageInterpreter(
             new DefaultWikiContentCleaner(),
             new WikiRedirectionHandler(new DefaultWikiPageProvider()),
-            new PageTagsScrapperImpl(),
-            new PresetLoader()
+            new PageTagsScrapperImpl()
     );
 
 

@@ -1,0 +1,6 @@
+name: "3309"
+scpBranch: "ENGLISH"
+removalDefinitions:
+  - ".code"
+  - ".anchor + div"
+  - ".anchor"
