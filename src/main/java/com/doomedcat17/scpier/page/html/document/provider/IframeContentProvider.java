@@ -6,8 +6,10 @@ import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
 import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class IframeContentProvider {
@@ -78,23 +80,24 @@ public class IframeContentProvider {
 
     private void replaceIframeWithItsContent(Element iframe, Element iframeContent) {
         if (iframe.parent().childrenSize() == 1) {
-            placeElementsBehind(iframe.parent(), iframeContent.children());
+            placeNodesBehind(iframe.parent(), iframeContent.childNodes());
             iframe.parent().remove();
         } else {
-            placeElementsBehind(iframe, iframeContent.children());
+            placeNodesBehind(iframe, iframeContent.childNodes());
             iframe.remove();
         }
     }
 
-    private void placeElementsBehind(Element mainElement, List<Element> elementsToPlace) {
-        Element lastElement = null;
-        for (Element element: elementsToPlace) {
-            if (lastElement != null) {
-                lastElement.after(element);
+    private void placeNodesBehind(Element mainElement, List<Node> nodesToPlace) {
+        nodesToPlace = new ArrayList<>(nodesToPlace);
+        Node lastNode = null;
+        for (Node node: nodesToPlace) {
+            if (lastNode != null) {
+                lastNode.after(node);
             } else {
-                mainElement.after(element);
-                lastElement = element;
+                mainElement.after(node);
             }
+            lastNode = node;
         }
     }
 

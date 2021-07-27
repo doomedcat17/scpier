@@ -1,0 +1,5 @@
+name: "4707"
+scpBranch: "ENGLISH"
+jsRuntime: 0
+removalDefinitions:
+  - ".scp-image-block"
