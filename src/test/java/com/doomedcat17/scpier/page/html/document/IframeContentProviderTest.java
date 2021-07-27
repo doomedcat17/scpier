@@ -15,7 +15,8 @@ import org.mockito.MockitoAnnotations;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class IframeContentProviderTest {
     @Mock
@@ -145,7 +146,6 @@ class IframeContentProviderTest {
         iframeContentProvider.provideIframesContent(wikiContent, new Preset());
         //then
         assertEquals(1, content.select("video").size());
-        assertTrue(content.selectFirst("video").hasClass("youtube-video"));
     }
 
     @Test

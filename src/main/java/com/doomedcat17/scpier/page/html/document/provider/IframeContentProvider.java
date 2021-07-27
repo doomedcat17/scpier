@@ -24,7 +24,7 @@ public class IframeContentProvider {
     private void replaceWithIframeContent(Element iframe, String pageSource, String title, String langIdentifier, Preset preset) {
         String source = iframe.attr("src");
         Element iframeContent = new Element("div");
-        if (source.contains("youtube")) {
+        if (source.contains("youtube") || source.contains("vimeo")) {
             provideYtVideo(iframeContent, source);
             if (iframe.parent().childrenSize() == 1) {
                 iframeContent.children().forEach(element -> iframe.parent().after(element));
@@ -69,7 +69,6 @@ public class IframeContentProvider {
             while(src.charAt(0) == '/') src.deleteCharAt(0);
         }
         Element videoElement = new Element("video");
-        videoElement.addClass("youtube-video");
         Element sourceElement = new Element("source");
         sourceElement.attr("src", src.toString());
         videoElement.appendChild(sourceElement);
