@@ -75,8 +75,11 @@ public class ScraperFactory {
             case "center":
                 return new BlockquoteScraper(source);
             case "video":
-            case "figure":
                 return new VideoScraper(source);
+            case "figure":
+                if (element.selectFirst("img") != null) {
+                    return new ImageScraper(source);
+                } else return new VideoScraper(source);
             default:
                 throw new ScrapperNotDefinedException("Scrapper not defined for \"" + element.tagName() +"\" element");
         }
