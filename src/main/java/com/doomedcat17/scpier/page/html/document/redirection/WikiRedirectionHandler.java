@@ -2,23 +2,15 @@ package com.doomedcat17.scpier.page.html.document.redirection;
 
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.nodes.Element;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 public class WikiRedirectionHandler {
 
-    private final String REDIRECTION_DEFINITIONS_PATH = "redirectionElementsDefinitions.json";
-
-    private final List<String> redirectionDefinitions;
+    private final Set<String> redirectionDefinitions;
 
     private final WikiPageProvider wikiPageProvider;
 
@@ -47,22 +39,8 @@ public class WikiRedirectionHandler {
         return Optional.empty();
     }
 
-    public WikiRedirectionHandler(WikiPageProvider wikiPageProvider) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(REDIRECTION_DEFINITIONS_PATH);
-        BufferedReader streamReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
-        try {
-            StringBuilder jsonBuilder = new StringBuilder();
-            String line;
-            while ((line = streamReader.readLine()) != null) jsonBuilder.append(line);
-            redirectionDefinitions =
-                    objectMapper.readValue(
-                            jsonBuilder.toString(),
-                            new TypeReference<>() {
-                            });
-        } catch (IOException e) {
-            throw new RuntimeException("Could not find Removal Definitions!");
-        }
+    public WikiRedirectionHandler(WikiPageProvider wikiPageProvider, Set<String> redirectionDefinitions) {
+        this.redirectionDefinitions = redirectionDefinitions;
         this.wikiPageProvider = wikiPageProvider;
     }
 }

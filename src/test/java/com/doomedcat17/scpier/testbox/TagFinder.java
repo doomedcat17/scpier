@@ -1,5 +1,6 @@
 package com.doomedcat17.scpier.testbox;
 
+import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
@@ -12,9 +13,11 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+
 public class TagFinder {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, URISyntaxException {
         String url = "http://www.scpwiki.com/";
         for (int i = 2; i <= 5001; i++) {
             StringBuilder scpNumber = new StringBuilder(String.valueOf(i));
@@ -29,7 +32,9 @@ public class TagFinder {
             wikiContent.setSourceUrl(url+scpNumber);
             wikiContent.setLangIdentifier("eng");
             wikiContent.setContent(content);
-            IframeContentProvider iframeContentProvider = new IframeContentProvider(new ScriptedWikiPageProvider(), new DefaultWikiContentCleaner());
+            ResourcesProvider.initResources();
+            IframeContentProvider iframeContentProvider = new IframeContentProvider(new ScriptedWikiPageProvider(),
+                    new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()));
             iframeContentProvider.provideIframesContent(wikiContent, new Preset());
             Elements elements = content.select("p > br");
             if (!elements.isEmpty()) {

@@ -1,5 +1,6 @@
 package com.doomedcat17.scpier.page.html.document;
 
+import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
@@ -7,6 +8,7 @@ import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
 import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -14,6 +16,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -27,10 +30,14 @@ class IframeContentProviderTest {
     private final Element testData = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/document/iframe/page-contents.html");
 
 
+    @BeforeAll
+    static void initResources() throws IOException, URISyntaxException {
+        ResourcesProvider.initResources();
+    }
     @BeforeEach
     void init() {
         MockitoAnnotations.initMocks(this);
-        iframeContentProvider = new IframeContentProvider(htmlDocumentProvider, new DefaultWikiContentCleaner());
+        iframeContentProvider = new IframeContentProvider(htmlDocumentProvider, new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()));
     }
 
     @Test

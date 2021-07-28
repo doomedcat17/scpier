@@ -1,5 +1,6 @@
 package com.doomedcat17.scpier.page;
 
+import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import com.doomedcat17.scpier.exception.SCPWikiContentNotFound;
@@ -7,7 +8,7 @@ import com.doomedcat17.scpier.exception.WikiPresetNotFound;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
-import com.doomedcat17.scpier.page.html.document.preset.PresetLoader;
+import com.doomedcat17.scpier.page.html.document.preset.PresetProvider;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
@@ -20,14 +21,14 @@ import java.util.List;
 
 public class WikiContentProvider {
 
-    private final PresetLoader presetLoader;
+    private final PresetProvider presetProvider;
 
     public WikiContent getPageContent(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound {
         try {
             WikiPageProvider wikiPageProvider = new DefaultWikiPageProvider();
             WikiPageInterpreter wikiPageInterpreter =
-                    new WikiPageInterpreter(new DefaultWikiContentCleaner(),
-                            new WikiRedirectionHandler(wikiPageProvider),
+                    new WikiPageInterpreter(new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()),
+                            new WikiRedirectionHandler(wikiPageProvider, ResourcesProvider.getRedirectionDefinitions()),
                             new PageTagsScrapperImpl()
                     );
             String url = WikiSourceBuilder.buildSource(name, scpBranch, scpTranslation);
@@ -36,7 +37,7 @@ public class WikiContentProvider {
             wikiContent.setTranslationIdentifier(scpTranslation.identifier);
             Preset preset;
             try {
-                preset = presetLoader.loadPreset(url.substring(url.lastIndexOf('/')+1), wikiContent.getLangIdentifier());
+                preset = presetProvider.getPresetByNameAndBranch(name, scpBranch);
                 wikiContent.setPreset(preset);
             } catch (WikiPresetNotFound e) {
                 preset = new Preset();
@@ -65,6 +66,6 @@ public class WikiContentProvider {
     }
 
     public WikiContentProvider() {
-        this.presetLoader = new PresetLoader();
+        this.presetProvider = ResourcesProvider.getPresetProvider();
     }
 }

@@ -1,18 +1,11 @@
 package com.doomedcat17.scpier.page.html.document.cleaner;
 
 import com.doomedcat17.scpier.exception.DocumentContentCleanupException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.nodes.Comment;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -21,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class DefaultWikiContentCleaner implements WikiContentCleaner {
 
-    private final List<String> removalDefinitions;
+    private final Set<String> removalDefinitions;
 
     public void clearContentAndUnpackBlocks(Element content) {
         try {
@@ -121,23 +114,8 @@ public class DefaultWikiContentCleaner implements WikiContentCleaner {
         return nodes;
     }
 
-    public DefaultWikiContentCleaner() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        String REMOVAL_DEFINITIONS_PATH = "removalElementsDefinitions.json";
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(REMOVAL_DEFINITIONS_PATH);
-        BufferedReader streamReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
-        try {
-            StringBuilder jsonBuilder = new StringBuilder();
-            String line;
-            while ((line = streamReader.readLine()) != null) jsonBuilder.append(line);
-            removalDefinitions =
-                    objectMapper.readValue(
-                            jsonBuilder.toString(),
-                            new TypeReference<>() {
-                            });
-        } catch (IOException e) {
-            throw new RuntimeException("Could not find Removal Definitions!");
-        }
+    public DefaultWikiContentCleaner(Set<String> removalDefinitions) {
+        this.removalDefinitions = removalDefinitions;
     }
 
 }

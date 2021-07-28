@@ -1,5 +1,6 @@
 package com.doomedcat17.scpier.page.html;
 
+import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter;
@@ -7,18 +8,26 @@ import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvide
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class WikiPageInterpreterTest {
 
     private final WikiPageInterpreter wikiPageInterpreter = new WikiPageInterpreter(
-            new DefaultWikiContentCleaner(),
-            new WikiRedirectionHandler(new DefaultWikiPageProvider()),
+            new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()),
+            new WikiRedirectionHandler(new DefaultWikiPageProvider(), ResourcesProvider.getRedirectionDefinitions()),
             new PageTagsScrapperImpl()
     );
 
+    @BeforeAll
+    static void init() throws IOException, URISyntaxException {
+        ResourcesProvider.initResources();
+    }
 
 
     @Test

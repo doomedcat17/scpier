@@ -1,20 +1,29 @@
 package com.doomedcat17.scpier.page.html.document;
 
+import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class DefaultWikiContentCleanerTest {
 
-    private final WikiContentCleaner wikiContentCleaner = new DefaultWikiContentCleaner();
+    private final WikiContentCleaner wikiContentCleaner = new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions());
 
     private final Element testData = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/document/cleaner/page-contents.html");
 
+    @BeforeAll
+    static void init() throws IOException, URISyntaxException {
+        ResourcesProvider.initResources();
+    }
 
 
     @Test
