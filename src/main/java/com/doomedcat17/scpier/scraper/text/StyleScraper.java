@@ -20,7 +20,7 @@ public class StyleScraper {
                                 .split(";"))
                         .map(String::trim)
                         .collect(Collectors.toList());
-                styles.forEach(styleText -> mapStyle(styleText, stylesMap));
+                styles.forEach(styleText -> scrapStyle(styleText, stylesMap));
             }
             addClassStyles(element, stylesMap);
             return stylesMap;
@@ -31,11 +31,15 @@ public class StyleScraper {
 
     }
 
-    private static void mapStyle(String style, Map<String, String> stylesMap) {
+    private static void scrapStyle(String style, Map<String, String> stylesMap) {
         //sometimes style is empty bruh
         if (!style.isBlank()) {
-            String[] styleKeyAndValue = style.split(":");
-            stylesMap.put(styleKeyAndValue[0].trim(), styleKeyAndValue[1].trim());
+            try {
+                String[] styleKeyAndValue = style.split(":");
+                stylesMap.put(styleKeyAndValue[0].trim(), styleKeyAndValue[1].trim());
+                //and sometimes style has no value
+            } catch (ArrayIndexOutOfBoundsException ignored) {
+            }
         }
     }
 
