@@ -57,7 +57,7 @@ public class AnomBarScraper extends DivScraper implements DivScraperComponent {
     private ParagraphNode scrapScpClass(Element scpClassElement) {
         ParagraphNode paragraph = new ParagraphNode();
         String scpClassName = scpClassElement.selectFirst(".class-text").text();
-        if (!scpClassName.equals("none")) {
+        if (!scpClassName.equals("none") && !scpClassName.startsWith("{$")) {
             scpClassName = capitalizeText(scpClassName).stripTrailing();
             TextNode titleNode = new TextNode(scpClassElement.selectFirst(".class-category").text()+" ");
             titleNode.addStyle("font-weight", "bold");
