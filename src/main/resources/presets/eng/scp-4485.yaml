@@ -1,0 +1,5 @@
+name: "4485"
+scpBranch: "ENGLISH"
+jsRuntime: 0
+removalDefinitions:
+  - ".code"

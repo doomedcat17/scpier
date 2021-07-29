@@ -1,0 +1,5 @@
+name: "5170"
+scpBranch: "ENGLISH"
+jsRuntime: 0
+removalDefinitions:
+  - ".code"

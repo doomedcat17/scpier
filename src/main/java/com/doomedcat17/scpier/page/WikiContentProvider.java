@@ -13,6 +13,7 @@ import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvide
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
+import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 
 import java.io.IOException;
@@ -33,6 +34,7 @@ public class WikiContentProvider {
                     );
             String url = WikiSourceBuilder.buildSource(name, scpBranch, scpTranslation);
             WikiContent wikiContent = wikiPageProvider.getWebpageContent(url);
+            getOffsets(wikiContent, url, wikiPageProvider).forEach(node -> wikiContent.getContent().selectFirst("#page-content").appendChild(node));
             wikiContent.setLangIdentifier(scpBranch.identifier);
             wikiContent.setTranslationIdentifier(scpTranslation.identifier);
             Preset preset;
@@ -53,6 +55,7 @@ public class WikiContentProvider {
         }
     }
 
+
     private List<Node> getOuterContent(List<String> outerContentNames, SCPBranch branch, SCPTranslation translation) {
         List<Node> outerContent = new ArrayList<>();
         for(String outerContentName: outerContentNames) {
@@ -63,6 +66,23 @@ public class WikiContentProvider {
             }
         }
         return outerContent;
+    }
+
+    private List<Node> getOffsets(WikiContent originalContent, String url, WikiPageProvider wikiPageProvider) {
+        List<Node> offsetsContent = new ArrayList<>();
+        Element previousContent = originalContent.getContent().selectFirst("#page-content");
+        for (int i = 1; i <= 5; i++) {
+            try {
+                WikiContent wikiContent = wikiPageProvider.getWebpageContent(url+"/offset/"+i);
+                Element content = wikiContent.getContent().selectFirst("#page-content");
+                if (previousContent.html().equals(content.html())) break;
+                offsetsContent.addAll(content.childNodes());
+                previousContent = content;
+            } catch (IOException e) {
+                break;
+            }
+        }
+        return offsetsContent;
     }
 
     public WikiContentProvider() {

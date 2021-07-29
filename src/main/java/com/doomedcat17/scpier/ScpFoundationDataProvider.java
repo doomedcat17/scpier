@@ -8,7 +8,7 @@ import com.doomedcat17.scpier.exception.SCPWikiContentNotFound;
 import com.doomedcat17.scpier.exception.SCPierApiException;
 import com.doomedcat17.scpier.exception.SCPierApiInternalException;
 import com.doomedcat17.scpier.exception.SCPierResourcesInitializationException;
-import com.doomedcat17.scpier.mapper.scp.ScpMapperProvider;
+import com.doomedcat17.scpier.mapper.scp.DefaultScpWikiContentMapper;
 import com.doomedcat17.scpier.mapper.scp.ScpWikiContentMapper;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.WikiContentProvider;
@@ -24,7 +24,7 @@ public class ScpFoundationDataProvider {
     public ScpWikiData getScpWikiData(String articleName, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPierApiException {
         try {
         WikiContent wikiContent = getPageContent(articleName, scpBranch, scpTranslation);
-        ScpWikiContentMapper scpWikiContentMapper = ScpMapperProvider.getScpMapper(wikiContent.getName());
+        ScpWikiContentMapper scpWikiContentMapper = new DefaultScpWikiContentMapper();
         ScpWikiData scpWikiData = scpWikiContentMapper.mapToScp(wikiContent);
         scpWikiData.setTags(wikiContent.getTags());
             return scpWikiData;

@@ -4,10 +4,9 @@ import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.content.HeadingNode;
 import com.doomedcat17.scpier.data.content.TextNode;
 import com.doomedcat17.scpier.scraper.ElementContentScraper;
-import com.doomedcat17.scpier.scraper.ElementScraper;
-import com.doomedcat17.scpier.scraper.ScraperFactory;
 import com.doomedcat17.scpier.scraper.div.DivScraper;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,17 +28,28 @@ public class CollapsibleBlockScraper extends DivScraper implements DivScraperCom
         heading.addElement(titleNode);
         blockContent.add(heading);
         Element collapsibleBlockContent = element.selectFirst(".collapsible-block-content");
-        if (collapsibleBlockContent.children().size() == 1) {
-            ElementScraper elementScraper = ScraperFactory.getHtmlScrapper(collapsibleBlockContent.children().get(0), source);
-            return List.of(elementScraper.scrapElement(collapsibleBlockContent.children().get(0)));
-        } else if (collapsibleBlockContent.children().isEmpty()) {
+        Elements contentSiblings = collapsibleBlockContent.siblingElements();
+        if (collapsibleBlockContent.children().isEmpty()) {
             // in some cases content is empty and its content is in element with "fadeintext" class
             collapsibleBlockContent = element.selectFirst(".fadeintext, .terminal");
-            if (collapsibleBlockContent == null) return blockContent;
+            if (collapsibleBlockContent == null && contentSiblings.isEmpty()) return blockContent;
         }
-        List<ContentNode<?>> contentNodes = ElementContentScraper.scrapContent(collapsibleBlockContent, source);
-        blockContent.addAll(contentNodes);
+        if (collapsibleBlockContent != null) {
+            List<ContentNode<?>> contentNodes = ElementContentScraper.scrapContent(collapsibleBlockContent, source);
+            blockContent.addAll(contentNodes);
+        }
+        if (!contentSiblings.isEmpty()) {
+            blockContent.addAll(scrapSiblingElements(contentSiblings));
+        }
         return blockContent;
+    }
+
+    private List<ContentNode<?>> scrapSiblingElements(Elements siblings) {
+        List<ContentNode<?>> contentNodes = new ArrayList<>();
+        siblings.stream()
+                .map(sibling -> ElementContentScraper.scrapContent(sibling, source))
+                .forEach(contentNodes::addAll);
+        return contentNodes;
     }
 
     private List<ContentNode<?>> scrapColmodConetnt(Element element)  {
