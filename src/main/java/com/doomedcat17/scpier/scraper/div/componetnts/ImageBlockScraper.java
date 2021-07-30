@@ -22,21 +22,27 @@ public class ImageBlockScraper extends DivScraper implements DivScraperComponent
     public List<ContentNode<?>> scrapDivContent(Element element)  {
         List<ContentNode<?>> contentNodes = new ArrayList<>();
         Element imageElement = element.selectFirst("img");
-        if (imageElement == null) {
-            imageElement = element.selectFirst("video");
-            VideoScraper videoScrapper = new VideoScraper(source);
-            EmbedNode videoNode = (EmbedNode) videoScrapper.scrapElement(imageElement);
-            videoNode.getDescription().addAll(getCaption(element));
-            contentNodes.add(videoNode);
-        } else {
-            ImageScraper imageMapper = new ImageScraper(source);
-            imageElement = element.selectFirst("img");
-            EmbedNode embedNode = (EmbedNode) imageMapper.scrapElement(imageElement);
-            embedNode.getDescription().addAll(getCaption(element));
-            contentNodes.add(embedNode);
-        }
+        EmbedNode embedNode;
+        if (imageElement == null) embedNode = scrapVideo(element, source);
+        else embedNode = scrapImage(element, source);
+        embedNode.getDescription().addAll(getCaption(element));
+        if (!embedNode.isEmpty()) contentNodes.add(embedNode);
         return contentNodes;
     }
+
+    private EmbedNode scrapImage(Element element, String source) {
+        ImageScraper imageMapper = new ImageScraper(source);
+        Element imgElement = element.selectFirst("img");
+        return (EmbedNode) imageMapper.scrapElement(imgElement);
+    }
+
+    private EmbedNode scrapVideo(Element element, String source) {
+        Element videoElement = element.selectFirst("video");
+        VideoScraper videoScrapper = new VideoScraper(source);
+        return  (EmbedNode) videoScrapper.scrapElement(videoElement);
+    }
+
+    //scraps image/video caption
     private List<TextNode> getCaption(Element element)  {
         Element captionElement = element.selectFirst(".scp-image-caption");
         List<TextNode> textNodes = new ArrayList<>();

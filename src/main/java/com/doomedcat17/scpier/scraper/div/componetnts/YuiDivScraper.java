@@ -23,7 +23,8 @@ public class YuiDivScraper extends DivScraper implements DivScraperComponent {
         } else if (element.hasClass("yui-content")) {
             List<Element> filteredElements =  element.children().stream()
                     .filter(wikiTab -> wikiTab.hasAttr("id"))
-                    .filter(wikiTab -> wikiTab.attr("id").contains("wiki-tab-")).collect(Collectors.toList());
+                    .filter(wikiTab -> wikiTab.attr("id").contains("wiki-tab-"))
+                    .collect(Collectors.toList());
             for (Element innerElement : filteredElements) {
                 contentNodes.addAll(scrapWikiTab(innerElement));
             }
