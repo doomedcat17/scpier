@@ -9,7 +9,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
 public class StyleScraper {
+
+    /**
+     * Returns a {@link Map} of local CSS style properties and values for given {@link Element}
+     * @param element an {@link Element} 
+     */
     public static Map<String, String> scrapStyles(Element element) {
         try {
             Map<String, String> stylesMap = new HashMap<>();
@@ -20,7 +26,7 @@ public class StyleScraper {
                                 .split(";"))
                         .map(String::trim)
                         .collect(Collectors.toList());
-                styles.forEach(styleText -> scrapStyle(styleText, stylesMap));
+                styles.forEach(styleText -> getPropertyAndValue(styleText, stylesMap));
             }
             addClassStyles(element, stylesMap);
             return stylesMap;
@@ -31,7 +37,12 @@ public class StyleScraper {
 
     }
 
-    private static void scrapStyle(String style, Map<String, String> stylesMap) {
+    /**
+     * Adds property and value to given stylesMap
+     * @param style a string of style property and value
+     * @param stylesMap a {@link Map} of CSS style properties and values
+     */
+    private static void getPropertyAndValue(String style, Map<String, String> stylesMap) {
         //sometimes style is empty bruh
         if (!style.isBlank()) {
             try {

@@ -12,11 +12,16 @@ public class ScpCheck {
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newCachedThreadPool();
-        executorService.execute(new ScpChecker(2, 1000));
-        executorService.execute(new ScpChecker(1001, 2000));
-        executorService.execute(new ScpChecker(2001, 3000));
-        executorService.execute(new ScpChecker(3001, 4000));
-        executorService.execute(new ScpChecker(4001, 5000));
+        executorService.execute(new ScpChecker(2, 500));
+        executorService.execute(new ScpChecker(501, 1000));
+        executorService.execute(new ScpChecker(1001, 1500));
+        executorService.execute(new ScpChecker(1501, 2000));
+        executorService.execute(new ScpChecker(2001, 2500));
+        executorService.execute(new ScpChecker(2501, 3000));
+        executorService.execute(new ScpChecker(3001, 3500));
+        executorService.execute(new ScpChecker(3501, 4000));
+        executorService.execute(new ScpChecker(4001, 4500));
+        executorService.execute(new ScpChecker(4501, 5000));
         executorService.shutdown();
 
         if (executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)) {
