@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.page.html.document.interpreter;
 
-import com.doomedcat17.scpier.exception.HTMLDocumentInterpreterException;
+import com.doomedcat17.scpier.exception.page.html.document.interpreter.WikiPageInterpreterException;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
@@ -42,8 +42,7 @@ public class WikiPageInterpreter {
             }
             wikiContentCleaner.clearContentAndUnpackBlocks(content);
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new HTMLDocumentInterpreterException(e.getMessage());
+            throw new WikiPageInterpreterException(e);
         }
     }
 

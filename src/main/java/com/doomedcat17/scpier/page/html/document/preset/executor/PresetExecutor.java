@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.page.html.document.preset.executor;
 
-import com.doomedcat17.scpier.exception.PresetExecutorException;
+import com.doomedcat17.scpier.exception.page.html.document.preset.PresetExecutorException;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.element.WikiElement;
@@ -29,7 +29,7 @@ public class PresetExecutor {
             wikiContent.setContent(document.getElementsByTag("body").first());
             return wikiContent;
         } catch (IOException e) {
-            throw new PresetExecutorException(e.getMessage());
+            throw new PresetExecutorException(e);
         }
     }
 

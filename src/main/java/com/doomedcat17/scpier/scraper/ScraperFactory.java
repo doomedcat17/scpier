@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.scraper;
 
-import com.doomedcat17.scpier.exception.ScrapperNotDefinedException;
+import com.doomedcat17.scpier.exception.scraper.ScraperNotDefinedException;
 import com.doomedcat17.scpier.scraper.audio.AudioScraper;
 import com.doomedcat17.scpier.scraper.blockquote.BlockquoteScraper;
 import com.doomedcat17.scpier.scraper.div.DivScraper;
@@ -81,7 +81,7 @@ public class ScraperFactory {
                     return new ImageScraper(source);
                 } else return new VideoScraper(source);
             default:
-                throw new ScrapperNotDefinedException("Scrapper not defined for \"" + element.tagName() +"\" element");
+                throw new ScraperNotDefinedException("Scrapper not defined for \"" + element.tagName() +"\" element");
         }
     }
 }

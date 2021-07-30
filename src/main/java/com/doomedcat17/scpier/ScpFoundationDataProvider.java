@@ -4,10 +4,10 @@ import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
-import com.doomedcat17.scpier.exception.SCPWikiContentNotFound;
 import com.doomedcat17.scpier.exception.SCPierApiException;
 import com.doomedcat17.scpier.exception.SCPierApiInternalException;
 import com.doomedcat17.scpier.exception.SCPierResourcesInitializationException;
+import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
 import com.doomedcat17.scpier.mapper.scp.DefaultScpWikiContentMapper;
 import com.doomedcat17.scpier.mapper.scp.ScpWikiContentMapper;
 import com.doomedcat17.scpier.page.WikiContent;
@@ -29,8 +29,7 @@ public class ScpFoundationDataProvider {
         scpWikiData.setTags(wikiContent.getTags());
             return scpWikiData;
         } catch (RuntimeException e) {
-            e.printStackTrace();
-            throw new SCPierApiInternalException(articleName, scpBranch, scpTranslation);
+            throw new SCPierApiInternalException(articleName, scpBranch, scpTranslation, e);
         }
     }
 
@@ -47,7 +46,7 @@ public class ScpFoundationDataProvider {
             ResourcesProvider.initResources();
             this.wikiContentProvider = new WikiContentProvider();
         } catch (Exception e) {
-            throw new SCPierResourcesInitializationException(e.getMessage());
+            throw new SCPierResourcesInitializationException(e);
         }
     }
 }

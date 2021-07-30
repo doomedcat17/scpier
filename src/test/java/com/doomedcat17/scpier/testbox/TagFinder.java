@@ -1,6 +1,7 @@
 package com.doomedcat17.scpier.testbox;
 
 import com.doomedcat17.scpier.data.files.ResourcesProvider;
+import com.doomedcat17.scpier.exception.page.html.document.provider.IframeContentProviderException;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
@@ -17,7 +18,7 @@ import java.net.URISyntaxException;
 
 public class TagFinder {
 
-    public static void main(String[] args) throws IOException, URISyntaxException {
+    public static void main(String[] args) throws IOException, URISyntaxException, IframeContentProviderException {
         String url = "http://www.scpwiki.com/";
         for (int i = 2; i <= 5001; i++) {
             StringBuilder scpNumber = new StringBuilder(String.valueOf(i));

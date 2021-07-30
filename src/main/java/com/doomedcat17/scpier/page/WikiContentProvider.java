@@ -3,8 +3,8 @@ package com.doomedcat17.scpier.page;
 import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPTranslation;
-import com.doomedcat17.scpier.exception.SCPWikiContentNotFound;
-import com.doomedcat17.scpier.exception.WikiPresetNotFound;
+import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
+import com.doomedcat17.scpier.exception.page.html.document.preset.WikiPresetNotFoundException;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
@@ -41,7 +41,7 @@ public class WikiContentProvider {
             try {
                 preset = presetProvider.getPresetByNameAndBranch(name, scpBranch);
                 wikiContent.setPreset(preset);
-            } catch (WikiPresetNotFound e) {
+            } catch (WikiPresetNotFoundException e) {
                 preset = new Preset();
             }
             wikiPageInterpreter.mapContent(wikiContent);
@@ -51,7 +51,7 @@ public class WikiContentProvider {
             }
             return wikiContent;
         } catch (IOException e) {
-            throw new SCPWikiContentNotFound(e.getMessage());
+            throw new SCPWikiContentNotFound("Wiki content has not been found: "+name+", "+scpBranch+", "+scpTranslation , e);
         }
     }
 

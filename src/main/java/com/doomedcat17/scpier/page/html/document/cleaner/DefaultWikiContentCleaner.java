@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.page.html.document.cleaner;
 
-import com.doomedcat17.scpier.exception.DocumentContentCleanupException;
+import com.doomedcat17.scpier.exception.page.html.document.cleaner.WikiContentCleanerException;
 import org.jsoup.nodes.Comment;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -21,8 +21,7 @@ public class DefaultWikiContentCleaner implements WikiContentCleaner {
             removeTrash(content);
             unpackNodes(content);
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new DocumentContentCleanupException(e.getMessage());
+            throw new WikiContentCleanerException(e);
         }
     }
 

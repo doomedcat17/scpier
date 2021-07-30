@@ -2,7 +2,7 @@ package com.doomedcat17.scpier.scraper.text;
 
 import com.doomedcat17.scpier.data.content.HyperlinkNode;
 import com.doomedcat17.scpier.data.content.TextNode;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
+import com.doomedcat17.scpier.exception.scraper.ElementScraperException;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 
@@ -62,8 +62,7 @@ public class TextScraper {
             }
             return textNodes;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new ElementScrapperException(e.getMessage());
+            throw new ElementScraperException(e);
         }
     }
 

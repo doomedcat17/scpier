@@ -3,7 +3,7 @@ package com.doomedcat17.scpier.scraper.heading;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.content.HeadingNode;
 import com.doomedcat17.scpier.data.content.TextNode;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
+import com.doomedcat17.scpier.exception.scraper.ElementScraperException;
 import com.doomedcat17.scpier.scraper.ElementScraper;
 import com.doomedcat17.scpier.scraper.text.TextScraper;
 import org.jsoup.nodes.Element;
@@ -23,8 +23,7 @@ public class HeadingScraper extends ElementScraper {
             headingNode.setContent(textNodes);
             return headingNode;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new ElementScrapperException(e.getMessage());
+            throw new ElementScraperException(e);
         }
     }
 }

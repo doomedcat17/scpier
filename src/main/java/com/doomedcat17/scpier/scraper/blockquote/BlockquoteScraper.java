@@ -3,7 +3,7 @@ package com.doomedcat17.scpier.scraper.blockquote;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.content.ContentNodeType;
 import com.doomedcat17.scpier.data.content.ListNode;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
+import com.doomedcat17.scpier.exception.scraper.ElementScraperException;
 import com.doomedcat17.scpier.scraper.ElementContentScraper;
 import com.doomedcat17.scpier.scraper.ElementScraper;
 import org.jsoup.nodes.Element;
@@ -23,8 +23,7 @@ public class BlockquoteScraper extends ElementScraper {
             blockquoteNode.setContent(contentNodes);
             return blockquoteNode;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new ElementScrapperException(e.getMessage());
+            throw new ElementScraperException(e);
         }
     }
 }

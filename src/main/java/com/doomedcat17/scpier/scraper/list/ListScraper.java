@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.scraper.list;
 
 import com.doomedcat17.scpier.data.content.*;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
+import com.doomedcat17.scpier.exception.scraper.ElementScraperException;
 import com.doomedcat17.scpier.scraper.ElementContentScraper;
 import com.doomedcat17.scpier.scraper.ElementScraper;
 import org.jsoup.nodes.Element;
@@ -28,8 +28,7 @@ public class ListScraper extends ElementScraper {
             mapList(element, listNode);
             return listNode;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new ElementScrapperException(e.getMessage());
+            throw new ElementScraperException(e);
         }
     }
 

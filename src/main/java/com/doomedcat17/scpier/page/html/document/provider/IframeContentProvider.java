@@ -1,5 +1,6 @@
 package com.doomedcat17.scpier.page.html.document.provider;
 
+import com.doomedcat17.scpier.exception.page.html.document.provider.IframeContentProviderException;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.WebClientProvider;
 import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
@@ -18,9 +19,13 @@ public class IframeContentProvider {
 
     private final WikiContentCleaner wikiContentCleaner;
 
-    public void provideIframesContent(WikiContent wikiContent, Preset preset) {
-        Elements iframes = wikiContent.getContent().getElementsByTag("iframe");
-        iframes.forEach(element -> replaceWithIframeContent(element, wikiContent.getSourceUrl(), wikiContent.getName(), wikiContent.getLangIdentifier(), preset));
+    public void provideIframesContent(WikiContent wikiContent, Preset preset) throws IframeContentProviderException {
+        try {
+            Elements iframes = wikiContent.getContent().getElementsByTag("iframe");
+            iframes.forEach(element -> replaceWithIframeContent(element, wikiContent.getSourceUrl(), wikiContent.getName(), wikiContent.getLangIdentifier(), preset));
+        } catch (Exception e) {
+            throw new IframeContentProviderException(e);
+        }
     }
 
     private void replaceWithIframeContent(Element iframe, String pageSource, String title, String langIdentifier, Preset preset) {

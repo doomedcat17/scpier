@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.scraper.text;
 
-import com.doomedcat17.scpier.exception.ElementScrapperException;
+import com.doomedcat17.scpier.exception.scraper.ElementScraperException;
 import org.jsoup.nodes.Element;
 
 import java.util.Arrays;
@@ -31,8 +31,7 @@ public class StyleScraper {
             addClassStyles(element, stylesMap);
             return stylesMap;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new ElementScrapperException(e.getMessage());
+            throw new ElementScraperException(e);
         }
 
     }

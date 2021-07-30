@@ -1,6 +1,7 @@
 package com.doomedcat17.scpier.page.html.document;
 
 import com.doomedcat17.scpier.data.files.ResourcesProvider;
+import com.doomedcat17.scpier.exception.page.html.document.provider.IframeContentProviderException;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
@@ -41,7 +42,7 @@ class IframeContentProviderTest {
     }
 
     @Test
-    void shouldProvideIframesAudio() throws IOException {
+    void shouldProvideIframesAudio() throws IOException, IframeContentProviderException {
         //given
         Element content = testData.getElementById("shouldProvideIframesContent");
         WikiContent wikiContent = new WikiContent();
@@ -71,7 +72,7 @@ class IframeContentProviderTest {
     }
 
     @Test
-    void shouldProvideIframeImage() throws IOException {
+    void shouldProvideIframeImage() throws IOException, IframeContentProviderException {
         //given
         Element content = testData.getElementById("shouldProvideImageIframe");
         WikiContent wikiContent = new WikiContent();
@@ -88,7 +89,7 @@ class IframeContentProviderTest {
     }
 
     @Test
-    void shouldProvideIframeContent() throws IOException {
+    void shouldProvideIframeContent() throws IOException, IframeContentProviderException {
         //given
         Element content = testData.getElementById("shouldProvideIframeContent");
         WikiContent wikiContent = new WikiContent();
@@ -106,7 +107,7 @@ class IframeContentProviderTest {
     }
 
     @Test
-    void shouldProvideIframeContent2() throws IOException {
+    void shouldProvideIframeContent2() throws IOException, IframeContentProviderException {
         //given
         Element content = testData.getElementById("shouldProvideIframeContent2");
         WikiContent wikiContent = new WikiContent();
@@ -143,7 +144,7 @@ class IframeContentProviderTest {
     }
 
     @Test
-    void shouldProvideYtVideoContent()  {
+    void shouldProvideYtVideoContent() throws IframeContentProviderException {
         //given
         Element content = testData.getElementById("shouldProvideYtVideoContent");
         WikiContent wikiContent = new WikiContent();
@@ -156,7 +157,7 @@ class IframeContentProviderTest {
     }
 
     @Test
-    void shouldProvideVideoContent() throws IOException {
+    void shouldProvideVideoContent() throws IOException, IframeContentProviderException {
         //given
         Element content = testData.getElementById("shouldProvideVideoContent");
         WikiContent wikiContent = new WikiContent();

@@ -15,8 +15,8 @@ public class DefaultWikiPageProvider implements WikiPageProvider {
         WikiContent wikiContent = new WikiContent();
         wikiContent.setContent(webpageContent.getElementsByTag("body").first());
         wikiContent.setSourceUrl(url);
-
         return wikiContent;
+
     }
 
 }

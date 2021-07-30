@@ -1,8 +1,8 @@
 package com.doomedcat17.scpier.mapper.scp;
 
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
-import com.doomedcat17.scpier.exception.ScpMapperException;
+import com.doomedcat17.scpier.exception.mapper.ScpMapperException;
+import com.doomedcat17.scpier.exception.scraper.ElementScraperException;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.scraper.ElementContentScraper;
 import org.jsoup.nodes.Element;
@@ -16,9 +16,8 @@ public class DefaultScpWikiContentMapper implements ScpWikiContentMapper {
             scpWikiData.setSource(wikiContent.getSourceUrl());
             mapScp(scpWikiData, wikiContent.getContent());
             return scpWikiData;
-        } catch (ElementScrapperException e) {
-            e.printStackTrace();
-            throw new ScpMapperException(e.getMessage());
+        } catch (ElementScraperException e) {
+            throw new ScpMapperException(e);
         }
     }
     private void mapScp(ScpWikiData scpWikiData, Element content)  {

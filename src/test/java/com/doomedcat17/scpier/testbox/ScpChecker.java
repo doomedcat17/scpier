@@ -6,7 +6,7 @@ import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPIdentifierPlacement;
 import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
-import com.doomedcat17.scpier.exception.SCPWikiContentNotFound;
+import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
 
 public class ScpChecker implements Runnable {
 

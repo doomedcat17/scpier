@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.scraper.table;
 
 import com.doomedcat17.scpier.data.content.*;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
+import com.doomedcat17.scpier.exception.scraper.ElementScraperException;
 import com.doomedcat17.scpier.scraper.ElementContentScraper;
 import com.doomedcat17.scpier.scraper.ElementScraper;
 import org.jsoup.nodes.Element;
@@ -19,8 +19,7 @@ public class TableScraper extends ElementScraper {
         try {
             return scrapTable(element);
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new ElementScrapperException(e.getMessage());
+            throw new ElementScraperException(e);
         }
     }
 
