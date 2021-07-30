@@ -18,12 +18,12 @@ public class ENbaseDivScraper extends DivScraper implements DivScraperComponent 
     @Override
     public List<ContentNode<?>> scrapDivContent(Element element) {
         List<ContentNode<?>> contentNodes = new ArrayList<>();
-        contentNodes.add(scrapItemName(element));
         contentNodes.add(scrapObjectName(element));
+        contentNodes.add(scrapObjectClass(element));
         return contentNodes;
     }
 
-    private ContentNode<List<TextNode>> scrapItemName(Element element) {
+    private ContentNode<List<TextNode>> scrapObjectName(Element element) {
         String itemText = element.getElementsByClass("itemnum").get(0).text();
         String[] itemStrings = itemText.split(":");
         TextNode itemHeading = new TextNode(itemStrings[0] + ": ");
@@ -32,7 +32,7 @@ public class ENbaseDivScraper extends DivScraper implements DivScraperComponent 
         return new ParagraphNode(new ArrayList<>(List.of(itemHeading, itemName)));
     }
 
-    private ContentNode<List<TextNode>> scrapObjectName(Element element) {
+    private ContentNode<List<TextNode>> scrapObjectClass(Element element) {
         String scpClassName = element.selectFirst(".obj-text").text();
         TextNode objectClassName = new TextNode(capitalizeText(scpClassName));
         TextNode objectClass = new TextNode("Object Class: ");

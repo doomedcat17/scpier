@@ -20,13 +20,13 @@ public class AnomBarScraper extends DivScraper implements DivScraperComponent {
     @Override
     public List<ContentNode<?>> scrapDivContent(Element element) {
         List<ContentNode<?>> contentNodes = new ArrayList<>();
-        contentNodes.add(scrapItemName(element));
+        contentNodes.add(scrapObjectName(element));
         Element scpClassesElement = element.selectFirst(".text-part");
         contentNodes.addAll(scrapScpClasses(scpClassesElement));
         return contentNodes;
     }
 
-    private ContentNode<List<TextNode>> scrapItemName(Element element)  {
+    private ContentNode<List<TextNode>> scrapObjectName(Element element)  {
         ParagraphNode paragraph = new ParagraphNode();
         Element itemHeaderElement = element.selectFirst(".item");
         TextNode itemHeader = TextScraper.scrapText(itemHeaderElement, source).get(0);

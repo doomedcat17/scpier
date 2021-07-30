@@ -19,29 +19,29 @@ public class CollapsibleBlockScraper extends DivScraper implements DivScraperCom
     @Override
     public List<ContentNode<?>> scrapDivContent(Element element)  {
         if (element.is(".colmod-block")) return scrapColmodConetnt(element);
-        List<ContentNode<?>> blockContent = new ArrayList<>();
+        List<ContentNode<?>> divContent = new ArrayList<>();
         String title = element.selectFirst(".collapsible-block-link").text();
         title = clearCollapsibleBlockTittle(title);
         HeadingNode heading = new HeadingNode();
         TextNode titleNode = new TextNode(title);
         titleNode.addStyle("font-weight", "bold");
         heading.addElement(titleNode);
-        blockContent.add(heading);
+        divContent.add(heading);
         Element collapsibleBlockContent = element.selectFirst(".collapsible-block-content");
         Elements contentSiblings = collapsibleBlockContent.siblingElements();
         if (collapsibleBlockContent.children().isEmpty()) {
             // in some cases content is empty and its content is in element with "fadeintext" class
             collapsibleBlockContent = element.selectFirst(".fadeintext, .terminal");
-            if (collapsibleBlockContent == null && contentSiblings.isEmpty()) return blockContent;
+            if (collapsibleBlockContent == null && contentSiblings.isEmpty()) return divContent;
         }
         if (collapsibleBlockContent != null) {
             List<ContentNode<?>> contentNodes = ElementContentScraper.scrapContent(collapsibleBlockContent, source);
-            blockContent.addAll(contentNodes);
+            divContent.addAll(contentNodes);
         }
         if (!contentSiblings.isEmpty()) {
-            blockContent.addAll(scrapSiblingElements(contentSiblings));
+            divContent.addAll(scrapSiblingElements(contentSiblings));
         }
-        return blockContent;
+        return divContent;
     }
 
     private List<ContentNode<?>> scrapSiblingElements(Elements siblings) {
