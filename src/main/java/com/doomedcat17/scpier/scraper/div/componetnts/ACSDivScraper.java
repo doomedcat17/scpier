@@ -30,6 +30,7 @@ public class ACSDivScraper extends DivScraper implements DivScraperComponent {
         TextNode itemHeading = item.get(0);
         TextNode itemName = item.get(1);
         if (itemHeading.getContent().charAt(itemHeading.getContent().length()-1) != ' ') itemHeading.setContent(itemHeading.getContent()+" ");
+        //adds "SCP-" prefix
         if (!itemName.getContent().toLowerCase().startsWith("scp-")) itemName.setContent("SCP-"+itemName.getContent());
         return new ParagraphNode(item);
     }
@@ -39,23 +40,30 @@ public class ACSDivScraper extends DivScraper implements DivScraperComponent {
         for (String className: ACS_SCP_CLASSES) {
             Element scpClassElement = element.selectFirst(className);
             if (scpClassElement != null) {
-                Element textElement = scpClassElement.selectFirst(".acs-text");
-                List<TextNode> textNodes = TextScraper.scrapText(textElement, source);
-                if (textNodes.size() > 2) {
-                    textNodes.removeIf(textNode -> textNode.getContent().length() == 1);
-                }
-                TextNode classHeader = textNodes.get(0);
-                if (!classHeader.getContent().endsWith(" ")) classHeader.setContent(classHeader.getContent()+' ');
-                classHeader.setContent(capitalizeText(classHeader.getContent()));
-                TextNode classContent = textNodes.get(1);
-                if (!classContent.getContent().startsWith("{$")) {
-                    if (classContent.getContent().startsWith("/")) classContent.setContent(classContent.getContent().substring(1));
-                    classContent.setContent(capitalizeText(classContent.getContent()).trim());
-                    ParagraphNode paragraph = new ParagraphNode(textNodes);
-                    paragraphs.add(paragraph);
-                }
+                ParagraphNode scpClassParagraph = scrapScpClass(scpClassElement);
+                if (!scpClassParagraph.isEmpty()) paragraphs.add(scpClassParagraph);
             }
         }
         return paragraphs;
+    }
+
+    public ParagraphNode scrapScpClass(Element scpClassElement) {
+        Element textElement = scpClassElement.selectFirst(".acs-text");
+        List<TextNode> textNodes = TextScraper.scrapText(textElement, source);
+        if (textNodes.size() > 2) {
+            //removes trash nodes with only one char
+            textNodes.removeIf(textNode -> textNode.getContent().length() == 1);
+        }
+        TextNode classHeader = textNodes.get(0);
+        //create space between classHeader and className
+        if (!classHeader.getContent().endsWith(" ")) classHeader.setContent(classHeader.getContent()+' ');
+        classHeader.setContent(capitalizeText(classHeader.getContent()));
+        TextNode className = textNodes.get(1);
+        //check if className isn't template placeholder
+        if (!className.getContent().startsWith("{$")) {
+            if (className.getContent().startsWith("/")) className.setContent(className.getContent().substring(1));
+            className.setContent(capitalizeText(className.getContent()).trim());
+            return new ParagraphNode(textNodes);
+        } else return new ParagraphNode();
     }
 }
