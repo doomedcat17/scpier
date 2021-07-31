@@ -1,4 +1,4 @@
-name: "3211"
+name: "scp-3211"
 scpBranch: "ENGLISH"
 wikiElements:
   - selector: "#proceed"

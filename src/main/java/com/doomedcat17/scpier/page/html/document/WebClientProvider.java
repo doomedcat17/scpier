@@ -11,7 +11,7 @@ public class WebClientProvider {
 
     public static synchronized WebClient getWebClient() {
         WebClient webClient = new WebClient(BrowserVersion.CHROME);
-        java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.INFO);
+        java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
         webClient.getOptions().setJavaScriptEnabled(true);
         webClient.getOptions().setThrowExceptionOnScriptError(false);
         webClient.setAjaxController(new NicelyResynchronizingAjaxController());

@@ -1,4 +1,4 @@
-name: "4205"
+name: "scp-4205"
 scpBranch: "ENGLISH"
 removalDefinitions:
   - ".info-container + div"
