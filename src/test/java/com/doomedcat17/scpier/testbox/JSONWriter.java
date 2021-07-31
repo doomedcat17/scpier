@@ -2,7 +2,6 @@ package com.doomedcat17.scpier.testbox;
 
 import com.doomedcat17.scpier.ScpFoundationDataProvider;
 import com.doomedcat17.scpier.data.scp.SCPBranch;
-import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -16,7 +15,7 @@ public class JSONWriter {
             ObjectMapper objectMapper = new ObjectMapper();
             // objectMapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.USE_NATIVE_TYPE_ID));
 
-            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("scp-173", SCPBranch.ENGLISH, SCPTranslation.POLISH);
+            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("SCP-819", SCPBranch.ENGLISH);
             System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(scp));
         } catch (Exception e) {
             e.printStackTrace();

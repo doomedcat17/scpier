@@ -32,10 +32,9 @@ public class ScpChecker implements Runnable {
             if (scpBranch.scpIdentifierPlacement.equals(SCPIdentifierPlacement.MIDDLE)) scpNumber.insert(0, scpBranch.identifier.toUpperCase()+"-");
             scpNumber.insert(0, "SCP-");
             if (scpBranch.scpIdentifierPlacement.equals(SCPIdentifierPlacement.ENDING)) scpNumber.append("-").append(scpBranch.identifier.toUpperCase());
-            if (scpTranslation.equals(SCPTranslation.ORIGINAL)) scpNumber.append(" ORIGINAL");
             else scpNumber.append(" ").append(scpTranslation.identifier.toUpperCase());
             try {
-                ScpWikiData scpWikiData = scpFoundationDataProvider.getScpWikiData(String.valueOf(i), scpBranch, scpTranslation);
+                ScpWikiData scpWikiData = scpFoundationDataProvider.getScpWikiData(scpNumber.toString(), scpBranch, scpTranslation);
                 if (scpWikiData.getTitle() == null || scpWikiData.getContent().isEmpty() ||
                         scpWikiData.getContent().stream().anyMatch(ContentNode::isEmpty)) ScpCheck.addInvalidScp(scpNumber.toString());
             } catch (SCPWikiContentNotFound e) {

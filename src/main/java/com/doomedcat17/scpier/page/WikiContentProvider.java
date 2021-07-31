@@ -19,6 +19,7 @@ import org.jsoup.nodes.Node;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class WikiContentProvider {
 
@@ -32,6 +33,7 @@ public class WikiContentProvider {
                             new WikiRedirectionHandler(wikiPageProvider, ResourcesProvider.getRedirectionDefinitions()),
                             new PageTagsScrapperImpl()
                     );
+            name = name.toLowerCase(Locale.ROOT);
             String url = WikiSourceBuilder.buildSource(name, scpBranch, scpTranslation);
             WikiContent wikiContent = wikiPageProvider.getWebpageContent(url);
             getOffsets(wikiContent, url, wikiPageProvider).forEach(node -> wikiContent.getContent().selectFirst("#page-content").appendChild(node));
