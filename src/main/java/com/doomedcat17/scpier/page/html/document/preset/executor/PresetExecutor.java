@@ -17,7 +17,11 @@ public class PresetExecutor {
         try {
             HtmlPage page = webClient.getPage(src);
             for (WikiElement element : preset.getWikiElements()) {
-                WikiElementHandler.handleElement(element, page);
+                try {
+                    WikiElementHandler.handleElement(element, page);
+                } catch (IllegalArgumentException e) {
+                    continue;
+                }
                 webClient.waitForBackgroundJavaScript(element.getJsRuntime());
             }
             webClient.waitForBackgroundJavaScript(preset.getJsRuntime());

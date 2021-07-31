@@ -3,6 +3,6 @@ scpBranch: "ENGLISH"
 wikiElements:
   - selector: "#proceed"
     elementType: "BUTTON"
-    jsRuntime: 1200
+    jsRuntime: 2000
 removalDefinitions:
   - "#footnotes"

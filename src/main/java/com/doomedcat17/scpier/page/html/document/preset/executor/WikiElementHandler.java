@@ -10,20 +10,22 @@ public class WikiElementHandler {
 
     public static void handleElement(WikiElement element, DomNode htmlElement) throws IOException {
         String selector = element.getSelector();
-        if (element instanceof ButtonWikiElement) {
-            DomElement button = htmlElement.querySelector(selector);
-            button.click();
-        } else if (element instanceof InputWikiElement) {
-            InputWikiElement inputWikiElement = (InputWikiElement) element;
-            HtmlInput input = htmlElement.querySelector(selector);
-            input.setValueAttribute(inputWikiElement.getInputValue());
-        } else if (element instanceof CheckBoxWikiElement) {
-            HtmlCheckBoxInput checkBoxInput = htmlElement.querySelector(selector);
-            checkBoxInput.click();
-        } else if (element instanceof RadioWikiElement) {
-            HtmlRadioButtonInput radioInput = htmlElement.querySelector(selector);
-            radioInput.click();
-        }
+        DomElement domElement = htmlElement.querySelector(selector);
+        if (domElement != null) {
+            if (element instanceof ButtonWikiElement) {
+                domElement.click();
+            } else if (element instanceof InputWikiElement) {
+                InputWikiElement inputWikiElement = (InputWikiElement) element;
+                HtmlInput input = (HtmlInput) domElement;
+                input.setValueAttribute(inputWikiElement.getInputValue());
+            } else if (element instanceof CheckBoxWikiElement) {
+                HtmlCheckBoxInput checkBoxInput = (HtmlCheckBoxInput) domElement;
+                checkBoxInput.click();
+            } else if (element instanceof RadioWikiElement) {
+                HtmlRadioButtonInput radioInput = (HtmlRadioButtonInput) domElement;
+                radioInput.click();
+            }
+        } else throw new IllegalArgumentException("WikiElement not found!");
 
     }
 }
