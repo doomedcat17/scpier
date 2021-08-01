@@ -17,7 +17,7 @@ public class ScpChecker implements Runnable {
     @Override
     public void run() {
         SCPBranch[] scpBranches = SCPBranch.values();
-        checkScps(SCPBranch.ENGLISH , SCPTranslation.ORIGINAL);
+        checkScps(SCPBranch.RUSSIAN , SCPTranslation.ORIGINAL);
     }
 
     private void checkScps(SCPBranch scpBranch, SCPTranslation scpTranslation) {
@@ -36,13 +36,12 @@ public class ScpChecker implements Runnable {
             try {
                 ScpWikiData scpWikiData = scpFoundationDataProvider.getScpWikiData(scpNumber.toString(), scpBranch, scpTranslation);
                 if (scpWikiData.getTitle() == null || scpWikiData.getContent().isEmpty() ||
-                        scpWikiData.getContent().stream().anyMatch(ContentNode::isEmpty)) ScpCheck.addInvalidScp(scpNumber.toString());
+                        scpWikiData.getContent().stream().anyMatch(ContentNode::isEmpty)) ScpCheck.addInvalidScp(scpNumber.toString(), new NullPointerException("Content is empty"));
             } catch (SCPWikiContentNotFound e) {
                 e.printStackTrace();
                 notFoundCounter++;
             } catch (Exception e) {
-                ScpCheck.addInvalidScp(scpNumber.toString());
-                e.printStackTrace();
+                ScpCheck.addInvalidScp(scpNumber.toString(), e);
             } finally {
                 System.out.println(scpNumber);
             }

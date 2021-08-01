@@ -13,6 +13,7 @@ public class RedirectionDefinitionsLoader {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream("redirectionElementsDefinitions.json");
         byte[] file = inputStream.readAllBytes();
+        inputStream.close();
         return objectMapper.readValue(
                 file,
                 new TypeReference<>() {

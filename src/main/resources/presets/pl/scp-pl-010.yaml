@@ -1,0 +1,5 @@
+name: "scp-pl-010"
+scpBranch: "POLISH"
+jsRuntime: 0
+removalDefinitions:
+  - "div[id=\"page-content\"] > div[style=\"display: none\"]"

@@ -20,7 +20,9 @@ public class PresetLoader {
 
     private static byte[] loadFile(String path) throws IOException {
         InputStream in = PresetLoader.class.getClassLoader().getResourceAsStream("presets/"+path);
-        return in.readAllBytes();
+        byte[] data = in.readAllBytes();
+        in.close();
+        return data;
 
     }
 

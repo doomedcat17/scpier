@@ -33,8 +33,8 @@ public class WikiContentProvider {
                             new WikiRedirectionHandler(wikiPageProvider, ResourcesProvider.getRedirectionDefinitions()),
                             new PageTagsScrapperImpl()
                     );
-            name = name.toLowerCase(Locale.ROOT);
-            String url = WikiSourceBuilder.buildSource(name, scpBranch, scpTranslation);
+            String url = WikiSourceBuilder.buildSource(name.toLowerCase(Locale.ROOT), scpBranch, scpTranslation);
+            name = url.substring(url.lastIndexOf('/')+1);
             WikiContent wikiContent = wikiPageProvider.getWebpageContent(url);
             getOffsets(wikiContent, url, wikiPageProvider).forEach(node -> wikiContent.getContent().selectFirst("#page-content").appendChild(node));
             wikiContent.setLangIdentifier(scpBranch.identifier);

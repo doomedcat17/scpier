@@ -1,0 +1,5 @@
+name: "scp-pl-245"
+scpBranch: "POLISH"
+jsRuntime: 0
+removalDefinitions:
+  - ".code"

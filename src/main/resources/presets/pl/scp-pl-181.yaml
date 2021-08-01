@@ -1,0 +1,5 @@
+name: "scp-pl-181"
+scpBranch: "POLISH"
+jsRuntime: 0
+removalDefinitions:
+  - ".code"

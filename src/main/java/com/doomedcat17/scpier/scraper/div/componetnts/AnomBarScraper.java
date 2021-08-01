@@ -29,10 +29,17 @@ public class AnomBarScraper extends DivScraper implements DivScraperComponent {
     private ContentNode<List<TextNode>> scrapObjectName(Element element)  {
         ParagraphNode paragraph = new ParagraphNode();
         Element itemHeaderElement = element.selectFirst(".item");
-        TextNode itemHeader = TextScraper.scrapText(itemHeaderElement, source).get(0);
-        if (!itemHeader.getContent().endsWith(" ")) itemHeader.setContent(itemHeader.getContent()+" ");
-        if (!itemHeader.getStyles().containsKey("font-weight")) itemHeader.addStyle("font-weight", "bold");
-        paragraph.addElement(itemHeader);
+        //in some cases (SCP-PL-010) itemHeader is null
+        if (itemHeaderElement != null) {
+            TextNode itemHeader = TextScraper.scrapText(itemHeaderElement, source).get(0);
+            if (!itemHeader.getContent().endsWith(" ")) itemHeader.setContent(itemHeader.getContent() + " ");
+            if (!itemHeader.getStyles().containsKey("font-weight")) itemHeader.addStyle("font-weight", "bold");
+            paragraph.addElement(itemHeader);
+        } else {
+            TextNode generatedItemHeader = new TextNode("Item: ");
+            generatedItemHeader.getStyles().put("font-weight", "bold");
+            paragraph.addElement(generatedItemHeader);
+        }
         Element itemNumberElement = element.selectFirst(".number");
         TextNode itemName = TextScraper.scrapText(itemNumberElement, source).get(0);
         if (!itemName.getContent().toLowerCase().startsWith("scp-")) itemName.setContent("SCP-"+itemName.getContent());
