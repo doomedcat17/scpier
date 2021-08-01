@@ -45,8 +45,8 @@ To get data from Scp Wiki simply create instance of `ScpWikiDataProvider` class 
 It has three parameters:
 
 `articleName` - name of the article.<br>
-SCPier puts it in the URL to search for desired article. If you want to get one of the SCPs, you can provide its full name or just a number.
-(*Example: "7", "07" "007", "scp-007" and "SCP-007" will return SCP-007*).<br>
+SCPier puts it in the URL to search for desired article. If you want to get one of the SCPs, you have to provide its full name.
+("scp-007" and "SCP-007" will return SCP-007*).<br>
 Other articles are more complicated case.<br>
 There is no common pattern for article naming in wiki's URLs (RESTful naming).<br>
 Some examples:
