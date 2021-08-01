@@ -4,8 +4,9 @@
 
 SCPier is java library for retrieving SCPs and Tales directly form [SCP Foundation Wiki](http://www.scpwiki.com/)
 
-I don't own any of the provided data, please check out [Licensing Guide](https://scp-wiki.wikidot.com/licensing-guide)
-if you consider commercial use.
+**I don't own any of the provided data**, so please check out [Licensing Guide](https://scp-wiki.wikidot.com/licensing-guide)
+if you consider commercial use.  
+SCPier itself is free to use for any pourpuse, if usage does not violate [Wikidot's Terms Of Service](https://www.wikidot.com/legal:terms-of-service).
 
 - [Status](#status)
 - [How it works?](#how-it-works)
