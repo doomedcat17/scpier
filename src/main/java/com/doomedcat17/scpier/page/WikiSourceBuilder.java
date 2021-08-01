@@ -10,7 +10,7 @@ public class WikiSourceBuilder {
 
     public static String buildSource(String objectName, SCPBranch scpBranch, SCPTranslation scpTranslation) {
         StringBuilder sourceBuilder = new StringBuilder(objectName.toLowerCase(Locale.ROOT));
-        if (objectName.startsWith("scp")) {
+        if (objectName.startsWith("scp") && (scpBranch != SCPBranch.ENGLISH && !objectName.contains(scpBranch.identifier))) {
             if (scpBranch.scpIdentifierPlacement == SCPIdentifierPlacement.ENDING) {
                 sourceBuilder
                         .append("-")
