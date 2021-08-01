@@ -63,7 +63,7 @@ If you replace all special chars with `-`, it should work for ***most*** cases.
 `scpBranch` - `SCPBranch` enum of desired branch.
 Defines source branch of desired article.<br>
 
-`scpTranslation` - `SCPTranslation` enum of desired translation.
+`scpTranslation` (Optional) - `SCPTranslation` enum of desired translation.
 Defines translation language of desired article.
 
 
@@ -73,9 +73,21 @@ Defines translation language of desired article.
 ScpWikiDataProvider scpWikiDataProvider = new ScpWikiDataProvider();
 
 ScpWikiData object173 = scpWikiDataProvider
-    .getScpWikiContent("173", ScpBranch.ENGLISH, ScpTranslation.ORIGINAL);
+    .getScpWikiContent("SCP-173", ScpBranch.ENGLISH);
 ```
-It returns `ScpWikiData` object with desired article from Scp Wiki.
+It returns `ScpWikiData` object with desired article from Scp Wiki in its original form.
+
+```java
+ScpWikiData object173 = scpWikiDataProvider
+    .getScpWikiContent("SCP-173", ScpBranch.ENGLISH, SCPTranslation.POLISH);
+```
+Returns article in polish (if translation is available).
+
+```java
+ScpWikiData object173 = scpWikiDataProvider
+    .getScpWikiContent("SCP-173", ScpBranch.POLISH);
+```
+Returns *SCP-PL-173* article in its original form.
 
 `getScpWikiContent()` throws `SCPierApiException` if any issue occurs.
 
