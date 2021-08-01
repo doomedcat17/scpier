@@ -45,8 +45,8 @@ To get data from Scp Wiki simply create instance of `ScpWikiDataProvider` class 
 It has three parameters:
 
 `articleName` - name of the article.<br>
-SCPier puts it in the URL to search for desired article. If you want to get one of the SCPs, you can provide its full name or just a number.
-(*Example: "7", "07" "007", "scp-007" and "SCP-007" will return SCP-007*).<br>
+SCPier puts it in the URL to search for desired article. If you want to get one of the SCPs, you have to provide its full name.
+("scp-007" and "SCP-007" will return SCP-007*).<br>
 Other articles are more complicated case.<br>
 There is no common pattern for article naming in wiki's URLs (RESTful naming).<br>
 Some examples:
@@ -63,7 +63,7 @@ If you replace all special chars with `-`, it should work for ***most*** cases.
 `scpBranch` - `SCPBranch` enum of desired branch.
 Defines source branch of desired article.<br>
 
-`scpTranslation` - `SCPTranslation` enum of desired translation.
+`scpTranslation` (Optional) - `SCPTranslation` enum of desired translation.
 Defines translation language of desired article.
 
 
@@ -73,9 +73,21 @@ Defines translation language of desired article.
 ScpWikiDataProvider scpWikiDataProvider = new ScpWikiDataProvider();
 
 ScpWikiData object173 = scpWikiDataProvider
-    .getScpWikiContent("173", ScpBranch.ENGLISH, ScpTranslation.ORIGINAL);
+    .getScpWikiContent("SCP-173", ScpBranch.ENGLISH);
 ```
-It returns `ScpWikiData` object with desired article from Scp Wiki.
+It returns `ScpWikiData` object with desired article from Scp Wiki in its original form.
+
+```java
+ScpWikiData object173 = scpWikiDataProvider
+    .getScpWikiContent("SCP-173", ScpBranch.ENGLISH, SCPTranslation.POLISH);
+```
+Returns article in polish (if translation is available).
+
+```java
+ScpWikiData object173 = scpWikiDataProvider
+    .getScpWikiContent("SCP-173", ScpBranch.POLISH);
+```
+Returns *SCP-PL-173* article in its original form.
 
 `getScpWikiContent()` throws `SCPierApiException` if any issue occurs.
 
