@@ -1,6 +1,6 @@
 # SCPier - SCP Wiki webscraper
 
-**PLEASE KEEP IN MIND IT'S A PROTOTYPE. Check [Status](#status).**
+**SCPier is still in early state. Check [Status](#status).**
 
 SCPier is java library for retrieving SCPs and Tales directly form [SCP Foundation Wiki](http://www.scpwiki.com/)
 
