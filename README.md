@@ -1,6 +1,6 @@
 # SCPier - SCP Wiki webscraper
 
-**SCPier is still in early state. Check [Status](#status).**
+**SCPier is still in its early state. Check [Status](#status).**
 
 SCPier is java library for retrieving SCPs and Tales directly form [SCP Foundation Wiki](http://www.scpwiki.com/)
 
@@ -8,7 +8,6 @@ SCPier is java library for retrieving SCPs and Tales directly form [SCP Foundati
 if you consider commercial use.  
 SCPier itself is free to use for any pourpuse, if usage does not violate [Wikidot's Terms Of Service](https://www.wikidot.com/legal:terms-of-service).
 
-- [Status](#status)
 - [How it works?](#how-it-works)
 - [Getting data](#getting-data)
   - [SCPData](#scpwikidata)
@@ -23,21 +22,17 @@ SCPier itself is free to use for any pourpuse, if usage does not violate [Wikido
       - [DIV and BLOCKQUOTE](#div-and-blockquote)
       - [TABLE](#table)
       - [LIST_OL, LIST_UL, LIST_DL](#list_ol-list_ul-list_dl)
-      
-# Status
-SCPier is in its early development stages. It can't handle heavily scripted articles and for some of them additional interpretation is needed.
-Also some content can be scrapped incorrectly or be missing.
-
-If you find any bugs or issues, please open new issues in <a href="https://github.com/doomedcat17/scpier/issues">Issues</a> section.
-
-You can also contact me via [Telegram](https://t.me/doomedcat17).
-
+- [Contribute](#contribute)
+  - [Preset](#preset)
+    - [WikiElement](#wikielement)
+- [Status](#status)
 
 # How it works?
 
 It's basically webscraper. HTML elements are retrieved using [jsoup](https://jsoup.org/). If particular SCP
-or Tale uses JavaScript, then the script is run by [HtmlUnit](https://htmlunit.sourceforge.io/). Retrieved
-HTML elements are scraped and interpreted by multiple ElementScrappers.
+or Tale uses JavaScript, then the script is run by [HtmlUnit](https://htmlunit.sourceforge.io/).
+For more specific cases uses pre-defined [Presets](#listnodes). Retrieved
+HTML elements are scraped and interpreted by multiple ElementScrapers.
 
 # Getting data
 
@@ -688,3 +683,134 @@ Corresponds to HTML list tags (`<ol>`, `<ul>` and `<dl>`). Each od them consists
   ]
 }
 ```
+# Contribute
+
+Making this project made me realise how creative SCP Community can be. There are many stories and articles with some
+type of interaction with the reader like terminals to operate, buttons to click and fields to fill. 
+Obviously SCPier can't handle it by itself, every case is different. So I came with idea of so called "*Presets*". 
+
+**Everybody can write (programming skills are not necessary) and it's an easy way to contribute!**
+
+## Preset
+
+`Preset` is a YAML file with instructions for the SCPier how to handle specific cases (like inputs, getting additional content or removing some unwanted content).
+
+*How many articles need their own Preset?*  
+I don't really now, but I **assume** it's less than 10 present of all articles.  
+
+The most problematic case is usage of `code` class. In some cases is used in elements that contain some code, which is unwanted for SCPier.  
+But in other cases is used for storytelling purposes.
+
+`Preset` consists of following properties:  
+
+`articleName`* - name of the article. **RESTFUL! Check [Getting data](#getting-data)**  
+
+`scpBranch`* - wiki branch of the article.  
+
+`runtime` - number of milliseconds to wait after loading wiki page. Used when script is executed on page load. 
+
+`wikiElements` - list of `WikiElements` to process.  
+
+`removalDefinitions` - [CSS Selectors](https://www.w3schools.com/cssref/css_selectors.asp) of elements to remove. 
+
+`outerContentArticleNames` - list of wiki articles which content should be provided. Given articles contents will be added to the content.
+
+*required properties
+
+**You don't have to provide all properties. Only those that are necessary!**
+```yaml
+artcileName: "article-name"
+scpBranch: "ENGLISH"
+runtime: 1000
+wikiElements:
+  - selector: "#button-to-click"
+    elementType: "BUTTON"
+    runtime: 1000
+  - selector: "#checkbox-to-check"
+    elementType: "CHECKBOX"
+  - selector: "#radio-to-hmm-check-i-guess?"
+    elementType: "RADIO"
+  - selector: "#input-to-fill"
+    elementType: "INPUT"
+    inputValue: "Broken God"
+    runtime: 1000
+removalDefinitions:
+  - "#element-to-remove"
+outerContentArticleNames:
+  - "article-title-to-provide-content"
+```
+```yaml
+articleName: "scp-3959"
+scpBranch: "ENGLISH"
+removalDefinitions:
+  - "form"
+outerContentNames:
+  - "scp-3959-restricted"
+```
+Remove forms and adds "*scp-3959-restricted*" article content
+
+```yaml
+articleName: "scp-3211"
+scpBranch: "ENGLISH"
+wikiElements:
+  - selector: "#proceed"
+    elementType: "BUTTON"
+    runtime: 2000
+removalDefinitions:
+  - "#footnotes"
+```
+Remove elements with *footnotes* id, clicks a button with *proceed* id and waits 2000 milliseconds (2 seconds).
+
+### WikiElement
+
+`WikiElement` defines type of element and how to handle it.  
+It has the following parameters:  
+`selector`* - [CSS Selector](https://www.w3schools.com/cssref/css_selectors.asp) of element.  
+`elementType`* - defines type of element  
+`runtime` - number of milliseconds to wait after interaction with element. 
+
+*required properties  
+
+**BUTTON**
+
+Element with this type will be clicked. **All elements with onclick attribute are considered as buttons!**
+
+```yaml
+selector: "#button-to-click"
+elementType: "BUTTON"
+```
+**RADIO and CHECKBOX**
+
+Element with this type will be checked. Corresponds to `<input>` HTML tag of type `radio` and `checkbox`.
+
+```yaml
+selector: "#radio-to-hmm-check-i-guess?"
+elementType: "RADIO"
+```
+
+```yaml
+selector: "#checkbox-to-check"
+elementType: "CHECKBOX"
+```
+
+**INPUT**  
+
+It has additional property `inputValue` property (required). Element with this type will be filled with given value.
+
+```yaml
+selector: "#input-to-fill"
+elementType: "INPUT"
+inputValue: "Broken God"
+runtime: 1000
+```
+
+# Status
+SCPier is in its early development stages. It can't handle heavily scripted articles and for some of them additional interpretation is needed.
+Also, some content can be scraped incorrectly or be missing.
+
+If you find any bugs or issues, please open new issues in [Issues](https://github.com/doomedcat17/scpier/issues).
+
+You can also contact me via [Telegram](https://t.me/doomedcat17).
+
+
+

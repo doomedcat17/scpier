@@ -22,9 +22,9 @@ public class PresetExecutor {
                 } catch (IllegalArgumentException e) {
                     continue;
                 }
-                webClient.waitForBackgroundJavaScript(element.getJsRuntime());
+                webClient.waitForBackgroundJavaScript(element.getRuntime());
             }
-            webClient.waitForBackgroundJavaScript(preset.getJsRuntime());
+            webClient.waitForBackgroundJavaScript(preset.getRuntime());
             String html = page.executeJavaScript("document.body.parentNode.outerHTML")
                     .getJavaScriptResult()
                     .toString();

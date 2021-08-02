@@ -1,5 +1,4 @@
-name: "scp-4707"
+articleName: "scp-4707"
 scpBranch: "ENGLISH"
-jsRuntime: 0
 removalDefinitions:
   - ".scp-image-block"

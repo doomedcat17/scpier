@@ -1,4 +1,4 @@
-name: "scp-3309"
+articleName: "scp-3309"
 scpBranch: "ENGLISH"
 removalDefinitions:
   - ".code"

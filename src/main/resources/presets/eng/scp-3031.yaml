@@ -1,5 +1,4 @@
-name: "scp-3031"
+articleName: "scp-3031"
 scpBranch: "ENGLISH"
-jsRuntime: 0
 removalDefinitions:
   - ".code"

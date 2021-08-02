@@ -1,40 +1,39 @@
-name: "scp-4558" #makng this was pain ;-;
+articleName: "scp-4558" #makng this was pain ;-;
 scpBranch: "ENGLISH"
-jsRuntime: 0
 wikiElements:
   - selector: "a[onclick=\"collapsibleLink('block3');\"]"
     elementType: "BUTTON"
-    jsRuntime: 10000
+    runtime: 10000
   - selector: "a[onclick=\"writeBlock4();\"]"
     elementType: "BUTTON"
-    jsRuntime: 2000
+    runtime: 2000
   - selector: "a[onclick=\"writeBlock5();\"]"
     elementType: "BUTTON"
-    jsRuntime: 145000
+    runtime: 145000
   - selector: "a[onclick=\"collapsibleLink('block2');\"]"
     elementType: "BUTTON"
-    jsRuntime: 145000
+    runtime: 145000
   - selector: "a[onclick=\"writeBlock4();\"]"
     elementType: "BUTTON"
-    jsRuntime: 1000
+    runtime: 1000
   - selector: "a[onclick=\"writeBlock5();\"]"
     elementType: "BUTTON"
-    jsRuntime: 1000
+    runtime: 1000
   - selector: "a[onclick=\"writeBlock6();\"]"
     elementType: "BUTTON"
-    jsRuntime: 1000
+    runtime: 1000
   - selector: "a[onclick=\"writeBlock7();\"]"
     elementType: "BUTTON"
-    jsRuntime: 10000
+    runtime: 10000
   - selector: "a[onclick=\"writeBlock8();\"]"
     elementType: "BUTTON"
-    jsRuntime: 1000
+    runtime: 1000
   - selector: "a[onclick=\"writeBlock9();\"]"
     elementType: "BUTTON"
-    jsRuntime: 145000
+    runtime: 145000
   - selector: "a[onclick=\"writeBlock10();\"]"
     elementType: "BUTTON"
-    jsRuntime: 10000
+    runtime: 10000
 removalDefinitions:
   - "#result"
 outerContentNames:

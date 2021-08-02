@@ -23,10 +23,12 @@ public class ScpFoundationDataProvider {
 
     public ScpWikiData getScpWikiData(String articleName, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPierApiException {
         try {
-        WikiContent wikiContent = getPageContent(articleName, scpBranch, scpTranslation);
-        ScpWikiContentMapper scpWikiContentMapper = new DefaultScpWikiContentMapper();
-        ScpWikiData scpWikiData = scpWikiContentMapper.mapToScp(wikiContent);
-        scpWikiData.setTags(wikiContent.getTags());
+            WikiContent wikiContent = getPageContent(articleName, scpBranch, scpTranslation);
+            ScpWikiContentMapper scpWikiContentMapper = new DefaultScpWikiContentMapper();
+            ScpWikiData scpWikiData = scpWikiContentMapper.mapToScp(wikiContent);
+            scpWikiData.setTags(wikiContent.getTags());
+            scpWikiData.setScpBranch(scpBranch);
+            scpWikiData.setScpTranslation(scpTranslation);
             return scpWikiData;
         } catch (RuntimeException e) {
             throw new SCPierApiInternalException(articleName, scpBranch, scpTranslation, e);

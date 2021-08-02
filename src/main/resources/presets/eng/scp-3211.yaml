@@ -1,8 +1,8 @@
-name: "scp-3211"
+articleName: "scp-3211"
 scpBranch: "ENGLISH"
 wikiElements:
   - selector: "#proceed"
     elementType: "BUTTON"
-    jsRuntime: 2000
+    runtime: 2000
 removalDefinitions:
   - "#footnotes"

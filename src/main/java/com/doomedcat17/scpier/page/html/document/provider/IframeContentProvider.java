@@ -46,7 +46,7 @@ public class IframeContentProvider {
             }
             try {
                 WikiContent webpageContent;
-                if (preset.getName() != null) {
+                if (preset.getArticleName() != null) {
                     try {
                         webpageContent = PresetExecutor.execute(WebClientProvider.getWebClient(), preset, source);
                     } catch (NullPointerException e) {

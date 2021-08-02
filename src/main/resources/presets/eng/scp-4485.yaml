@@ -1,5 +1,4 @@
-name: "scp-4485"
+articleName: "scp-4485"
 scpBranch: "ENGLISH"
-jsRuntime: 0
 removalDefinitions:
   - ".code"

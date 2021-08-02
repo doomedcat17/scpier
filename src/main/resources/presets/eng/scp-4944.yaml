@@ -1,5 +1,4 @@
-name: "scp-4944"
+articleName: "scp-4944"
 scpBranch: "ENGLISH"
-jsRuntime: 0
 removalDefinitions:
   - "p:contains(« SCP-4943 | SCP-4944 | SCP-4945 »)"

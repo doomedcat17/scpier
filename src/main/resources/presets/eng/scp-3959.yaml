@@ -1,6 +1,5 @@
-name: "scp-3959"
+articleName: "scp-3959"
 scpBranch: "ENGLISH"
-jsRuntime: 0
 removalDefinitions:
   - "form"
 outerContentNames:

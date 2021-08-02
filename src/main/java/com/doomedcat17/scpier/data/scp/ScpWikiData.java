@@ -8,6 +8,10 @@ public class ScpWikiData {
 
     private String title;
 
+    private SCPBranch scpBranch;
+
+    private SCPTranslation scpTranslation;
+
     private List<ContentNode<?>> content;
 
     private List<String> tags;
@@ -51,27 +55,45 @@ public class ScpWikiData {
         this.tags = tags;
     }
 
+    public SCPBranch getScpBranch() {
+        return scpBranch;
+    }
+
+    public void setScpBranch(SCPBranch scpBranch) {
+        this.scpBranch = scpBranch;
+    }
+
+    public SCPTranslation getScpTranslation() {
+        return scpTranslation;
+    }
+
+    public void setScpTranslation(SCPTranslation scpTranslation) {
+        this.scpTranslation = scpTranslation;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ScpWikiData)) return false;
 
-        ScpWikiData scpWikiData = (ScpWikiData) o;
+        ScpWikiData that = (ScpWikiData) o;
 
-        if (getTitle() != null ? !getTitle().equals(scpWikiData.getTitle()) : scpWikiData.getTitle() != null)
-            return false;
-        if (getContent() != null ? !getContent().equals(scpWikiData.getContent()) : scpWikiData.getContent() != null)
-            return false;
-        if (getTags() != null ? !getTags().equals(scpWikiData.getTags()) : scpWikiData.getTags() != null) return false;
-        return getSource() != null ? getSource().equals(scpWikiData.getSource()) : scpWikiData.getSource() == null;
+        if (title != null ? !title.equals(that.title) : that.title != null) return false;
+        if (scpBranch != that.scpBranch) return false;
+        if (scpTranslation != that.scpTranslation) return false;
+        if (content != null ? !content.equals(that.content) : that.content != null) return false;
+        if (tags != null ? !tags.equals(that.tags) : that.tags != null) return false;
+        return source != null ? source.equals(that.source) : that.source == null;
     }
 
     @Override
     public int hashCode() {
-        int result = getTitle() != null ? getTitle().hashCode() : 0;
-        result = 31 * result + (getContent() != null ? getContent().hashCode() : 0);
-        result = 31 * result + (getTags() != null ? getTags().hashCode() : 0);
-        result = 31 * result + (getSource() != null ? getSource().hashCode() : 0);
+        int result = title != null ? title.hashCode() : 0;
+        result = 31 * result + (scpBranch != null ? scpBranch.hashCode() : 0);
+        result = 31 * result + (scpTranslation != null ? scpTranslation.hashCode() : 0);
+        result = 31 * result + (content != null ? content.hashCode() : 0);
+        result = 31 * result + (tags != null ? tags.hashCode() : 0);
+        result = 31 * result + (source != null ? source.hashCode() : 0);
         return result;
     }
 }
