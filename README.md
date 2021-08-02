@@ -57,7 +57,7 @@ There are some similarities, but they don't apply to every article.<br>
 If you replace all special chars with `-`, it should work for ***most*** cases.
 
 `scpBranch` - `SCPBranch` enum of desired branch.
-Defines source branch of desired article.<br>
+Defines source branch of desired article.
 
 `scpTranslation` (Optional) - `SCPTranslation` enum of desired translation.
 Defines translation language of desired article.
@@ -93,6 +93,10 @@ It has the following variables
 ```java
 String title;
 
+SCPBranch scpBranch;
+
+SCPTranslation scpTranslation;
+
 List<ContentNode<?>> content;
 
 List<String> tags;
@@ -100,6 +104,10 @@ List<String> tags;
 String source;
 ```
 `title` - title of the article from wiki.
+
+`scpBranch` - source branch of desired article.
+
+`scpTranslation` - translation language of desired article.
 
 `content` - content of the article.
 
@@ -109,6 +117,8 @@ String source;
 ```json
 {
   "title" : "SCP-006",
+  "scpBranch" : "ENGLISH",
+  "scpTranslation" : "ORIGINAL",
   "content" : [ {
     "contentNodeType" : "IMAGE",
     "content" : "http://scp-wiki.wdfiles.com/local--files/scp-006/SCP006_stream-new.jpg",
