@@ -26,6 +26,8 @@ public class ENbaseDivScraper extends DivScraper implements DivScraperComponent 
     private ContentNode<List<TextNode>> scrapObjectName(Element element) {
         String itemText = element.getElementsByClass("itemnum").get(0).text();
         String[] itemStrings = itemText.split(":");
+        //in some cases FULLWIDTH COLON is a separator example: http://scp-wiki-cn.wikidot.com/scp-1558
+        if (itemStrings.length == 1) itemStrings = itemText.split("：");
         TextNode itemHeading = new TextNode(itemStrings[0] + ": ");
         itemHeading.addStyle("font-weight", "bold");
         TextNode itemName = new TextNode(itemStrings[1].trim());

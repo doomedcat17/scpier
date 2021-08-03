@@ -7,6 +7,7 @@ import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.doomedcat17.scpier.exception.SCPierApiException;
 import com.doomedcat17.scpier.exception.SCPierApiInternalException;
 import com.doomedcat17.scpier.exception.SCPierResourcesInitializationException;
+import com.doomedcat17.scpier.exception.data.SCPWikiEmptyContentException;
 import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
 import com.doomedcat17.scpier.mapper.scp.DefaultScpWikiContentMapper;
 import com.doomedcat17.scpier.mapper.scp.ScpWikiContentMapper;
@@ -26,6 +27,7 @@ public class ScpFoundationDataProvider {
             WikiContent wikiContent = getPageContent(articleName, scpBranch, scpTranslation);
             ScpWikiContentMapper scpWikiContentMapper = new DefaultScpWikiContentMapper();
             ScpWikiData scpWikiData = scpWikiContentMapper.mapToScp(wikiContent);
+            if (scpWikiData.getContent().isEmpty()) throw new SCPWikiEmptyContentException("Article content is empty!", new NullPointerException());
             scpWikiData.setTags(wikiContent.getTags());
             scpWikiData.setScpBranch(scpBranch);
             scpWikiData.setScpTranslation(scpTranslation);
