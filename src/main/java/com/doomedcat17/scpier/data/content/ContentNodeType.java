@@ -24,8 +24,9 @@ public enum ContentNodeType {
     LIST_OL,
     /** Corresponds to <b style="color: aqua;">{@code <ul> }</b> HTML tag. The content is a {@link java.util.List} of {@link ContentNode}. */
     LIST_UL,
-    //TODO description
+    /** Corresponds to <b style="color: aqua;">{@code <dl> }</b> HTML tag. The content is a {@link java.util.List} of {@link ContentNode}. */
     LIST_DL,
+    /** Corresponds to <b style="color: aqua;">{@code <li> }</b> HTML tag. The content is a {@link java.util.List} of {@link ContentNode}. */
     LIST_ITEM,
     /** Corresponds to <b style="color: aqua;">{@code <table> }</b> HTML tag. The content is a {@link java.util.List} of {@link ContentNode}.
      * of <span style="color: #eb9934;">TABLE_ROW</span></span> type. */
@@ -37,12 +38,14 @@ public enum ContentNodeType {
     HEADING,
     /** Corresponds to <b style="color: aqua;">{@code <div> }</b>HTML tag. The content is a {@link java.util.List} of {@link ContentNode}. */
     DIV,
-
+    /** Corresponds to <b style="color: aqua;">{@code <audio> }</b> HTML tag.
+     * <p>It defines {@link ContentNode} as {@link EmbedNode}</p>*/
     AUDIO,
     /** Corresponds to <b style="color: aqua;">{@code <a> }</b> HTML tag.
      * <p>It defines {@link ContentNode} as a {@link HyperlinkNode}</p> */
     HYPERLINK,
-
+    /** Corresponds to <b style="color: aqua;">{@code <video> }</b> HTML tag and other HTML elements that contain video as content.
+     * <p>It defines {@link ContentNode} as {@link EmbedNode}</p>*/
     VIDEO;
 
     /** Check if given {@link ContentNodeType} is a text type.

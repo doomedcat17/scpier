@@ -30,7 +30,7 @@ public class AnomBarScraper extends DivScraper implements DivScraperComponent {
         ParagraphNode paragraph = new ParagraphNode();
         Element itemHeaderElement = element.selectFirst(".item");
         //in some cases (SCP-PL-010) itemHeader is null
-        if (itemHeaderElement != null) {
+        if (itemHeaderElement != null && !itemHeaderElement.wholeText().isBlank()) {
             TextNode itemHeader = TextScraper.scrapText(itemHeaderElement, source).get(0);
             if (!itemHeader.getContent().endsWith(" ")) itemHeader.setContent(itemHeader.getContent() + " ");
             if (!itemHeader.getStyles().containsKey("font-weight")) itemHeader.addStyle("font-weight", "bold");
@@ -64,7 +64,7 @@ public class AnomBarScraper extends DivScraper implements DivScraperComponent {
     private ParagraphNode scrapScpClass(Element scpClassElement) {
         ParagraphNode paragraph = new ParagraphNode();
         String scpClassName = scpClassElement.selectFirst(".class-text").text();
-        if (!scpClassName.equals("none") && !scpClassName.startsWith("{$")) {
+        if (!scpClassName.isBlank() && !scpClassName.equals("none") && !scpClassName.startsWith("{$")) {
             scpClassName = capitalizeText(scpClassName).stripTrailing();
             TextNode titleNode = new TextNode(scpClassElement.selectFirst(".class-category").text()+" ");
             titleNode.addStyle("font-weight", "bold");

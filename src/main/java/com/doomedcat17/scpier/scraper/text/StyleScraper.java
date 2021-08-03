@@ -108,6 +108,7 @@ public class StyleScraper {
                 break;
             case "del":
             case "strike":
+            case "s":
                 stylesMap.put("text-decoration", "line-through");
                 break;
             case "center":

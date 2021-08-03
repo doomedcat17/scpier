@@ -21,6 +21,7 @@ public class ScraperFactory {
             case "p":
             case "a":
             case "b":
+            case "s":
             case "li":
             case "small":
             case "span":
@@ -81,6 +82,7 @@ public class ScraperFactory {
                     return new ImageScraper(source);
                 } else return new VideoScraper(source);
             default:
+                System.out.println(element);
                 throw new ScraperNotDefinedException("Scrapper not defined for \"" + element.tagName() +"\" element");
         }
     }

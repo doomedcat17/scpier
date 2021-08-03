@@ -93,7 +93,6 @@ public class IframeContentProvider {
         }
     }
 
-    //TODO tests
     private void placeNodesBehind(Element mainElement, List<Node> nodesToPlace) {
         nodesToPlace = new ArrayList<>(nodesToPlace);
         Node lastNode = null;

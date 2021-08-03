@@ -29,5 +29,6 @@
   "hl-main",
   "noscript",
   "svg",
-  "canvas"
+  "canvas",
+  "dr"
 ]

@@ -17,7 +17,9 @@ public class ScpChecker implements Runnable {
     @Override
     public void run() {
         SCPBranch[] scpBranches = SCPBranch.values();
-        checkScps(SCPBranch.RUSSIAN , SCPTranslation.ORIGINAL);
+        for (SCPBranch scpBranch: scpBranches) {
+            checkScps(scpBranch , SCPTranslation.ORIGINAL);
+        }
     }
 
     private void checkScps(SCPBranch scpBranch, SCPTranslation scpTranslation) {
