@@ -1,8 +1,6 @@
 package com.doomedcat17.scpier.scraper.div.componetnts;
 
-import com.doomedcat17.scpier.data.content.ContentNode;
-import com.doomedcat17.scpier.data.content.HeadingNode;
-import com.doomedcat17.scpier.data.content.TextNode;
+import com.doomedcat17.scpier.data.content.*;
 import com.doomedcat17.scpier.scraper.ElementContentScraper;
 import com.doomedcat17.scpier.scraper.div.DivScraper;
 import org.jsoup.nodes.Element;
@@ -54,9 +52,12 @@ public class CollapsibleBlockScraper extends DivScraper implements DivScraperCom
 
     private List<ContentNode<?>> scrapColmodConetnt(Element element)  {
         Element content = element.selectFirst(".colmod-content");
-        if (content.children().size() == 1) {
-            return ElementContentScraper.scrapContent(content.children().get(0), source);
-        } else return ElementContentScraper.scrapContent(content, source);
+        List<ContentNode<?>> contentNodes = ElementContentScraper.scrapContent(content, source);
+        if (contentNodes.size() == 1 &&
+                contentNodes.get(0).getContentNodeType().equals(ContentNodeType.DIV)) {
+            ListNode<ContentNode<?>> innerDivNode = (ListNode<ContentNode<?>>) contentNodes.get(0);
+            return innerDivNode.getContent();
+        } else return contentNodes;
     }
 
     private String clearCollapsibleBlockTittle(String title){

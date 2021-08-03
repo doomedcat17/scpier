@@ -65,7 +65,8 @@ public class IframeContentProvider {
                     wikiContentCleaner.removeTrash(iframeContent);
                     replaceIframeWithItsContent(iframe, iframeContent);
                 }
-            } catch (Exception ignored) {
+            } catch (Exception e) {
+                iframe.remove();
             }
         }
     }

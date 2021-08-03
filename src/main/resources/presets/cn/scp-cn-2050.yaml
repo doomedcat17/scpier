@@ -1,0 +1,4 @@
+articleName: "scp-cn-2050"
+scpBranch: "CHINESE"
+removalDefinitions:
+  - ".code"

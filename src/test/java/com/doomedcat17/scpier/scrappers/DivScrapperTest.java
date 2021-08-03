@@ -1,9 +1,6 @@
 package com.doomedcat17.scpier.scrappers;
 
-import com.doomedcat17.scpier.data.content.ContentNode;
-import com.doomedcat17.scpier.data.content.ContentNodeType;
-import com.doomedcat17.scpier.data.content.EmbedNode;
-import com.doomedcat17.scpier.data.content.TextNode;
+import com.doomedcat17.scpier.data.content.*;
 import com.doomedcat17.scpier.scraper.div.DivScraper;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
@@ -503,9 +500,28 @@ class DivScrapperTest extends ScrapperTest {
             e.printStackTrace();
             fail();
         }
+    }
 
+    @Test
+    void shouldScrapColmodDiv1() {
+        //given
+        Element colmodDiv = sampleDivs.getElementById("shouldScrapColmodDiv1");
+        //when
+        ContentNode<?> contentNode = divMapper.scrapElement(colmodDiv);
+        //then
+        assertTrue(contentNode instanceof EmbedNode);
+        assertEquals(ContentNodeType.AUDIO, contentNode.getContentNodeType());
+    }
 
-
+    @Test
+    void shouldScrapColmodDiv2() {
+        //given
+        Element colmodDiv = sampleDivs.getElementById("shouldScrapColmodDiv2");
+        //when
+        ContentNode<?> contentNode = divMapper.scrapElement(colmodDiv);
+        //then
+        assertTrue(contentNode instanceof ParagraphNode);
+        assertEquals(ContentNodeType.PARAGRAPH, contentNode.getContentNodeType());
     }
 
 

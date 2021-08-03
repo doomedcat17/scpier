@@ -3,6 +3,7 @@ package com.doomedcat17.scpier.scraper.div.componetnts;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.content.EmbedNode;
 import com.doomedcat17.scpier.data.content.TextNode;
+import com.doomedcat17.scpier.scraper.audio.AudioScraper;
 import com.doomedcat17.scpier.scraper.div.DivScraper;
 import com.doomedcat17.scpier.scraper.image.ImageScraper;
 import com.doomedcat17.scpier.scraper.text.TextScraper;
@@ -18,12 +19,17 @@ public class ImageBlockScraper extends DivScraper implements DivScraperComponent
         super(source);
     }
 
+    //usually it contains image, but there are some special cases
+    //TODO tests
     @Override
     public List<ContentNode<?>> scrapDivContent(Element element)  {
         List<ContentNode<?>> contentNodes = new ArrayList<>();
         Element imageElement = element.selectFirst("img");
         EmbedNode embedNode;
-        if (imageElement == null) embedNode = scrapVideo(element, source);
+        if (imageElement == null) {
+            if (element.selectFirst("video") != null) embedNode = scrapVideo(element, source);
+            else embedNode = scrapAudio(element, source);
+        }
         else embedNode = scrapImage(element, source);
         embedNode.getDescription().addAll(getCaption(element));
         if (!embedNode.isEmpty()) contentNodes.add(embedNode);
@@ -40,6 +46,12 @@ public class ImageBlockScraper extends DivScraper implements DivScraperComponent
         Element videoElement = element.selectFirst("video");
         VideoScraper videoScrapper = new VideoScraper(source);
         return  (EmbedNode) videoScrapper.scrapElement(videoElement);
+    }
+
+    private EmbedNode scrapAudio(Element element, String source) {
+        Element videoElement = element.selectFirst("audio");
+        AudioScraper audioScrapper = new AudioScraper(source);
+        return  (EmbedNode) audioScrapper.scrapElement(videoElement);
     }
 
     //scraps image/video caption
