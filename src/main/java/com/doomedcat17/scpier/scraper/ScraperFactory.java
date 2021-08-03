@@ -23,6 +23,7 @@ public class ScraperFactory {
             case "b":
             case "s":
             case "li":
+            case "blink":
             case "small":
             case "span":
             case "sup":
@@ -59,6 +60,8 @@ public class ScraperFactory {
             case "footer":
             case "article":
             case "form":
+            case "center":
+            case "robot":
                 //some divs has "blockquote class"
                 if (element.hasClass("blockquote")) return new BlockquoteScraper(source);
                 else return new DivScraper(source);
@@ -73,7 +76,6 @@ public class ScraperFactory {
             case "dl":
                 return new ListScraper(source);
             case "blockquote":
-            case "center":
                 return new BlockquoteScraper(source);
             case "video":
                 return new VideoScraper(source);

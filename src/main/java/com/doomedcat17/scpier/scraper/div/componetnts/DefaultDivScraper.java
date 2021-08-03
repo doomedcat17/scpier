@@ -19,7 +19,8 @@ public class DefaultDivScraper extends DivScraper implements DivScraperComponent
     @Override
     public List<ContentNode<?>> scrapDivContent(Element element)  {
         List<ContentNode<?>> contentNodes = ElementContentScraper.scrapContent(element, source);
-        if (element.is(".list-pages-box, .list-pages-item")) {
+        //in specific cases, div content is extracted
+        if (element.is("center, robot, .list-pages-box, .list-pages-item")) {
             return contentNodes;
         } else {
             ListNode<ContentNode<?>> divNode = new ListNode<>(ContentNodeType.DIV);
