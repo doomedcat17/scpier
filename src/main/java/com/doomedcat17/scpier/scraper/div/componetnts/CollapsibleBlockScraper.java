@@ -18,13 +18,7 @@ public class CollapsibleBlockScraper extends DivScraper implements DivScraperCom
     public List<ContentNode<?>> scrapDivContent(Element element)  {
         if (element.is(".colmod-block")) return scrapColmodConetnt(element);
         List<ContentNode<?>> divContent = new ArrayList<>();
-        String title = element.selectFirst(".collapsible-block-link").text();
-        title = clearCollapsibleBlockTittle(title);
-        HeadingNode heading = new HeadingNode();
-        TextNode titleNode = new TextNode(title);
-        titleNode.addStyle("font-weight", "bold");
-        heading.addElement(titleNode);
-        divContent.add(heading);
+        scrapCollapsibleBlockTittle(element, divContent);
         Element collapsibleBlockContent = element.selectFirst(".collapsible-block-content");
         Elements contentSiblings = collapsibleBlockContent.siblingElements();
         if (collapsibleBlockContent.children().isEmpty()) {
@@ -40,6 +34,19 @@ public class CollapsibleBlockScraper extends DivScraper implements DivScraperCom
             divContent.addAll(scrapSiblingElements(contentSiblings));
         }
         return divContent;
+    }
+
+    private void scrapCollapsibleBlockTittle(Element divElement, List<ContentNode<?>> divContent) {
+        Element collapsibleBlockTittleElement = divElement.selectFirst(".collapsible-block-link");
+        if (collapsibleBlockTittleElement != null) {
+            String title = divElement.selectFirst(".collapsible-block-link").text();
+            title = clearCollapsibleBlockTittle(title);
+            HeadingNode heading = new HeadingNode();
+            TextNode titleNode = new TextNode(title);
+            titleNode.addStyle("font-weight", "bold");
+            heading.addElement(titleNode);
+            divContent.add(heading);
+        }
     }
 
     private List<ContentNode<?>> scrapSiblingElements(Elements siblings) {

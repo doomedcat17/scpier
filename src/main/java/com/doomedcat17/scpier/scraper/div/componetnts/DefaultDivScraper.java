@@ -19,9 +19,13 @@ public class DefaultDivScraper extends DivScraper implements DivScraperComponent
     @Override
     public List<ContentNode<?>> scrapDivContent(Element element)  {
         List<ContentNode<?>> contentNodes = ElementContentScraper.scrapContent(element, source);
-        ListNode<ContentNode<?>> divNode = new ListNode<>(ContentNodeType.DIV);
-        divNode.setContent(contentNodes);
-        if (divNode.getContent().size() == 1) return new ArrayList<>(List.of(divNode.getContent().get(0)));
-        return new ArrayList<>(List.of(divNode));
+        if (element.is(".list-pages-box, .list-pages-item")) {
+            return contentNodes;
+        } else {
+            ListNode<ContentNode<?>> divNode = new ListNode<>(ContentNodeType.DIV);
+            divNode.setContent(contentNodes);
+            if (divNode.getContent().size() == 1) return new ArrayList<>(List.of(divNode.getContent().get(0)));
+            return new ArrayList<>(List.of(divNode));
+        }
     }
 }
