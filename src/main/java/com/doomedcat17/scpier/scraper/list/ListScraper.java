@@ -35,12 +35,15 @@ public class ListScraper extends ElementScraper {
     private void mapList(Element element, ListNode<ContentNode<?>> listNode) {
         Elements children = element.children();
         for (Element child : children) {
-            listNode.addElement(mapRow(child));
+            ContentNode<?> rowNode = mapRow(child);
+            if (rowNode.isEmpty()) continue;
+            listNode.addElement(rowNode);
         }
     }
 
     private ContentNode<?> mapRow(Element row) {
         ListNode<ContentNode<?>> listItem = new ListNode<>(ContentNodeType.LIST_ITEM);
+        if (row.childNodeSize() == 0 || row.wholeText().isBlank()) return new ParagraphNode();
         if (row.is("ul, ol, dl")) {
             listItem.addElement(scrapElement(row));
         } else {
