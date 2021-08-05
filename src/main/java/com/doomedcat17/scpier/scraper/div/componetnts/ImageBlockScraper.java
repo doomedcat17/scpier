@@ -25,14 +25,15 @@ public class ImageBlockScraper extends DivScraper implements DivScraperComponent
     public List<ContentNode<?>> scrapDivContent(Element element)  {
         List<ContentNode<?>> contentNodes = new ArrayList<>();
         Element imageElement = element.selectFirst("img");
-        EmbedNode embedNode;
+        EmbedNode embedNode = new EmbedNode();
         if (imageElement == null) {
             if (element.selectFirst("video") != null) embedNode = scrapVideo(element, source);
-            else embedNode = scrapAudio(element, source);
+            else if (element.selectFirst("audio") != null) embedNode = scrapAudio(element, source);
+        } else embedNode = scrapImage(element, source);
+        if (!embedNode.isEmpty()) {
+            contentNodes.add(embedNode);
+            embedNode.getDescription().addAll(getCaption(element));
         }
-        else embedNode = scrapImage(element, source);
-        embedNode.getDescription().addAll(getCaption(element));
-        if (!embedNode.isEmpty()) contentNodes.add(embedNode);
         return contentNodes;
     }
 
