@@ -1,5 +1,6 @@
 package com.doomedcat17.scpier.scrappers;
 
+import com.doomedcat17.scpier.data.content.HyperlinkNode;
 import com.doomedcat17.scpier.data.content.TextNode;
 import com.doomedcat17.scpier.scraper.text.TextScraper;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
@@ -9,8 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class TextScraperTest extends ScrapperTest {
 
@@ -119,6 +119,41 @@ class TextScraperTest extends ScrapperTest {
         //then
         assertEquals(expectedOutputs.get("shouldScrapTextWithStyling6"), contentNodes);
         assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapTextWithStyling6"), contentNodes));
+    }
+
+    @Test
+    void shouldScrapTextAsLink()  {
+        //given
+        Element textElement = sampleLines.getElementById("shouldScrapTextAsLink");
+        //when
+        List<TextNode> contentNodes = TextScraper.scrapText(textElement, SOURCE);
+        TextNode textNode = contentNodes.get(0);
+        //then
+        assertTrue(textNode instanceof HyperlinkNode);
+        assertEquals("Link", textNode.getContent());
+    }
+    @Test
+    void shouldNOTScrapTextAsLink()  {
+        //given
+        Element textElement = sampleLines.getElementById("shouldNOTScrapTextAsLink");
+        //when
+        List<TextNode> contentNodes = TextScraper.scrapText(textElement, SOURCE);
+        TextNode textNode = contentNodes.get(0);
+        //then
+        assertFalse(textNode instanceof HyperlinkNode);
+        assertEquals("Not a link", textNode.getContent());
+    }
+
+    @Test
+    void shouldNOTScrapTextAsLink2()  {
+        //given
+        Element textElement = sampleLines.getElementById("shouldNOTScrapTextAsLink2");
+        //when
+        List<TextNode> contentNodes = TextScraper.scrapText(textElement, SOURCE);
+        TextNode textNode = contentNodes.get(0);
+        //then
+        assertFalse(textNode instanceof HyperlinkNode);
+        assertEquals("Not a link", textNode.getContent());
     }
 
 }
