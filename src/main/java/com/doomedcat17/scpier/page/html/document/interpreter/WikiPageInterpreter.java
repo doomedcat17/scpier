@@ -32,7 +32,10 @@ public class WikiPageInterpreter {
             Optional<Element> redirectionElement = wikiRedirectionHandler.provideRedirectedContent(content);
             if (redirectionElement.isPresent())
                 content = wikiRedirectionHandler.getRedirectionContent(redirectionElement.get(), wikiContent.getSourceUrl());
-            wikiContent.setName(wikiContent.getContent().getElementById("page-title").text());
+            Element pageTitleElement = wikiContent.getContent().getElementById("page-title");
+            if (pageTitleElement != null) {
+                wikiContent.setName(pageTitleElement.text());
+            }
             Optional<List<String>> tagNames = pageTagsScrapper.scrapPageTags(wikiContent.getContent());
             tagNames.ifPresent(wikiContent::setTags);
             wikiContent.setContent(content);

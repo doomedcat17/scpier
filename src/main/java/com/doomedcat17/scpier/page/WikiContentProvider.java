@@ -36,6 +36,7 @@ public class WikiContentProvider {
             String url = WikiSourceBuilder.buildSource(name.toLowerCase(Locale.ROOT), scpBranch, scpTranslation);
             name = url.substring(url.lastIndexOf('/')+1);
             WikiContent wikiContent = wikiPageProvider.getWebpageContent(url);
+            wikiContent.setName(name);
             getOffsets(wikiContent, url, wikiPageProvider).forEach(node -> wikiContent.getContent().selectFirst("#page-content").appendChild(node));
             wikiContent.setLangIdentifier(scpBranch.identifier);
             wikiContent.setTranslationIdentifier(scpTranslation.identifier);
