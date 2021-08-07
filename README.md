@@ -696,20 +696,19 @@ Corresponds to HTML list tags (`<ol>`, `<ul>` and `<dl>`). Each od them consists
 # Contribute
 
 Making this project made me realise how creative SCP Community can be. There are many stories and articles with some
-type of interaction with the reader like terminals to operate, buttons to click and fields to fill. 
-Obviously SCPier can't handle it by itself, every case is different. So I came with idea of so called "*Presets*". 
+type of interaction with the reader, like terminals to operate, buttons to click and fields to fill. 
+Obviously SCPier can't handle them by itself, every case is different. So I came with idea of so called "*Presets*". 
 
-**Everybody can write (programming skills are not necessary) and it's an easy way to contribute!**
+**Everybody can write one (basic HTML and CSS knowledge) and it's an easy way to contribute!**
 
 ## Preset
 
 `Preset` is a YAML file with instructions for the SCPier how to handle specific cases (like inputs, getting additional content or removing some unwanted content).
 
 *How many articles need their own Preset?*  
-I don't really now, but I **assume** it's less than 10 present of all articles.  
+I don't really now, but I **assume** it's less than 10 percent of all articles.  
 
-The most problematic case is usage of `code` class. In some cases is used in elements that contain some code, which is unwanted for SCPier.  
-But in other cases is used for storytelling purposes.
+The most problematic case is usage of `code` class. It is mostly used for purely aesthetic purposes, which are not really important for scrapping, though there are times when custom code could possess some storytelling values
 
 `Preset` consists of following properties:  
 
@@ -783,7 +782,7 @@ It has the following parameters:
 
 **BUTTON**
 
-Element with this type will be clicked. **All elements with onclick attribute are considered as buttons!**
+Element with this type will be clicked. **All elements with onclick attribute are treated as buttons!**
 
 ```yaml
 selector: "#button-to-click"
