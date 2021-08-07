@@ -183,4 +183,14 @@ class ListScrapperTest extends ScrapperTest {
         assertEquals(expectedOutputs.get("shouldScrapStrangeULList"), contentNode);
     }
 
+    @Test
+    void shouldScrapStrangeULList2() throws IOException {
+        //given
+        Element list = sampleLists.getElementById("shouldScrapStrangeULList2");
+        //when
+        ListNode<?> contentNode = (ListNode<?>) listMapper.scrapElement(list);
+        //then
+        assertEquals(expectedOutputs.get("shouldScrapStrangeULList2"), contentNode);
+    }
+
 }

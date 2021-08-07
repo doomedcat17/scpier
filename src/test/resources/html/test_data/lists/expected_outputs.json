@@ -1,5 +1,159 @@
 {
   "java.util.HashMap": {
+    "shouldScrapStrangeULList2": {
+      "com.doomedcat17.scpier.data.content.ListNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_UL"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_ITEM"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " First line ",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_ITEM"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "Second Line",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "Third Line ",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "Fourth Line ",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_ITEM"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "Fifth Line",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
     "shouldScrapStrangeULList": {
       "com.doomedcat17.scpier.data.content.ListNode": {
         "contentNodeType": {

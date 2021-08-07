@@ -10,10 +10,10 @@ import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.PresetProvider;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
+import com.doomedcat17.scpier.page.html.document.provider.OffsetsProvider;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
-import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 
 import java.io.IOException;
@@ -37,7 +37,11 @@ public class WikiContentProvider {
             name = url.substring(url.lastIndexOf('/')+1);
             WikiContent wikiContent = wikiPageProvider.getWebpageContent(url);
             wikiContent.setName(name);
-            getOffsets(wikiContent, url, wikiPageProvider).forEach(node -> wikiContent.getContent().selectFirst("#page-content").appendChild(node));
+            OffsetsProvider.getOffsets(wikiContent, url, wikiPageProvider)
+                    .forEach(node ->
+                            wikiContent.getContent()
+                                    .selectFirst("#page-content")
+                                    .appendChild(node));
             wikiContent.setLangIdentifier(scpBranch.identifier);
             wikiContent.setTranslationIdentifier(scpTranslation.identifier);
             Preset preset;
@@ -69,23 +73,6 @@ public class WikiContentProvider {
             }
         }
         return outerContent;
-    }
-
-    private List<Node> getOffsets(WikiContent originalContent, String url, WikiPageProvider wikiPageProvider) {
-        List<Node> offsetsContent = new ArrayList<>();
-        Element previousContent = originalContent.getContent().selectFirst("#page-content");
-        for (int i = 1; i <= 5; i++) {
-            try {
-                WikiContent wikiContent = wikiPageProvider.getWebpageContent(url+"/offset/"+i);
-                Element content = wikiContent.getContent().selectFirst("#page-content");
-                if (previousContent.html().equals(content.html())) break;
-                offsetsContent.addAll(content.childNodes());
-                previousContent = content;
-            } catch (IOException e) {
-                break;
-            }
-        }
-        return offsetsContent;
     }
 
     public WikiContentProvider() {
