@@ -10,7 +10,7 @@ import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.PresetProvider;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
-import com.doomedcat17.scpier.page.html.document.provider.OffsetsProvider;
+import com.doomedcat17.scpier.page.html.document.provider.offset.OffsetsProvider;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
@@ -37,7 +37,7 @@ public class WikiContentProvider {
             name = url.substring(url.lastIndexOf('/')+1);
             WikiContent wikiContent = wikiPageProvider.getWebpageContent(url);
             wikiContent.setName(name);
-            OffsetsProvider.getOffsets(wikiContent, url, wikiPageProvider)
+            OffsetsProvider.getOffsetsContent(wikiContent, wikiPageProvider)
                     .forEach(node ->
                             wikiContent.getContent()
                                     .selectFirst("#page-content")

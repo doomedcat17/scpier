@@ -1,0 +1,12 @@
+[
+  {
+    "pattern": "/offset/<NUMBER>",
+    "min": 1,
+    "max": 5
+  },
+  {
+    "pattern": "/offset/1/page<NUMBER>_limit/1",
+    "min": 2,
+    "max": 5
+  }
+]
