@@ -333,6 +333,30 @@ class DivScrapperTest extends ScrapperTest {
     }
 
     @Test
+    void shouldScrapImageBlockWithAudioElement()  {
+        //given
+        Element element = sampleDivs.getElementById("shouldScrapImageBlockWithAudioElement");
+        //when
+        ContentNode<?> contentNode = divMapper.scrapElement(element);
+        //then
+        assertTrue(contentNode instanceof EmbedNode);
+        assertEquals(ContentNodeType.AUDIO, contentNode.getContentNodeType());
+
+    }
+
+    @Test
+    void shouldScrapImageBlockWithVideoElement()  {
+        //given
+        Element element = sampleDivs.getElementById("shouldScrapImageBlockWithVideoElement");
+        //when
+        ContentNode<?> contentNode = divMapper.scrapElement(element);
+        //then
+        assertTrue(contentNode instanceof EmbedNode);
+        assertEquals(ContentNodeType.VIDEO, contentNode.getContentNodeType());
+
+    }
+
+    @Test
     void shouldScrapFootnotes()  {
         //given
         Element element = sampleDivs.getElementById("shouldScrapFootnotes");
