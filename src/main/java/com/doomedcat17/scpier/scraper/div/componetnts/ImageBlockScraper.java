@@ -20,7 +20,6 @@ public class ImageBlockScraper extends DivScraper implements DivScraperComponent
     }
 
     //usually it contains image, but there are some special cases
-    //TODO tests
     @Override
     public List<ContentNode<?>> scrapDivContent(Element element)  {
         List<ContentNode<?>> contentNodes = new ArrayList<>();

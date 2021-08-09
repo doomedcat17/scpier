@@ -1,6 +1,7 @@
 package com.doomedcat17.scpier.scraper.div;
 
 import com.doomedcat17.scpier.scraper.div.componetnts.*;
+import com.doomedcat17.scpier.scraper.div.componetnts.anom.AnomBarScraper;
 import org.jsoup.nodes.Element;
 
 public class DivScraperComponentFactory {

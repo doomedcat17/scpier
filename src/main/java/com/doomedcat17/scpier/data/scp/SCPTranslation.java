@@ -38,6 +38,16 @@ public enum SCPTranslation {
         this.url = url;
     }
 
+    //ignores article name
+    public static SCPTranslation getByUrl(String url) {
+        if (url.contains("http://www.scp-wiki.wikidot.com/")) return SCPTranslation.ENGLISH;
+        Optional<SCPTranslation> foundScpTranslation = Arrays.stream(SCPTranslation.values())
+                .filter(scpTranslation -> !scpTranslation.url.isEmpty())
+                .filter(scpTranslation -> url.contains(scpTranslation.url)).findFirst();
+        if (foundScpTranslation.isPresent()) return foundScpTranslation.get();
+        else throw new NullPointerException();
+    }
+
     public static SCPTranslation getByIdentifier(String identifier) {
         Optional<SCPTranslation> foundScpBranch = Arrays.stream(SCPTranslation.values())
                 .filter(scpTranslation -> scpTranslation.identifier.equals(identifier)).findFirst();

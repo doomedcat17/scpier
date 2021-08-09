@@ -40,9 +40,10 @@ public enum SCPBranch {
         this.scpIdentifierPlacement = scpIdentifierPlacement;
     }
 
-    public static SCPBranch getByIdentifier(String identifier) {
+    public static SCPBranch getByUrl(String url) {
+        if (url.equals("http://scp-int.wikidot.com/")) return SCPBranch.ENGLISH;
         Optional<SCPBranch> foundScpBranch = Arrays.stream(SCPBranch.values())
-                .filter(scpBranch -> scpBranch.identifier.equals(identifier)).findFirst();
+                .filter(scpBranch -> scpBranch.url.equals(url)).findFirst();
         if (foundScpBranch.isPresent()) return foundScpBranch.get();
         else throw new NullPointerException();
     }

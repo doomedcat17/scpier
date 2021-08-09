@@ -19,7 +19,7 @@ import java.net.URISyntaxException;
 public class TagFinder {
 
     public static void main(String[] args) throws IOException, URISyntaxException, IframeContentProviderException {
-        String url = "http://www.scpwiki.com/";
+        String url = "http://scp-ru.wikidot.com/";
         for (int i = 2; i <= 5001; i++) {
             StringBuilder scpNumber = new StringBuilder(String.valueOf(i));
             while (scpNumber.length() < 3) {
@@ -37,7 +37,7 @@ public class TagFinder {
             IframeContentProvider iframeContentProvider = new IframeContentProvider(new ScriptedWikiPageProvider(),
                     new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()));
             iframeContentProvider.provideIframesContent(wikiContent, new Preset());
-            Elements elements = content.select("p > br");
+            Elements elements = content.select(".anom-bar");
             if (!elements.isEmpty()) {
                 System.out.println(scpNumber);
             }
