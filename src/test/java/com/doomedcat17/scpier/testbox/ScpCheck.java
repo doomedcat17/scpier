@@ -1,7 +1,9 @@
 package com.doomedcat17.scpier.testbox;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -9,6 +11,8 @@ import java.util.concurrent.TimeUnit;
 public class ScpCheck {
 
     private static final Map<String, Throwable> invalidSCPs = new HashMap<>();
+
+    private static final Set<String> emptySCPs = new HashSet<>();
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newCachedThreadPool();
@@ -31,6 +35,11 @@ public class ScpCheck {
                 System.out.println(key + "\nCause: ");
                 invalidSCPs.get(key).printStackTrace();
             }
+
+            System.out.println("Empty SCPs: " + emptySCPs.size());
+            for (String key : emptySCPs) {
+                System.out.println(key);
+            }
         }
 
     }
@@ -38,4 +47,9 @@ public class ScpCheck {
     public static synchronized void addInvalidScp(String scpName, Throwable cause) {
         invalidSCPs.put(scpName, cause);
     }
+
+    public static synchronized void addEmptyScp(String scpName) {
+        emptySCPs.add(scpName);
+    }
+
 }

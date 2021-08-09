@@ -20,6 +20,7 @@ public class ScraperFactory {
             case "em":
             case "p":
             case "a":
+            case "big":
             case "b":
             case "s":
             case "li":

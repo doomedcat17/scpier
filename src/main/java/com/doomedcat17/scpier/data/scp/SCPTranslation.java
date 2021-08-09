@@ -6,7 +6,7 @@ import java.util.Optional;
 public enum SCPTranslation {
     ORIGINAL("", ""),
     ENGLISH("eng", "http://scp-int.wikidot.com/"),
-    POLISH("pl", "http://scp-wiki.net.pl/"),
+    POLISH("pl", "http://scp-pl.wikidot.com/"),
     RUSSIAN("ru", "http://scp-ru.wikidot.com/"),
     JAPANESE("jp", "http://scp-jp.wikidot.com/"),
     CHINESE("cn", "http://scp-wiki-cn.wikidot.com/"),
@@ -45,13 +45,6 @@ public enum SCPTranslation {
                 .filter(scpTranslation -> !scpTranslation.url.isEmpty())
                 .filter(scpTranslation -> url.contains(scpTranslation.url)).findFirst();
         if (foundScpTranslation.isPresent()) return foundScpTranslation.get();
-        else throw new NullPointerException();
-    }
-
-    public static SCPTranslation getByIdentifier(String identifier) {
-        Optional<SCPTranslation> foundScpBranch = Arrays.stream(SCPTranslation.values())
-                .filter(scpTranslation -> scpTranslation.identifier.equals(identifier)).findFirst();
-        if (foundScpBranch.isPresent()) return foundScpBranch.get();
         else throw new NullPointerException();
     }
 }

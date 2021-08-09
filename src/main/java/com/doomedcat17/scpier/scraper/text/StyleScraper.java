@@ -114,8 +114,9 @@ public class StyleScraper {
             case "center":
                 stylesMap.put("text-align", "center");
                 break;
-            case "p":
-            case "span":
+            case "big":
+                stylesMap.put("font-size", "large");
+                break;
             default:
                 break;
         }
