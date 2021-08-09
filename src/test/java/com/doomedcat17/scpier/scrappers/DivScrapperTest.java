@@ -2,11 +2,14 @@ package com.doomedcat17.scpier.scrappers;
 
 import com.doomedcat17.scpier.data.content.*;
 import com.doomedcat17.scpier.scraper.div.DivScraper;
+import com.doomedcat17.scpier.testbox.JSONWriter;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,6 +20,8 @@ class DivScrapperTest extends ScrapperTest {
     protected final Element sampleDivs = TestDataProvider
             .getSampleElement("src/test/resources/html/test_data/divs/sample-divs-elements.html");
 
+    private final Map<String, ContentNode<?>> expectedOutputs =
+            getExpectedContentNodeOutputs("src/test/resources/html/test_data/divs/expected_outputs.json");
     @Test
     void shouldMapDivAsText()  {
         //given
@@ -546,6 +551,40 @@ class DivScrapperTest extends ScrapperTest {
         //then
         assertTrue(contentNode instanceof ParagraphNode);
         assertEquals(ContentNodeType.PARAGRAPH, contentNode.getContentNodeType());
+    }
+
+    //TODO tests
+    @Test
+    void shouldScrapAnomWithContentInsideStyling() throws JsonProcessingException {
+        //given
+        DivScraper divScraper = new DivScraper("http://scp-zh-tr.wikidot.com/");
+        Element anomDiv = sampleDivs.getElementById("shouldScrapAnomWithContentInsideStyling");
+        //when
+        ContentNode<?> contentNode = divScraper.scrapElement(anomDiv);
+        //then
+        assertEquals(expectedOutputs.get("shouldScrapAnomWithContentInsideStyling"), contentNode);
+    }
+
+    @Test
+    void shouldScrapAnomWithContentInsideStyling2() throws JsonProcessingException {
+        //given
+        DivScraper divScraper = new DivScraper("http://scp-zh-tr.wikidot.com/");
+        Element anomDiv = sampleDivs.getElementById("shouldScrapAnomWithContentInsideStyling2");
+        //when
+        ContentNode<?> contentNode = divScraper.scrapElement(anomDiv);
+        //then
+        assertEquals(expectedOutputs.get("shouldScrapAnomWithContentInsideStyling2"), contentNode);
+    }
+
+    @Test
+    void shouldScrapAnomWithContentInsideStyling3() throws JsonProcessingException {
+        //given
+        DivScraper divScraper = new DivScraper("http://scpvakfi.wikidot.com/");
+        Element anomDiv = sampleDivs.getElementById("shouldScrapAnomWithContentInsideStyling3");
+        //when
+        ContentNode<?> contentNode = divScraper.scrapElement(anomDiv);
+        //then
+        assertEquals(expectedOutputs.get("shouldScrapAnomWithContentInsideStyling3"), contentNode);
     }
 
 

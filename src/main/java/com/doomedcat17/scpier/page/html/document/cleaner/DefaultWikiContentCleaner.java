@@ -56,10 +56,16 @@ public class DefaultWikiContentCleaner implements WikiContentCleaner {
 
     private List<Node> unpackBlock(Element divElement) {
         if (divElement.is(".collapsible-block")) {
-            return divElement
-                    .getElementsByClass("collapsible-block-content")
-                    .get(0)
-                    .childNodesCopy();
+            Element blockContent = divElement.selectFirst(".collapsible-block-content");
+            if (blockContent.children().isEmpty()) {
+                blockContent.siblingElements().forEach(sibling -> {
+                    if (sibling.is("div")) {
+                        List<Node> nodes = unpackBlock(sibling);
+                        nodes.forEach(blockContent::appendChild);
+                    } else blockContent.appendChild(sibling);
+                });
+            }
+            return blockContent.childNodesCopy();
         } else if(divElement.hasClass("yui-navset") || divElement.hasClass("yui-navset-top")) {
             Element yuiContent = divElement.getElementsByClass("yui-content").first();
             List<Node> nodes = new ArrayList<>();
