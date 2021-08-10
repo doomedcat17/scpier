@@ -49,6 +49,7 @@ public class ScraperFactory {
             case "bodyred":
             case "p1":
             case "p2":
+            case "gfont":
                 return new LineScraper(source);
             case "h1":
             case "h2":

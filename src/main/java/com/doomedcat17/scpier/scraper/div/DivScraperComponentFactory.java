@@ -23,7 +23,7 @@ public class DivScraperComponentFactory {
             return new ENbaseDivScraper(source);
         } else if (element.hasClass("acs-hybrid-text-bar")) {
             return new ACSDivScraper(source);
-        } else if (element.hasClass("player-wrapper")) {
+        } else if (element.is(".player-wrapper, .widget")) {
             return new PlayerWrapperScraper(source);
         } else if (element.hasClass("objclassbar")) {
             return new ObjectClassBarDivScraper(source);

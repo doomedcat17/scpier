@@ -117,6 +117,10 @@ public class StyleScraper {
             case "big":
                 stylesMap.put("font-size", "large");
                 break;
+            case "gfont":
+                stylesMap.put("font-family", "'Geo', sans-serif");
+                stylesMap.put("font-size", "40px");
+                break;
             default:
                 break;
         }

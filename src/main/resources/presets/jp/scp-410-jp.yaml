@@ -1,0 +1,9 @@
+articleName: "scp-410-jp"
+scpBranch: "JAPANESE"
+wikiElements:
+  - selector: "#incident > a"
+    elementType: "BUTTON"
+  - selector: "#audio > a"
+    elementType: "BUTTON"
+  - selector: "#security > a"
+    elementType: "BUTTON"

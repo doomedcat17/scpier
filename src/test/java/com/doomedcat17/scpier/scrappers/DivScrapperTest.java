@@ -577,7 +577,7 @@ class DivScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapAnomWithContentInsideStyling3() throws JsonProcessingException {
+    void shouldScrapAnomWithContentInsideStyling3()  {
         //given
         DivScraper divScraper = new DivScraper("http://scpvakfi.wikidot.com/");
         Element anomDiv = sampleDivs.getElementById("shouldScrapAnomWithContentInsideStyling3");
@@ -585,6 +585,19 @@ class DivScrapperTest extends ScrapperTest {
         ContentNode<?> contentNode = divScraper.scrapElement(anomDiv);
         //then
         assertEquals(expectedOutputs.get("shouldScrapAnomWithContentInsideStyling3"), contentNode);
+    }
+
+    @Test
+    void shouldScrapWidget()  {
+        //given
+        Element widget = sampleDivs.getElementById("shouldScrapWidget");
+        //when
+        ContentNode<?> contentNode = divMapper.scrapElement(widget);
+        //then
+        assertTrue(contentNode instanceof EmbedNode);
+        EmbedNode embedNode = (EmbedNode) contentNode;
+        assertEquals(ContentNodeType.AUDIO, embedNode.getContentNodeType());
+        assertEquals("TasmanianPower - Vinyl rewind", embedNode.getDescription().get(0).getContent());
     }
 
 
