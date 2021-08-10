@@ -4,11 +4,13 @@ import com.doomedcat17.scpier.data.content.*;
 import com.doomedcat17.scpier.exception.scraper.ElementScraperException;
 import com.doomedcat17.scpier.scraper.ElementContentScraper;
 import com.doomedcat17.scpier.scraper.ElementScraper;
+import org.jsoup.Connection;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class TableScraper extends ElementScraper {
     public TableScraper(String source) {
@@ -18,13 +20,18 @@ public class TableScraper extends ElementScraper {
     @Override
     public ContentNode<?> scrapElement(Element element) {
         try {
-            return scrapTable(element);
+            ListNode<ListNode<?>> table = scrapTable(element);
+            //gets image and description if its only content
+            if (element.select("img").size() == 1 && table.getContent().size() <= 2) {
+                return getImageFromTable(table);
+            }
+            return table;
         } catch (Exception e) {
             throw new ElementScraperException(e);
         }
     }
 
-    private ContentNode<?> scrapTable(Element element) {
+    private ListNode<ListNode<?>> scrapTable(Element element) {
         Element tableBody = element.selectFirst("tbody");
         if (tableBody != null) {
             element = tableBody;
@@ -40,17 +47,50 @@ public class TableScraper extends ElementScraper {
         } else return scrapDefaultTable(element);
     }
 
-    private ListNode<ContentNode<?>> scrapDefaultTable(Element element) {
-        List<ContentNode<?>> tableRows = new ArrayList<>();
+
+
+    private ListNode<ListNode<?>> scrapDefaultTable(Element element) {
+        List<ListNode<?>> tableRows = new ArrayList<>();
         for (Element tableRow : element.children()) {
             tableRows.add(scrapRow(tableRow));
         }
         return new ListNode<>(ContentNodeType.TABLE, tableRows);
     }
 
-    private ContentNode<?> scrapEnBaseTable(Element element) {
+
+    private ContentNode<?> getImageFromTable(ListNode<ListNode<?>> table) {
+        EmbedNode embedNode = null;
+        ParagraphNode caption = null;
+        for (ListNode<?> row: table.getContent()) {
+            if (row instanceof ParagraphNode) continue;
+            List<ContentNode<?>> cells = (List<ContentNode<?>>) row.getContent();
+            for (ContentNode<?> cell: cells) {
+                if (cell instanceof ListNode) {
+                    ListNode<?> cellNode = (ListNode<?>) cell;
+                    EmbedNode foundImage = (EmbedNode) cellNode.getContent().stream()
+                            .filter(contentNode -> contentNode instanceof EmbedNode)
+                            .findFirst().orElse(null);
+                    ParagraphNode foundCaption = (ParagraphNode) cellNode.getContent().stream()
+                            .filter(contentNode -> contentNode instanceof ParagraphNode)
+                            .findFirst().orElse(null);
+                    if (embedNode == null && foundImage != null) embedNode = foundImage;
+                    if (caption == null && foundCaption != null) caption = foundCaption;
+                }
+            }
+        }
+        if (embedNode != null && caption != null && embedNode.getDescription().isEmpty()) {
+            embedNode.setDescription(caption.getContent());
+        }
+
+        //if image is null, return table
+        if (embedNode != null) return embedNode;
+        else return table;
+
+    }
+
+    private ListNode<ListNode<?>> scrapEnBaseTable(Element element) {
         Element itemHeaders = element.getElementsByClass("item1 EN").get(0);
-        ListNode<ParagraphNode> paragraphs = new ListNode<>(ContentNodeType.PARAGRAPHS);
+        ListNode<ListNode<?>> paragraphs = new ListNode<>(ContentNodeType.PARAGRAPHS);
         for (Element itemElement : itemHeaders.children()) {
             ParagraphNode paragraph = new ParagraphNode();
             String[] splitElements = itemElement.text().split(": ");
@@ -64,15 +104,15 @@ public class TableScraper extends ElementScraper {
         return paragraphs;
     }
 
-    private ContentNode<?> scrapResponsiveTable(Element table) {
-        List<ContentNode<?>> tableRows = new ArrayList<>();
+    private ListNode<ListNode<?>> scrapResponsiveTable(Element table) {
+        List<ListNode<?>> tableRows = new ArrayList<>();
         for (Element tableRow : table.children()) {
             tableRows.add(scrapResponsiveTableRow(tableRow));
         }
         return new ListNode<>(ContentNodeType.TABLE, tableRows);
     }
 
-    private ContentNode<?> scrapResponsiveTableRow(Element row) {
+    private ListNode<?> scrapResponsiveTableRow(Element row) {
         List<ListNode<ContentNode<?>>> rowCells = new ArrayList<>();
         if (row.is(".table_header")) {
             row = row.selectFirst(".table_row");
@@ -87,7 +127,7 @@ public class TableScraper extends ElementScraper {
         return new ListNode<>(ContentNodeType.TABLE_ROW, rowCells);
     }
 
-    private ContentNode<?> scrapRow(Element row) {
+    private ListNode<?> scrapRow(Element row) {
         List<ListNode<ContentNode<?>>> rowCells = new ArrayList<>();
         for (Element cell : row.children()) {
             if (cell.children().isEmpty() && cell.text().isBlank()) continue;
