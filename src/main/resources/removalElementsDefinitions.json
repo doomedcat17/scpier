@@ -31,5 +31,6 @@
   "svg",
   "canvas",
   "dr",
-  "title"
+  "title",
+  "a[href=\"javascript:;\"]"
 ]

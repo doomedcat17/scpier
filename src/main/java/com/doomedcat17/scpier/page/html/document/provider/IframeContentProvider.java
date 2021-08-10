@@ -30,45 +30,51 @@ public class IframeContentProvider {
 
     private void replaceWithIframeContent(Element iframe, String pageSource, String title, String langIdentifier, Preset preset) {
         String source = iframe.attr("src");
-        Element iframeContent = new Element("div");
-        if (source.contains("youtube") || source.contains("vimeo")) {
-            provideYtVideo(iframeContent, source);
-            if (iframe.parent().childrenSize() == 1) {
-                iframeContent.children().forEach(element -> iframe.parent().after(element));
-                iframe.parent().remove();
-            } else {
-                iframeContent.children().forEach(iframe::after);
-                iframe.remove();
-            }
+        if (isTrash(source)) {
+            iframe.remove();
         } else {
-            if (source.startsWith("/")) {
-                source = pageSource.substring(0, pageSource.lastIndexOf('/')) + source;
-            }
-            try {
-                WikiContent webpageContent;
-                if (preset.getArticleName() != null) {
-                    try {
-                        webpageContent = PresetExecutor.execute(WebClientProvider.getWebClient(), preset, source);
-                    } catch (NullPointerException e) {
-                        // preset DOES NOT apply to all iframe elements, so default content is provided
-                        webpageContent = scriptedHTMLDocumentProvider.getWebpageContent(source);
-                    }
-                } else webpageContent = scriptedHTMLDocumentProvider.getWebpageContent(source);
-                if (webpageContent.getContent().children().isEmpty()) {
-                    iframe.remove();
+            Element iframeContent = new Element("div");
+            if (source.contains("youtube") || source.contains("vimeo")) {
+                provideYtVideo(iframeContent, source);
+                if (iframe.parent().childrenSize() == 1) {
+                    iframeContent.children().forEach(element -> iframe.parent().after(element));
+                    iframe.parent().remove();
                 } else {
-                    webpageContent.setName(title);
-                    webpageContent.setLangIdentifier(langIdentifier);
-                    webpageContent.setSourceUrl(source);
-                    provideIframesContent(webpageContent, preset);
-                    iframeContent = webpageContent.getContent();
-                    wikiContentCleaner.removeTrash(iframeContent);
-                    replaceIframeWithItsContent(iframe, iframeContent);
+                    iframeContent.children().forEach(iframe::after);
+                    iframe.remove();
                 }
-            } catch (Exception e) {
-                iframe.remove();
+            } else {
+                if (source.startsWith("/")) {
+                    source = pageSource.substring(0, pageSource.lastIndexOf('/')) + source;
+                }
+                try {
+                    WikiContent webpageContent;
+                    if (preset.getArticleName() != null) {
+                        try {
+                            webpageContent = PresetExecutor.execute(WebClientProvider.getWebClient(), preset, source);
+                        } catch (NullPointerException e) {
+                            // preset DOES NOT apply to all iframe elements, so default content is provided
+                            webpageContent = scriptedHTMLDocumentProvider.getWebpageContent(source);
+                        }
+                    } else webpageContent = scriptedHTMLDocumentProvider.getWebpageContent(source);
+                    if (webpageContent.getContent().children().isEmpty()) {
+                        iframe.remove();
+                    } else {
+                        provideIframesContent(webpageContent, preset);
+                        iframeContent = webpageContent.getContent();
+                        wikiContentCleaner.removeTrash(iframeContent);
+                        replaceIframeWithItsContent(iframe, iframeContent);
+                    }
+                } catch (Exception e) {
+                    iframe.remove();
+                }
             }
         }
+    }
+
+    private boolean isTrash(String src) {
+        if (src.contains("/common--javascript/resize-iframe.html")) return true;
+        return false;
     }
 
     private void provideYtVideo(Element iframeContent, String source) {
