@@ -20,6 +20,7 @@ public class StyleScraper {
         try {
             Map<String, String> stylesMap = new HashMap<>();
             mapTag(element.tagName(), stylesMap);
+            addClassStyles(element, stylesMap);
             if (element.hasAttr("style")) {
                 List<String> styles = Arrays.stream(element.attr("style")
                                 .trim()
@@ -28,7 +29,6 @@ public class StyleScraper {
                         .collect(Collectors.toList());
                 styles.forEach(styleText -> getPropertyAndValue(styleText, stylesMap));
             }
-            addClassStyles(element, stylesMap);
             return stylesMap;
         } catch (Exception e) {
             throw new ElementScraperException(e);
