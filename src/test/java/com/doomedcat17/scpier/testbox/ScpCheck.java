@@ -16,16 +16,33 @@ public class ScpCheck {
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newCachedThreadPool();
-        executorService.execute(new ScpChecker(2, 500));
+        executorService.execute(new ScpChecker(2, 250));
+        executorService.execute(new ScpChecker(251, 500));
         executorService.execute(new ScpChecker(501, 1000));
-        executorService.execute(new ScpChecker(1001, 1500));
-        executorService.execute(new ScpChecker(1501, 2000));
-        executorService.execute(new ScpChecker(2001, 2500));
-        executorService.execute(new ScpChecker(2501, 3000));
-        executorService.execute(new ScpChecker(3001, 3500));
-        executorService.execute(new ScpChecker(3501, 4000));
-        executorService.execute(new ScpChecker(4001, 4500));
-        executorService.execute(new ScpChecker(4501, 5000));
+        executorService.execute(new ScpChecker(1001, 1250));
+        executorService.execute(new ScpChecker(1251, 1500));
+        executorService.execute(new ScpChecker(1501, 1750));
+        executorService.execute(new ScpChecker(1751, 2000));
+        executorService.execute(new ScpChecker(2001, 2250));
+        executorService.execute(new ScpChecker(2251, 2500));
+        executorService.execute(new ScpChecker(2501, 2750));
+        executorService.execute(new ScpChecker(2751, 3000));
+        executorService.execute(new ScpChecker(3001, 3250));
+        executorService.execute(new ScpChecker(3251, 3500));
+        executorService.execute(new ScpChecker(3501, 3750));
+        executorService.execute(new ScpChecker(3751, 4000));
+        executorService.execute(new ScpChecker(4001, 4250));
+        executorService.execute(new ScpChecker(4251, 4500));
+        executorService.execute(new ScpChecker(4501, 4750));
+        executorService.execute(new ScpChecker(4751, 5000));
+        executorService.execute(new ScpChecker(5001, 5250));
+        executorService.execute(new ScpChecker(5251, 5500));
+        executorService.execute(new ScpChecker(5501, 5750));
+        executorService.execute(new ScpChecker(5751, 6000));
+        executorService.execute(new ScpChecker(6001, 6250));
+        executorService.execute(new ScpChecker(6251, 6500));
+        executorService.execute(new ScpChecker(6501, 6750));
+        executorService.execute(new ScpChecker(6751, 7000));
 
         executorService.shutdown();
 

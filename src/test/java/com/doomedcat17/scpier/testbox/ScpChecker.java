@@ -11,6 +11,10 @@ import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
 
 public class ScpChecker implements Runnable {
 
+    private static int threadCounter = 1;
+
+    private int threadNum;
+
     private final int startNumber;
 
     private final int endNumber;
@@ -24,10 +28,11 @@ public class ScpChecker implements Runnable {
     }
 
     private void checkScps(SCPBranch scpBranch, SCPTranslation scpTranslation) {
+        System.out.println("Scp Checker +"+threadNum+" started");
         ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
         int notFoundCounter = 0;
         for (int i = startNumber; i <= endNumber; i++) {
-            if (notFoundCounter == 40) break;
+            if (notFoundCounter == 70) break;
             StringBuilder scpNumber = new StringBuilder(String.valueOf(i));
             while (scpNumber.length() < 3) {
                 scpNumber.insert(0, '0');
@@ -54,6 +59,7 @@ public class ScpChecker implements Runnable {
     }
 
     public ScpChecker(int startNumber, int endNumber) {
+        threadCounter = this.threadNum;
         this.startNumber = startNumber;
         this.endNumber = endNumber;
     }

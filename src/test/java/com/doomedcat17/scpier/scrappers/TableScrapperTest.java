@@ -5,7 +5,9 @@ import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.content.ContentNodeType;
 import com.doomedcat17.scpier.data.content.TextNode;
 import com.doomedcat17.scpier.scraper.table.TableScraper;
+import com.doomedcat17.scpier.testbox.JSONWriter;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
@@ -98,6 +100,17 @@ class TableScrapperTest extends ScrapperTest {
         assertEquals("SCP-2058", paragraphs.getContent().get(0).getContent().get(1).getContent());
         assertEquals("Object Class: ", paragraphs.getContent().get(1).getContent().get(0).getContent());
         assertEquals("Safe", paragraphs.getContent().get(1).getContent().get(1).getContent());
+
+    }
+
+    @Test
+    void shouldScrapResponsiveTable() throws JsonProcessingException {
+        //given
+        Element table = sampleTables.getElementById("shouldScrapResponsiveTable");
+        //when
+        ContentNode<?> contentNode = tableMapper.scrapElement(table);
+        //then
+        assertEquals(expectedOutputs.get("shouldScrapResponsiveTable"), contentNode);
 
     }
 

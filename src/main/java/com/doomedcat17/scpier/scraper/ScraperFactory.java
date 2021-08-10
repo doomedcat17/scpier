@@ -71,7 +71,8 @@ public class ScraperFactory {
             case "center":
             case "robot":
                 //some divs has "blockquote class"
-                if (element.hasClass("blockquote")) return new BlockquoteScraper(source);
+                if (element.is(".blockquote")) return new BlockquoteScraper(source);
+                else if (element.is(".responsive_table")) return new TableScraper(source);
                 else return new DivScraper(source);
             case "img":
             case "picture":
