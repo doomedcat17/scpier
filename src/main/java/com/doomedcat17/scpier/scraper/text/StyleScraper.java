@@ -46,7 +46,10 @@ public class StyleScraper {
         if (!style.isBlank()) {
             try {
                 String[] styleKeyAndValue = style.split(":");
-                stylesMap.put(styleKeyAndValue[0].trim(), styleKeyAndValue[1].trim());
+                String property = styleKeyAndValue[0].trim();
+                if (!isIgnoredStyleProperty(property)) {
+                    stylesMap.put(property, styleKeyAndValue[1].trim());
+                }
                 //and sometimes style has no value
             } catch (ArrayIndexOutOfBoundsException ignored) {
             }
@@ -56,6 +59,15 @@ public class StyleScraper {
     private static void addClassStyles(Element element, Map<String, String> stylesMap) {
         if (element.is(".center-header, .h6, .h5, .h4, .h3, .h2, .h1")) {
             stylesMap.put("font-weight", "bold");
+        }
+    }
+
+    private static boolean isIgnoredStyleProperty(String property) {
+        switch (property){
+            case "animation":
+                return true;
+            default:
+                return false;
         }
     }
 

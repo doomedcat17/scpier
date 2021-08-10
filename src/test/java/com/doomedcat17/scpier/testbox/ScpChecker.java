@@ -21,6 +21,7 @@ public class ScpChecker implements Runnable {
 
     @Override
     public void run() {
+        System.out.println("Scp Checker +"+threadNum+" started");
         SCPBranch[] scpBranches = SCPBranch.values();
         for (SCPBranch scpBranch: scpBranches) {
             checkScps(scpBranch , SCPTranslation.ORIGINAL);
@@ -28,7 +29,6 @@ public class ScpChecker implements Runnable {
     }
 
     private void checkScps(SCPBranch scpBranch, SCPTranslation scpTranslation) {
-        System.out.println("Scp Checker +"+threadNum+" started");
         ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
         int notFoundCounter = 0;
         for (int i = startNumber; i <= endNumber; i++) {
@@ -58,8 +58,14 @@ public class ScpChecker implements Runnable {
         }
     }
 
+    private synchronized int getThreadNum() {
+        int num = threadCounter;
+        threadCounter++;
+        return num;
+    }
+
     public ScpChecker(int startNumber, int endNumber) {
-        threadCounter = this.threadNum;
+        this.threadNum = getThreadNum();
         this.startNumber = startNumber;
         this.endNumber = endNumber;
     }

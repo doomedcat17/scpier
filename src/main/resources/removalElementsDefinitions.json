@@ -23,6 +23,7 @@
   "base",
   "#warning",
   "input",
+  "select",
   "button",
   ".authorbox",
   "textarea",

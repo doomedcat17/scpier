@@ -15,6 +15,8 @@ public class ImageScraper extends ElementScraper {
     @Override
     public ContentNode<?> scrapElement(Element element)  {
         if (element.is("picture, figure, a")) element = element.selectFirst("img");
+        //sometimes picture is empty
+        if (element == null) return new EmbedNode();
         try {
             String imageSource = element
                     .attributes().get("src");

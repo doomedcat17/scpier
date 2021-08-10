@@ -17,7 +17,7 @@ public class JSONWriter {
             ObjectMapper objectMapper = new ObjectMapper();
             // objectMapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.USE_NATIVE_TYPE_ID));
 
-            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("reddawn", SCPBranch.ENGLISH);
+            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("SCP-CN-1818", SCPBranch.CHINESE);
             System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(scp));
         } catch (Exception e) {
             e.printStackTrace();
