@@ -50,6 +50,8 @@ public class ScraperFactory {
             case "p1":
             case "p2":
             case "gfont":
+                //sometimes images are wrapped in <a> tag
+                if (element.is("a") && !element.select("img").isEmpty()) return new ImageScraper(source);
                 return new LineScraper(source);
             case "h1":
             case "h2":
