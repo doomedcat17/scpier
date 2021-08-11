@@ -31,29 +31,20 @@ public class TaleList {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         Set<String> tales = new HashSet<>();
-        for (int i = 1; i <= 4; i++) {
-            findAllTaleTitles("https://scp-wiki.wikidot.com/incident-reports-eye-witness-interviews-and-personal-logs/p/"+i,
-                    tales);
+        for(SCPBranch scpBranch: SCPBranch.values()) {
+            String url = "most-recently-created/p/";
+            if (scpBranch.equals(SCPBranch.POLISH)) url = "ostatnio-stworzone/p/";
+            for (int i = 1; i <= 750; i++) {
+                try {
+                    findAllTaleTitles(scpBranch.url+url + i, tales);
+                    System.out.println(tales.size());
+                } catch (IOException e) {
+                    break;
+                }
+            }
         }
-        for (int i = 1; i <= 5; i++) {
-            findAllTaleTitles("https://scp-wiki.wikidot.com/series-archive/p/"+i,
-                    tales);
-        }
-        findAllTaleTitles("https://scp-wiki.wikidot.com/creepy-pasta", tales);
-        findAllTaleTitles("https://scp-wiki.wikidot.com/tales-by-title", tales);
-        findAllTaleTitles("https://scp-wiki.wikidot.com/explained-scps-tales-edition", tales);
-        findAllTaleTitles("https://scp-wiki.wikidot.com/joke-scps-tales-edition", tales);
-        findAllTaleTitles("https://scp-wiki.wikidot.com/goi-formats", tales);
-        tales.add("groups-of-interest");
-        tales.add("log-of-extranormal-events");
-        tales.add("log-of-unexplained-locations");
-        tales.add("object-classes");
-        tales.add("personnel-and-character-dossier");
-        tales.add("security-clearance-levels");
-        tales.add("secure-facilities-locations");
-        tales.add("about-the-scp-foundation");
-        tales.add("task-forces");
-
+        tales.forEach(System.out::println);
+        /*
         taleIterator = tales.iterator();
         ExecutorService executorService = Executors.newCachedThreadPool();
         executorService.execute(new TaleChecker());
@@ -78,6 +69,8 @@ public class TaleList {
 
             emptyTales.forEach(System.out::println);
         }
+
+         */
     }
 
     static class TaleChecker implements Runnable {

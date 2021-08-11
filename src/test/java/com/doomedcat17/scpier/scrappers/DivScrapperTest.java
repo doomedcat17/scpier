@@ -2,7 +2,6 @@ package com.doomedcat17.scpier.scrappers;
 
 import com.doomedcat17.scpier.data.content.*;
 import com.doomedcat17.scpier.scraper.div.DivScraper;
-import com.doomedcat17.scpier.testbox.JSONWriter;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.jsoup.nodes.Element;
@@ -15,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DivScrapperTest extends ScrapperTest {
 
-    private final DivScraper divMapper = new DivScraper(SOURCE);
+    private final DivScraper divScraper = new DivScraper(SOURCE);
 
     protected final Element sampleDivs = TestDataProvider
             .getSampleElement("src/test/resources/html/test_data/divs/sample-divs-elements.html");
@@ -27,7 +26,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element simpleDiv = sampleDivs.getElementById("shouldMapDivAsText");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(simpleDiv);
+        ContentNode<?> contentNode = divScraper.scrapElement(simpleDiv);
         //then
         assertEquals(ContentNodeType.PARAGRAPH, contentNode.getContentNodeType());
         try {
@@ -46,7 +45,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element simpleDiv = sampleDivs.getElementById("shouldMapDivWithOnlyText");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(simpleDiv);
+        ContentNode<?> contentNode = divScraper.scrapElement(simpleDiv);
         //then
         try {
             List<ContentNode<List<TextNode>>> paragraphs = (List<ContentNode<List<TextNode>>>) contentNode.getContent();
@@ -64,7 +63,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element element = sampleDivs.getElementById("shouldMapDivWithHeading");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(element);
+        ContentNode<?> contentNode = divScraper.scrapElement(element);
         //then
         try {
             List<ContentNode<List<ContentNode<?>>>> content = (List<ContentNode<List<ContentNode<?>>>>) contentNode.getContent();
@@ -81,7 +80,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element element = sampleDivs.getElementById("shouldMapDivWithMultipleHeadings");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(element);
+        ContentNode<?> contentNode = divScraper.scrapElement(element);
         //then
         try {
             List<ContentNode<List<ContentNode<?>>>> content = (List<ContentNode<List<ContentNode<?>>>>) contentNode.getContent();
@@ -101,7 +100,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element element = sampleDivs.getElementById("shouldMapOnlyImage");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(element);
+        ContentNode<?> contentNode = divScraper.scrapElement(element);
         //then
         try {
             assertEquals(ContentNodeType.IMAGE, contentNode.getContentNodeType());
@@ -119,7 +118,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element element = sampleDivs.getElementById("shouldScrapOnlyImages");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(element);
+        ContentNode<?> contentNode = divScraper.scrapElement(element);
         //then
         assertEquals(ContentNodeType.DIV, contentNode.getContentNodeType());
         try {
@@ -139,7 +138,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element element = sampleDivs.getElementById("shouldScrapDivInsideDiv");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(element);
+        ContentNode<?> contentNode = divScraper.scrapElement(element);
         //then
         assertEquals(ContentNodeType.DIV, contentNode.getContentNodeType());
         try {
@@ -172,7 +171,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element enBaseElement = sampleDivs.getElementById("shouldScrapEnbaseDiv");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(enBaseElement);
+        ContentNode<?> contentNode = divScraper.scrapElement(enBaseElement);
         //then
         assertEquals(ContentNodeType.CONTENT_NODES, contentNode.getContentNodeType());
         try {
@@ -200,7 +199,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element enBaseElement = sampleDivs.getElementById("shouldScrapEnbaseDiv2");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(enBaseElement);
+        ContentNode<?> contentNode = divScraper.scrapElement(enBaseElement);
         //then
         assertEquals(ContentNodeType.CONTENT_NODES, contentNode.getContentNodeType());
         try {
@@ -228,7 +227,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element ACSElement = sampleDivs.getElementById("shouldMapACSDiv");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(ACSElement);
+        ContentNode<?> contentNode = divScraper.scrapElement(ACSElement);
         //then
         assertEquals(ContentNodeType.CONTENT_NODES, contentNode.getContentNodeType());
         try {
@@ -265,7 +264,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element ACSElement = sampleDivs.getElementById("shouldMapACSDiv2");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(ACSElement);
+        ContentNode<?> contentNode = divScraper.scrapElement(ACSElement);
         //then
         assertEquals(ContentNodeType.CONTENT_NODES, contentNode.getContentNodeType());
         try {
@@ -305,7 +304,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element element = sampleDivs.getElementById("u-adult-warning");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(element);
+        ContentNode<?> contentNode = divScraper.scrapElement(element);
         //then
         assertEquals(ContentNodeType.DIV, contentNode.getContentNodeType());
         try {
@@ -327,7 +326,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element element = sampleDivs.getElementById("shouldScrapImageBlockWithAElement");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(element);
+        ContentNode<?> contentNode = divScraper.scrapElement(element);
         //then
         assertTrue(contentNode instanceof EmbedNode);
         EmbedNode scrappedEmbedNode = (EmbedNode) contentNode;
@@ -342,7 +341,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element element = sampleDivs.getElementById("shouldScrapImageBlockWithAudioElement");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(element);
+        ContentNode<?> contentNode = divScraper.scrapElement(element);
         //then
         assertTrue(contentNode instanceof EmbedNode);
         assertEquals(ContentNodeType.AUDIO, contentNode.getContentNodeType());
@@ -354,7 +353,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element element = sampleDivs.getElementById("shouldScrapImageBlockWithVideoElement");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(element);
+        ContentNode<?> contentNode = divScraper.scrapElement(element);
         //then
         assertTrue(contentNode instanceof EmbedNode);
         assertEquals(ContentNodeType.VIDEO, contentNode.getContentNodeType());
@@ -366,7 +365,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element element = sampleDivs.getElementById("shouldScrapFootnotes");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(element);
+        ContentNode<?> contentNode = divScraper.scrapElement(element);
         //then
         assertEquals(ContentNodeType.CONTENT_NODES, contentNode.getContentNodeType());
         try {
@@ -390,7 +389,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element anomBarElement = sampleDivs.getElementById("shouldScrapAnomBar");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(anomBarElement);
+        ContentNode<?> contentNode = divScraper.scrapElement(anomBarElement);
         //then
         assertEquals(ContentNodeType.CONTENT_NODES, contentNode.getContentNodeType());
         try {
@@ -431,7 +430,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element anomBarElement = sampleDivs.getElementById("shouldScrapAnomBar2");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(anomBarElement);
+        ContentNode<?> contentNode = divScraper.scrapElement(anomBarElement);
         //then
         assertEquals(ContentNodeType.CONTENT_NODES, contentNode.getContentNodeType());
         try {
@@ -465,7 +464,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element anomBarElement = sampleDivs.getElementById("shouldScrapAnomBar3");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(anomBarElement);
+        ContentNode<?> contentNode = divScraper.scrapElement(anomBarElement);
         //then
         assertEquals(ContentNodeType.CONTENT_NODES, contentNode.getContentNodeType());
         try {
@@ -494,7 +493,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element anomBarElement = sampleDivs.getElementById("shouldScrapObjClassBar");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(anomBarElement);
+        ContentNode<?> contentNode = divScraper.scrapElement(anomBarElement);
         //then
         assertEquals(ContentNodeType.CONTENT_NODES, contentNode.getContentNodeType());
         try {
@@ -536,7 +535,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element colmodDiv = sampleDivs.getElementById("shouldScrapColmodDiv1");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(colmodDiv);
+        ContentNode<?> contentNode = divScraper.scrapElement(colmodDiv);
         //then
         assertTrue(contentNode instanceof EmbedNode);
         assertEquals(ContentNodeType.AUDIO, contentNode.getContentNodeType());
@@ -547,13 +546,12 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element colmodDiv = sampleDivs.getElementById("shouldScrapColmodDiv2");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(colmodDiv);
+        ContentNode<?> contentNode = divScraper.scrapElement(colmodDiv);
         //then
         assertTrue(contentNode instanceof ParagraphNode);
         assertEquals(ContentNodeType.PARAGRAPH, contentNode.getContentNodeType());
     }
 
-    //TODO tests
     @Test
     void shouldScrapAnomWithContentInsideStyling() throws JsonProcessingException {
         //given
@@ -592,7 +590,7 @@ class DivScrapperTest extends ScrapperTest {
         //given
         Element widget = sampleDivs.getElementById("shouldScrapWidget");
         //when
-        ContentNode<?> contentNode = divMapper.scrapElement(widget);
+        ContentNode<?> contentNode = divScraper.scrapElement(widget);
         //then
         assertTrue(contentNode instanceof EmbedNode);
         EmbedNode embedNode = (EmbedNode) contentNode;

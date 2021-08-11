@@ -27,7 +27,8 @@ public enum SCPTranslation {
     SWEDISH("nd","http://scp-nd.wikidot.com/sv:"),
     TURKISH("tr","http://scpvakfi.wikidot.com/"),
     VIETNAMESE("vn","http://scp-vn.wikidot.com/"),
-    CHINESE_TRADITIONAL("zh","http://scp-zh-tr.wikidot.com/");
+    CHINESE_TRADITIONAL("zh","http://scp-zh-tr.wikidot.com/"),
+    ARABIAN("ar","http://scp-ar.wikidot.com/");
 
 
     public String identifier;
