@@ -27,7 +27,11 @@ public enum SCPBranch {
     TURKISH("tr","http://scpvakfi.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
     VIETNAMESE("vn","http://scp-vn.wikidot.com/", SCPIdentifierPlacement.ENDING),
     CHINESE_TRADITIONAL("zh","http://scp-zh-tr.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
-    ARABIAN("ar","http://scp-ar.wikidot.com/", SCPIdentifierPlacement.MIDDLE);
+    ARABIAN("ar","http://scp-ar.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
+    ESTONIAN("et", "http://scp-et.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
+    HUNGARIAN("hu", "http://scp-hu.wikidot.com/", SCPIdentifierPlacement.ENDING),
+    ROMANIAN("ro", "http://scp-ro.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
+    SLOVENIAN("sl", "http://scp-slovenija.wikidot.com/", SCPIdentifierPlacement.ENDING);
 
     public String identifier;
 

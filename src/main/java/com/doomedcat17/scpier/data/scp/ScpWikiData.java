@@ -6,6 +6,8 @@ import java.util.List;
 
 public class ScpWikiData {
 
+    //TODO add lastRevision
+
     private String title;
 
     private SCPBranch scpBranch;

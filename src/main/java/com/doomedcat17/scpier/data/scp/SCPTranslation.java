@@ -21,14 +21,18 @@ public enum SCPTranslation {
     CZECH("cs","http://scp-cs.wikidot.com/"),
     GREEK("el","http://scp-el.wikidot.com/"),
     INDONESIAN("idn","http://scp-idn.wikidot.com/"),
-    DANISH("nd","http://scp-nd.wikidot.com/da:"),
-    FINNISH("nd","http://scp-nd.wikidot.com/fo:"),
-    NORWEGIAN("nd","http://scp-nd.wikidot.com/no:"),
-    SWEDISH("nd","http://scp-nd.wikidot.com/sv:"),
+    DANISH("da","http://scp-nd.wikidot.com/da:"),
+    FINNISH("fo","http://scp-nd.wikidot.com/fo:"),
+    NORWEGIAN("no","http://scp-nd.wikidot.com/no:"),
+    SWEDISH("sv","http://scp-nd.wikidot.com/sv:"),
     TURKISH("tr","http://scpvakfi.wikidot.com/"),
     VIETNAMESE("vn","http://scp-vn.wikidot.com/"),
     CHINESE_TRADITIONAL("zh","http://scp-zh-tr.wikidot.com/"),
-    ARABIAN("ar","http://scp-ar.wikidot.com/");
+    ARABIAN("ar","http://scp-ar.wikidot.com/"),
+    ESTONIAN("et", "http://scp-et.wikidot.com/"),
+    HUNGARIAN("hu", "http://scp-hu.wikidot.com/"),
+    ROMANIAN("ro", "http://scp-ro.wikidot.com/"),
+    SLOVENIAN("sl", "http://scp-slovenija.wikidot.com/");
 
 
     public String identifier;

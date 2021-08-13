@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.testbox;
+package com.doomedcat17.scpier.testbox.wiki;
 
 import com.doomedcat17.scpier.ScpFoundationDataProvider;
 import com.doomedcat17.scpier.data.content.ContentNode;
@@ -6,45 +6,43 @@ import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.doomedcat17.scpier.exception.data.SCPWikiEmptyContentException;
 import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class TaleList {
 
-    private static ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
+    private static final ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
 
-    private static Set<String> invalidTales = new HashSet<>();
 
-    private static Set<String> emptyTales = new HashSet<>();
+    private static final Set<Article> tales = new HashSet<>();
 
-    private static Iterator<String> taleIterator;
+    private static final Set<Article> invalidTales = new HashSet<>();
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        Set<String> tales = new HashSet<>();
-        for(SCPBranch scpBranch: SCPBranch.values()) {
-            String url = "most-recently-created/p/";
-            if (scpBranch.equals(SCPBranch.POLISH)) url = "ostatnio-stworzone/p/";
-            for (int i = 1; i <= 750; i++) {
-                try {
-                    findAllTaleTitles(scpBranch.url+url + i, tales);
-                    System.out.println(tales.size());
-                } catch (IOException e) {
-                    break;
-                }
-            }
+    private static final Set<Article> emptyTales = new HashSet<>();
+
+    private static Iterator<Article> taleIterator;
+
+    public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
+        for (SCPBranch scpBranch : SCPBranch.values()) {
+            System.out.println(scpBranch.toString() + " started");
+            if (scpBranch.equals(SCPBranch.ESTONIAN)) continue;
+            TitleFinder.findTitles(scpBranch);
+            System.out.println(scpBranch + " ended");
+            System.out.println("Tales found: "+tales.size());
         }
+
         tales.forEach(System.out::println);
-        /*
+
+        System.out.println(tales.size());
+
+
         taleIterator = tales.iterator();
         ExecutorService executorService = Executors.newCachedThreadPool();
         executorService.execute(new TaleChecker());
@@ -70,7 +68,6 @@ public class TaleList {
             emptyTales.forEach(System.out::println);
         }
 
-         */
     }
 
     static class TaleChecker implements Runnable {
@@ -78,13 +75,14 @@ public class TaleList {
         private static int num = 1;
 
         private final int threadNum;
+
         @Override
         public void run() {
-            System.out.println("TaleChecker "+threadNum+" started!");
-            String tale = getNextTale();
+            System.out.println("TaleChecker " + threadNum + " started!");
+            Article tale = getNextTale();
             while (tale != null) {
                 try {
-                    ScpWikiData scpWikiData = scpFoundationDataProvider.getScpWikiData(tale, SCPBranch.ENGLISH);
+                    ScpWikiData scpWikiData = scpFoundationDataProvider.getScpWikiData(tale.getName(), SCPBranch.ENGLISH);
                     if (scpWikiData.getTitle() == null || scpWikiData.getContent().isEmpty() ||
                             scpWikiData.getContent().stream().anyMatch(ContentNode::isEmpty)) addEmptyTale(tale);
                 } catch (SCPWikiContentNotFound e) {
@@ -106,25 +104,22 @@ public class TaleList {
         }
     }
 
-    public static synchronized void addInvalidTale(String tale) {
+    public static synchronized void addInvalidTale(Article tale) {
         invalidTales.add(tale);
     }
 
-    public static synchronized void addEmptyTale(String tale) {
+    public static synchronized void addEmptyTale(Article tale) {
         emptyTales.add(tale);
     }
 
-    public static synchronized String getNextTale() {
+    public static synchronized void addTales(Set<Article> talesToAdd) {
+        tales.addAll(talesToAdd);
+    }
+
+    public static synchronized Article getNextTale() {
         if (taleIterator.hasNext()) {
             return taleIterator.next();
         } else return null;
     }
 
-    private static void findAllTaleTitles(String url, Set<String> tales) throws IOException {
-        Document document = Jsoup.connect(url).get();
-        Element content = document.selectFirst("#page-content");
-        Elements elements = content.select("a");
-        elements.stream().filter(element -> element.attr("href").startsWith("/"))
-                .forEach(element -> tales.add(element.attr("href").substring(1)));
-    }
 }
