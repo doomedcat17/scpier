@@ -6,6 +6,7 @@ import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.doomedcat17.scpier.exception.data.SCPWikiEmptyContentException;
 import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
+import com.doomedcat17.scpier.testbox.JSONWriter;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,12 +33,16 @@ public class FullWikiTest {
 
     private static Iterator<Article> taleIterator;
 
+    private static BufferedWriter wikiWriter;
+
     public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.EVERYTHING, JsonTypeInfo.As.WRAPPER_OBJECT);
         Set<Article> tales = objectMapper.readValue(new File("src/test/resources/all-articles.json"),
                 new TypeReference<>() {
                 });
+        wikiWriter = new BufferedWriter(new FileWriter("src/test/resources/scp-wiki-data.json"));
+        wikiWriter.write("{");
         taleIterator = tales.iterator();
         ExecutorService executorService = Executors.newCachedThreadPool();
         executorService.execute(new TaleChecker());
@@ -54,6 +59,7 @@ public class FullWikiTest {
         executorService.shutdown();
 
         if (executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)) {
+            wikiWriter.write("}");
             BufferedWriter writer = new BufferedWriter(new FileWriter("src/test/resources/full-test-result.text"));
             StringBuilder sb = new StringBuilder("Invalid tales: " + invalidTales.size());
 
@@ -74,6 +80,7 @@ public class FullWikiTest {
             });
             writer.write(sb.toString());
             writer.close();
+
         }
 
     }
@@ -93,6 +100,7 @@ public class FullWikiTest {
                     ScpWikiData scpWikiData = scpFoundationDataProvider.getScpWikiData(tale.getName(), SCPBranch.ENGLISH);
                     if (scpWikiData.getTitle() == null || scpWikiData.getContent().isEmpty() ||
                             scpWikiData.getContent().stream().anyMatch(ContentNode::isEmpty)) addEmptyTale(tale);
+                    else addArticle(scpWikiData);
                 } catch (SCPWikiContentNotFound e) {
                     e.printStackTrace();
                 } catch (SCPWikiEmptyContentException e) {
@@ -120,6 +128,11 @@ public class FullWikiTest {
         emptyTales.add(tale);
     }
 
+    public static synchronized void addArticle(ScpWikiData scpWikiData) throws IOException {
+        BufferedWriter wikiWriter = new BufferedWriter(new FileWriter("src/test/resources/scp-wiki-data.json"));
+        wikiWriter.append(JSONWriter.asJSONString(scpWikiData));
+        wikiWriter.append(",");
+    }
 
     public static synchronized Article getNextTale() {
         if (taleIterator.hasNext()) {
