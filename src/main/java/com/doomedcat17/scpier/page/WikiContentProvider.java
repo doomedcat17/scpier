@@ -10,8 +10,8 @@ import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.PresetProvider;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
-import com.doomedcat17.scpier.page.html.document.provider.offset.OffsetsProvider;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
+import com.doomedcat17.scpier.page.html.document.provider.offset.OffsetsProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
 import org.jsoup.nodes.Node;
@@ -36,6 +36,7 @@ public class WikiContentProvider {
             String url = WikiSourceBuilder.buildSource(name.toLowerCase(Locale.ROOT), scpBranch, scpTranslation);
             name = url.substring(url.lastIndexOf('/')+1);
             WikiContent wikiContent = wikiPageProvider.getWebpageContent(url);
+            if (wikiContent.getContent().selectFirst("#page-content") == null) throw new IOException();
             wikiContent.setName(name);
             OffsetsProvider.getOffsetsContent(wikiContent, wikiPageProvider)
                     .forEach(node ->
