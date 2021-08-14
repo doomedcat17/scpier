@@ -2,11 +2,10 @@ package com.doomedcat17.scpier.data.scp;
 
 import com.doomedcat17.scpier.data.content.ContentNode;
 
+import java.util.Date;
 import java.util.List;
 
 public class ScpWikiData {
-
-    //TODO add lastRevision
 
     private String title;
 
@@ -17,6 +16,8 @@ public class ScpWikiData {
     private List<ContentNode<?>> content;
 
     private List<String> tags;
+
+    private Date lastRevisionTimestamp;
 
     private String source;
 
@@ -73,19 +74,29 @@ public class ScpWikiData {
         this.scpTranslation = scpTranslation;
     }
 
+    public Date getLastRevisionTimestamp() {
+        return lastRevisionTimestamp;
+    }
+
+    public void setLastRevisionTimestamp(Date lastRevisionTimestamp) {
+        this.lastRevisionTimestamp = lastRevisionTimestamp;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ScpWikiData)) return false;
 
-        ScpWikiData that = (ScpWikiData) o;
+        ScpWikiData wikiData = (ScpWikiData) o;
 
-        if (title != null ? !title.equals(that.title) : that.title != null) return false;
-        if (scpBranch != that.scpBranch) return false;
-        if (scpTranslation != that.scpTranslation) return false;
-        if (content != null ? !content.equals(that.content) : that.content != null) return false;
-        if (tags != null ? !tags.equals(that.tags) : that.tags != null) return false;
-        return source != null ? source.equals(that.source) : that.source == null;
+        if (title != null ? !title.equals(wikiData.title) : wikiData.title != null) return false;
+        if (scpBranch != wikiData.scpBranch) return false;
+        if (scpTranslation != wikiData.scpTranslation) return false;
+        if (content != null ? !content.equals(wikiData.content) : wikiData.content != null) return false;
+        if (tags != null ? !tags.equals(wikiData.tags) : wikiData.tags != null) return false;
+        if (lastRevisionTimestamp != null ? !lastRevisionTimestamp.equals(wikiData.lastRevisionTimestamp) : wikiData.lastRevisionTimestamp != null)
+            return false;
+        return source != null ? source.equals(wikiData.source) : wikiData.source == null;
     }
 
     @Override
@@ -95,6 +106,7 @@ public class ScpWikiData {
         result = 31 * result + (scpTranslation != null ? scpTranslation.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (tags != null ? tags.hashCode() : 0);
+        result = 31 * result + (lastRevisionTimestamp != null ? lastRevisionTimestamp.hashCode() : 0);
         result = 31 * result + (source != null ? source.hashCode() : 0);
         return result;
     }

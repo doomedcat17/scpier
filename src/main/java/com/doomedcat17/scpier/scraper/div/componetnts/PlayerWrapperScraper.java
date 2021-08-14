@@ -20,6 +20,9 @@ public class PlayerWrapperScraper extends DivScraper implements DivScraperCompon
     public List<ContentNode<?>> scrapDivContent(Element element)  {
         if (element.is(".widget")) {
             Element audioAnchor = element.selectFirst(".sample_info > a");
+            if (audioAnchor == null) {
+                audioAnchor = element.selectFirst("a.hearmore");
+            }
             EmbedNode audioNode = new EmbedNode();
             audioNode.setContentNodeType(ContentNodeType.AUDIO);
             audioNode.setContent(audioAnchor.attr("href"));

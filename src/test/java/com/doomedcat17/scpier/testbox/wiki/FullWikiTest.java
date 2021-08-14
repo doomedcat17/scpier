@@ -6,7 +6,13 @@ import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.doomedcat17.scpier.exception.data.SCPWikiEmptyContentException;
 import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -16,12 +22,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class TaleList {
+public class FullWikiTest {
 
     private static final ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
-
-
-    private static final Set<Article> tales = new HashSet<>();
 
     private static final Set<Article> invalidTales = new HashSet<>();
 
@@ -30,19 +33,11 @@ public class TaleList {
     private static Iterator<Article> taleIterator;
 
     public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
-        for (SCPBranch scpBranch : SCPBranch.values()) {
-            System.out.println(scpBranch.toString() + " started");
-            if (scpBranch.equals(SCPBranch.ESTONIAN)) continue;
-            TitleFinder.findTitles(scpBranch);
-            System.out.println(scpBranch + " ended");
-            System.out.println("Tales found: "+tales.size());
-        }
-
-        tales.forEach(System.out::println);
-
-        System.out.println(tales.size());
-
-
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.EVERYTHING, JsonTypeInfo.As.WRAPPER_OBJECT);
+        Set<Article> tales = objectMapper.readValue(new File("src/test/resources/all-articles.json"),
+                new TypeReference<>() {
+                });
         taleIterator = tales.iterator();
         ExecutorService executorService = Executors.newCachedThreadPool();
         executorService.execute(new TaleChecker());
@@ -59,13 +54,26 @@ public class TaleList {
         executorService.shutdown();
 
         if (executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)) {
-            System.out.println("Invalid tales: "+invalidTales.size());
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/test/resources/full-test-result.text"));
+            StringBuilder sb = new StringBuilder("Invalid tales: " + invalidTales.size());
 
-            invalidTales.forEach(System.out::println);
+            System.out.println("Invalid tales: " + invalidTales.size());
+            sb.append("Invalid tales: ").append(invalidTales.size());
+            invalidTales.forEach(tale -> {
+                System.out.println(tale);
+                sb.append('\n')
+                        .append(tale);
+            });
 
             System.out.println("Empty tales:");
-
-            emptyTales.forEach(System.out::println);
+            sb.append("Empty tales:");
+            emptyTales.forEach(tale -> {
+                System.out.println(tale);
+                sb.append('\n')
+                        .append(tale);
+            });
+            writer.write(sb.toString());
+            writer.close();
         }
 
     }
@@ -112,9 +120,6 @@ public class TaleList {
         emptyTales.add(tale);
     }
 
-    public static synchronized void addTales(Set<Article> talesToAdd) {
-        tales.addAll(talesToAdd);
-    }
 
     public static synchronized Article getNextTale() {
         if (taleIterator.hasNext()) {

@@ -9,6 +9,7 @@ import com.doomedcat17.scpier.exception.SCPierApiInternalException;
 import com.doomedcat17.scpier.exception.SCPierResourcesInitializationException;
 import com.doomedcat17.scpier.exception.data.SCPWikiEmptyContentException;
 import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
+import com.doomedcat17.scpier.exception.page.html.document.revision.RevisionDateException;
 import com.doomedcat17.scpier.mapper.scp.DefaultScpWikiContentMapper;
 import com.doomedcat17.scpier.mapper.scp.ScpWikiContentMapper;
 import com.doomedcat17.scpier.page.WikiContent;
@@ -26,18 +27,18 @@ public class ScpFoundationDataProvider {
         try {
             WikiContent wikiContent = getPageContent(articleName, scpBranch, scpTranslation);
             ScpWikiContentMapper scpWikiContentMapper = new DefaultScpWikiContentMapper();
-            ScpWikiData scpWikiData = scpWikiContentMapper.mapToScp(wikiContent);
+            ScpWikiData scpWikiData = scpWikiContentMapper.mapWikiContent(wikiContent);
             if (scpWikiData.getContent().isEmpty()) throw new SCPWikiEmptyContentException("Article content is empty!", new NullPointerException());
             scpWikiData.setTags(wikiContent.getTags());
             scpWikiData.setScpBranch(scpBranch);
             scpWikiData.setScpTranslation(scpTranslation);
             return scpWikiData;
-        } catch (RuntimeException e) {
+        } catch (RuntimeException | RevisionDateException e) {
             throw new SCPierApiInternalException(articleName, scpBranch, scpTranslation, e);
         }
     }
 
-    private WikiContent getPageContent(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound {
+    private WikiContent getPageContent(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound, RevisionDateException {
         WikiContent wikiContent = wikiContentProvider.getPageContent(name, scpBranch, scpTranslation);
         if (scpTranslation.equals(SCPTranslation.ORIGINAL)) {
             wikiContent.setTranslationIdentifier(scpBranch.identifier);

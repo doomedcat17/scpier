@@ -2,6 +2,7 @@ package com.doomedcat17.scpier.testbox;
 
 import com.doomedcat17.scpier.ScpFoundationDataProvider;
 import com.doomedcat17.scpier.data.scp.SCPBranch;
+import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -15,8 +16,7 @@ public class JSONWriter {
             ObjectMapper objectMapper = new ObjectMapper();
             // objectMapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.USE_NATIVE_TYPE_ID));
 
-            //TODO SCP-AR-002 footer
-            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("ronud-ragun-cancer-while-president-omg-so-sad", SCPBranch.ENGLISH);
+            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("scp-3959", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
             System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(scp));
         } catch (Exception e) {
             e.printStackTrace();

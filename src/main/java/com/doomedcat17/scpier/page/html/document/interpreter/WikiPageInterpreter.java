@@ -7,9 +7,11 @@ import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
 import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
+import com.doomedcat17.scpier.page.html.document.revision.LastRevisionDateProvider;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapper;
 import org.jsoup.nodes.Element;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,22 +32,33 @@ public class WikiPageInterpreter {
             } else preset = new Preset();
             Element content = wikiContent.getContent().getElementById("page-content");
             Optional<Element> redirectionElement = wikiRedirectionHandler.provideRedirectedContent(content);
-            if (redirectionElement.isPresent())
+            if (redirectionElement.isPresent()) {
                 content = wikiRedirectionHandler.getRedirectionContent(redirectionElement.get(), wikiContent.getSourceUrl());
-            Element pageTitleElement = wikiContent.getContent().getElementById("page-title");
-            if (pageTitleElement != null) {
-                wikiContent.setName(pageTitleElement.text());
+                Date lastRevision = LastRevisionDateProvider.getLastRevision(content);
+                if (lastRevision.after(wikiContent.getLastRevisionTimestamp())) wikiContent.setLastRevisionTimestamp(lastRevision);
             }
-            Optional<List<String>> tagNames = pageTagsScrapper.scrapPageTags(wikiContent.getContent());
-            tagNames.ifPresent(wikiContent::setTags);
-            wikiContent.setContent(content);
+            setWikiContentTitle(wikiContent);
+            setWikiContentTags(wikiContent);
+            wikiContent.setContent(wikiContent.getContent().getElementById("page-content"));
             if (!content.getElementsByTag("iframe").isEmpty()) {
                 IframeContentProvider iframeContentProvider = new IframeContentProvider(new ScriptedWikiPageProvider(), wikiContentCleaner);
                 iframeContentProvider.provideIframesContent(wikiContent, preset);
             }
-            wikiContentCleaner.clearContentAndUnpackBlocks(content);
+            wikiContentCleaner.removeTrashNodes(wikiContent.getContent());
         } catch (Exception e) {
             throw new WikiPageInterpreterException(e);
+        }
+    }
+
+    private void setWikiContentTags(WikiContent wikiContent){
+        Optional<List<String>> tagNames = pageTagsScrapper.scrapPageTags(wikiContent.getContent());
+        tagNames.ifPresent(wikiContent::setTags);
+    }
+
+    private void setWikiContentTitle(WikiContent wikiContent) {
+        Element pageTitleElement = wikiContent.getContent().getElementById("page-title");
+        if (pageTitleElement != null) {
+            wikiContent.setName(pageTitleElement.text());
         }
     }
 

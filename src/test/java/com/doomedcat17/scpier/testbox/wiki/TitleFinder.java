@@ -8,7 +8,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.Set;
 
 public class TitleFinder {
@@ -23,7 +22,7 @@ public class TitleFinder {
                         Article article = new Article();
                         article.setSource(src + title);
                         for (SCPTranslation scpTranslation : SCPTranslation.values()) {
-                            if (title.startsWith(scpTranslation.identifier + ":")) {
+                            if (title.startsWith(scpTranslation.identifier + ":") || title.startsWith("adult:")) {
                                 title = title.substring(title.indexOf(':') + 1);
                                 break;
                             }
@@ -38,11 +37,10 @@ public class TitleFinder {
     private static boolean isTrash(String title) {
         return title.startsWith("author") || title.startsWith("theme") || title.startsWith("component") || title.startsWith("fragment:") || title.contains("new-pages-feed")
                 || title.contains("most-recently-created") || title.startsWith("forum") || title.startsWith("admin") || title.equals("floppyphoenix") || title.equals("scp-style-resource")
-                || title.equals("anomaly-classification-system-guide");
+                || title.equals("anomaly-classification-system-guide") || title.startsWith("system:") || title.startsWith("nav:") || title.startsWith("search:") || title.equals("sandbox");
     }
 
-    public static void findTitles(SCPBranch scpBranch) {
-        Set<Article> titles = new HashSet<>();
+    public static void findTitles(SCPBranch scpBranch, Set<Article> titles) {
         String url = "most-recently-created/p/";
         if (scpBranch.equals(SCPBranch.POLISH)) url = "ostatnio-stworzone/p/";
         if (scpBranch.equals(SCPBranch.SPANISH)) url = "recientemente-creados/p/";
@@ -52,13 +50,13 @@ public class TitleFinder {
         if (scpBranch.equals(SCPBranch.TURKISH)) url = "en-son-yaratilan/p/";
         if (scpBranch.equals(SCPBranch.CHINESE_TRADITIONAL)) url = "system:recent-changes/p/";
         if (scpBranch.equals(SCPBranch.ITALIAN) || scpBranch.equals(SCPBranch.SLOVENIAN) || scpBranch.equals(SCPBranch.ESTONIAN) || scpBranch.equals(SCPBranch.KOREAN)) {
-            titles = RecentChangesTitleFinder.getAllTitles(scpBranch.url);
+            titles.addAll(RecentChangesTitleFinder.getAllTitles(scpBranch.url));
         } else {
-            int lastSize = 0;
+            int lastSize = titles.size();
             for (int i = 1; i <= 750; i++) {
                 try {
                     Document wikiPage = Jsoup.connect(scpBranch.url + url + i).get();
-                    TitleFinder.findAllTitles(wikiPage, titles, scpBranch.url);
+                    findAllTitles(wikiPage, titles, scpBranch.url);
                     if (lastSize == titles.size()) break;
                     lastSize = titles.size();
                 } catch (IOException e) {
@@ -66,6 +64,5 @@ public class TitleFinder {
                 }
             }
         }
-        TaleList.addTales(titles);
     }
 }
