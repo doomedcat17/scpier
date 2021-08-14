@@ -15,6 +15,8 @@ import com.doomedcat17.scpier.mapper.scp.ScpWikiContentMapper;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.WikiContentProvider;
 
+import java.sql.Timestamp;
+
 public class ScpFoundationDataProvider {
 
     private final WikiContentProvider wikiContentProvider;
@@ -26,16 +28,51 @@ public class ScpFoundationDataProvider {
     public ScpWikiData getScpWikiData(String articleName, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPierApiException {
         try {
             WikiContent wikiContent = getPageContent(articleName, scpBranch, scpTranslation);
-            ScpWikiContentMapper scpWikiContentMapper = new DefaultScpWikiContentMapper();
-            ScpWikiData scpWikiData = scpWikiContentMapper.mapWikiContent(wikiContent);
-            if (scpWikiData.getContent().isEmpty()) throw new SCPWikiEmptyContentException("Article content is empty!", new NullPointerException());
-            scpWikiData.setTags(wikiContent.getTags());
-            scpWikiData.setScpBranch(scpBranch);
-            scpWikiData.setScpTranslation(scpTranslation);
-            return scpWikiData;
+            return mapWikiContent(wikiContent, scpBranch, scpTranslation);
         } catch (RuntimeException | RevisionDateException e) {
             throw new SCPierApiInternalException(articleName, scpBranch, scpTranslation, e);
         }
+    }
+
+    private ScpWikiData mapWikiContent(WikiContent wikiContent, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiEmptyContentException {
+        ScpWikiContentMapper scpWikiContentMapper = new DefaultScpWikiContentMapper();
+        ScpWikiData scpWikiData = scpWikiContentMapper.mapWikiContent(wikiContent);
+        if (scpWikiData.getContent().isEmpty())
+            throw new SCPWikiEmptyContentException("Article content is empty!", new NullPointerException());
+        scpWikiData.setTags(wikiContent.getTags());
+        scpWikiData.setScpBranch(scpBranch);
+        scpWikiData.setScpTranslation(scpTranslation);
+        return scpWikiData;
+    }
+
+    public void updateScpWikiData(ScpWikiData scpWikiData) throws SCPierApiException {
+        String articleName = scpWikiData.getTitle();
+        try {
+            String source = scpWikiData.getSource();
+            articleName = source.substring(source.lastIndexOf('/') + 1);
+            WikiContent wikiContent = getPageContent(articleName, scpWikiData.getScpBranch(), scpWikiData.getScpTranslation());
+            if (wikiContent.getLastRevisionTimestamp().after(scpWikiData.getLastRevisionTimestamp())) {
+                ScpWikiData updatedScpWikiData = mapWikiContent(wikiContent, scpWikiData.getScpBranch(), scpWikiData.getScpTranslation());
+                scpWikiData.setTitle(updatedScpWikiData.getTitle());
+                scpWikiData.setContent(updatedScpWikiData.getContent());
+                scpWikiData.setTags(updatedScpWikiData.getTags());
+                scpWikiData.setLastRevisionTimestamp(updatedScpWikiData.getLastRevisionTimestamp());
+            }
+        } catch (RuntimeException | RevisionDateException e) {
+            throw new SCPierApiInternalException(articleName, scpWikiData.getScpBranch(), scpWikiData.getScpTranslation(), e);
+        }
+    }
+
+    public Timestamp getLastRevisionTimestamp(String articleName, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPierApiException {
+        try {
+            return getPageContent(articleName, scpBranch, scpTranslation).getLastRevisionTimestamp();
+        } catch (RuntimeException | RevisionDateException e) {
+            throw new SCPierApiInternalException(articleName, scpBranch, scpTranslation, e);
+        }
+    }
+
+    public Timestamp getLastRevisionTimestamp(String articleName, SCPBranch scpBranch) throws SCPierApiException {
+        return getLastRevisionTimestamp(articleName, scpBranch, SCPTranslation.ORIGINAL);
     }
 
     private WikiContent getPageContent(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound, RevisionDateException {
