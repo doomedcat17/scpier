@@ -14,7 +14,7 @@ import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvide
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.offset.OffsetsProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
-import com.doomedcat17.scpier.page.html.document.revision.LastRevisionDateProvider;
+import com.doomedcat17.scpier.page.html.document.revision.LastRevisionTimestampProvider;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
 import org.jsoup.nodes.Node;
 
@@ -39,7 +39,7 @@ public class WikiContentProvider {
             name = url.substring(url.lastIndexOf('/') + 1);
             WikiContent wikiContent = wikiPageProvider.getWebpageContent(url);
             wikiContent.setLastRevisionTimestamp(
-                    LastRevisionDateProvider.getLastRevision(wikiContent.getContent())
+                    LastRevisionTimestampProvider.getLastRevisionTimestamp(wikiContent.getContent())
             );
             if (wikiContent.getContent().selectFirst("#page-content") == null) throw new IOException();
             wikiContent.setName(name);

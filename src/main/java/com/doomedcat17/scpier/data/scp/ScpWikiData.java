@@ -2,7 +2,7 @@ package com.doomedcat17.scpier.data.scp;
 
 import com.doomedcat17.scpier.data.content.ContentNode;
 
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class ScpWikiData {
@@ -17,7 +17,7 @@ public class ScpWikiData {
 
     private List<String> tags;
 
-    private Date lastRevisionTimestamp;
+    private Timestamp lastRevisionTimestamp;
 
     private String source;
 
@@ -74,11 +74,11 @@ public class ScpWikiData {
         this.scpTranslation = scpTranslation;
     }
 
-    public Date getLastRevisionTimestamp() {
+    public Timestamp getLastRevisionTimestamp() {
         return lastRevisionTimestamp;
     }
 
-    public void setLastRevisionTimestamp(Date lastRevisionTimestamp) {
+    public void setLastRevisionTimestamp(Timestamp lastRevisionTimestamp) {
         this.lastRevisionTimestamp = lastRevisionTimestamp;
     }
 

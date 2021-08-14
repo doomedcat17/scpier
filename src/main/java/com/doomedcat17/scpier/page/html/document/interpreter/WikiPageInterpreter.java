@@ -7,11 +7,11 @@ import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
 import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
-import com.doomedcat17.scpier.page.html.document.revision.LastRevisionDateProvider;
+import com.doomedcat17.scpier.page.html.document.revision.LastRevisionTimestampProvider;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapper;
 import org.jsoup.nodes.Element;
 
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,7 +34,7 @@ public class WikiPageInterpreter {
             Optional<Element> redirectionElement = wikiRedirectionHandler.provideRedirectedContent(content);
             if (redirectionElement.isPresent()) {
                 content = wikiRedirectionHandler.getRedirectionContent(redirectionElement.get(), wikiContent.getSourceUrl());
-                Date lastRevision = LastRevisionDateProvider.getLastRevision(content);
+                Timestamp lastRevision = LastRevisionTimestampProvider.getLastRevisionTimestamp(content);
                 if (lastRevision.after(wikiContent.getLastRevisionTimestamp())) wikiContent.setLastRevisionTimestamp(lastRevision);
             }
             setWikiContentTitle(wikiContent);

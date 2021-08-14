@@ -8,12 +8,12 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-import static com.doomedcat17.scpier.page.html.document.revision.LastRevisionDateProvider.getLastRevision;
+import static com.doomedcat17.scpier.page.html.document.revision.LastRevisionTimestampProvider.getLastRevisionTimestamp;
 
 public class OffsetsProvider {
 
@@ -37,12 +37,12 @@ public class OffsetsProvider {
                     offsetPattern.getPattern().replaceAll("<NUMBER>", String.valueOf(i));
             try {
                 WikiContent offsetWikiContent = wikiPageProvider.getWebpageContent(source);
-                Date lastRevision = getLastRevision(offsetWikiContent.getContent());
+                Timestamp lastRevisionTimestamp = getLastRevisionTimestamp(offsetWikiContent.getContent());
                 Element content = offsetWikiContent.getContent().selectFirst("#page-content");
                 if (previousContent.html().equals(content.html())) break;
                 offsetsContent.addAll(content.childNodes());
-                if (lastRevision.after(originalContent.getLastRevisionTimestamp())) {
-                    originalContent.setLastRevisionTimestamp(lastRevision);
+                if (lastRevisionTimestamp.after(originalContent.getLastRevisionTimestamp())) {
+                    originalContent.setLastRevisionTimestamp(lastRevisionTimestamp);
                 }
                 previousContent = content;
             } catch (IOException | RevisionDateException e) {
