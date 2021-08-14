@@ -6,9 +6,7 @@ import java.util.List;
 
 public interface WikiContentCleaner {
 
-    void clearContentAndUnpackBlocks(Element content);
-
-    void removeTrash(Element content);
+    void removeTrashNodes(Element content);
 
     void additionalRemovalDefinitions(List<String> definitions);
 }

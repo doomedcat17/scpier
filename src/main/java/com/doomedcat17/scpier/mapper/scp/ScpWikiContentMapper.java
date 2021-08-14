@@ -6,5 +6,5 @@ import com.doomedcat17.scpier.page.WikiContent;
 
 public interface ScpWikiContentMapper {
 
-    ScpWikiData mapToScp(WikiContent wikiContent) throws ScpMapperException;
+    ScpWikiData mapWikiContent(WikiContent wikiContent) throws ScpMapperException;
 }

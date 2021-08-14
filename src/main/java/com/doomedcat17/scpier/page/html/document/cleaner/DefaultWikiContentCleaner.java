@@ -1,6 +1,5 @@
 package com.doomedcat17.scpier.page.html.document.cleaner;
 
-import com.doomedcat17.scpier.exception.page.html.document.cleaner.WikiContentCleanerException;
 import org.jsoup.nodes.Comment;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -10,22 +9,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class DefaultWikiContentCleaner implements WikiContentCleaner {
 
     private final Set<String> removalDefinitions;
 
-    public void clearContentAndUnpackBlocks(Element content) {
-        try {
-            removeTrash(content);
-            unpackNodes(content);
-        } catch (Exception e) {
-            throw new WikiContentCleanerException(e);
-        }
-    }
-
-    public void removeTrash(Element content) {
+    public void removeTrashNodes(Element content) {
         removeTrashElements(content);
         removeEmptyNodes(content);
     }
@@ -33,45 +22,6 @@ public class DefaultWikiContentCleaner implements WikiContentCleaner {
     @Override
     public void additionalRemovalDefinitions(List<String> definitions) {
         removalDefinitions.addAll(definitions);
-    }
-
-    private void unpackNodes(Element content)  {
-        //in some cases content has less than 5 element then it's unpacked
-        List<Element> divs = content.children().stream().filter(element ->
-                element.is("div, blockquote, section"))
-                .filter(element ->
-                        element.is(":not(.scp-image-block)")).collect(Collectors.toList());
-        if (content.children().size() <= 4 && !divs.isEmpty()) {
-            for (Element element: divs) {
-                List<Node> nodes = unpackBlock(element);
-                int index = element.siblingIndex();
-                element.remove();
-                content.insertChildren(index, nodes);
-            }
-            clearContentAndUnpackBlocks(content);
-        }
-
-    }
-
-
-    private List<Node> unpackBlock(Element divElement) {
-        if (divElement.is(".collapsible-block")) {
-            Element blockContent = divElement.selectFirst(".collapsible-block-content");
-            if (blockContent.children().isEmpty()) {
-                blockContent.siblingElements().forEach(sibling -> {
-                    if (sibling.is("div")) {
-                        List<Node> nodes = unpackBlock(sibling);
-                        nodes.forEach(blockContent::appendChild);
-                    } else blockContent.appendChild(sibling);
-                });
-            }
-            return blockContent.childNodesCopy();
-        } else if(divElement.hasClass("yui-navset") || divElement.hasClass("yui-navset-top")) {
-            Element yuiContent = divElement.getElementsByClass("yui-content").first();
-            List<Node> nodes = new ArrayList<>();
-            yuiContent.children().forEach(div -> nodes.addAll(div.childNodesCopy()));
-            return nodes;
-        } else return divElement.childNodesCopy();
     }
 
 

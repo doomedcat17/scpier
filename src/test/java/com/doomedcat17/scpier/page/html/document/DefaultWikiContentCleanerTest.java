@@ -31,7 +31,7 @@ class DefaultWikiContentCleanerTest {
         //given
         Element content = testData.getElementById("shouldCleanSimpleDocument");
         //when
-        wikiContentCleaner.removeTrash(content);
+        wikiContentCleaner.removeTrashNodes(content);
         //then
         assertEquals(15, content.childrenSize());
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
@@ -42,7 +42,7 @@ class DefaultWikiContentCleanerTest {
         //given
         Element content = testData.getElementById("shouldClearSimpleDocument3");
         //when
-        wikiContentCleaner.removeTrash(content);
+        wikiContentCleaner.removeTrashNodes(content);
         //then
         assertEquals(109, content.childrenSize());
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
@@ -54,7 +54,7 @@ class DefaultWikiContentCleanerTest {
         //given
         Element content = testData.getElementById("shouldClearSimpleDocument5");
         //when
-        wikiContentCleaner.removeTrash(content);
+        wikiContentCleaner.removeTrashNodes(content);
         //then
         assertEquals(12, content.childNodeSize());
         assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
@@ -65,7 +65,7 @@ class DefaultWikiContentCleanerTest {
         //given
         Element content = testData.getElementById("shouldClearSimpleDocument6");
         //when
-        wikiContentCleaner.removeTrash(content);
+        wikiContentCleaner.removeTrashNodes(content);
         //then
         assertEquals(4, content.childNodeSize());
     }
@@ -75,7 +75,7 @@ class DefaultWikiContentCleanerTest {
         //given
         Element content = testData.getElementById("shouldClearSimpleDocument7");
         //when
-        wikiContentCleaner.removeTrash(content);
+        wikiContentCleaner.removeTrashNodes(content);
         //then
         assertEquals(4, content.childNodeSize());
     }
@@ -85,63 +85,11 @@ class DefaultWikiContentCleanerTest {
         //given
         Element content = testData.getElementById("shouldClearSimpleDocument8");
         //when
-        wikiContentCleaner.removeTrash(content);
+        wikiContentCleaner.removeTrashNodes(content);
         //then
         assertEquals(6, content.childNodeSize());
     }
 
-    @Test
-    void shouldClearAndUnpackSimpleDocument() {
-        //given
-        Element content = testData.getElementById("shouldClearAndUnpackSimpleDocument");
-        //when
-        wikiContentCleaner.clearContentAndUnpackBlocks(content);
-        //then
-        assertEquals(13, content.childNodeSize());
-        assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
-    }
-
-    @Test
-    void shouldClearAndUnpackSimpleDocument2() {
-        //given
-        Element content = testData.getElementById("shouldClearAndUnpackSimpleDocument2");
-        //when
-        wikiContentCleaner.clearContentAndUnpackBlocks(content);
-        //then
-        assertEquals(12, content.childNodeSize());
-        assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty()));
-    }
-
-    @Test
-    void shouldClearAndUnpackSimpleDocument3() {
-        //given
-        Element content = testData.getElementById("shouldClearAndUnpackSimpleDocument3");
-        //when
-        wikiContentCleaner.clearContentAndUnpackBlocks(content);
-        //then
-        assertEquals(4, content.childNodeSize());
-        assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty() && !element.is("img")));
-    }
-
-    @Test
-    void shouldClearAndUnpackSimpleDocument4() {
-        //given
-        Element content = testData.getElementById("shouldClearAndUnpackSimpleDocument4");
-        //when
-        wikiContentCleaner.clearContentAndUnpackBlocks(content);
-        //then
-        assertEquals(8, content.childNodeSize());
-        assertTrue(content.children().stream().noneMatch(element -> element.childNodes().isEmpty() && !element.is("img")));
-    }
-    @Test
-    void shouldClearAndUnpackSimpleDocument5() {
-        //given
-        Element content = testData.getElementById("shouldClearAndUnpackSimpleDocument5");
-        //when
-        wikiContentCleaner.clearContentAndUnpackBlocks(content);
-        //then
-        assertEquals(4, content.childNodeSize());
-    }
 
 
 

@@ -5,14 +5,16 @@ import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
 import com.doomedcat17.scpier.exception.page.html.document.preset.WikiPresetNotFoundException;
+import com.doomedcat17.scpier.exception.page.html.document.revision.RevisionDateException;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.PresetProvider;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
-import com.doomedcat17.scpier.page.html.document.provider.offset.OffsetsProvider;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
+import com.doomedcat17.scpier.page.html.document.provider.offset.OffsetsProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
+import com.doomedcat17.scpier.page.html.document.revision.LastRevisionDateProvider;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
 import org.jsoup.nodes.Node;
 
@@ -25,7 +27,7 @@ public class WikiContentProvider {
 
     private final PresetProvider presetProvider;
 
-    public WikiContent getPageContent(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound {
+    public WikiContent getPageContent(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound, RevisionDateException {
         try {
             WikiPageProvider wikiPageProvider = new DefaultWikiPageProvider();
             WikiPageInterpreter wikiPageInterpreter =
@@ -34,8 +36,12 @@ public class WikiContentProvider {
                             new PageTagsScrapperImpl()
                     );
             String url = WikiSourceBuilder.buildSource(name.toLowerCase(Locale.ROOT), scpBranch, scpTranslation);
-            name = url.substring(url.lastIndexOf('/')+1);
+            name = url.substring(url.lastIndexOf('/') + 1);
             WikiContent wikiContent = wikiPageProvider.getWebpageContent(url);
+            wikiContent.setLastRevisionTimestamp(
+                    LastRevisionDateProvider.getLastRevision(wikiContent.getContent())
+            );
+            if (wikiContent.getContent().selectFirst("#page-content") == null) throw new IOException();
             wikiContent.setName(name);
             OffsetsProvider.getOffsetsContent(wikiContent, wikiPageProvider)
                     .forEach(node ->
@@ -53,26 +59,28 @@ public class WikiContentProvider {
             }
             wikiPageInterpreter.mapContent(wikiContent);
             if (!preset.getOuterContentNames().isEmpty()) {
-                getOuterContent(preset.getOuterContentNames(), scpBranch, scpTranslation)
-                        .forEach(node -> wikiContent.getContent().appendChild(node));
+                getOuterContent(wikiContent, preset, scpBranch, scpTranslation);
             }
             return wikiContent;
         } catch (IOException e) {
-            throw new SCPWikiContentNotFound("Wiki content has not been found: "+name+", "+scpBranch+", "+scpTranslation , e);
+            throw new SCPWikiContentNotFound("Wiki content has not been found: " + name + ", " + scpBranch + ", " + scpTranslation, e);
         }
     }
 
 
-    private List<Node> getOuterContent(List<String> outerContentNames, SCPBranch branch, SCPTranslation translation) {
+    private void getOuterContent(WikiContent wikiContent, Preset preset, SCPBranch branch, SCPTranslation translation) {
         List<Node> outerContent = new ArrayList<>();
-        for(String outerContentName: outerContentNames) {
+        for (String outerContentName : preset.getOuterContentNames()) {
             try {
-                WikiContent wikiContent = getPageContent(outerContentName, branch, translation);
-                outerContent.addAll(wikiContent.getContent().childNodes());
-            } catch (SCPWikiContentNotFound ignored) {
+                WikiContent outerWikiContent = getPageContent(outerContentName, branch, translation);
+                outerContent.addAll(outerWikiContent.getContent().childNodes());
+                if (outerWikiContent.getLastRevisionTimestamp().after(wikiContent.getLastRevisionTimestamp())) {
+                    wikiContent.setLastRevisionTimestamp(outerWikiContent.getLastRevisionTimestamp());
+                }
+            } catch (SCPWikiContentNotFound | RevisionDateException ignored) {
             }
         }
-        return outerContent;
+        outerContent.forEach(node -> wikiContent.getContent().appendChild(node));
     }
 
     public WikiContentProvider() {

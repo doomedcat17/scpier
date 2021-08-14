@@ -1,6 +1,7 @@
 package com.doomedcat17.scpier.page.html.document.provider.offset;
 
 import com.doomedcat17.scpier.data.files.ResourcesProvider;
+import com.doomedcat17.scpier.exception.page.html.document.revision.RevisionDateException;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import org.jsoup.nodes.Element;
@@ -8,8 +9,11 @@ import org.jsoup.nodes.Node;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
+
+import static com.doomedcat17.scpier.page.html.document.revision.LastRevisionDateProvider.getLastRevision;
 
 public class OffsetsProvider {
 
@@ -32,12 +36,16 @@ public class OffsetsProvider {
             String source = originalContent.getSourceUrl()+
                     offsetPattern.getPattern().replaceAll("<NUMBER>", String.valueOf(i));
             try {
-                WikiContent wikiContent = wikiPageProvider.getWebpageContent(source);
-                Element content = wikiContent.getContent().selectFirst("#page-content");
+                WikiContent offsetWikiContent = wikiPageProvider.getWebpageContent(source);
+                Date lastRevision = getLastRevision(offsetWikiContent.getContent());
+                Element content = offsetWikiContent.getContent().selectFirst("#page-content");
                 if (previousContent.html().equals(content.html())) break;
                 offsetsContent.addAll(content.childNodes());
+                if (lastRevision.after(originalContent.getLastRevisionTimestamp())) {
+                    originalContent.setLastRevisionTimestamp(lastRevision);
+                }
                 previousContent = content;
-            } catch (IOException e) {
+            } catch (IOException | RevisionDateException e) {
                 break;
             }
         }

@@ -73,6 +73,7 @@ public class ScraperFactory {
             case "form":
             case "center":
             case "robot":
+            case "p3211-이후":
                 //some divs has "blockquote class"
                 if (element.is(".blockquote")) return new BlockquoteScraper(source);
                 else if (element.is(".responsive_table")) return new TableScraper(source);

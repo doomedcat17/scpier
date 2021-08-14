@@ -21,7 +21,7 @@ public class WikiRedirectionHandler {
             redirectionLink = scpUrl.substring(0, charPosition) + redirectionLink;
         }
         WikiContent webpageContent = wikiPageProvider.getWebpageContent(redirectionLink);
-        return webpageContent.getContent().getElementById("page-content");
+        return webpageContent.getContent();
     }
 
     public Optional<Element> provideRedirectedContent(Element content) {

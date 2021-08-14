@@ -62,7 +62,7 @@ public class IframeContentProvider {
                     } else {
                         provideIframesContent(webpageContent, preset);
                         iframeContent = webpageContent.getContent();
-                        wikiContentCleaner.removeTrash(iframeContent);
+                        wikiContentCleaner.removeTrashNodes(iframeContent);
                         replaceIframeWithItsContent(iframe, iframeContent);
                     }
                 } catch (Exception e) {
@@ -73,8 +73,7 @@ public class IframeContentProvider {
     }
 
     private boolean isTrash(String src) {
-        if (src.contains("/common--javascript/resize-iframe.html")) return true;
-        return false;
+        return src.contains("/common--javascript/resize-iframe.html");
     }
 
     private void provideYtVideo(Element iframeContent, String source) {

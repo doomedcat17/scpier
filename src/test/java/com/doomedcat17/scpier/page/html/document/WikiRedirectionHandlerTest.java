@@ -84,7 +84,7 @@ class WikiRedirectionHandlerTest {
         if (foundRedirection.isEmpty()) fail();
         Element redirectionElement = foundRedirection.get();
         Element redirectedContent =
-                wikiRedirectionHandler.getRedirectionContent(redirectionElement, "http://www.scpwiki.com/scp-597");
+                wikiRedirectionHandler.getRedirectionContent(redirectionElement, "http://www.scpwiki.com/scp-597").getElementById("page-content");
         //then
         assertEquals(document.getElementById("page-content"), redirectedContent);
     }

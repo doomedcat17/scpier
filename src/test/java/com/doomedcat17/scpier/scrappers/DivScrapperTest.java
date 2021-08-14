@@ -598,6 +598,21 @@ class DivScrapperTest extends ScrapperTest {
         assertEquals("TasmanianPower - Vinyl rewind", embedNode.getDescription().get(0).getContent());
     }
 
+    @Test
+    void shouldScrapYUIDiv()  {
+        //given
+        Element yui = sampleDivs.getElementById("shouldScrapYUIDiv");
+        //when
+        ContentNode<?> yuiContentNode = divScraper.scrapElement(yui);
+        //then
+        assertEquals(ContentNodeType.CONTENT_NODES, yuiContentNode.getContentNodeType());
+        List<ContentNode<?>> yuiContentNodes = (List<ContentNode<?>>) yuiContentNode.getContent();
+        long numberOfHeaders = yuiContentNodes.stream()
+                .filter(contentNode -> contentNode.getContentNodeType().equals(ContentNodeType.HEADING))
+                .count();
+        assertEquals(8, numberOfHeaders);
+    }
+
 
 
 }

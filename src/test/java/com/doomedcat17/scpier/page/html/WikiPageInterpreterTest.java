@@ -41,46 +41,6 @@ class WikiPageInterpreterTest {
     }
 
     @Test
-    void shouldUnpackScpFromDiv() {
-        //given
-        WikiContent wikiContent = TestDataProvider.getPageContent("src/test/resources/html/test_data/sample_scps/scp-194.html");
-        //when
-        wikiPageInterpreter.mapContent(wikiContent);
-        //then
-        assertEquals(7, wikiContent.getContent().childNodeSize());
-    }
-
-    @Test
-    void shouldUnpackScpFromDiv2() {
-        //given
-        WikiContent wikiContent = TestDataProvider.getPageContent("src/test/resources/html/test_data/sample_scps/scp-285.html");
-        //when
-        wikiPageInterpreter.mapContent(wikiContent);
-        //then
-        assertEquals(34, wikiContent.getContent().childNodeSize());
-    }
-
-    @Test
-    void shouldUnpackScpFromDiv3() {
-        //given
-        WikiContent wikiContent = TestDataProvider.getPageContent("src/test/resources/html/test_data/sample_scps/scp-1496.html");
-        //when
-        wikiPageInterpreter.mapContent(wikiContent);
-        //then
-        assertEquals(6, wikiContent.getContent().childNodeSize());
-    }
-
-    @Test
-    void shouldUnpackScpFromDiv4() {
-        //given
-        WikiContent wikiContent = TestDataProvider.getPageContent("src/test/resources/html/test_data/sample_scps/scp-2117.html");
-        //when
-        wikiPageInterpreter.mapContent(wikiContent);
-        //then
-        assertEquals(38, wikiContent.getContent().childNodeSize());
-    }
-
-    @Test
     void shouldGetRedirectedContent() {
         //given
         WikiContent wikiContent = TestDataProvider.getPageContent("src/test/resources/html/test_data/sample_scps/scp-597.html");

@@ -3,6 +3,7 @@ package com.doomedcat17.scpier.page;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import org.jsoup.nodes.Element;
 
+import java.util.Date;
 import java.util.List;
 
 public class WikiContent {
@@ -16,6 +17,8 @@ public class WikiContent {
     private String langIdentifier;
 
     private String sourceUrl;
+
+    private Date lastRevisionTimestamp;
 
     private List<String> tags;
 
@@ -79,6 +82,14 @@ public class WikiContent {
 
     public void setPreset(Preset preset) {
         this.preset = preset;
+    }
+
+    public Date getLastRevisionTimestamp() {
+        return lastRevisionTimestamp;
+    }
+
+    public void setLastRevisionTimestamp(Date lastRevisionTimestamp) {
+        this.lastRevisionTimestamp = lastRevisionTimestamp;
     }
 
     public WikiContent() {
