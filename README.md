@@ -65,7 +65,7 @@ SCPier is available as a downloadable .jar java library. The current release ver
 
 ### Maven
 Package is hosted on [GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages).
-If you want to install package, you need to authorize yourself by access token. More info [here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)
+If you want to install a package, you need to authorize yourself by access token. More info [here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)
 
 If you don't want to mess with Github Packages, you are free to build from the source. Make sure you have [git](https://git-scm.com/) installed on your machine:
 ```
