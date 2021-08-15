@@ -1,6 +1,6 @@
 # SCPier - SCP Wiki webscraper
 
-**SCPier is still in its early state. Check [Status](#status).**
+**SCPier is still in development. Check [Status](#status).**
 
 SCPier is Java API for retrieving SCPs, Tales and other content directly from [SCP Foundation Wiki](http://www.scpwiki.com/)
 
@@ -860,8 +860,9 @@ runtime: 1000
 ```
 
 # Status
-SCPier is in its early development stages. It can't handle heavily scripted articles and for some of them additional interpretation is needed.
+SCPier is still in development. It can't handle heavily scripted articles and for some of them additional interpretation is needed.
 Also, some content can be scraped incorrectly or be missing.
+Although the current version is quite stable and safe to use.
 
 If you find any bugs or issues, please open new issues in [Issues](https://github.com/doomedcat17/scpier/issues).
 
