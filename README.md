@@ -9,6 +9,7 @@ if you consider commercial use.
 SCPier itself is free to use for any pourpuse, if usage does not violate [Wikidot's Terms Of Service](https://www.wikidot.com/legal:terms-of-service).
 
 - [How it works?](#how-it-works)
+- [Download](#download)
 - [Getting data](#getting-data)
   - [SCPData](#scpwikidata)
   - [SCPBranch and SCPTranslation](#scpbranch-and-scptranslation)
@@ -57,6 +58,31 @@ But I do not exclude such functionality in the future!
 **What about the [scpper](http://scpper.com/)?**
 
 Too long response times,and I didn't find any API for it, so even more web scraping and testing.
+# Download
+
+SCPier is available as a downloadable .jar java library. The current release version is 0.5.5.
+[Download here](https://github-releases.githubusercontent.com/308120373/05055022-fa33-407e-829d-a68bc3221560?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20210815%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210815T012353Z&X-Amz-Expires=300&X-Amz-Signature=cc5f734f3d80a65ea2680239dbd1e112c120b786527378d297e0ed851e118593&X-Amz-SignedHeaders=host&actor_id=67821092&key_id=0&repo_id=308120373&response-content-disposition=attachment%3B%20filename%3Dscpier-0.5.5.jar&response-content-type=application%2Foctet-stream)
+
+### Maven
+Package is hosted on [GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages).
+If you want to install package, you need to authorize yourself by access token. More info [here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)
+
+If you don't want to mess with Github Packages, you are free to build from the source. Make sure you have [git](https://git-scm.com/) installed on your machine:
+```
+git clone https://github.com/doomedcat17/scpier.git
+cd scpier
+mvn install
+```
+
+After this, just place the following into your POM's `<dependencies>` section:
+```xml
+  <dependency>
+    <groupId>com.doomedcat17</groupId>
+    <artifactId>scpier</artifactId>
+    <version>0.5.5</version>
+  </dependency>
+ ```
+
 # Getting data
 
 To get data from Scp Wiki simply create instance of `ScpWikiDataProvider` class and call `getScpWikiContent()` method.
