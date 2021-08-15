@@ -57,7 +57,7 @@ But I do not exclude such functionality in the future!
 
 **What about the [scpper](http://scpper.com/)?**
 
-Too long response times,and I didn't find any API for it, so even more web scraping and testing.
+Too long response times, and I didn't find any API for it, so even more web scraping and testing.
 # Download
 
 SCPier is available as a downloadable .jar java library. The current release version is 0.5.5.
