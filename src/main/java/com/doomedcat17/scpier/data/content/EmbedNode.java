@@ -21,6 +21,7 @@ public class EmbedNode extends ContentNode<String> {
         this.description = description;
     }
 
+
     public EmbedNode(ContentNodeType contentNodeType, String content, List<TextNode> description) {
         super(contentNodeType, content);
         this.description = description;

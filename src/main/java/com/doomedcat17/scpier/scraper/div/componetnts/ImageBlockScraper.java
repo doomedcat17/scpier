@@ -3,6 +3,7 @@ package com.doomedcat17.scpier.scraper.div.componetnts;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.content.EmbedNode;
 import com.doomedcat17.scpier.data.content.TextNode;
+import com.doomedcat17.scpier.scraper.audio.AudioScraper;
 import com.doomedcat17.scpier.scraper.div.DivScraper;
 import com.doomedcat17.scpier.scraper.image.ImageScraper;
 import com.doomedcat17.scpier.scraper.text.TextScraper;
@@ -18,25 +19,42 @@ public class ImageBlockScraper extends DivScraper implements DivScraperComponent
         super(source);
     }
 
+    //usually it contains image, but there are some special cases
     @Override
     public List<ContentNode<?>> scrapDivContent(Element element)  {
         List<ContentNode<?>> contentNodes = new ArrayList<>();
         Element imageElement = element.selectFirst("img");
+        EmbedNode embedNode = new EmbedNode();
         if (imageElement == null) {
-            imageElement = element.selectFirst("video");
-            VideoScraper videoScrapper = new VideoScraper(source);
-            EmbedNode videoNode = (EmbedNode) videoScrapper.scrapElement(imageElement);
-            videoNode.getDescription().addAll(getCaption(element));
-            contentNodes.add(videoNode);
-        } else {
-            ImageScraper imageMapper = new ImageScraper(source);
-            imageElement = element.selectFirst("img");
-            EmbedNode embedNode = (EmbedNode) imageMapper.scrapElement(imageElement);
-            embedNode.getDescription().addAll(getCaption(element));
+            if (element.selectFirst("video") != null) embedNode = scrapVideo(element, source);
+            else if (element.selectFirst("audio") != null) embedNode = scrapAudio(element, source);
+        } else embedNode = scrapImage(element, source);
+        if (!embedNode.isEmpty()) {
             contentNodes.add(embedNode);
+            embedNode.getDescription().addAll(getCaption(element));
         }
         return contentNodes;
     }
+
+    private EmbedNode scrapImage(Element element, String source) {
+        ImageScraper imageMapper = new ImageScraper(source);
+        Element imgElement = element.selectFirst("img");
+        return (EmbedNode) imageMapper.scrapElement(imgElement);
+    }
+
+    private EmbedNode scrapVideo(Element element, String source) {
+        Element videoElement = element.selectFirst("video");
+        VideoScraper videoScrapper = new VideoScraper(source);
+        return  (EmbedNode) videoScrapper.scrapElement(videoElement);
+    }
+
+    private EmbedNode scrapAudio(Element element, String source) {
+        Element videoElement = element.selectFirst("audio");
+        AudioScraper audioScrapper = new AudioScraper(source);
+        return  (EmbedNode) audioScrapper.scrapElement(videoElement);
+    }
+
+    //scraps image/video caption
     private List<TextNode> getCaption(Element element)  {
         Element captionElement = element.selectFirst(".scp-image-caption");
         List<TextNode> textNodes = new ArrayList<>();

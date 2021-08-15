@@ -1,4 +1,4 @@
-name: "TEST"
+articleName: "TEST"
 scpBranch: "ENGLISH"
 wikiElements:
   - selector: "#inputText"
@@ -6,4 +6,4 @@ wikiElements:
     inputValue: "TEST"
   - selector: "#submit"
     elementType: "BUTTON"
-    jsRuntime: 100
+    runtime: 100

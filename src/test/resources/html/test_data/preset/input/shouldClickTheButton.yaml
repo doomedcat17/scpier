@@ -1,6 +1,6 @@
-name: "TEST"
+articleName: "TEST"
 scpBranch: "ENGLISH"
 wikiElements:
   - selector: "#button"
     elementType: "BUTTON"
-    jsRuntime: 300
+    runtime: 300

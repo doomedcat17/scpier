@@ -26,7 +26,12 @@ public enum SCPBranch {
     SWEDISH("nd","http://scp-nd.wikidot.com/sv:", SCPIdentifierPlacement.ENDING),
     TURKISH("tr","http://scpvakfi.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
     VIETNAMESE("vn","http://scp-vn.wikidot.com/", SCPIdentifierPlacement.ENDING),
-    CHINESE_TRADITIONAL("zh","http://scp-zh-tr.wikidot.com/", SCPIdentifierPlacement.MIDDLE);
+    CHINESE_TRADITIONAL("zh","http://scp-zh-tr.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
+    ARABIAN("ar","http://scp-ar.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
+    ESTONIAN("et", "http://scp-et.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
+    HUNGARIAN("hu", "http://scp-hu.wikidot.com/", SCPIdentifierPlacement.ENDING),
+    ROMANIAN("ro", "http://scp-ro.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
+    SLOVENIAN("sl", "http://scp-slovenija.wikidot.com/", SCPIdentifierPlacement.ENDING);
 
     public String identifier;
 
@@ -40,9 +45,10 @@ public enum SCPBranch {
         this.scpIdentifierPlacement = scpIdentifierPlacement;
     }
 
-    public static SCPBranch getByIdentifier(String identifier) {
+    public static SCPBranch getByUrl(String url) {
+        if (url.equals("http://scp-int.wikidot.com/")) return SCPBranch.ENGLISH;
         Optional<SCPBranch> foundScpBranch = Arrays.stream(SCPBranch.values())
-                .filter(scpBranch -> scpBranch.identifier.equals(identifier)).findFirst();
+                .filter(scpBranch -> scpBranch.url.equals(url)).findFirst();
         if (foundScpBranch.isPresent()) return foundScpBranch.get();
         else throw new NullPointerException();
     }

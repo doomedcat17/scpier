@@ -1,11 +1,13 @@
 package com.doomedcat17.scpier.page.html.document;
 
+import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -13,6 +15,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,10 +28,17 @@ class WikiRedirectionHandlerTest {
 
     private WikiRedirectionHandler wikiRedirectionHandler;
 
+
+    @BeforeAll
+    static void initResources() throws IOException, URISyntaxException {
+        ResourcesProvider.initResources();
+    }
+
     @BeforeEach
-    void init() {
+    void init() throws IOException, URISyntaxException {
         MockitoAnnotations.initMocks(this);
-        wikiRedirectionHandler = new WikiRedirectionHandler(wikiPageProvider);
+        ResourcesProvider.initResources();
+        wikiRedirectionHandler = new WikiRedirectionHandler(wikiPageProvider, ResourcesProvider.getRedirectionDefinitions());
     }
 
     @Test
@@ -39,7 +49,7 @@ class WikiRedirectionHandlerTest {
                 .getElementById("page-content");
         //when
         Optional<Element> foundRedirection =
-                wikiRedirectionHandler.checkForRedirection(content);
+                wikiRedirectionHandler.provideRedirectedContent(content);
         //then
         assertTrue(foundRedirection.isPresent());
     }
@@ -52,7 +62,7 @@ class WikiRedirectionHandlerTest {
                 .getElementById("page-content");
         //when
         Optional<Element> foundRedirection =
-                wikiRedirectionHandler.checkForRedirection(content);
+                wikiRedirectionHandler.provideRedirectedContent(content);
         //then
         assertTrue(foundRedirection.isEmpty());
     }
@@ -69,12 +79,12 @@ class WikiRedirectionHandlerTest {
 
         //when
         Optional<Element> foundRedirection =
-                wikiRedirectionHandler.checkForRedirection(content);
+                wikiRedirectionHandler.provideRedirectedContent(content);
 
         if (foundRedirection.isEmpty()) fail();
         Element redirectionElement = foundRedirection.get();
         Element redirectedContent =
-                wikiRedirectionHandler.getRedirectionContent(redirectionElement, "http://www.scpwiki.com/scp-597");
+                wikiRedirectionHandler.getRedirectionContent(redirectionElement, "http://www.scpwiki.com/scp-597").getElementById("page-content");
         //then
         assertEquals(document.getElementById("page-content"), redirectedContent);
     }

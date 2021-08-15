@@ -1,0 +1,4 @@
+articleName: "scp-3031"
+scpBranch: "ENGLISH"
+removalDefinitions:
+  - ".code"

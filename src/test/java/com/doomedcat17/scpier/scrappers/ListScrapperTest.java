@@ -1,7 +1,9 @@
 package com.doomedcat17.scpier.scrappers;
 
 import com.doomedcat17.scpier.data.content.ContentNode;
+import com.doomedcat17.scpier.data.content.ListNode;
 import com.doomedcat17.scpier.scraper.list.ListScraper;
+import com.doomedcat17.scpier.testbox.JSONWriter;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
@@ -159,6 +161,36 @@ class ListScrapperTest extends ScrapperTest {
         ContentNode<?> contentNode = listMapper.scrapElement(list);
         //then
         assertEquals(expectedOutputs.get("shouldScrapSimpleOrderedListWithStrongElements"), contentNode);
+    }
+
+    @Test
+    void shouldIgnoreBlankRow() throws IOException {
+        //given
+        Element list = sampleLists.getElementById("shouldIgnoreBlankRow");
+        //when
+        ListNode<?> contentNode = (ListNode<?>) listMapper.scrapElement(list);
+        //then
+        assertEquals(4, contentNode.getContent().size());
+    }
+
+    @Test
+    void shouldScrapStrangeULList() throws IOException {
+        //given
+        Element list = sampleLists.getElementById("shouldScrapStrangeULList");
+        //when
+        ListNode<?> contentNode = (ListNode<?>) listMapper.scrapElement(list);
+        //then
+        assertEquals(expectedOutputs.get("shouldScrapStrangeULList"), contentNode);
+    }
+
+    @Test
+    void shouldScrapStrangeULList2() throws IOException {
+        //given
+        Element list = sampleLists.getElementById("shouldScrapStrangeULList2");
+        //when
+        ListNode<?> contentNode = (ListNode<?>) listMapper.scrapElement(list);
+        //then
+        assertEquals(expectedOutputs.get("shouldScrapStrangeULList2"), contentNode);
     }
 
 }

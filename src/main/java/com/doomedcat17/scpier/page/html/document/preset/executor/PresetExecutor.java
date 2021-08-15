@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.page.html.document.preset.executor;
 
-import com.doomedcat17.scpier.exception.PresetExecutorException;
+import com.doomedcat17.scpier.exception.page.html.document.preset.PresetExecutorException;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.element.WikiElement;
@@ -17,10 +17,14 @@ public class PresetExecutor {
         try {
             HtmlPage page = webClient.getPage(src);
             for (WikiElement element : preset.getWikiElements()) {
-                WikiElementHandler.handleElement(element, page);
-                webClient.waitForBackgroundJavaScript(element.getJsRuntime());
+                try {
+                    WikiElementHandler.handleElement(element, page);
+                } catch (IllegalArgumentException e) {
+                    continue;
+                }
+                webClient.waitForBackgroundJavaScript(element.getRuntime());
             }
-            webClient.waitForBackgroundJavaScript(preset.getJsRuntime());
+            webClient.waitForBackgroundJavaScript(preset.getRuntime());
             String html = page.executeJavaScript("document.body.parentNode.outerHTML")
                     .getJavaScriptResult()
                     .toString();
@@ -29,7 +33,7 @@ public class PresetExecutor {
             wikiContent.setContent(document.getElementsByTag("body").first());
             return wikiContent;
         } catch (IOException e) {
-            throw new PresetExecutorException(e.getMessage());
+            throw new PresetExecutorException(e);
         }
     }
 

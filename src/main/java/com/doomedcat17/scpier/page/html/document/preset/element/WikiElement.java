@@ -18,12 +18,12 @@ public class WikiElement {
 
     protected WikiElementType elementType;
 
-    protected int jsRuntime = 0;
+    protected int runtime = 0;
 
-    public WikiElement(String selector, WikiElementType elementType, int jsRuntime) {
+    public WikiElement(String selector, WikiElementType elementType, int runtime) {
         this.selector = selector;
         this.elementType = elementType;
-        this.jsRuntime = jsRuntime;
+        this.runtime = runtime;
     }
 
     public String getSelector() {
@@ -37,7 +37,7 @@ public class WikiElement {
     public WikiElement() {
     }
 
-    public int getJsRuntime() {
-        return jsRuntime;
+    public int getRuntime() {
+        return runtime;
     }
 }

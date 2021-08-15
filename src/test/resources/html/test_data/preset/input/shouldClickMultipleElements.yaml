@@ -1,12 +1,12 @@
-name: "TEST"
+articleName: "TEST"
 scpBranch: "ENGLISH"
 wikiElements:
   - selector: "#first"
     elementType: "BUTTON"
-    jsRuntime: 100
+    runtime: 100
   - selector: "#second"
     elementType: "BUTTON"
-    jsRuntime: 100
+    runtime: 100
   - selector: "#third"
     elementType: "BUTTON"
-    jsRuntime: 100
+    runtime: 100

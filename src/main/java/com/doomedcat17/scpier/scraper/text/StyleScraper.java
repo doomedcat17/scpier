@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.scraper.text;
 
-import com.doomedcat17.scpier.exception.ElementScrapperException;
+import com.doomedcat17.scpier.exception.scraper.ElementScraperException;
 import org.jsoup.nodes.Element;
 
 import java.util.Arrays;
@@ -9,39 +9,65 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
 public class StyleScraper {
+
+    /**
+     * Returns a {@link Map} of local CSS style properties and values for given {@link Element}
+     * @param element an {@link Element} 
+     */
     public static Map<String, String> scrapStyles(Element element) {
         try {
             Map<String, String> stylesMap = new HashMap<>();
             mapTag(element.tagName(), stylesMap);
+            addClassStyles(element, stylesMap);
             if (element.hasAttr("style")) {
                 List<String> styles = Arrays.stream(element.attr("style")
                                 .trim()
                                 .split(";"))
                         .map(String::trim)
                         .collect(Collectors.toList());
-                styles.forEach(styleText -> mapStyle(styleText, stylesMap));
+                styles.forEach(styleText -> getPropertyAndValue(styleText, stylesMap));
             }
-            addClassStyles(element, stylesMap);
             return stylesMap;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new ElementScrapperException(e.getMessage());
+            throw new ElementScraperException(e);
         }
 
     }
 
-    private static void mapStyle(String style, Map<String, String> stylesMap) {
+    /**
+     * Adds property and value to given stylesMap
+     * @param style a string of style property and value
+     * @param stylesMap a {@link Map} of CSS style properties and values
+     */
+    private static void getPropertyAndValue(String style, Map<String, String> stylesMap) {
         //sometimes style is empty bruh
         if (!style.isBlank()) {
-            String[] styleKeyAndValue = style.split(":");
-            stylesMap.put(styleKeyAndValue[0].trim(), styleKeyAndValue[1].trim());
+            try {
+                String[] styleKeyAndValue = style.split(":");
+                String property = styleKeyAndValue[0].trim();
+                if (!isIgnoredStyleProperty(property)) {
+                    stylesMap.put(property, styleKeyAndValue[1].trim());
+                }
+                //and sometimes style has no value
+            } catch (ArrayIndexOutOfBoundsException ignored) {
+            }
         }
     }
 
     private static void addClassStyles(Element element, Map<String, String> stylesMap) {
         if (element.is(".center-header, .h6, .h5, .h4, .h3, .h2, .h1")) {
             stylesMap.put("font-weight", "bold");
+        }
+    }
+
+    private static boolean isIgnoredStyleProperty(String property) {
+        switch (property){
+            case "animation":
+                return true;
+            default:
+                return false;
         }
     }
 
@@ -94,13 +120,19 @@ public class StyleScraper {
                 break;
             case "del":
             case "strike":
+            case "s":
                 stylesMap.put("text-decoration", "line-through");
                 break;
             case "center":
                 stylesMap.put("text-align", "center");
                 break;
-            case "p":
-            case "span":
+            case "big":
+                stylesMap.put("font-size", "large");
+                break;
+            case "gfont":
+                stylesMap.put("font-family", "'Geo', sans-serif");
+                stylesMap.put("font-size", "40px");
+                break;
             default:
                 break;
         }

@@ -1,5 +1,7 @@
 package com.doomedcat17.scpier.data.content;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -20,6 +22,12 @@ public class ListNode<T> extends ContentNode<List<T>>{
 
     public void addElements(Collection<T> elements) {
         content.addAll(elements);
+    }
+
+    @JsonIgnore
+    public T getLastElement() {
+        if (!content.isEmpty()) return content.get(content.size()-1);
+        else return null;
     }
 
     @Override

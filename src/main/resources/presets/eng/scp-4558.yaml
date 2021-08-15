@@ -1,0 +1,40 @@
+articleName: "scp-4558" #makng this was pain ;-;
+scpBranch: "ENGLISH"
+wikiElements:
+  - selector: "a[onclick=\"collapsibleLink('block3');\"]"
+    elementType: "BUTTON"
+    runtime: 10000
+  - selector: "a[onclick=\"writeBlock4();\"]"
+    elementType: "BUTTON"
+    runtime: 2000
+  - selector: "a[onclick=\"writeBlock5();\"]"
+    elementType: "BUTTON"
+    runtime: 145000
+  - selector: "a[onclick=\"collapsibleLink('block2');\"]"
+    elementType: "BUTTON"
+    runtime: 145000
+  - selector: "a[onclick=\"writeBlock4();\"]"
+    elementType: "BUTTON"
+    runtime: 1000
+  - selector: "a[onclick=\"writeBlock5();\"]"
+    elementType: "BUTTON"
+    runtime: 1000
+  - selector: "a[onclick=\"writeBlock6();\"]"
+    elementType: "BUTTON"
+    runtime: 1000
+  - selector: "a[onclick=\"writeBlock7();\"]"
+    elementType: "BUTTON"
+    runtime: 10000
+  - selector: "a[onclick=\"writeBlock8();\"]"
+    elementType: "BUTTON"
+    runtime: 1000
+  - selector: "a[onclick=\"writeBlock9();\"]"
+    elementType: "BUTTON"
+    runtime: 145000
+  - selector: "a[onclick=\"writeBlock10();\"]"
+    elementType: "BUTTON"
+    runtime: 10000
+removalDefinitions:
+  - "#result"
+outerContentNames:
+  - "pink-cracks-in-a-digital-wall"

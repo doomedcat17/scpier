@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.scraper;
 
-import com.doomedcat17.scpier.exception.ScrapperNotDefinedException;
+import com.doomedcat17.scpier.exception.scraper.ScraperNotDefinedException;
 import com.doomedcat17.scpier.scraper.audio.AudioScraper;
 import com.doomedcat17.scpier.scraper.blockquote.BlockquoteScraper;
 import com.doomedcat17.scpier.scraper.div.DivScraper;
@@ -20,8 +20,11 @@ public class ScraperFactory {
             case "em":
             case "p":
             case "a":
+            case "big":
             case "b":
+            case "s":
             case "li":
+            case "blink":
             case "small":
             case "span":
             case "sup":
@@ -39,6 +42,16 @@ public class ScraperFactory {
             case "del":
             case "strike":
             case "label":
+            case "bodysmallred2":
+            case "bodysmallred":
+            case "bodysmall":
+            case "bodywhite":
+            case "bodyred":
+            case "p1":
+            case "p2":
+            case "gfont":
+                //sometimes images are wrapped in <a> tag
+                if (element.is("a") && !element.select("img").isEmpty()) return new ImageScraper(source);
                 return new LineScraper(source);
             case "h1":
             case "h2":
@@ -58,8 +71,12 @@ public class ScraperFactory {
             case "footer":
             case "article":
             case "form":
+            case "center":
+            case "robot":
+            case "p3211-이후":
                 //some divs has "blockquote class"
-                if (element.hasClass("blockquote")) return new BlockquoteScraper(source);
+                if (element.is(".blockquote")) return new BlockquoteScraper(source);
+                else if (element.is(".responsive_table")) return new TableScraper(source);
                 else return new DivScraper(source);
             case "img":
             case "picture":
@@ -72,13 +89,16 @@ public class ScraperFactory {
             case "dl":
                 return new ListScraper(source);
             case "blockquote":
-            case "center":
                 return new BlockquoteScraper(source);
             case "video":
-            case "figure":
                 return new VideoScraper(source);
+            case "figure":
+                if (element.selectFirst("img") != null) {
+                    return new ImageScraper(source);
+                } else return new VideoScraper(source);
             default:
-                throw new ScrapperNotDefinedException("Scrapper not defined for \"" + element.tagName() +"\" element");
+                System.out.println(element);
+                throw new ScraperNotDefinedException("Scrapper not defined for \"" + element.tagName() +"\" element");
         }
     }
 }

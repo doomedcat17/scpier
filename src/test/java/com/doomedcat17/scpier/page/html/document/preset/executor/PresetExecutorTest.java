@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.page.html.document.preset.executor;
 
-import com.doomedcat17.scpier.exception.PresetExecutorException;
+import com.doomedcat17.scpier.exception.page.html.document.preset.PresetExecutorException;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.WebClientProvider;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;

@@ -1,13 +1,13 @@
 # SCPier - SCP Wiki webscraper
 
-**PLEASE KEEP IN MIND IT'S A PROTOTYPE. Check [Status](#status).**
+**SCPier is still in its early state. Check [Status](#status).**
 
-SCPier is java library for retrieving SCPs and Tales directly form [SCP Foundation Wiki](http://www.scpwiki.com/)
+SCPier is Java API for retrieving SCPs, Tales and other content directly form [SCP Foundation Wiki](http://www.scpwiki.com/)
 
-I don't own any of the provided data, please check out [Licensing Guide](https://scp-wiki.wikidot.com/licensing-guide)
-if you consider commercial use.
+**I don't own any of the provided data**, so please check out [Licensing Guide](https://scp-wiki.wikidot.com/licensing-guide)
+if you consider commercial use.  
+SCPier itself is free to use for any pourpuse, if usage does not violate [Wikidot's Terms Of Service](https://www.wikidot.com/legal:terms-of-service).
 
-- [Status](#status)
 - [How it works?](#how-it-works)
 - [Getting data](#getting-data)
   - [SCPData](#scpwikidata)
@@ -22,22 +22,41 @@ if you consider commercial use.
       - [DIV and BLOCKQUOTE](#div-and-blockquote)
       - [TABLE](#table)
       - [LIST_OL, LIST_UL, LIST_DL](#list_ol-list_ul-list_dl)
-      
-# Status
-SCPier is in its early development stages. It can't handle heavily scripted articles and for some of them additional interpretation is needed.
-Also some content can be scrapped incorrectly or be missing.
-
-If you find any bugs or issues, please open new issues in <a href="https://github.com/doomedcat17/scpier/issues">Issues</a> section.
-
-You can also contact me via [Telegram](https://t.me/doomedcat17).
-
+- [Contribute](#contribute)
+  - [Preset](#preset)
+    - [WikiElement](#wikielement)
+- [Status](#status)
 
 # How it works?
 
-It's basically webscraper. HTML elements are retrieved using [jsoup](https://jsoup.org/). If particular SCP
-or Tale uses JavaScript, then the script is run by [HtmlUnit](https://htmlunit.sourceforge.io/). Retrieved
-HTML elements are scraped and interpreted by multiple ElementScrappers.
+It's basically webscraper. HTML elements are retrieved using [jsoup](https://jsoup.org/). If particular article uses JavaScript, 
+then the script is run by [HtmlUnit](https://htmlunit.sourceforge.io/) webclient.
+For more specific cases uses pre-defined [Presets](#listnodes). Retrieved
+HTML elements are scraped and interpreted by multiple ElementScrapers.
 
+What is scraped:
+  - All text data with its **local** styling
+  - Tables
+  - Lists
+  - Links, images, videos and audio ([more info here](#image-video-audio))
+  - Tags
+  - Last revision time
+
+What is **NOT** scraped:
+  - Animations and all interactive elements
+  - CSS styling (classes, `<style>` tags etc.)
+  - Forms and other inputs
+  - Authors info
+
+**Wait, why is the author’s info not provided?!** :c
+
+Many articles don't have any info about the authors, and it's not very efficient to dig through the discuss section and other places on the wiki (it's very resource-consuming for the API and Wikidot).
+
+But I do not exclude such functionality in the future!
+
+**What about the [scpper](http://scpper.com/)?**
+
+Too long response times,and I didn't find any API for it, so even more web scraping and testing.
 # Getting data
 
 To get data from Scp Wiki simply create instance of `ScpWikiDataProvider` class and call `getScpWikiContent()` method.
@@ -45,9 +64,9 @@ To get data from Scp Wiki simply create instance of `ScpWikiDataProvider` class 
 It has three parameters:
 
 `articleName` - name of the article.<br>
-SCPier puts it in the URL to search for desired article. If you want to get one of the SCPs, you can provide its full name or just a number.
-(*Example: "7", "07" "007", "scp-007" and "SCP-007" will return SCP-007*).<br>
-Other articles are more complicated case.<br>
+SCPier puts it in the URL to search for desired article. If you want to get one of the SCPs, you have to provide its full name.
+("scp-007" and "SCP-007" will return *SCP-007*).  
+Other articles are more complicated case.  
 There is no common pattern for article naming in wiki's URLs (RESTful naming).<br>
 Some examples:
 
@@ -61,9 +80,9 @@ There are some similarities, but they don't apply to every article.<br>
 If you replace all special chars with `-`, it should work for ***most*** cases.
 
 `scpBranch` - `SCPBranch` enum of desired branch.
-Defines source branch of desired article.<br>
+Defines source branch of desired article.
 
-`scpTranslation` - `SCPTranslation` enum of desired translation.
+`scpTranslation` (Optional) - `SCPTranslation` enum of desired translation.
 Defines translation language of desired article.
 
 
@@ -73,9 +92,21 @@ Defines translation language of desired article.
 ScpWikiDataProvider scpWikiDataProvider = new ScpWikiDataProvider();
 
 ScpWikiData object173 = scpWikiDataProvider
-    .getScpWikiContent("173", ScpBranch.ENGLISH, ScpTranslation.ORIGINAL);
+    .getScpWikiContent("SCP-173", ScpBranch.ENGLISH);
 ```
-It returns `ScpWikiData` object with desired article from Scp Wiki.
+It returns `ScpWikiData` object with desired article from Scp Wiki in its original form.
+
+```java
+ScpWikiData object173 = scpWikiDataProvider
+    .getScpWikiContent("SCP-173", ScpBranch.ENGLISH, SCPTranslation.POLISH);
+```
+Returns article in Polish (if translation is available).
+
+```java
+ScpWikiData object173 = scpWikiDataProvider
+    .getScpWikiContent("SCP-173", ScpBranch.POLISH);
+```
+Returns *SCP-PL-173* article in its original form.
 
 `getScpWikiContent()` throws `SCPierApiException` if any issue occurs.
 
@@ -85,31 +116,37 @@ It has the following variables
 ```java
 String title;
 
+SCPBranch scpBranch;
+
+SCPTranslation scpTranslation;
+
 List<ContentNode<?>> content;
 
 List<String> tags;
+
+Timestamp lastRevisionTimestamp;
 
 String source;
 ```
 `title` - title of the article from wiki.
 
+`scpBranch` - source branch of desired article.
+
+`scpTranslation` - translation language of desired article.
+
 `content` - content of the article.
 
 `tags` - list of the article tags.
+
+`lastRevisionTimestamp` - unix time of last revision (UTC).
 
 `source` - link of selected article.
 ```json
 {
   "title" : "SCP-006",
+  "scpBranch" : "ENGLISH",
+  "scpTranslation" : "ORIGINAL",
   "content" : [ {
-    "contentNodeType" : "IMAGE",
-    "content" : "http://scp-wiki.wdfiles.com/local--files/scp-006/SCP006_stream-new.jpg",
-    "description" : [ {
-      "contentNodeType" : "TEXT",
-      "content" : "SCP-006",
-      "styles" : { }
-    } ]
-  }, {
     "contentNodeType" : "HEADING",
     "content" : [ {
       "contentNodeType" : "TEXT",
@@ -127,6 +164,14 @@ String source;
       "styles" : {
         "font-weight" : "bold"
       }
+    } ]
+  }, {
+    "contentNodeType" : "IMAGE",
+    "content" : "http://scp-wiki.wdfiles.com/local--files/scp-006/SCP006_stream-new.jpg",
+    "description" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "SCP-006",
+      "styles" : { }
     } ]
   }, {
     "contentNodeType" : "PARAGRAPH",
@@ -216,7 +261,8 @@ String source;
       "styles" : { }
     } ]
   } ],
-  "tags" : [ "_cc", "_licensebox", "liquid", "location", "medical", "safe", "scp", "self-repairing" ],
+  "tags" : [ "_cc", "_licensebox", "liquid", "location", "medical", "rewrite", "safe", "scp", "self-repairing" ],
+  "lastRevisionTimestamp" : 1628542260000,
   "source" : "http://www.scp-wiki.wikidot.com/scp-006"
 }
 ```
@@ -228,20 +274,12 @@ They are enums, which define source branch and desired translation.
 List of SCP Wiki branches and translations:
 
 ```json
-ENGLISH, POLISH, RUSSIAN, JAPANESE, CHINESE, KOREAN,
-FRENCH, SPANISH, THAI, GERMAN, ITALIAN, UKRAINIAN,
-PORTUGUESE, CZECH, GREEK, INDONESIAN, DANISH,
-FINNISH, NORWEGIAN, SWEDISH, TURKISH, VIETNAMESE
+ENGLISH, POLISH, RUSSIAN, JAPANESE, CHINESE, CHINESE_TRADITIONAL,
+KOREAN, FRENCH, SPANISH, THAI, GERMAN, ITALIAN, UKRAINIAN,
+PORTUGUESE, CZECH, GREEK, INDONESIAN, DANISH, ESTONIAN
+FINNISH, NORWEGIAN, SWEDISH, TURKISH, VIETNAMESE, ARABIAN,
+HUNGARIAN, ROMANIAN, SLOVENIAN
 ````
-
-***There is one more translation called `ORIGINAL` and it is used for getting article in branch's native language.***
-
-```java
-scpWikiDataProvider
-    .getScpWikiContent("173", ScpBranch.ENGLISH, ScpTranslation.ORIGINAL);
-```
-
-
 
 # Content data model
 
@@ -675,3 +713,133 @@ Corresponds to HTML list tags (`<ol>`, `<ul>` and `<dl>`). Each od them consists
   ]
 }
 ```
+# Contribute
+
+Making this project made me realise how creative SCP Community can be. There are many stories and articles with some
+type of interaction with the reader, like terminals to operate, buttons to click and fields to fill. 
+Obviously SCPier can't handle them by itself, every case is different. So I came with idea of so called "*Presets*". 
+
+**Everybody can write one (basic HTML and CSS knowledge) and it's an easy way to contribute!**
+
+## Preset
+
+`Preset` is a YAML file with instructions for the SCPier how to handle specific cases (like inputs, getting additional content or removing some unwanted content).
+
+*How many articles need their own Preset?*  
+I don't really now, but I **assume** it's less than 10 percent of all articles.  
+
+The most problematic case is usage of `code` class. It is mostly used for purely aesthetic purposes, which are not really important for scrapping, though there are times when custom code could possess some storytelling values
+
+`Preset` consists of following properties:  
+
+`articleName`* - name of the article. **RESTFUL! Check [Getting data](#getting-data)**  
+
+`scpBranch`* - wiki branch of the article.  
+
+`runtime` - number of milliseconds to wait after loading wiki page. Used when script is executed on page load. 
+
+`wikiElements` - list of `WikiElements` to process.  
+
+`removalDefinitions` - [CSS Selectors](https://www.w3schools.com/cssref/css_selectors.asp) of elements to remove. 
+
+`outerContentArticleNames` - list of wiki articles which content should be provided. Given articles contents will be added to the content.
+
+*required properties
+
+**You don't have to provide all properties. Only those that are necessary!**
+```yaml
+artcileName: "article-name"
+scpBranch: "ENGLISH"
+runtime: 1000
+wikiElements:
+  - selector: "#button-to-click"
+    elementType: "BUTTON"
+    runtime: 1000
+  - selector: "#checkbox-to-check"
+    elementType: "CHECKBOX"
+  - selector: "#radio-to-hmm-check-i-guess?"
+    elementType: "RADIO"
+  - selector: "#input-to-fill"
+    elementType: "INPUT"
+    inputValue: "Broken God"
+    runtime: 1000
+removalDefinitions:
+  - "#element-to-remove"
+outerContentArticleNames:
+  - "article-title-to-provide-content"
+```
+```yaml
+articleName: "scp-3959"
+scpBranch: "ENGLISH"
+removalDefinitions:
+  - "form"
+outerContentNames:
+  - "scp-3959-restricted"
+```
+Remove forms and adds "*scp-3959-restricted*" article content
+
+```yaml
+articleName: "scp-3211"
+scpBranch: "ENGLISH"
+wikiElements:
+  - selector: "#proceed"
+    elementType: "BUTTON"
+    runtime: 2000
+removalDefinitions:
+  - "#footnotes"
+```
+Remove elements with *footnotes* id, clicks a button with *proceed* id and waits 2000 milliseconds (2 seconds).
+
+### WikiElement
+
+`WikiElement` defines type of element and how to handle it.  
+It has the following parameters:  
+`selector`* - [CSS Selector](https://www.w3schools.com/cssref/css_selectors.asp) of element.  
+`elementType`* - defines type of element  
+`runtime` - number of milliseconds to wait after interaction with element. 
+
+*required properties  
+
+**BUTTON**
+
+Element with this type will be clicked. **All elements with onclick attribute are treated as buttons!**
+
+```yaml
+selector: "#button-to-click"
+elementType: "BUTTON"
+```
+**RADIO and CHECKBOX**
+
+Element with this type will be checked. Corresponds to `<input>` HTML tag of type `radio` and `checkbox`.
+
+```yaml
+selector: "#radio-to-hmm-check-i-guess?"
+elementType: "RADIO"
+```
+
+```yaml
+selector: "#checkbox-to-check"
+elementType: "CHECKBOX"
+```
+
+**INPUT**  
+
+It has additional property `inputValue` property (required). Element with this type will be filled with given value.
+
+```yaml
+selector: "#input-to-fill"
+elementType: "INPUT"
+inputValue: "Broken God"
+runtime: 1000
+```
+
+# Status
+SCPier is in its early development stages. It can't handle heavily scripted articles and for some of them additional interpretation is needed.
+Also, some content can be scraped incorrectly or be missing.
+
+If you find any bugs or issues, please open new issues in [Issues](https://github.com/doomedcat17/scpier/issues).
+
+You can also contact me via [Telegram](https://t.me/doomedcat17).
+
+
+

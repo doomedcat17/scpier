@@ -1,0 +1,4 @@
+articleName: "scp-5999"
+scpBranch: "ENGLISH"
+removalDefinitions:
+  - ".code"

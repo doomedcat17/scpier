@@ -1,0 +1,4 @@
+articleName: "scp-zh-128"
+scpBranch: "CHINESE_TRADITIONAL"
+removalDefinitions:
+  - ".code"

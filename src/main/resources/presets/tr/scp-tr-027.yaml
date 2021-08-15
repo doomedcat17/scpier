@@ -1,0 +1,4 @@
+articleName: "scp-tr-026"
+scpBranch: "TURKISH"
+removalDefinitions:
+  - "div[id=\"page-content\"] > div[style=\"display: none\"]"

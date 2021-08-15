@@ -8,31 +8,34 @@ import java.util.List;
 
 public class Preset {
 
-    private String name;
+    private String articleName;
 
     private SCPBranch scpBranch;
 
-    private int jsRuntime = 0;
+    private int runtime = 0;
 
     private List<WikiElement> wikiElements = new ArrayList<>();
 
     private List<String> removalDefinitions = new ArrayList<>();
 
+    private List<String> outerContentNames = new ArrayList<>();
 
-    public Preset(String name, SCPBranch scpBranch, int jsRuntime, List<WikiElement> wikiElements, List<String> removalDefinitions) {
-        this.name = name;
+
+    public Preset(String articleName, SCPBranch scpBranch, int runtime, List<WikiElement> wikiElements, List<String> removalDefinitions, List<String> outerContentNames) {
+        this.articleName = articleName;
         this.scpBranch = scpBranch;
         this.wikiElements = wikiElements;
-        this.jsRuntime = jsRuntime;
+        this.runtime = runtime;
         this.removalDefinitions = removalDefinitions;
+        this.outerContentNames = outerContentNames;
     }
 
     public List<String> getRemovalDefinitions() {
         return removalDefinitions;
     }
 
-    public String getName() {
-        return name;
+    public String getArticleName() {
+        return articleName;
     }
 
     public SCPBranch getScpBranch() {
@@ -43,8 +46,12 @@ public class Preset {
         return wikiElements;
     }
 
-    public int getJsRuntime() {
-        return jsRuntime;
+    public int getRuntime() {
+        return runtime;
+    }
+
+    public List<String> getOuterContentNames() {
+        return outerContentNames;
     }
 
     public Preset() {

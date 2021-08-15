@@ -1,0 +1,6 @@
+articleName: "scp-4205"
+scpBranch: "ENGLISH"
+removalDefinitions:
+  - ".info-container + div"
+  - ".info-container + div + div"
+  - ".info-container + div + div + div"

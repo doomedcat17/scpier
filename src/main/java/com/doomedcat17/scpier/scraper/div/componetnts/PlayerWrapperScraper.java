@@ -1,6 +1,9 @@
 package com.doomedcat17.scpier.scraper.div.componetnts;
 
 import com.doomedcat17.scpier.data.content.ContentNode;
+import com.doomedcat17.scpier.data.content.ContentNodeType;
+import com.doomedcat17.scpier.data.content.EmbedNode;
+import com.doomedcat17.scpier.data.content.TextNode;
 import com.doomedcat17.scpier.scraper.audio.AudioScraper;
 import com.doomedcat17.scpier.scraper.div.DivScraper;
 import org.jsoup.nodes.Element;
@@ -15,6 +18,17 @@ public class PlayerWrapperScraper extends DivScraper implements DivScraperCompon
 
     @Override
     public List<ContentNode<?>> scrapDivContent(Element element)  {
+        if (element.is(".widget")) {
+            Element audioAnchor = element.selectFirst(".sample_info > a");
+            if (audioAnchor == null) {
+                audioAnchor = element.selectFirst("a.hearmore");
+            }
+            EmbedNode audioNode = new EmbedNode();
+            audioNode.setContentNodeType(ContentNodeType.AUDIO);
+            audioNode.setContent(audioAnchor.attr("href"));
+            audioNode.getDescription().add(new TextNode(audioAnchor.text()));
+            return new ArrayList<>(List.of(audioNode));
+        }
         Element audioElement = element.selectFirst("audio, audio-player");
         AudioScraper audioScrapper = new AudioScraper(source);
         return new ArrayList<>(List.of(audioScrapper.scrapElement(audioElement)));

@@ -1439,6 +1439,1178 @@
           ]
         }
       }
+    },
+    "shouldScrapResponsiveTable": {
+      "com.doomedcat17.scpier.data.content.ListNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_HEADING_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Designation",
+                                        "styles": {
+                                          "java.util.HashMap": {
+                                            "font-weight": "bold"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_HEADING_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Species",
+                                        "styles": {
+                                          "java.util.HashMap": {
+                                            "font-weight": "bold"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_HEADING_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Description",
+                                        "styles": {
+                                          "java.util.HashMap": {
+                                            "font-weight": "bold"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_HEADING_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Additional Information",
+                                        "styles": {
+                                          "java.util.HashMap": {
+                                            "font-weight": "bold"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "SCP-6013-B1 and B2",
+                                        "styles": {
+                                          "java.util.HashMap": {
+                                            "font-weight": "bold"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": ".",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "SCP-6013-A’s journal calls them “Kala” and “Ioro,” respectively.",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Physeter macrocephalus",
+                                        "styles": {
+                                          "java.util.HashMap": {
+                                            "font-style": "italic"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "A pair of Atlantic sperm whales, one male and one female. Both are covered in vascular tissue structures that draw oxygen from the water. The mouths of both specimens have been covered with a thin, weblike film, and chitinous plating has grown over their heads and fins.",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Neither specimen has been observed surfacing for air. Each movement performed by one specimen is mirrored by the other. Both specimens swim in a tightly coordinated circuit around the perimeter of SCP-6013, possibly to deter other sea life. Specimens do not acknowledge Foundation vessels unless provoked.",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "SCP-6013-B3",
+                                        "styles": {
+                                          "java.util.HashMap": {
+                                            "font-weight": "bold"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Various",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "A variety of animals known to parasitize whales, primarily copepods, barnacles and sea lice.",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Specimens contain DNA of both humans and loggerhead turtles. Much larger than normal size. Limbs and organs will regrow into new specimens if separated from the body.",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "SCP-6013-B4",
+                                        "styles": {
+                                          "java.util.HashMap": {
+                                            "font-weight": "bold"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Various, primarily",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Corallium rubrum",
+                                        "styles": {
+                                          "java.util.HashMap": {
+                                            "font-style": "italic"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Numerous coral species native to the Mediterranean sea.",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Polyps secrete a thick, fibrous mucus when agitated. Larger colonies are opportunistic carnivores and use this secretion to ensnare passing fish.",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "SCP-6013-B5",
+                                        "styles": {
+                                          "java.util.HashMap": {
+                                            "font-weight": "bold"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Dasyatis pastinaca",
+                                        "styles": {
+                                          "java.util.HashMap": {
+                                            "font-style": "italic"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Common stingray, a species native to the Mediterranean Sea.",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Human face.",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "SCP-6013-B6+",
+                                        "styles": {
+                                          "java.util.HashMap": {
+                                            "font-weight": "bold"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Various",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Numerous plants and animals native to both the Mediterranean and Kara Sea.",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Biodiversity estimated in excess of five hundred species. Cataloging efforts are ongoing.",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_ROW"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "SCP-6013-B0",
+                                        "styles": {
+                                          "java.util.HashMap": {
+                                            "font-weight": "bold"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Classification pending",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": ".",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "SCP-6013-A calls the specimen ",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Valkluli",
+                                        "styles": {
+                                          "java.util.HashMap": {
+                                            "font-style": "italic"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": ", Soonsaran for “Shining Breath.”",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "A microbial organism native to the interior of SCP-6013. Also found in SCP-6013-A’s soft tissues and all SCP-6013-B instances. Separate SCP classification pending approval.",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ListNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TABLE_CELL"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                                },
+                                "content": {
+                                  "java.util.ArrayList": [
+                                    {
+                                      "com.doomedcat17.scpier.data.content.TextNode": {
+                                        "contentNodeType": {
+                                          "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                        },
+                                        "content": "Bioluminescent. Metabolizes carbon dioxide, metals and plastics into oxygen, nitrogen, amino acids and trace amounts of Akiva radiation. Adjusts its genome and surface proteins to match the biochemistry of its host, thereby preventing an immunological reaction. Can be reliably removed from air or water with class B or higher filtration.",
+                                        "styles": {
+                                          "java.util.HashMap": {}
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
     }
   }
 }

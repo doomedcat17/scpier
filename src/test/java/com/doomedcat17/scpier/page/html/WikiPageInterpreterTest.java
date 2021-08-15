@@ -1,26 +1,33 @@
 package com.doomedcat17.scpier.page.html;
 
+import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter;
-import com.doomedcat17.scpier.page.html.document.preset.PresetLoader;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class WikiPageInterpreterTest {
 
     private final WikiPageInterpreter wikiPageInterpreter = new WikiPageInterpreter(
-            new DefaultWikiContentCleaner(),
-            new WikiRedirectionHandler(new DefaultWikiPageProvider()),
-            new PageTagsScrapperImpl(),
-            new PresetLoader()
+            new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()),
+            new WikiRedirectionHandler(new DefaultWikiPageProvider(), ResourcesProvider.getRedirectionDefinitions()),
+            new PageTagsScrapperImpl()
     );
 
+    @BeforeAll
+    static void init() throws IOException, URISyntaxException {
+        ResourcesProvider.initResources();
+    }
 
 
     @Test
@@ -31,46 +38,6 @@ class WikiPageInterpreterTest {
         wikiPageInterpreter.mapContent(wikiContent);
         //then
         assertEquals(31, wikiContent.getContent().childNodeSize());
-    }
-
-    @Test
-    void shouldUnpackScpFromDiv() {
-        //given
-        WikiContent wikiContent = TestDataProvider.getPageContent("src/test/resources/html/test_data/sample_scps/scp-194.html");
-        //when
-        wikiPageInterpreter.mapContent(wikiContent);
-        //then
-        assertEquals(7, wikiContent.getContent().childNodeSize());
-    }
-
-    @Test
-    void shouldUnpackScpFromDiv2() {
-        //given
-        WikiContent wikiContent = TestDataProvider.getPageContent("src/test/resources/html/test_data/sample_scps/scp-285.html");
-        //when
-        wikiPageInterpreter.mapContent(wikiContent);
-        //then
-        assertEquals(34, wikiContent.getContent().childNodeSize());
-    }
-
-    @Test
-    void shouldUnpackScpFromDiv3() {
-        //given
-        WikiContent wikiContent = TestDataProvider.getPageContent("src/test/resources/html/test_data/sample_scps/scp-1496.html");
-        //when
-        wikiPageInterpreter.mapContent(wikiContent);
-        //then
-        assertEquals(6, wikiContent.getContent().childNodeSize());
-    }
-
-    @Test
-    void shouldUnpackScpFromDiv4() {
-        //given
-        WikiContent wikiContent = TestDataProvider.getPageContent("src/test/resources/html/test_data/sample_scps/scp-2117.html");
-        //when
-        wikiPageInterpreter.mapContent(wikiContent);
-        //then
-        assertEquals(38, wikiContent.getContent().childNodeSize());
     }
 
     @Test

@@ -3,7 +3,7 @@ package com.doomedcat17.scpier.scraper.video;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.content.ContentNodeType;
 import com.doomedcat17.scpier.data.content.EmbedNode;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
+import com.doomedcat17.scpier.exception.scraper.ElementScraperException;
 import com.doomedcat17.scpier.scraper.ElementScraper;
 import org.jsoup.nodes.Element;
 
@@ -18,8 +18,7 @@ public class VideoScraper extends ElementScraper {
             source = sourceElement.attr("src");
             return new EmbedNode(ContentNodeType.VIDEO, source);
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new ElementScrapperException(e.getMessage());
+            throw new ElementScraperException(e);
         }
     }
 

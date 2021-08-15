@@ -1,11 +1,11 @@
 package com.doomedcat17.scpier.scrappers;
 
 
-import com.doomedcat17.scpier.data.content.ContentNode;
-import com.doomedcat17.scpier.data.content.ContentNodeType;
-import com.doomedcat17.scpier.data.content.TextNode;
+import com.doomedcat17.scpier.data.content.*;
 import com.doomedcat17.scpier.scraper.table.TableScraper;
+import com.doomedcat17.scpier.testbox.JSONWriter;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TableScrapperTest extends ScrapperTest {
 
@@ -99,6 +100,69 @@ class TableScrapperTest extends ScrapperTest {
         assertEquals("Object Class: ", paragraphs.getContent().get(1).getContent().get(0).getContent());
         assertEquals("Safe", paragraphs.getContent().get(1).getContent().get(1).getContent());
 
+    }
+
+    @Test
+    void shouldScrapResponsiveTable() throws JsonProcessingException {
+        //given
+        Element table = sampleTables.getElementById("shouldScrapResponsiveTable");
+        //when
+        ContentNode<?> contentNode = tableMapper.scrapElement(table);
+        //then
+        assertEquals(expectedOutputs.get("shouldScrapResponsiveTable"), contentNode);
+
+    }
+
+    @Test
+    void shouldScrapOnlyImageFromTable() throws JsonProcessingException {
+        //given
+        Element table = sampleTables.getElementById("shouldScrapOnlyImageFromTable");
+        //when
+        ContentNode<?> contentNode = tableMapper.scrapElement(table);
+        //then
+        assertTrue(contentNode instanceof EmbedNode);
+        EmbedNode embedNode = (EmbedNode) contentNode;
+        assertEquals("http://ja.scp-wiki.net/local--files/scp-879-jp/scp-879-jp-brack.png", embedNode.getContent());
+        assertEquals(1, embedNode.getDescription().size());
+        assertEquals("対認識災害ミーム接種後に表示されます。", embedNode.getDescription().get(0).getContent());
+    }
+
+    @Test
+    void shouldScrapOnlyImageFromTable2() throws JsonProcessingException {
+        //given
+        Element table = sampleTables.getElementById("shouldScrapOnlyImageFromTable2");
+        //when
+        ContentNode<?> contentNode = tableMapper.scrapElement(table);
+        //then
+        assertTrue(contentNode instanceof EmbedNode);
+        EmbedNode embedNode = (EmbedNode) contentNode;
+        assertEquals("sample.jpg", embedNode.getContent());
+        assertEquals(1, embedNode.getDescription().size());
+        assertEquals("Description", embedNode.getDescription().get(0).getContent());
+    }
+
+    @Test
+    void shouldScrapOnlyImageFromTable3() throws JsonProcessingException {
+        //given
+        Element table = sampleTables.getElementById("shouldScrapOnlyImageFromTable3");
+        //when
+        ContentNode<?> contentNode = tableMapper.scrapElement(table);
+        //then
+        assertTrue(contentNode instanceof EmbedNode);
+        EmbedNode embedNode = (EmbedNode) contentNode;
+        assertEquals("sample.jpg", embedNode.getContent());
+    }
+
+    @Test
+    void shouldReturnTable() throws JsonProcessingException {
+        //given
+        Element table = sampleTables.getElementById("shouldReturnTable");
+        //when
+        ContentNode<?> contentNode = tableMapper.scrapElement(table);
+        //then
+        assertTrue(contentNode instanceof ListNode);
+        ListNode<?> tableNode = (ListNode<?>) contentNode;
+        assertEquals(2, tableNode.getContent().size());
     }
 
 

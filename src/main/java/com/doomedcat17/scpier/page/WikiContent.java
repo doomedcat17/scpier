@@ -1,7 +1,9 @@
 package com.doomedcat17.scpier.page;
 
+import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import org.jsoup.nodes.Element;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 public class WikiContent {
@@ -16,7 +18,11 @@ public class WikiContent {
 
     private String sourceUrl;
 
+    private Timestamp lastRevisionTimestamp;
+
     private List<String> tags;
+
+    private Preset preset;
 
     public String getTranslationIdentifier() {
         return translationIdentifier;
@@ -68,6 +74,22 @@ public class WikiContent {
 
     public void setLangIdentifier(String langIdentifier) {
         this.langIdentifier = langIdentifier;
+    }
+
+    public Preset getPreset() {
+        return preset;
+    }
+
+    public void setPreset(Preset preset) {
+        this.preset = preset;
+    }
+
+    public Timestamp getLastRevisionTimestamp() {
+        return lastRevisionTimestamp;
+    }
+
+    public void setLastRevisionTimestamp(Timestamp lastRevisionTimestamp) {
+        this.lastRevisionTimestamp = lastRevisionTimestamp;
     }
 
     public WikiContent() {

@@ -2,7 +2,7 @@ package com.doomedcat17.scpier.scraper.text;
 
 import com.doomedcat17.scpier.data.content.HyperlinkNode;
 import com.doomedcat17.scpier.data.content.TextNode;
-import com.doomedcat17.scpier.exception.ElementScrapperException;
+import com.doomedcat17.scpier.exception.scraper.ElementScraperException;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 
@@ -20,9 +20,7 @@ public class TextScraper {
             if (textElement.is("br")) {
                 textNodes.add(new TextNode("\n"));
                 return textNodes;
-            } else if (textElement.is("a") && !textElement.hasClass("footnoteref")
-                    && textElement.hasAttr("href")
-                    && (!textElement.attr("href").equals("#") && !textElement.attr("href").contains("javascript"))) {
+            } else if (isLink(textElement)) {
                 return new ArrayList<>(List.of(scrapLink(textElement, source, elementStyles)));
             }
             for (Node node : textElement.childNodes()) {
@@ -35,9 +33,7 @@ public class TextScraper {
                                 lastTextNode.setContent("\n");
                             } else lastTextNode.setContent(lastTextNode.getContent() + "\n");
                         }
-                    } else if (innerElement.is("a") && !innerElement.hasClass("footnoteref")
-                            && innerElement.hasAttr("href")
-                            && (!innerElement.attr("href").equals("#") && !innerElement.attr("href").contains("javascript"))) {
+                    } else if (isLink(innerElement)) {
                         textNodes.add(scrapLink(innerElement, source, elementStyles));
                     } else {
                         if (innerElement.text().isBlank()) continue;
@@ -62,9 +58,17 @@ public class TextScraper {
             }
             return textNodes;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new ElementScrapperException(e.getMessage());
+            throw new ElementScraperException(e);
         }
+    }
+
+    private static boolean isLink(Element element) {
+        return element.is("a")
+                && !element.hasClass("footnoteref")
+                && element.hasAttr("href")
+                && (!element.attr("href").contains("javascript")
+                && !element.attr("href").startsWith("#")
+        );
     }
 
     private static Map<String, String> getAppliedStyles(Element element, Map<String, String> parentStyles) {

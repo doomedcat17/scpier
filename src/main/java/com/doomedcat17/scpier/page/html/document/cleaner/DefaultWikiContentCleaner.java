@@ -1,37 +1,20 @@
 package com.doomedcat17.scpier.page.html.document.cleaner;
 
-import com.doomedcat17.scpier.exception.DocumentContentCleanupException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.nodes.Comment;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Set;
 
 public class DefaultWikiContentCleaner implements WikiContentCleaner {
 
-    private final List<String> removalDefinitions;
+    private final Set<String> removalDefinitions;
 
-    public void clearContentAndUnpackBlocks(Element content) {
-        try {
-            removeTrash(content);
-            unpackNodes(content);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new DocumentContentCleanupException(e.getMessage());
-        }
-    }
-
-    public void removeTrash(Element content) {
+    public void removeTrashNodes(Element content) {
         removeTrashElements(content);
         removeEmptyNodes(content);
     }
@@ -39,39 +22,6 @@ public class DefaultWikiContentCleaner implements WikiContentCleaner {
     @Override
     public void additionalRemovalDefinitions(List<String> definitions) {
         removalDefinitions.addAll(definitions);
-    }
-
-    private void unpackNodes(Element content)  {
-        //in some cases content has less than 5 element then it's unpacked
-        List<Element> divs = content.children().stream().filter(element ->
-                element.is("div, blockquote, section"))
-                .filter(element ->
-                        element.is(":not(.scp-image-block)")).collect(Collectors.toList());
-        if (content.children().size() <= 4 && !divs.isEmpty()) {
-            for (Element element: divs) {
-                List<Node> nodes = unpackBlock(element);
-                int index = element.siblingIndex();
-                element.remove();
-                content.insertChildren(index, nodes);
-            }
-            clearContentAndUnpackBlocks(content);
-        }
-
-    }
-
-
-    private List<Node> unpackBlock(Element divElement) {
-        if (divElement.is(".collapsible-block")) {
-            return divElement
-                    .getElementsByClass("collapsible-block-content")
-                    .get(0)
-                    .childNodesCopy();
-        } else if(divElement.hasClass("yui-navset") || divElement.hasClass("yui-navset-top")) {
-            Element yuiContent = divElement.getElementsByClass("yui-content").first();
-            List<Node> nodes = new ArrayList<>();
-            yuiContent.children().forEach(div -> nodes.addAll(div.childNodesCopy()));
-            return nodes;
-        } else return divElement.childNodesCopy();
     }
 
 
@@ -86,16 +36,15 @@ public class DefaultWikiContentCleaner implements WikiContentCleaner {
     }
 
     private void removeTrashElements(Element content) {
+        Set<Element> elementsToRemove = new HashSet<>();
         for (String name: removalDefinitions) {
-            Elements elements = content.select(name);
-            if (!elements.isEmpty()) {
-                elements.forEach(Node::remove);
-            }
+            elementsToRemove.addAll(content.select(name));
         }
-        //deleting <br> element only from <div id="content-content">
-        Elements elements = content.children();
-        for (Element element: elements) {
-            if (element.is("br")) element.remove();
+        //deleting <br> element only from <div id="page-content">
+        Elements brElements = content.select("#page-content > br");
+        elementsToRemove.addAll(brElements);
+        for(Element element: elementsToRemove) {
+            element.remove();
         }
     }
 
@@ -120,23 +69,8 @@ public class DefaultWikiContentCleaner implements WikiContentCleaner {
         return nodes;
     }
 
-    public DefaultWikiContentCleaner() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        String REMOVAL_DEFINITIONS_PATH = "removalElementsDefinitions.json";
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(REMOVAL_DEFINITIONS_PATH);
-        BufferedReader streamReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
-        try {
-            StringBuilder jsonBuilder = new StringBuilder();
-            String line;
-            while ((line = streamReader.readLine()) != null) jsonBuilder.append(line);
-            removalDefinitions =
-                    objectMapper.readValue(
-                            jsonBuilder.toString(),
-                            new TypeReference<>() {
-                            });
-        } catch (IOException e) {
-            throw new RuntimeException("Could not find Removal Definitions!");
-        }
+    public DefaultWikiContentCleaner(Set<String> removalDefinitions) {
+        this.removalDefinitions = removalDefinitions;
     }
 
 }

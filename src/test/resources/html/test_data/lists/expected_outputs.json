@@ -1,5 +1,654 @@
 {
   "java.util.HashMap": {
+    "shouldScrapStrangeULList2": {
+      "com.doomedcat17.scpier.data.content.ListNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_UL"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_ITEM"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " First line ",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_ITEM"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "Second Line",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "Third Line ",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "Fourth Line ",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_ITEM"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "Fifth Line",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "shouldScrapStrangeULList": {
+      "com.doomedcat17.scpier.data.content.ListNode": {
+        "contentNodeType": {
+          "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_UL"
+        },
+        "content": {
+          "java.util.ArrayList": [
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_ITEM"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "日付:20██/██/██",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            },
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " 閲覧者:エージェント・█",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " SCP-567-JPの概要：「waffleの作り方(2人前)」と題された調理レシピ。",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "試しに作ってみたが、なかなか旨い。――エージェント・█",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_ITEM"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "日付:20██/██/██",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            },
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " 閲覧者:エージェント・██",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " SCP-567-JPの概要：わらべ歌「2 Little Blackbirds」の一部、及び「Little girl and queen」。 ",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_ITEM"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "日付:20██/██/██",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            },
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " 閲覧者:エージェント・██",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " SCP-567-JPの概要：「weak boson2タイプと場の量子論」と題された論文。 ",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_ITEM"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "日付:20██/██/██",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            },
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " 閲覧者:エージェント・██",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " SCP-567-JPの概要：ランダムなアルファベット文字列。 ",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_ITEM"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "日付:20██/██/██",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            },
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " 閲覧者:エージェント・██",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " SCP-567-JPの概要：ランダムな、かな漢字文字列。中には単語と思われるものがある。 ",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_ITEM"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "日付:20██/██/██",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            },
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " 閲覧者:エージェント・██",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " SCP-567-JPの概要：ランダムな、かな漢字文字列。中には学術用語と思われるものがある。 ",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "com.doomedcat17.scpier.data.content.ListNode": {
+                "contentNodeType": {
+                  "com.doomedcat17.scpier.data.content.ContentNodeType": "LIST_ITEM"
+                },
+                "content": {
+                  "java.util.ArrayList": [
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": "日付:20██/██/██",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            },
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " 閲覧者:エージェント・██",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "com.doomedcat17.scpier.data.content.ParagraphNode": {
+                        "contentNodeType": {
+                          "com.doomedcat17.scpier.data.content.ContentNodeType": "PARAGRAPH"
+                        },
+                        "content": {
+                          "java.util.ArrayList": [
+                            {
+                              "com.doomedcat17.scpier.data.content.TextNode": {
+                                "contentNodeType": {
+                                  "com.doomedcat17.scpier.data.content.ContentNodeType": "TEXT"
+                                },
+                                "content": " SCP-567-JPの概要：ランダムな、かな漢字文字列。中にはプログラム言語やマークアップ言語と思われるものがある。 ",
+                                "styles": {
+                                  "java.util.HashMap": {}
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
     "shouldMapOrderedListWithNestedUnorderedList": {
       "com.doomedcat17.scpier.data.content.ListNode": {
         "contentNodeType": {
