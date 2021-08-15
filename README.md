@@ -2,7 +2,7 @@
 
 **SCPier is still in its early state. Check [Status](#status).**
 
-SCPier is java library for retrieving SCPs and Tales directly form [SCP Foundation Wiki](http://www.scpwiki.com/)
+SCPier is Java API for retrieving SCPs, Tales and other content directly form [SCP Foundation Wiki](http://www.scpwiki.com/)
 
 **I don't own any of the provided data**, so please check out [Licensing Guide](https://scp-wiki.wikidot.com/licensing-guide)
 if you consider commercial use.  
@@ -29,11 +29,34 @@ SCPier itself is free to use for any pourpuse, if usage does not violate [Wikido
 
 # How it works?
 
-It's basically webscraper. HTML elements are retrieved using [jsoup](https://jsoup.org/). If particular SCP
-or Tale uses JavaScript, then the script is run by [HtmlUnit](https://htmlunit.sourceforge.io/).
+It's basically webscraper. HTML elements are retrieved using [jsoup](https://jsoup.org/). If particular article uses JavaScript, 
+then the script is run by [HtmlUnit](https://htmlunit.sourceforge.io/) webclient.
 For more specific cases uses pre-defined [Presets](#listnodes). Retrieved
 HTML elements are scraped and interpreted by multiple ElementScrapers.
 
+What is scraped:
+  - All text data with its **local** styling
+  - Tables
+  - Lists
+  - Links, images, videos and audio ([more info here](#image-video-audio))
+  - Tags
+  - Last revision time
+
+What is **NOT** scraped:
+  - Animations and all interactive elements
+  - CSS styling (classes, `<style>` tags etc.)
+  - Forms and other inputs
+  - Authors info
+
+**Wait, why is the author’s info not provided?!** :c
+
+Many articles don't have any info about the authors, and it's not very efficient to dig through the discuss section and other places on the wiki (it's very resource-consuming for the API and Wikidot).
+
+But I do not exclude such functionality in the future!
+
+**What about the [scpper](http://scpper.com/)?**
+
+Too long response times,and I didn't find any API for it, so even more web scraping and testing.
 # Getting data
 
 To get data from Scp Wiki simply create instance of `ScpWikiDataProvider` class and call `getScpWikiContent()` method.
@@ -42,8 +65,8 @@ It has three parameters:
 
 `articleName` - name of the article.<br>
 SCPier puts it in the URL to search for desired article. If you want to get one of the SCPs, you have to provide its full name.
-("scp-007" and "SCP-007" will return SCP-007*).<br>
-Other articles are more complicated case.<br>
+("scp-007" and "SCP-007" will return *SCP-007*).  
+Other articles are more complicated case.  
 There is no common pattern for article naming in wiki's URLs (RESTful naming).<br>
 Some examples:
 
@@ -77,7 +100,7 @@ It returns `ScpWikiData` object with desired article from Scp Wiki in its origin
 ScpWikiData object173 = scpWikiDataProvider
     .getScpWikiContent("SCP-173", ScpBranch.ENGLISH, SCPTranslation.POLISH);
 ```
-Returns article in polish (if translation is available).
+Returns article in Polish (if translation is available).
 
 ```java
 ScpWikiData object173 = scpWikiDataProvider
@@ -101,6 +124,8 @@ List<ContentNode<?>> content;
 
 List<String> tags;
 
+Timestamp lastRevisionTimestamp;
+
 String source;
 ```
 `title` - title of the article from wiki.
@@ -113,6 +138,8 @@ String source;
 
 `tags` - list of the article tags.
 
+`lastRevisionTimestamp` - unix time of last revision (UTC).
+
 `source` - link of selected article.
 ```json
 {
@@ -120,14 +147,6 @@ String source;
   "scpBranch" : "ENGLISH",
   "scpTranslation" : "ORIGINAL",
   "content" : [ {
-    "contentNodeType" : "IMAGE",
-    "content" : "http://scp-wiki.wdfiles.com/local--files/scp-006/SCP006_stream-new.jpg",
-    "description" : [ {
-      "contentNodeType" : "TEXT",
-      "content" : "SCP-006",
-      "styles" : { }
-    } ]
-  }, {
     "contentNodeType" : "HEADING",
     "content" : [ {
       "contentNodeType" : "TEXT",
@@ -145,6 +164,14 @@ String source;
       "styles" : {
         "font-weight" : "bold"
       }
+    } ]
+  }, {
+    "contentNodeType" : "IMAGE",
+    "content" : "http://scp-wiki.wdfiles.com/local--files/scp-006/SCP006_stream-new.jpg",
+    "description" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "SCP-006",
+      "styles" : { }
     } ]
   }, {
     "contentNodeType" : "PARAGRAPH",
@@ -234,7 +261,8 @@ String source;
       "styles" : { }
     } ]
   } ],
-  "tags" : [ "_cc", "_licensebox", "liquid", "location", "medical", "safe", "scp", "self-repairing" ],
+  "tags" : [ "_cc", "_licensebox", "liquid", "location", "medical", "rewrite", "safe", "scp", "self-repairing" ],
+  "lastRevisionTimestamp" : 1628542260000,
   "source" : "http://www.scp-wiki.wikidot.com/scp-006"
 }
 ```
@@ -248,18 +276,10 @@ List of SCP Wiki branches and translations:
 ```json
 ENGLISH, POLISH, RUSSIAN, JAPANESE, CHINESE, CHINESE_TRADITIONAL,
 KOREAN, FRENCH, SPANISH, THAI, GERMAN, ITALIAN, UKRAINIAN,
-PORTUGUESE, CZECH, GREEK, INDONESIAN, DANISH,
-FINNISH, NORWEGIAN, SWEDISH, TURKISH, VIETNAMESE
+PORTUGUESE, CZECH, GREEK, INDONESIAN, DANISH, ESTONIAN
+FINNISH, NORWEGIAN, SWEDISH, TURKISH, VIETNAMESE, ARABIAN,
+HUNGARIAN, ROMANIAN, SLOVENIAN
 ````
-
-***There is one more translation called `ORIGINAL` and it is used for getting article in branch's native language.***
-
-```java
-scpWikiDataProvider
-    .getScpWikiContent("173", ScpBranch.ENGLISH, ScpTranslation.ORIGINAL);
-```
-
-
 
 # Content data model
 
