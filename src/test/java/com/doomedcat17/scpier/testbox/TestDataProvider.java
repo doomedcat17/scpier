@@ -14,6 +14,8 @@ import org.jsoup.nodes.Element;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -80,6 +82,7 @@ public class TestDataProvider {
         WikiContent wikiContent = new WikiContent();
         wikiContent.setContent(scpDocument.getElementsByTag("body").first());
         wikiContent.setSourceUrl("url");
+        wikiContent.setLastRevisionTimestamp(new Timestamp(new Date().getTime()));
         return wikiContent;
     }
 
