@@ -17,15 +17,6 @@ import java.util.stream.Stream;
 
 public class PresetLoader {
 
-
-    private static byte[] loadFile(String path) throws IOException {
-        InputStream in = PresetLoader.class.getClassLoader().getResourceAsStream("presets/"+path);
-        byte[] data = in.readAllBytes();
-        in.close();
-        return data;
-
-    }
-
     public static Set<Preset> loadPresets() throws IOException, URISyntaxException {
         ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
         Set<Preset> presets = new HashSet<>();
@@ -33,7 +24,7 @@ public class PresetLoader {
         Path myPath;
         if (uri.getScheme().equals("jar")) {
             FileSystem fileSystem = FileSystems.newFileSystem(uri, Collections.emptyMap());
-            myPath = fileSystem.getPath("preset");
+            myPath = fileSystem.getPath("presets");
         } else {
             myPath = Paths.get(uri);
         }
@@ -42,7 +33,10 @@ public class PresetLoader {
         while (it.hasNext()) {
             Path filePath = it.next();
             if (!Files.isDirectory(filePath)) {
-                Preset preset = objectMapper.readValue(loadFile(uri.relativize(filePath.toUri()).toString()), Preset.class);
+                InputStream inputStream = filePath.toUri().toURL().openStream();
+                byte[] data = inputStream.readAllBytes();
+                inputStream.close();
+                Preset preset = objectMapper.readValue(data, Preset.class);
                 presets.add(preset);
             }
         }
