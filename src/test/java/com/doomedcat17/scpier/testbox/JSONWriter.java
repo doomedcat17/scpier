@@ -7,6 +7,8 @@ import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 public class JSONWriter {
 
@@ -15,8 +17,10 @@ public class JSONWriter {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             // objectMapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.USE_NATIVE_TYPE_ID));
-
-            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("scp-597", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
+            Document document = Jsoup.connect("https://scp-wiki.wikidot.com/scp-2721")
+                    .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
+                    .followRedirects(false).get();
+            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("SCP-5212", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
             System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(scp));
         } catch (Exception e) {
             e.printStackTrace();
