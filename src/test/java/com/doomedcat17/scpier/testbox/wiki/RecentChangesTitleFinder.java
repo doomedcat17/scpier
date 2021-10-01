@@ -1,5 +1,6 @@
 package com.doomedcat17.scpier.testbox.wiki;
 
+import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.page.html.document.WebClientProvider;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.*;
@@ -14,17 +15,17 @@ public class RecentChangesTitleFinder {
     private static final WebClient webClient = WebClientProvider.getWebClient();
 
 
-    public static Set<Article> getAllTitles(String url) {
+    public static Set<Article> getAllTitles(SCPBranch scpBranch) {
         Set<Article> titles = new HashSet<>();
         try {
-            HtmlPage recentChangesPage = getPage(url);
+            HtmlPage recentChangesPage = getPage(scpBranch.url);
             do {
-                TitleFinder.findAllTitles(Jsoup.parse(recentChangesPage.asXml()), titles, url);
+                TitleFinder.findAllTitles(Jsoup.parse(recentChangesPage.asXml()), titles, scpBranch);
                 System.out.println(titles.size());
             } while (next(recentChangesPage));
 
         } catch (Exception e) {
-            System.out.println(url);
+            System.out.println(scpBranch.url);
             e.printStackTrace();
         }
         return titles;

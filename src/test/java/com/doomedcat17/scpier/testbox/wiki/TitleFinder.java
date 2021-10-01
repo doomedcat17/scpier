@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class TitleFinder {
 
-    public static void findAllTitles(Document document, Set<Article> tales, String src) throws IOException {
+    public static void findAllTitles(Document document, Set<Article> tales, SCPBranch scpBranch) throws IOException {
         Element content = document.selectFirst("#page-content");
         Elements elements = content.select("a");
         elements.stream().filter(element -> element.attr("href").startsWith("/"))
@@ -20,7 +20,7 @@ public class TitleFinder {
                     String title = element.attr("href").substring(1);
                     if (!isTrash(title)) {
                         Article article = new Article();
-                        article.setSource(src + title);
+                        article.setSource(scpBranch.url + title);
                         for (SCPTranslation scpTranslation : SCPTranslation.values()) {
                             if (title.startsWith(scpTranslation.identifier + ":") || title.startsWith("adult:")) {
                                 title = title.substring(title.indexOf(':') + 1);
@@ -28,6 +28,7 @@ public class TitleFinder {
                             }
                         }
                         article.setName(title);
+                        article.setScpBranch(scpBranch);
                         tales.add(article);
                     }
                 });
@@ -50,13 +51,13 @@ public class TitleFinder {
         if (scpBranch.equals(SCPBranch.TURKISH)) url = "en-son-yaratilan/p/";
         if (scpBranch.equals(SCPBranch.CHINESE_TRADITIONAL)) url = "system:recent-changes/p/";
         if (scpBranch.equals(SCPBranch.ITALIAN) || scpBranch.equals(SCPBranch.SLOVENIAN) || scpBranch.equals(SCPBranch.ESTONIAN) || scpBranch.equals(SCPBranch.KOREAN)) {
-            titles.addAll(RecentChangesTitleFinder.getAllTitles(scpBranch.url));
+            titles.addAll(RecentChangesTitleFinder.getAllTitles(scpBranch));
         } else {
             int lastSize = titles.size();
             for (int i = 1; i <= 750; i++) {
                 try {
                     Document wikiPage = Jsoup.connect(scpBranch.url + url + i).get();
-                    findAllTitles(wikiPage, titles, scpBranch.url);
+                    findAllTitles(wikiPage, titles, scpBranch);
                     if (lastSize == titles.size()) break;
                     lastSize = titles.size();
                 } catch (IOException e) {
