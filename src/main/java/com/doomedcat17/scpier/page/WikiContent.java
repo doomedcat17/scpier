@@ -16,13 +16,29 @@ public class WikiContent {
 
     private String langIdentifier;
 
-    private String sourceUrl;
+    private String originalSourceUrl;
+
+    private String translationSourceUrl = "";
 
     private Timestamp lastRevisionTimestamp;
 
     private List<String> tags;
 
     private Preset preset;
+
+    public String getContentSource() {
+        if (translationSourceUrl.isEmpty()) {
+            return originalSourceUrl;
+        } else return translationSourceUrl;
+    }
+
+    public String getTranslationSourceUrl() {
+        return translationSourceUrl;
+    }
+
+    public void setTranslationSourceUrl(String translationSourceUrl) {
+        this.translationSourceUrl = translationSourceUrl;
+    }
 
     public String getTranslationIdentifier() {
         return translationIdentifier;
@@ -48,12 +64,12 @@ public class WikiContent {
         this.content = content;
     }
 
-    public String getSourceUrl() {
-        return sourceUrl;
+    public String getOriginalSourceUrl() {
+        return originalSourceUrl;
     }
 
-    public void setSourceUrl(String sourceUrl) {
-        this.sourceUrl = sourceUrl;
+    public void setOriginalSourceUrl(String originalSourceUrl) {
+        this.originalSourceUrl = originalSourceUrl;
     }
 
     public List<String> getTags() {

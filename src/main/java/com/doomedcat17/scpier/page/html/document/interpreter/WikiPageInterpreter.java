@@ -33,7 +33,7 @@ public class WikiPageInterpreter {
             Element content = wikiContent.getContent().getElementById("page-content");
             Optional<Element> redirectionElement = wikiRedirectionHandler.provideRedirectedContent(content);
             if (redirectionElement.isPresent()) {
-                content = wikiRedirectionHandler.getRedirectionContent(redirectionElement.get(), wikiContent.getSourceUrl());
+                content = wikiRedirectionHandler.getRedirectionContent(redirectionElement.get(), wikiContent.getContentSource());
                 Timestamp lastRevision = LastRevisionTimestampProvider.getLastRevisionTimestamp(content);
                 wikiContent.setContent(content);
                 if (lastRevision.after(wikiContent.getLastRevisionTimestamp())) wikiContent.setLastRevisionTimestamp(lastRevision);

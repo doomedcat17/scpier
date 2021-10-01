@@ -30,7 +30,7 @@ public class TagFinder {
             Document document =  conn.get();
             Element content = document.selectFirst("#page-content");
             WikiContent wikiContent = new WikiContent();
-            wikiContent.setSourceUrl(url+scpNumber);
+            wikiContent.setOriginalSourceUrl(url+scpNumber);
             wikiContent.setLangIdentifier("eng");
             wikiContent.setContent(content);
             ResourcesProvider.initResources();

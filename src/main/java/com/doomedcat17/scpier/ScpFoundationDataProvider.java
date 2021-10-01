@@ -48,7 +48,7 @@ public class ScpFoundationDataProvider {
     public void updateScpWikiData(ScpWikiData scpWikiData) throws SCPierApiException {
         String articleName = scpWikiData.getTitle();
         try {
-            String source = scpWikiData.getSource();
+            String source = scpWikiData.getContentSource();
             articleName = source.substring(source.lastIndexOf('/') + 1);
             WikiContent wikiContent = getPageContent(articleName, scpWikiData.getScpBranch(), scpWikiData.getScpTranslation());
             if (wikiContent.getLastRevisionTimestamp().after(scpWikiData.getLastRevisionTimestamp())) {

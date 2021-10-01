@@ -81,7 +81,7 @@ public class TestDataProvider {
         Document scpDocument = loadDocumentFormHTML(path);
         WikiContent wikiContent = new WikiContent();
         wikiContent.setContent(scpDocument.getElementsByTag("body").first());
-        wikiContent.setSourceUrl("url");
+        wikiContent.setOriginalSourceUrl("url");
         wikiContent.setLastRevisionTimestamp(new Timestamp(new Date().getTime()));
         return wikiContent;
     }
