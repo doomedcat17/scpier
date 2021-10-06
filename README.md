@@ -79,7 +79,7 @@ After this, just place the following into your POM's `<dependencies>` section:
   <dependency>
     <groupId>com.doomedcat17</groupId>
     <artifactId>scpier</artifactId>
-    <version>0.5.5</version>
+    <version>0.5.6</version>
   </dependency>
  ```
 
