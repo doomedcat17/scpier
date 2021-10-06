@@ -152,7 +152,9 @@ List<String> tags;
 
 Timestamp lastRevisionTimestamp;
 
-String source;
+String originalSource;
+
+String translationSource;
 ```
 `title` - title of the article from wiki.
 
@@ -166,7 +168,9 @@ String source;
 
 `lastRevisionTimestamp` - unix time of last revision (UTC).
 
-`source` - link of selected article.
+`originalSource` - URL of original article.
+
+`translationSource` - URL of translated article (is blank if the article is not translated).
 ```json
 {
   "title" : "SCP-006",
