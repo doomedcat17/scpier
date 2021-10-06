@@ -1,6 +1,7 @@
 package com.doomedcat17.scpier.data.scp;
 
 import com.doomedcat17.scpier.data.content.ContentNode;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -19,7 +20,9 @@ public class ScpWikiData {
 
     private Timestamp lastRevisionTimestamp;
 
-    private String source;
+    private String originalSource;
+
+    private String translationSource = "";
 
 
     public void getContent(ContentNode<?> content) {
@@ -42,12 +45,19 @@ public class ScpWikiData {
         this.content = content;
     }
 
-    public String getSource() {
-        return source;
+    public String getOriginalSource() {
+        return originalSource;
     }
 
-    public void setSource(String source) {
-        this.source = source;
+    @JsonIgnore
+    public String getContentSource() {
+        if (translationSource.isEmpty()) {
+            return originalSource;
+        } else return translationSource;
+    }
+
+    public void setOriginalSource(String originalSource) {
+        this.originalSource = originalSource;
     }
 
     public List<String> getTags() {
@@ -82,6 +92,14 @@ public class ScpWikiData {
         this.lastRevisionTimestamp = lastRevisionTimestamp;
     }
 
+    public String getTranslationSource() {
+        return translationSource;
+    }
+
+    public void setTranslationSource(String translationSource) {
+        this.translationSource = translationSource;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -96,7 +114,7 @@ public class ScpWikiData {
         if (tags != null ? !tags.equals(wikiData.tags) : wikiData.tags != null) return false;
         if (lastRevisionTimestamp != null ? !lastRevisionTimestamp.equals(wikiData.lastRevisionTimestamp) : wikiData.lastRevisionTimestamp != null)
             return false;
-        return source != null ? source.equals(wikiData.source) : wikiData.source == null;
+        return originalSource != null ? originalSource.equals(wikiData.originalSource) : wikiData.originalSource == null;
     }
 
     @Override
@@ -107,7 +125,7 @@ public class ScpWikiData {
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (tags != null ? tags.hashCode() : 0);
         result = 31 * result + (lastRevisionTimestamp != null ? lastRevisionTimestamp.hashCode() : 0);
-        result = 31 * result + (source != null ? source.hashCode() : 0);
+        result = 31 * result + (originalSource != null ? originalSource.hashCode() : 0);
         return result;
     }
 }

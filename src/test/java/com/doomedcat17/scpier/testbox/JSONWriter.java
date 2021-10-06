@@ -20,7 +20,7 @@ public class JSONWriter {
             Document document = Jsoup.connect("https://scp-wiki.wikidot.com/scp-2721")
                     .userAgent("Mozilla/5.0 (Windows; U; WindowsNT 5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6")
                     .followRedirects(false).get();
-            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("SCP-5212", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
+            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("SCP-2721", SCPBranch.ENGLISH, SCPTranslation.ORIGINAL);
             System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(scp));
         } catch (Exception e) {
             e.printStackTrace();

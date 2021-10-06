@@ -33,7 +33,7 @@ public class OffsetsProvider {
         List<Node> offsetsContent = new ArrayList<>();
         Element previousContent = originalContent.getContent().selectFirst("#page-content");
         for (int i = offsetPattern.getMin(); i <= offsetPattern.getMax(); i++) {
-            String source = originalContent.getSourceUrl()+
+            String source = originalContent.getContentSource()+
                     offsetPattern.getPattern().replaceAll("<NUMBER>", String.valueOf(i));
             try {
                 WikiContent offsetWikiContent = wikiPageProvider.getWebpageContent(source);

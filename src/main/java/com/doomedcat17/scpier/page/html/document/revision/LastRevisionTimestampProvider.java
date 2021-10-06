@@ -19,6 +19,8 @@ public class LastRevisionTimestampProvider {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy HH:mm", Locale.ENGLISH);
             dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
             return new Timestamp(dateFormat.parse(fullTimeString).getTime());
+        } catch (NullPointerException e) {
+            return new Timestamp(0);
         } catch (Exception e) {
             throw new RevisionDateException(e);
         }

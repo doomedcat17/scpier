@@ -47,7 +47,7 @@ class IframeContentProviderTest {
         Element content = testData.getElementById("shouldProvideIframesContent");
         WikiContent wikiContent = new WikiContent();
         wikiContent.setContent(content);
-        wikiContent.setSourceUrl("http://www.scpwiki.com/scp-049");
+        wikiContent.setOriginalSourceUrl("http://www.scpwiki.com/scp-049");
         Mockito.when(htmlDocumentProvider.getWebpageContent(Mockito.anyString()))
                 .thenReturn(new WikiContent()
                 );
@@ -77,7 +77,7 @@ class IframeContentProviderTest {
         Element content = testData.getElementById("shouldProvideImageIframe");
         WikiContent wikiContent = new WikiContent();
         wikiContent.setContent(content);
-        wikiContent.setSourceUrl("http://www.scpwiki.com/scp-087");
+        wikiContent.setOriginalSourceUrl("http://www.scpwiki.com/scp-087");
         Mockito.when(htmlDocumentProvider.getWebpageContent("http://www.scpwiki.com/scp-087/html/40c580244cd3046f096f5d7e92d05183615180f5-110699635795523362"))
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-087-image1.html")
@@ -94,7 +94,7 @@ class IframeContentProviderTest {
         Element content = testData.getElementById("shouldProvideIframeContent");
         WikiContent wikiContent = new WikiContent();
         wikiContent.setContent(content);
-        wikiContent.setSourceUrl("http://www.scpwiki.com/scp-139");
+        wikiContent.setOriginalSourceUrl("http://www.scpwiki.com/scp-139");
         Mockito.when(htmlDocumentProvider.getWebpageContent("http://www.scpwiki.com/scp-139/html/995a854d7cadae48a0af18803de323f18334cd32-1586188541109417535"))
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-139-divs.html")
@@ -112,7 +112,7 @@ class IframeContentProviderTest {
         Element content = testData.getElementById("shouldProvideIframeContent2");
         WikiContent wikiContent = new WikiContent();
         wikiContent.setContent(content);
-        wikiContent.setSourceUrl("http://www.scpwiki.com/scp-474");
+        wikiContent.setOriginalSourceUrl("http://www.scpwiki.com/scp-474");
         Mockito.when(htmlDocumentProvider.getWebpageContent("http://www.scpwiki.com/scp-474/html/66cd7b5eeaeaa67270f976b50a83b76529bab540-894703701701610910"))
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-474-divs1.html")
@@ -149,7 +149,7 @@ class IframeContentProviderTest {
         Element content = testData.getElementById("shouldProvideYtVideoContent");
         WikiContent wikiContent = new WikiContent();
         wikiContent.setContent(content);
-        wikiContent.setSourceUrl("http://www.scpwiki.com/scp-506");
+        wikiContent.setOriginalSourceUrl("http://www.scpwiki.com/scp-506");
         //when
         iframeContentProvider.provideIframesContent(wikiContent, new Preset());
         //then
@@ -162,7 +162,7 @@ class IframeContentProviderTest {
         Element content = testData.getElementById("shouldProvideVideoContent");
         WikiContent wikiContent = new WikiContent();
         wikiContent.setContent(content);
-        wikiContent.setSourceUrl("http://www.scpwiki.com/scp-720");
+        wikiContent.setOriginalSourceUrl("http://www.scpwiki.com/scp-720");
         Mockito.when(htmlDocumentProvider.getWebpageContent("http://www.scpwiki.com/scp-720/html/e33d7d82abfc8fa3ad4fcfd307c0deb32bad66d1-3515188031212119672"))
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-720-video.html")

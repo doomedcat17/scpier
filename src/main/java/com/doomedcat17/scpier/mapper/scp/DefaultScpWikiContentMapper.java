@@ -18,7 +18,8 @@ public class DefaultScpWikiContentMapper implements ScpWikiContentMapper {
         try {
             ScpWikiData scpWikiData = new ScpWikiData();
             scpWikiData.setTitle(wikiContent.getName());
-            scpWikiData.setSource(wikiContent.getSourceUrl());
+            scpWikiData.setOriginalSource(wikiContent.getOriginalSourceUrl());
+            scpWikiData.setTranslationSource(wikiContent.getTranslationSourceUrl());
             scpWikiData.setLastRevisionTimestamp(wikiContent.getLastRevisionTimestamp());
             mapScp(scpWikiData, wikiContent.getContent());
             unpackDivs(scpWikiData);
@@ -43,6 +44,6 @@ public class DefaultScpWikiContentMapper implements ScpWikiContentMapper {
     }
 
     private void mapScp(ScpWikiData scpWikiData, Element content)  {
-        scpWikiData.setContent(ElementContentScraper.scrapContent(content, scpWikiData.getSource()));
+        scpWikiData.setContent(ElementContentScraper.scrapContent(content, scpWikiData.getContentSource()));
     }
 }

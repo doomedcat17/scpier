@@ -21,7 +21,6 @@ import org.jsoup.nodes.Node;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class WikiContentProvider {
 
@@ -35,9 +34,19 @@ public class WikiContentProvider {
                             new WikiRedirectionHandler(wikiPageProvider, ResourcesProvider.getRedirectionDefinitions()),
                             new PageTagsScrapperImpl()
                     );
-            String url = WikiSourceBuilder.buildSource(name.toLowerCase(Locale.ROOT), scpBranch, scpTranslation);
+            String url = WikiSourceBuilder.buildSource(name.toLowerCase(), scpBranch, scpTranslation);
             name = url.substring(url.lastIndexOf('/') + 1);
             WikiContent wikiContent = wikiPageProvider.getWebpageContent(url);
+            if (scpTranslation != SCPTranslation.ORIGINAL) {
+                wikiContent.setTranslationSourceUrl(url);
+                wikiContent.setOriginalSourceUrl(
+                        WikiSourceBuilder.buildSource(name.toLowerCase(), scpBranch, SCPTranslation.ORIGINAL)
+                );
+                //
+                if (wikiContent.getOriginalSourceUrl().equals(wikiContent.getTranslationSourceUrl())){
+                    wikiContent.setTranslationSourceUrl("");
+                }
+            }
             wikiContent.setLastRevisionTimestamp(
                     LastRevisionTimestampProvider.getLastRevisionTimestamp(wikiContent.getContent())
             );

@@ -1,8 +1,12 @@
 package com.doomedcat17.scpier.testbox.wiki;
 
+import com.doomedcat17.scpier.data.scp.SCPBranch;
+
 public class Article {
 
     private String name;
+
+    private SCPBranch scpBranch;
 
     private String source;
 
@@ -37,10 +41,19 @@ public class Article {
         this.source = source;
     }
 
+    public SCPBranch getScpBranch() {
+        return scpBranch;
+    }
+
+    public void setScpBranch(SCPBranch scpBranch) {
+        this.scpBranch = scpBranch;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
                 "name='" + name + '\'' +
+                ", scpBranch=" + scpBranch +
                 ", source='" + source + '\'' +
                 '}';
     }
