@@ -60,8 +60,8 @@ But I do not exclude such functionality in the future!
 Too long response times, and I didn't find any API for it, so even more web scraping and testing.
 # Download
 
-SCPier is available as a downloadable .jar java library. The current release version is 0.5.5.
-[Download here](https://github-releases.githubusercontent.com/308120373/05055022-fa33-407e-829d-a68bc3221560?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20210815%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210815T012353Z&X-Amz-Expires=300&X-Amz-Signature=cc5f734f3d80a65ea2680239dbd1e112c120b786527378d297e0ed851e118593&X-Amz-SignedHeaders=host&actor_id=67821092&key_id=0&repo_id=308120373&response-content-disposition=attachment%3B%20filename%3Dscpier-0.5.5.jar&response-content-type=application%2Foctet-stream).
+SCPier is available as a downloadable .jar java library. The current release version is 0.5.7.
+[Download here](https://objects.githubusercontent.com/github-production-release-asset-2e65be/308120373/c3f78dac-3b54-4a9c-b748-46d5353abca8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20211104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211104T170146Z&X-Amz-Expires=300&X-Amz-Signature=f72e03b0a1d9961c39e5a63e5379723d44df77a14434702835bd39b9d0c26309&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=308120373&response-content-disposition=attachment%3B%20filename%3Dscpier-0.5.7.jar&response-content-type=application%2Foctet-stream).
 
 ### Maven
 Package is hosted on [GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages).
@@ -79,7 +79,7 @@ After this, just place the following into your POM's `<dependencies>` section:
   <dependency>
     <groupId>com.doomedcat17</groupId>
     <artifactId>scpier</artifactId>
-    <version>0.5.6</version>
+    <version>0.5.7</version>
   </dependency>
  ```
 
