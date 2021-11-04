@@ -303,7 +303,7 @@ They are enums, which define source branch and desired translation.
 
 List of SCP Wiki branches and translations:
 
-```json
+```
 ENGLISH, POLISH, RUSSIAN, JAPANESE, CHINESE, CHINESE_TRADITIONAL,
 KOREAN, FRENCH, SPANISH, THAI, GERMAN, ITALIAN, UKRAINIAN,
 PORTUGUESE, CZECH, GREEK, INDONESIAN, DANISH, ESTONIAN
