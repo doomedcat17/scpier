@@ -25,7 +25,7 @@ class PresetExecutorTest {
         File html = new File("src/test/resources/html/test_data/preset/input/shouldWaitForJs.html");
         //when
         if (preset == null) fail();
-        WikiContent wikiContent = PresetExecutor.execute(webClient, preset, "file:\\\\"+html.getAbsolutePath());
+        WikiContent wikiContent = PresetExecutor.execute(webClient, preset, "file://"+html.getAbsolutePath());
         //then
         assertNotNull(wikiContent.getContent().getElementById("jsText"));
 
@@ -38,7 +38,7 @@ class PresetExecutorTest {
         File html = new File("src/test/resources/html/test_data/preset/input/shouldClickTheButton.html");
         //when
         if (preset == null) fail();
-        WikiContent wikiContent = PresetExecutor.execute(webClient, preset, "file:\\\\"+html.getAbsolutePath());
+        WikiContent wikiContent = PresetExecutor.execute(webClient, preset, "file://"+html.getAbsolutePath());
         //then
         assertNotNull(wikiContent.getContent().getElementById("jsText"));
 
@@ -51,7 +51,7 @@ class PresetExecutorTest {
         File html = new File("src/test/resources/html/test_data/preset/input/shouldClickMultipleButtons.html");
         //when
         if (preset == null) fail();
-        WikiContent wikiContent = PresetExecutor.execute(webClient, preset, "file:\\\\"+html.getAbsolutePath());
+        WikiContent wikiContent = PresetExecutor.execute(webClient, preset, "file://"+html.getAbsolutePath());
         //then
         Element textElement = wikiContent.getContent().getElementById("jsText");
         assertEquals("First Second Third", textElement.wholeText());
@@ -65,7 +65,7 @@ class PresetExecutorTest {
         File html = new File("src/test/resources/html/test_data/preset/input/shouldClickMultipleElements.html");
         //when
         if (preset == null) fail();
-        WikiContent wikiContent = PresetExecutor.execute(webClient, preset, "file:\\\\"+html.getAbsolutePath());
+        WikiContent wikiContent = PresetExecutor.execute(webClient, preset, "file://"+html.getAbsolutePath());
         //then
         Element textElement = wikiContent.getContent().getElementById("jsText");
         assertEquals("First Second Third", textElement.wholeText());
@@ -79,7 +79,7 @@ class PresetExecutorTest {
         File html = new File("src/test/resources/html/test_data/preset/input/shouldHandleInput.html");
         //when
         if (preset == null) fail();
-        WikiContent wikiContent = PresetExecutor.execute(webClient, preset, "file:\\\\"+html.getAbsolutePath());
+        WikiContent wikiContent = PresetExecutor.execute(webClient, preset, "file://"+html.getAbsolutePath());
         //then
         Element textElement = wikiContent.getContent().getElementById("jsText");
         assertEquals("TEST", textElement.wholeText());
