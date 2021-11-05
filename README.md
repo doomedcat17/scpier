@@ -293,7 +293,8 @@ String translationSource;
   } ],
   "tags" : [ "_cc", "_licensebox", "liquid", "location", "medical", "rewrite", "safe", "scp", "self-repairing" ],
   "lastRevisionTimestamp" : 1628542260000,
-  "source" : "http://www.scp-wiki.wikidot.com/scp-006"
+  "originalSource" : "http://www.scp-wiki.wikidot.com/scp-006",
+  "translationSource" : ""
 }
 ```
 ### SCPBranch and SCPTranslation
