@@ -53,11 +53,8 @@ What is **NOT** scraped:
 
 Many articles don't have any info about the authors, and it's not very efficient to dig through the discuss section and other places on the wiki (it's very resource-consuming for the API and Wikidot).
 
-But I do not exclude such functionality in the future!
+Check out [scpper](http://scpper.com/)
 
-**What about the [scpper](http://scpper.com/)?**
-
-Too long response times, and I didn't find any API for it, so even more web scraping and testing.
 # Download
 
 SCPier is available as a downloadable .jar java library. The current release version is 0.5.7.
