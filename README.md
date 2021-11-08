@@ -30,7 +30,7 @@ SCPier itself is free to use for any pourpuse, if usage does not violate [Wikido
 
 # How it works?
 
-It's basically webscraper. HTML elements are retrieved using [jsoup](https://jsoup.org/). If particular article uses JavaScript, 
+It's basically a webscraper. HTML elements are retrieved using [jsoup](https://jsoup.org/). If particular article uses JavaScript, 
 then the script is run by [HtmlUnit](https://htmlunit.sourceforge.io/) webclient.
 For more specific cases uses pre-defined [Presets](#listnodes). Retrieved
 HTML elements are scraped and interpreted by multiple ElementScrapers.
