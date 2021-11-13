@@ -6,6 +6,7 @@ import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
 import com.doomedcat17.scpier.exception.page.html.document.preset.WikiPresetNotFoundException;
 import com.doomedcat17.scpier.exception.page.html.document.revision.RevisionDateException;
+import com.doomedcat17.scpier.page.html.document.author.AuthorScraper;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
@@ -32,7 +33,8 @@ public class WikiContentProvider {
             WikiPageInterpreter wikiPageInterpreter =
                     new WikiPageInterpreter(new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()),
                             new WikiRedirectionHandler(wikiPageProvider, ResourcesProvider.getRedirectionDefinitions()),
-                            new PageTagsScrapperImpl()
+                            new PageTagsScrapperImpl(),
+                            new AuthorScraper()
                     );
             String url = WikiSourceBuilder.buildSource(name.toLowerCase(), scpBranch, scpTranslation);
             name = url.substring(url.lastIndexOf('/') + 1);

@@ -24,6 +24,8 @@ public class WikiContent {
 
     private List<String> tags;
 
+    private String author;
+
     private Preset preset;
 
     public String getContentSource() {
@@ -106,6 +108,14 @@ public class WikiContent {
 
     public void setLastRevisionTimestamp(Timestamp lastRevisionTimestamp) {
         this.lastRevisionTimestamp = lastRevisionTimestamp;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public WikiContent() {

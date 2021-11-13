@@ -2,6 +2,7 @@ package com.doomedcat17.scpier.page.html.document.interpreter;
 
 import com.doomedcat17.scpier.exception.page.html.document.interpreter.WikiPageInterpreterException;
 import com.doomedcat17.scpier.page.WikiContent;
+import com.doomedcat17.scpier.page.html.document.author.AuthorScraper;
 import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
@@ -10,6 +11,7 @@ import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHand
 import com.doomedcat17.scpier.page.html.document.revision.LastRevisionTimestampProvider;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapper;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -23,7 +25,9 @@ public class WikiPageInterpreter {
 
     private final PageTagsScrapper pageTagsScrapper;
 
-    public void mapContent(WikiContent wikiContent)  {
+    private final AuthorScraper authorScraper;
+
+    public void mapContent(WikiContent wikiContent) {
         try {
             Preset preset;
             if (wikiContent.getPreset() != null) {
@@ -36,12 +40,14 @@ public class WikiPageInterpreter {
                 content = wikiRedirectionHandler.getRedirectionContent(redirectionElement.get(), wikiContent.getContentSource());
                 Timestamp lastRevision = LastRevisionTimestampProvider.getLastRevisionTimestamp(content);
                 wikiContent.setContent(content);
-                if (lastRevision.after(wikiContent.getLastRevisionTimestamp())) wikiContent.setLastRevisionTimestamp(lastRevision);
+                if (lastRevision.after(wikiContent.getLastRevisionTimestamp()))
+                    wikiContent.setLastRevisionTimestamp(lastRevision);
             }
             setWikiContentTitle(wikiContent);
             setWikiContentTags(wikiContent);
             wikiContent.setContent(wikiContent.getContent().getElementById("page-content"));
-            if (!content.getElementsByTag("iframe").isEmpty()) {
+            Elements iframes = content.select("iframe");
+            if (!iframes.isEmpty()) {
                 IframeContentProvider iframeContentProvider = new IframeContentProvider(new ScriptedWikiPageProvider(), wikiContentCleaner);
                 iframeContentProvider.provideIframesContent(wikiContent, preset);
             }
@@ -51,7 +57,7 @@ public class WikiPageInterpreter {
         }
     }
 
-    private void setWikiContentTags(WikiContent wikiContent){
+    private void setWikiContentTags(WikiContent wikiContent) {
         Optional<List<String>> tagNames = pageTagsScrapper.scrapPageTags(wikiContent.getContent());
         tagNames.ifPresent(wikiContent::setTags);
     }
@@ -63,9 +69,14 @@ public class WikiPageInterpreter {
         }
     }
 
-    public WikiPageInterpreter(WikiContentCleaner wikiContentCleaner, WikiRedirectionHandler wikiRedirectionHandler, PageTagsScrapper pageTagsScrapper) {
+    private void setWikiContentAuthor(WikiContent wikiContent) {
+
+    }
+
+    public WikiPageInterpreter(WikiContentCleaner wikiContentCleaner, WikiRedirectionHandler wikiRedirectionHandler, PageTagsScrapper pageTagsScrapper, AuthorScraper authorScraper) {
         this.wikiContentCleaner = wikiContentCleaner;
         this.wikiRedirectionHandler = wikiRedirectionHandler;
         this.pageTagsScrapper = pageTagsScrapper;
+        this.authorScraper = authorScraper;
     }
 }

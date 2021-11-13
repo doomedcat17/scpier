@@ -20,6 +20,8 @@ public class ScpWikiData {
 
     private Timestamp lastRevisionTimestamp;
 
+    private String author;
+
     private String originalSource;
 
     private String translationSource = "";

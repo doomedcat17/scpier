@@ -2,6 +2,7 @@ package com.doomedcat17.scpier.page.html;
 
 import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.page.WikiContent;
+import com.doomedcat17.scpier.page.html.document.author.AuthorScraper;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
@@ -21,7 +22,8 @@ class WikiPageInterpreterTest {
     private final WikiPageInterpreter wikiPageInterpreter = new WikiPageInterpreter(
             new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()),
             new WikiRedirectionHandler(new DefaultWikiPageProvider(), ResourcesProvider.getRedirectionDefinitions()),
-            new PageTagsScrapperImpl()
+            new PageTagsScrapperImpl(),
+            new AuthorScraper()
     );
 
     @BeforeAll
