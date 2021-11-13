@@ -3,7 +3,6 @@ package com.doomedcat17.scpier.scrappers;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.content.ListNode;
 import com.doomedcat17.scpier.scraper.list.ListScraper;
-import com.doomedcat17.scpier.testbox.JSONWriter;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
