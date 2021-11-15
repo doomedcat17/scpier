@@ -22,6 +22,8 @@ public class ResourcesProvider {
 
     private static Set<OffsetPattern> offsetPatterns;
 
+    private static boolean initialized = false;
+
     public static void initResources() throws IOException, URISyntaxException {
         presetProvider = new PresetProvider(PresetLoader.loadPresets());
         RemovalDefinitionsLoader removalDefinitionsLoader = new RemovalDefinitionsLoader();
@@ -30,6 +32,11 @@ public class ResourcesProvider {
         redirectionDefinitions = redirectionDefinitionsLoader.loadRedirectionDefinitions();
         OffsetPatternsLoader offsetPatternsLoader = new OffsetPatternsLoader();
         offsetPatterns = offsetPatternsLoader.loadOffsetPatterns();
+        initialized = true;
+    }
+
+    public static boolean isInitialized() {
+        return initialized;
     }
 
     public static PresetProvider getPresetProvider() {

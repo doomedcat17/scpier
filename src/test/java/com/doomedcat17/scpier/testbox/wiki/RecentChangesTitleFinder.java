@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.testbox.wiki;
 
 import com.doomedcat17.scpier.data.scp.SCPBranch;
-import com.doomedcat17.scpier.page.html.document.WebClientProvider;
+import com.doomedcat17.scpier.page.webclients.NicelyLimitedWebClient;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.*;
 import org.jsoup.Jsoup;
@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class RecentChangesTitleFinder {
 
-    private static final WebClient webClient = WebClientProvider.getWebClient();
+    private static final WebClient webClient = new NicelyLimitedWebClient();
 
 
     public static Set<Article> getAllTitles(SCPBranch scpBranch) {

@@ -102,6 +102,14 @@ public class ScpWikiData {
         this.translationSource = translationSource;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

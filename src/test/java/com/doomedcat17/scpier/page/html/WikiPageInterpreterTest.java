@@ -8,6 +8,7 @@ import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
+import com.doomedcat17.scpier.page.webclients.NicelyLimitedWebClient;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -23,7 +24,7 @@ class WikiPageInterpreterTest {
             new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()),
             new WikiRedirectionHandler(new DefaultWikiPageProvider(), ResourcesProvider.getRedirectionDefinitions()),
             new PageTagsScrapperImpl(),
-            new AuthorScraper()
+            new NicelyLimitedWebClient()
     );
 
     @BeforeAll

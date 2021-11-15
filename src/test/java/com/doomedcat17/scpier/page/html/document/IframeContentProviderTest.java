@@ -5,8 +5,10 @@ import com.doomedcat17.scpier.exception.page.html.document.provider.IframeConten
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
+import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
 import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
 import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
+import com.doomedcat17.scpier.page.webclients.NicelyLimitedWebClient;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.BeforeAll;
@@ -38,7 +40,7 @@ class IframeContentProviderTest {
     @BeforeEach
     void init() {
         MockitoAnnotations.initMocks(this);
-        iframeContentProvider = new IframeContentProvider(htmlDocumentProvider, new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()));
+        iframeContentProvider = new IframeContentProvider(new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()), htmlDocumentProvider, new PresetExecutor(new NicelyLimitedWebClient()));
     }
 
     @Test

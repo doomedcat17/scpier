@@ -13,7 +13,8 @@ import java.io.IOException;
 
 public class PresetExecutor {
 
-    public static WikiContent execute(WebClient webClient, Preset preset, String src) throws PresetExecutorException {
+    private final WebClient webClient;
+    public WikiContent execute(Preset preset, String src) throws PresetExecutorException {
         try {
             HtmlPage page = webClient.getPage(src);
             for (WikiElement element : preset.getWikiElements()) {
@@ -37,4 +38,7 @@ public class PresetExecutor {
         }
     }
 
+    public PresetExecutor(WebClient webClient) {
+        this.webClient = webClient;
+    }
 }

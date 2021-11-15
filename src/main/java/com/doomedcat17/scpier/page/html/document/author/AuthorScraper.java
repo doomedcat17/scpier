@@ -1,5 +1,4 @@
 package com.doomedcat17.scpier.page.html.document.author;
-import com.doomedcat17.scpier.page.html.document.WebClientProvider;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.*;
 import org.jsoup.Jsoup;
@@ -9,6 +8,7 @@ import java.io.IOException;
 
 public class AuthorScraper {
 
+    private WebClient webClient;
     public String scrap(String source) throws IOException {
         try {
             Element element = getAuthorElement(source);
@@ -19,8 +19,7 @@ public class AuthorScraper {
     }
 
 
-    protected Element getAuthorElement(String source) throws IOException {
-        WebClient webClient = WebClientProvider.getWebClient();
+    protected Element getAuthorElement(String source) throws IOException {;
         HtmlPage page = webClient.getPage(source);
         HtmlAnchor historyAnchor = (HtmlAnchor) page.getElementById("history-button");
         historyAnchor.click();
@@ -39,5 +38,9 @@ public class AuthorScraper {
         }
         HtmlElement htmlElement = page.querySelector(".page-history tbody  tr:last-child");
         return Jsoup.parse(htmlElement.asXml());
+    }
+
+    public AuthorScraper(WebClient webClient) {
+        this.webClient = webClient;
     }
 }

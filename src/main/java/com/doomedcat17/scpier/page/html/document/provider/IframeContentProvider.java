@@ -2,7 +2,6 @@ package com.doomedcat17.scpier.page.html.document.provider;
 
 import com.doomedcat17.scpier.exception.page.html.document.provider.IframeContentProviderException;
 import com.doomedcat17.scpier.page.WikiContent;
-import com.doomedcat17.scpier.page.html.document.WebClientProvider;
 import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
@@ -15,9 +14,12 @@ import java.util.List;
 
 public class IframeContentProvider {
 
-    private final ScriptedWikiPageProvider scriptedHTMLDocumentProvider;
 
     private final WikiContentCleaner wikiContentCleaner;
+
+    private final ScriptedWikiPageProvider scriptedWikiPageProvider;
+
+    private final PresetExecutor presetExecutor;
 
     public void provideIframesContent(WikiContent wikiContent, Preset preset) throws IframeContentProviderException {
         try {
@@ -51,12 +53,12 @@ public class IframeContentProvider {
                     WikiContent webpageContent;
                     if (preset.getArticleName() != null) {
                         try {
-                            webpageContent = PresetExecutor.execute(WebClientProvider.getWebClient(), preset, source);
+                            webpageContent = presetExecutor.execute(preset, source);
                         } catch (NullPointerException e) {
                             // preset DOES NOT apply to all iframe elements, so default content is provided
-                            webpageContent = scriptedHTMLDocumentProvider.getWebpageContent(source);
+                            webpageContent = scriptedWikiPageProvider.getWebpageContent(source);
                         }
-                    } else webpageContent = scriptedHTMLDocumentProvider.getWebpageContent(source);
+                    } else webpageContent = scriptedWikiPageProvider.getWebpageContent(source);
                     if (webpageContent.getContent().children().isEmpty()) {
                         iframe.remove();
                     } else {
@@ -113,9 +115,9 @@ public class IframeContentProvider {
     }
 
 
-
-    public IframeContentProvider(ScriptedWikiPageProvider scriptedHTMLDocumentProvider, WikiContentCleaner wikiContentCleaner) {
-        this.scriptedHTMLDocumentProvider = scriptedHTMLDocumentProvider;
+    public IframeContentProvider(WikiContentCleaner wikiContentCleaner, ScriptedWikiPageProvider scriptedWikiPageProvider, PresetExecutor presetExecutor) {
         this.wikiContentCleaner = wikiContentCleaner;
+        this.scriptedWikiPageProvider = scriptedWikiPageProvider;
+        this.presetExecutor = presetExecutor;
     }
 }

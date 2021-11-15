@@ -21,6 +21,7 @@ public class DefaultScpWikiContentMapper implements ScpWikiContentMapper {
             scpWikiData.setOriginalSource(wikiContent.getOriginalSourceUrl());
             scpWikiData.setTranslationSource(wikiContent.getTranslationSourceUrl());
             scpWikiData.setLastRevisionTimestamp(wikiContent.getLastRevisionTimestamp());
+            scpWikiData.setAuthor(wikiContent.getAuthor());
             mapScp(scpWikiData, wikiContent.getContent());
             unpackDivs(scpWikiData);
             return scpWikiData;

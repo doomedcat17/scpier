@@ -14,12 +14,17 @@ import com.doomedcat17.scpier.mapper.scp.DefaultScpWikiContentMapper;
 import com.doomedcat17.scpier.mapper.scp.ScpWikiContentMapper;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.WikiContentProvider;
+import com.doomedcat17.scpier.page.webclients.NicelyLimitedWebClient;
+import com.doomedcat17.scpier.page.webclients.RateLimitedWebClient;
+import com.gargoylesoftware.htmlunit.WebClient;
 
 import java.sql.Timestamp;
 
 public class ScpFoundationDataProvider {
 
-    private final WikiContentProvider wikiContentProvider;
+    private WikiContentProvider wikiContentProvider;
+
+    private final WebClient webClient;
 
     public ScpWikiData getScpWikiData(String articleName, SCPBranch scpBranch) throws SCPierApiException {
         return getScpWikiData(articleName, scpBranch, SCPTranslation.ORIGINAL);
@@ -45,24 +50,6 @@ public class ScpFoundationDataProvider {
         return scpWikiData;
     }
 
-    public void updateScpWikiData(ScpWikiData scpWikiData) throws SCPierApiException {
-        String articleName = scpWikiData.getTitle();
-        try {
-            String source = scpWikiData.getContentSource();
-            articleName = source.substring(source.lastIndexOf('/') + 1);
-            WikiContent wikiContent = getPageContent(articleName, scpWikiData.getScpBranch(), scpWikiData.getScpTranslation());
-            if (wikiContent.getLastRevisionTimestamp().after(scpWikiData.getLastRevisionTimestamp())) {
-                ScpWikiData updatedScpWikiData = mapWikiContent(wikiContent, scpWikiData.getScpBranch(), scpWikiData.getScpTranslation());
-                scpWikiData.setTitle(updatedScpWikiData.getTitle());
-                scpWikiData.setContent(updatedScpWikiData.getContent());
-                scpWikiData.setTags(updatedScpWikiData.getTags());
-                scpWikiData.setLastRevisionTimestamp(updatedScpWikiData.getLastRevisionTimestamp());
-            }
-        } catch (RuntimeException | RevisionDateException e) {
-            throw new SCPierApiInternalException(articleName, scpWikiData.getScpBranch(), scpWikiData.getScpTranslation(), e);
-        }
-    }
-
     public Timestamp getLastRevisionTimestamp(String articleName, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPierApiException {
         try {
             return getPageContent(articleName, scpBranch, scpTranslation).getLastRevisionTimestamp();
@@ -71,12 +58,8 @@ public class ScpFoundationDataProvider {
         }
     }
 
-    public Timestamp getLastRevisionTimestamp(String articleName, SCPBranch scpBranch) throws SCPierApiException {
-        return getLastRevisionTimestamp(articleName, scpBranch, SCPTranslation.ORIGINAL);
-    }
-
     private WikiContent getPageContent(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound, RevisionDateException {
-        WikiContent wikiContent = wikiContentProvider.getPageContent(name, scpBranch, scpTranslation);
+        WikiContent wikiContent = wikiContentProvider.getPageContent(name, scpBranch, scpTranslation, webClient);
         if (scpTranslation.equals(SCPTranslation.ORIGINAL)) {
             wikiContent.setTranslationIdentifier(scpBranch.identifier);
         } else wikiContent.setTranslationIdentifier(scpTranslation.identifier);
@@ -84,11 +67,39 @@ public class ScpFoundationDataProvider {
     }
 
     public ScpFoundationDataProvider() {
-        try {
-            ResourcesProvider.initResources();
-            this.wikiContentProvider = new WikiContentProvider();
-        } catch (Exception e) {
-            throw new SCPierResourcesInitializationException(e);
+        if (!ResourcesProvider.isInitialized()) {
+            try {
+                ResourcesProvider.initResources();
+                this.wikiContentProvider = new WikiContentProvider();
+            } catch (Exception e) {
+                throw new SCPierResourcesInitializationException(e);
+            }
         }
+        this.webClient = new NicelyLimitedWebClient();
     }
+
+    public ScpFoundationDataProvider(long timePeriod, long requestCap) {
+        if (!ResourcesProvider.isInitialized()) {
+            try {
+                ResourcesProvider.initResources();
+                this.wikiContentProvider = new WikiContentProvider();
+            } catch (Exception e) {
+                throw new SCPierResourcesInitializationException(e);
+            }
+        }
+        this.webClient = new RateLimitedWebClient(timePeriod, requestCap);
+    }
+
+    public ScpFoundationDataProvider(WebClient webClient) {
+        if (!ResourcesProvider.isInitialized()) {
+            try {
+                ResourcesProvider.initResources();
+                this.wikiContentProvider = new WikiContentProvider();
+            } catch (Exception e) {
+                throw new SCPierResourcesInitializationException(e);
+            }
+        }
+        this.webClient = webClient;
+    }
+
 }
