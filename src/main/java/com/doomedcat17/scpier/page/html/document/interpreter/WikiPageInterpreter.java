@@ -2,6 +2,8 @@ package com.doomedcat17.scpier.page.html.document.interpreter;
 
 import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.exception.page.html.document.interpreter.WikiPageInterpreterException;
+import com.doomedcat17.scpier.exception.page.html.document.provider.IframeContentProviderException;
+import com.doomedcat17.scpier.exception.page.html.document.revision.RevisionDateException;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.author.AuthorScraper;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
@@ -28,37 +30,46 @@ import java.util.Optional;
 public class WikiPageInterpreter {
     private final WebClient webClient;
 
+    private final WikiPageProvider wikiPageProvider;
+
     public void mapContent(WikiContent wikiContent) {
         try {
             WikiContentCleaner wikiContentCleaner = new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions());
-            WikiPageProvider wikiPageProvider = new DefaultWikiPageProvider();
-            WikiRedirectionHandler wikiRedirectionHandler = new WikiRedirectionHandler(wikiPageProvider, ResourcesProvider.getRedirectionDefinitions());
             Preset preset;
             if (wikiContent.getPreset() != null) {
                 preset = wikiContent.getPreset();
                 wikiContentCleaner.additionalRemovalDefinitions(preset.getRemovalDefinitions());
             } else preset = new Preset();
-            Element content = wikiContent.getContent().getElementById("page-content");
-            Optional<Element> redirectionElement = wikiRedirectionHandler.provideRedirectedContent(content);
-            if (redirectionElement.isPresent()) {
-                content = wikiRedirectionHandler.getRedirectionContent(redirectionElement.get(), wikiContent.getContentSource());
-                Timestamp lastRevision = LastRevisionTimestampProvider.getLastRevisionTimestamp(content);
-                wikiContent.setContent(content);
-                if (lastRevision.after(wikiContent.getLastRevisionTimestamp()))
-                    wikiContent.setLastRevisionTimestamp(lastRevision);
-            }
+            handleRedirections(wikiContent);
             setWikiContentTitle(wikiContent);
             setWikiContentTags(wikiContent);
             setWikiContentAuthor(wikiContent);
             wikiContent.setContent(wikiContent.getContent().getElementById("page-content"));
-            Elements iframes = content.select("iframe");
-            if (!iframes.isEmpty()) {
-                IframeContentProvider iframeContentProvider = new IframeContentProvider(wikiContentCleaner, new ScriptedWikiPageProvider(webClient), new PresetExecutor(webClient));
-                iframeContentProvider.provideIframesContent(wikiContent, preset);
-            }
+            handleIframes(wikiContent, preset, wikiContentCleaner);
             wikiContentCleaner.removeTrashNodes(wikiContent.getContent());
         } catch (Exception e) {
             throw new WikiPageInterpreterException(e);
+        }
+    }
+
+    private void handleRedirections(WikiContent wikiContent) throws IOException, RevisionDateException {
+        WikiRedirectionHandler wikiRedirectionHandler = new WikiRedirectionHandler(wikiPageProvider, ResourcesProvider.getRedirectionDefinitions());
+        Element content = wikiContent.getContent().getElementById("page-content");
+        Optional<Element> redirectionElement = wikiRedirectionHandler.provideRedirectedContent(content);
+        if (redirectionElement.isPresent()) {
+            content = wikiRedirectionHandler.getRedirectionContent(redirectionElement.get(), wikiContent.getContentSource());
+            Timestamp lastRevision = LastRevisionTimestampProvider.getLastRevisionTimestamp(content);
+            wikiContent.setContent(content);
+            if (lastRevision.after(wikiContent.getLastRevisionTimestamp()))
+                wikiContent.setLastRevisionTimestamp(lastRevision);
+        }
+    }
+
+    private void handleIframes(WikiContent wikiContent, Preset preset, WikiContentCleaner wikiContentCleaner) throws IframeContentProviderException {
+        Elements iframes = wikiContent.getContent().select("iframe");
+        if (!iframes.isEmpty()) {
+            IframeContentProvider iframeContentProvider = new IframeContentProvider(wikiContentCleaner, new ScriptedWikiPageProvider(webClient), new PresetExecutor(webClient));
+            iframeContentProvider.provideIframesContent(wikiContent, preset);
         }
     }
 
@@ -81,7 +92,8 @@ public class WikiPageInterpreter {
         wikiContent.setAuthor(authorName);
     }
 
-    public WikiPageInterpreter(WebClient webClient) {
+    public WikiPageInterpreter(WebClient webClient, WikiPageProvider wikiPageProvider) {
         this.webClient = webClient;
+        this.wikiPageProvider = wikiPageProvider;
     }
 }

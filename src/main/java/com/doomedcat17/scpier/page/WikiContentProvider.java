@@ -32,7 +32,7 @@ public class WikiContentProvider {
         try {
             WikiPageProvider wikiPageProvider = new DefaultWikiPageProvider();
             WikiPageInterpreter wikiPageInterpreter =
-                    new WikiPageInterpreter(webClient);
+                    new WikiPageInterpreter(webClient, wikiPageProvider);
             String url = WikiSourceBuilder.buildSource(name.toLowerCase(), scpBranch, scpTranslation);
             name = url.substring(url.lastIndexOf('/') + 1);
             WikiContent wikiContent = wikiPageProvider.getWebpageContent(url);
