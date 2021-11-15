@@ -4,6 +4,7 @@ import com.doomedcat17.scpier.data.content.ContentNode;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 public class ScpWikiData {
@@ -18,7 +19,7 @@ public class ScpWikiData {
 
     private List<String> tags;
 
-    private Timestamp lastRevisionTimestamp;
+    private Date lastRevisionTimestamp;
 
     private String author;
 
@@ -86,11 +87,11 @@ public class ScpWikiData {
         this.scpTranslation = scpTranslation;
     }
 
-    public Timestamp getLastRevisionTimestamp() {
+    public Date getLastRevisionTimestamp() {
         return lastRevisionTimestamp;
     }
 
-    public void setLastRevisionTimestamp(Timestamp lastRevisionTimestamp) {
+    public void setLastRevisionTimestamp(Date lastRevisionTimestamp) {
         this.lastRevisionTimestamp = lastRevisionTimestamp;
     }
 
@@ -113,29 +114,32 @@ public class ScpWikiData {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ScpWikiData)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        ScpWikiData wikiData = (ScpWikiData) o;
+        ScpWikiData that = (ScpWikiData) o;
 
-        if (title != null ? !title.equals(wikiData.title) : wikiData.title != null) return false;
-        if (scpBranch != wikiData.scpBranch) return false;
-        if (scpTranslation != wikiData.scpTranslation) return false;
-        if (content != null ? !content.equals(wikiData.content) : wikiData.content != null) return false;
-        if (tags != null ? !tags.equals(wikiData.tags) : wikiData.tags != null) return false;
-        if (lastRevisionTimestamp != null ? !lastRevisionTimestamp.equals(wikiData.lastRevisionTimestamp) : wikiData.lastRevisionTimestamp != null)
-            return false;
-        return originalSource != null ? originalSource.equals(wikiData.originalSource) : wikiData.originalSource == null;
+        if (!title.equals(that.title)) return false;
+        if (scpBranch != that.scpBranch) return false;
+        if (scpTranslation != that.scpTranslation) return false;
+        if (!content.equals(that.content)) return false;
+        if (!tags.equals(that.tags)) return false;
+        if (!lastRevisionTimestamp.equals(that.lastRevisionTimestamp)) return false;
+        if (!author.equals(that.author)) return false;
+        if (!originalSource.equals(that.originalSource)) return false;
+        return translationSource.equals(that.translationSource);
     }
 
     @Override
     public int hashCode() {
-        int result = title != null ? title.hashCode() : 0;
-        result = 31 * result + (scpBranch != null ? scpBranch.hashCode() : 0);
-        result = 31 * result + (scpTranslation != null ? scpTranslation.hashCode() : 0);
-        result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + (tags != null ? tags.hashCode() : 0);
-        result = 31 * result + (lastRevisionTimestamp != null ? lastRevisionTimestamp.hashCode() : 0);
-        result = 31 * result + (originalSource != null ? originalSource.hashCode() : 0);
+        int result = title.hashCode();
+        result = 31 * result + scpBranch.hashCode();
+        result = 31 * result + scpTranslation.hashCode();
+        result = 31 * result + content.hashCode();
+        result = 31 * result + tags.hashCode();
+        result = 31 * result + lastRevisionTimestamp.hashCode();
+        result = 31 * result + author.hashCode();
+        result = 31 * result + originalSource.hashCode();
+        result = 31 * result + translationSource.hashCode();
         return result;
     }
 }

@@ -10,20 +10,18 @@ import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentClean
 import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
-import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
 import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
-import com.doomedcat17.scpier.page.html.document.revision.LastRevisionTimestampProvider;
+import com.doomedcat17.scpier.page.html.document.revision.LastRevisionDateScraper;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapper;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
 import com.gargoylesoftware.htmlunit.WebClient;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
 import java.io.IOException;
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -58,7 +56,8 @@ public class WikiPageInterpreter {
         Optional<Element> redirectionElement = wikiRedirectionHandler.provideRedirectedContent(content);
         if (redirectionElement.isPresent()) {
             content = wikiRedirectionHandler.getRedirectionContent(redirectionElement.get(), wikiContent.getContentSource());
-            Timestamp lastRevision = LastRevisionTimestampProvider.getLastRevisionTimestamp(content);
+            LastRevisionDateScraper lastRevisionDateScraper = new LastRevisionDateScraper();
+            Date lastRevision = lastRevisionDateScraper.scrapDate(content);
             wikiContent.setContent(content);
             if (lastRevision.after(wikiContent.getLastRevisionTimestamp()))
                 wikiContent.setLastRevisionTimestamp(lastRevision);

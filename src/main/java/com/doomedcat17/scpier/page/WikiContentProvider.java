@@ -6,17 +6,13 @@ import com.doomedcat17.scpier.data.scp.SCPTranslation;
 import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
 import com.doomedcat17.scpier.exception.page.html.document.preset.WikiPresetNotFoundException;
 import com.doomedcat17.scpier.exception.page.html.document.revision.RevisionDateException;
-import com.doomedcat17.scpier.page.html.document.author.AuthorScraper;
-import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.PresetProvider;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.offset.OffsetsProvider;
-import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
-import com.doomedcat17.scpier.page.html.document.revision.LastRevisionTimestampProvider;
-import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
+import com.doomedcat17.scpier.page.html.document.revision.LastRevisionDateScraper;
 import com.gargoylesoftware.htmlunit.WebClient;
 import org.jsoup.nodes.Node;
 
@@ -46,8 +42,9 @@ public class WikiContentProvider {
                     wikiContent.setTranslationSourceUrl("");
                 }
             }
+            LastRevisionDateScraper lastRevisionDateScraper = new LastRevisionDateScraper();
             wikiContent.setLastRevisionTimestamp(
-                    LastRevisionTimestampProvider.getLastRevisionTimestamp(wikiContent.getContent())
+                   lastRevisionDateScraper.scrapDate(wikiContent.getContent())
             );
             if (wikiContent.getContent().selectFirst("#page-content") == null) throw new IOException();
             wikiContent.setName(name);

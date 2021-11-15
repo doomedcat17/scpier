@@ -50,13 +50,6 @@ public class ScpFoundationDataProvider {
         return scpWikiData;
     }
 
-    public Timestamp getLastRevisionTimestamp(String articleName, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPierApiException {
-        try {
-            return getPageContent(articleName, scpBranch, scpTranslation).getLastRevisionTimestamp();
-        } catch (RuntimeException | RevisionDateException e) {
-            throw new SCPierApiInternalException(articleName, scpBranch, scpTranslation, e);
-        }
-    }
 
     private WikiContent getPageContent(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound, RevisionDateException {
         WikiContent wikiContent = wikiContentProvider.getPageContent(name, scpBranch, scpTranslation, webClient);
