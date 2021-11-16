@@ -2,7 +2,7 @@ package com.doomedcat17.scpier;
 
 import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.data.scp.SCPBranch;
-import com.doomedcat17.scpier.data.scp.SCPTranslation;
+import com.doomedcat17.scpier.data.scp.SCPLanguage;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.doomedcat17.scpier.exception.SCPierApiException;
 import com.doomedcat17.scpier.exception.SCPierApiInternalException;
@@ -24,35 +24,35 @@ public class ScpFoundationDataProvider {
     private final WebClient webClient;
 
     public ScpWikiData getScpWikiData(String articleName, SCPBranch scpBranch) throws SCPierApiException {
-        return getScpWikiData(articleName, scpBranch, SCPTranslation.ORIGINAL);
+        return getScpWikiData(articleName, scpBranch, SCPLanguage.ORIGINAL);
     }
 
-    public ScpWikiData getScpWikiData(String articleName, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPierApiException {
+    public ScpWikiData getScpWikiData(String articleName, SCPBranch scpBranch, SCPLanguage scpLanguage) throws SCPierApiException {
         try {
-            WikiContent wikiContent = getPageContent(articleName, scpBranch, scpTranslation);
-            return mapWikiContent(wikiContent, scpBranch, scpTranslation);
+            WikiContent wikiContent = getPageContent(articleName, scpBranch, scpLanguage);
+            return mapWikiContent(wikiContent, scpBranch, scpLanguage);
         } catch (RuntimeException | RevisionDateException e) {
-            throw new SCPierApiInternalException(articleName, scpBranch, scpTranslation, e);
+            throw new SCPierApiInternalException(articleName, scpBranch, scpLanguage, e);
         }
     }
 
-    private ScpWikiData mapWikiContent(WikiContent wikiContent, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiEmptyContentException {
+    private ScpWikiData mapWikiContent(WikiContent wikiContent, SCPBranch scpBranch, SCPLanguage scpLanguage) throws SCPWikiEmptyContentException {
         ScpWikiContentMapper scpWikiContentMapper = new DefaultScpWikiContentMapper();
         ScpWikiData scpWikiData = scpWikiContentMapper.mapWikiContent(wikiContent);
         if (scpWikiData.getContent().isEmpty())
             throw new SCPWikiEmptyContentException("Article content is empty!", new NullPointerException());
         scpWikiData.setTags(wikiContent.getTags());
-        scpWikiData.setScpBranch(scpBranch);
-        scpWikiData.setScpTranslation(scpTranslation);
+        scpWikiData.setBranch(scpBranch);
+        scpWikiData.setLanguage(scpLanguage);
         return scpWikiData;
     }
 
 
-    private WikiContent getPageContent(String name, SCPBranch scpBranch, SCPTranslation scpTranslation) throws SCPWikiContentNotFound, RevisionDateException {
-        WikiContent wikiContent = wikiContentProvider.getPageContent(name, scpBranch, scpTranslation, webClient);
-        if (scpTranslation.equals(SCPTranslation.ORIGINAL)) {
+    private WikiContent getPageContent(String name, SCPBranch scpBranch, SCPLanguage scpLanguage) throws SCPWikiContentNotFound, RevisionDateException {
+        WikiContent wikiContent = wikiContentProvider.getPageContent(name, scpBranch, scpLanguage, webClient);
+        if (scpLanguage.equals(SCPLanguage.ORIGINAL)) {
             wikiContent.setTranslationIdentifier(scpBranch.identifier);
-        } else wikiContent.setTranslationIdentifier(scpTranslation.identifier);
+        } else wikiContent.setTranslationIdentifier(scpLanguage.identifier);
         return wikiContent;
     }
 

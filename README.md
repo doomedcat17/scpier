@@ -105,7 +105,7 @@ If you replace all special chars with `-`, it should work for ***most*** cases.
 `scpBranch` - `SCPBranch` enum of desired branch.
 Defines source branch of desired article.
 
-`scpTranslation` (Optional) - `SCPTranslation` enum of desired translation.
+`scpLanguage` (Optional) - `SCPTranslation` enum of desired translation.
 Defines translation language of desired article.
 
 
@@ -141,7 +141,7 @@ String title;
 
 SCPBranch scpBranch;
 
-SCPTranslation scpTranslation;
+SCPTranslation scpLanguage;
 
 List<ContentNode<?>> content;
 
@@ -157,7 +157,7 @@ String translationSource;
 
 `scpBranch` - source branch of desired article.
 
-`scpTranslation` - translation language of desired article.
+`scpLanguage` - translation language of desired article.
 
 `content` - content of the article.
 
@@ -172,7 +172,7 @@ String translationSource;
 {
   "title" : "SCP-006",
   "scpBranch" : "ENGLISH",
-  "scpTranslation" : "ORIGINAL",
+  "scpLanguage" : "ORIGINAL",
   "content" : [ {
     "contentNodeType" : "HEADING",
     "content" : [ {

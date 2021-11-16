@@ -4,7 +4,7 @@ import com.doomedcat17.scpier.ScpFoundationDataProvider;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPIdentifierPlacement;
-import com.doomedcat17.scpier.data.scp.SCPTranslation;
+import com.doomedcat17.scpier.data.scp.SCPLanguage;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.doomedcat17.scpier.exception.data.SCPWikiEmptyContentException;
 import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
@@ -24,11 +24,11 @@ public class ScpChecker implements Runnable {
         System.out.println("Scp Checker +"+threadNum+" started");
         SCPBranch[] scpBranches = SCPBranch.values();
         for (SCPBranch scpBranch: scpBranches) {
-            checkScps(scpBranch , SCPTranslation.ORIGINAL);
+            checkScps(scpBranch , SCPLanguage.ORIGINAL);
         }
     }
 
-    private void checkScps(SCPBranch scpBranch, SCPTranslation scpTranslation) {
+    private void checkScps(SCPBranch scpBranch, SCPLanguage scpLanguage) {
         ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
         int notFoundCounter = 0;
         for (int i = startNumber; i <= endNumber; i++) {
@@ -40,9 +40,9 @@ public class ScpChecker implements Runnable {
             if (scpBranch.scpIdentifierPlacement.equals(SCPIdentifierPlacement.MIDDLE)) scpNumber.insert(0, scpBranch.identifier.toUpperCase()+"-");
             scpNumber.insert(0, "SCP-");
             if (scpBranch.scpIdentifierPlacement.equals(SCPIdentifierPlacement.ENDING)) scpNumber.append("-").append(scpBranch.identifier.toUpperCase());
-            else scpNumber.append(" ").append(scpTranslation.identifier.toUpperCase());
+            else scpNumber.append(" ").append(scpLanguage.identifier.toUpperCase());
             try {
-                ScpWikiData scpWikiData = scpFoundationDataProvider.getScpWikiData(scpNumber.toString(), scpBranch, scpTranslation);
+                ScpWikiData scpWikiData = scpFoundationDataProvider.getScpWikiData(scpNumber.toString(), scpBranch, scpLanguage);
                 if (scpWikiData.getTitle() == null || scpWikiData.getContent().isEmpty() ||
                         scpWikiData.getContent().stream().anyMatch(ContentNode::isEmpty)) ScpCheck.addEmptyScp(scpNumber.toString());
             } catch (SCPWikiContentNotFound e) {

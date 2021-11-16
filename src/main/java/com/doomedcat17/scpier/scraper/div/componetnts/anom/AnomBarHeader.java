@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.scraper.div.componetnts.anom;
 
-import com.doomedcat17.scpier.data.scp.SCPTranslation;
+import com.doomedcat17.scpier.data.scp.SCPLanguage;
 
 import java.util.Arrays;
 
@@ -61,8 +61,8 @@ public enum AnomBarHeader {
 
 
     public static AnomBarHeader getAnomBarHeaderByUrl(String url) {
-        SCPTranslation scpTranslation = SCPTranslation.getByUrl(url);
-        String langId = scpTranslation.identifier;
+        SCPLanguage scpLanguage = SCPLanguage.getByUrl(url);
+        String langId = scpLanguage.identifier;
         //nordic branch has multiple languages
         if (langId.equals("nd")) {
             langId = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf(':'));

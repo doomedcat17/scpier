@@ -3,7 +3,7 @@ package com.doomedcat17.scpier.data.scp;
 import java.util.Arrays;
 import java.util.Optional;
 
-public enum SCPTranslation {
+public enum SCPLanguage {
     ORIGINAL("", ""),
     ENGLISH("eng", "http://scp-int.wikidot.com/"),
     POLISH("pl", "http://scp-pl.wikidot.com/"),
@@ -38,15 +38,15 @@ public enum SCPTranslation {
     public String identifier;
     public String url;
 
-    SCPTranslation(String identifier, String url) {
+    SCPLanguage(String identifier, String url) {
         this.identifier = identifier;
         this.url = url;
     }
 
     //ignores article name
-    public static SCPTranslation getByUrl(String url) {
-        if (url.contains("http://www.scp-wiki.wikidot.com/")) return SCPTranslation.ENGLISH;
-        Optional<SCPTranslation> foundScpTranslation = Arrays.stream(SCPTranslation.values())
+    public static SCPLanguage getByUrl(String url) {
+        if (url.contains("http://www.scp-wiki.wikidot.com/")) return SCPLanguage.ENGLISH;
+        Optional<SCPLanguage> foundScpTranslation = Arrays.stream(SCPLanguage.values())
                 .filter(scpTranslation -> !scpTranslation.url.isEmpty())
                 .filter(scpTranslation -> url.contains(scpTranslation.url)).findFirst();
         if (foundScpTranslation.isPresent()) return foundScpTranslation.get();

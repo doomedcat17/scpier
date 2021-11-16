@@ -87,7 +87,7 @@ public class WikiPageInterpreter {
 
     private void setWikiContentAuthor(WikiContent wikiContent) throws IOException {
         AuthorScraper authorScraper = new AuthorScraper(webClient);
-        String authorName = authorScraper.scrap(wikiContent.getContentSource());
+        String authorName = authorScraper.scrap(wikiContent.getOriginalSourceUrl());
         wikiContent.setAuthor(authorName);
     }
 

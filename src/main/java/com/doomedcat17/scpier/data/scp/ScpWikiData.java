@@ -3,7 +3,6 @@ package com.doomedcat17.scpier.data.scp;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -11,9 +10,9 @@ public class ScpWikiData {
 
     private String title;
 
-    private SCPBranch scpBranch;
+    private SCPBranch branch;
 
-    private SCPTranslation scpTranslation;
+    private SCPLanguage language;
 
     private List<ContentNode<?>> content;
 
@@ -71,20 +70,20 @@ public class ScpWikiData {
         this.tags = tags;
     }
 
-    public SCPBranch getScpBranch() {
-        return scpBranch;
+    public SCPBranch getBranch() {
+        return branch;
     }
 
-    public void setScpBranch(SCPBranch scpBranch) {
-        this.scpBranch = scpBranch;
+    public void setBranch(SCPBranch branch) {
+        this.branch = branch;
     }
 
-    public SCPTranslation getScpTranslation() {
-        return scpTranslation;
+    public SCPLanguage getLanguage() {
+        return language;
     }
 
-    public void setScpTranslation(SCPTranslation scpTranslation) {
-        this.scpTranslation = scpTranslation;
+    public void setLanguage(SCPLanguage language) {
+        this.language = language;
     }
 
     public Date getLastRevisionTimestamp() {
@@ -119,8 +118,8 @@ public class ScpWikiData {
         ScpWikiData that = (ScpWikiData) o;
 
         if (!title.equals(that.title)) return false;
-        if (scpBranch != that.scpBranch) return false;
-        if (scpTranslation != that.scpTranslation) return false;
+        if (branch != that.branch) return false;
+        if (language != that.language) return false;
         if (!content.equals(that.content)) return false;
         if (!tags.equals(that.tags)) return false;
         if (!lastRevisionTimestamp.equals(that.lastRevisionTimestamp)) return false;
@@ -132,8 +131,8 @@ public class ScpWikiData {
     @Override
     public int hashCode() {
         int result = title.hashCode();
-        result = 31 * result + scpBranch.hashCode();
-        result = 31 * result + scpTranslation.hashCode();
+        result = 31 * result + branch.hashCode();
+        result = 31 * result + language.hashCode();
         result = 31 * result + content.hashCode();
         result = 31 * result + tags.hashCode();
         result = 31 * result + lastRevisionTimestamp.hashCode();

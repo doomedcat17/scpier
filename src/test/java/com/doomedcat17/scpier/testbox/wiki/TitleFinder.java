@@ -1,7 +1,7 @@
 package com.doomedcat17.scpier.testbox.wiki;
 
 import com.doomedcat17.scpier.data.scp.SCPBranch;
-import com.doomedcat17.scpier.data.scp.SCPTranslation;
+import com.doomedcat17.scpier.data.scp.SCPLanguage;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -21,8 +21,8 @@ public class TitleFinder {
                     if (!isTrash(title)) {
                         Article article = new Article();
                         article.setSource(scpBranch.url + title);
-                        for (SCPTranslation scpTranslation : SCPTranslation.values()) {
-                            if (title.startsWith(scpTranslation.identifier + ":") || title.startsWith("adult:")) {
+                        for (SCPLanguage scpLanguage : SCPLanguage.values()) {
+                            if (title.startsWith(scpLanguage.identifier + ":") || title.startsWith("adult:")) {
                                 title = title.substring(title.indexOf(':') + 1);
                                 break;
                             }
