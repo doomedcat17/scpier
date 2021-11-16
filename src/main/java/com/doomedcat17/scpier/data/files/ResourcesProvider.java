@@ -24,7 +24,7 @@ public class ResourcesProvider {
 
     private static boolean initialized = false;
 
-    public static void initResources() throws IOException, URISyntaxException {
+    public static synchronized void initResources() throws IOException, URISyntaxException {
         presetProvider = new PresetProvider(PresetLoader.loadPresets());
         RemovalDefinitionsLoader removalDefinitionsLoader = new RemovalDefinitionsLoader();
         removalDefinitions = removalDefinitionsLoader.loadRemovalDefinitions();

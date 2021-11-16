@@ -25,8 +25,6 @@ import java.util.concurrent.TimeUnit;
 
 public class FullWikiTest {
 
-    private static final ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
-
     private static final Set<Article> invalidTales = new HashSet<>();
 
     private static final Set<Article> emptyTales = new HashSet<>();
@@ -51,11 +49,6 @@ public class FullWikiTest {
         executorService.execute(new TaleChecker());
         executorService.execute(new TaleChecker());
         executorService.execute(new TaleChecker());
-        executorService.execute(new TaleChecker());
-        executorService.execute(new TaleChecker());
-        executorService.execute(new TaleChecker());
-        executorService.execute(new TaleChecker());
-
         executorService.shutdown();
 
         if (executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS)) {
@@ -90,6 +83,8 @@ public class FullWikiTest {
         private static int num = 1;
 
         private final int threadNum;
+
+        ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
 
         @Override
         public void run() {

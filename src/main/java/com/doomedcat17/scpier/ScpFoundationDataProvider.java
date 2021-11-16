@@ -17,9 +17,6 @@ import com.doomedcat17.scpier.page.WikiContentProvider;
 import com.doomedcat17.scpier.page.webclients.NicelyLimitedWebClient;
 import com.doomedcat17.scpier.page.webclients.RateLimitedWebClient;
 import com.gargoylesoftware.htmlunit.WebClient;
-
-import java.sql.Timestamp;
-
 public class ScpFoundationDataProvider {
 
     private WikiContentProvider wikiContentProvider;
@@ -63,11 +60,11 @@ public class ScpFoundationDataProvider {
         if (!ResourcesProvider.isInitialized()) {
             try {
                 ResourcesProvider.initResources();
-                this.wikiContentProvider = new WikiContentProvider();
             } catch (Exception e) {
                 throw new SCPierResourcesInitializationException(e);
             }
         }
+        this.wikiContentProvider = new WikiContentProvider();
         this.webClient = new NicelyLimitedWebClient();
     }
 
@@ -75,11 +72,11 @@ public class ScpFoundationDataProvider {
         if (!ResourcesProvider.isInitialized()) {
             try {
                 ResourcesProvider.initResources();
-                this.wikiContentProvider = new WikiContentProvider();
             } catch (Exception e) {
                 throw new SCPierResourcesInitializationException(e);
             }
         }
+        this.wikiContentProvider = new WikiContentProvider();
         this.webClient = new RateLimitedWebClient(timePeriod, requestCap);
     }
 
@@ -87,11 +84,11 @@ public class ScpFoundationDataProvider {
         if (!ResourcesProvider.isInitialized()) {
             try {
                 ResourcesProvider.initResources();
-                this.wikiContentProvider = new WikiContentProvider();
             } catch (Exception e) {
                 throw new SCPierResourcesInitializationException(e);
             }
         }
+        this.wikiContentProvider = new WikiContentProvider();
         this.webClient = webClient;
     }
 
