@@ -1,5 +1,5 @@
 articleName: "scp-4790"
-scpBranch: "ENGLISH"
+branch: "ENGLISH"
 removalDefinitions:
   - "div[id=\"page-content\"] > div[style=\"display: none\"]"
   - ".code"

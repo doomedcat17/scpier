@@ -5,7 +5,7 @@ import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.doomedcat17.scpier.exception.data.SCPWikiEmptyContentException;
-import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
+import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFoundException;
 import com.doomedcat17.scpier.testbox.JSONWriter;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -96,7 +96,7 @@ public class FullWikiTest {
                     if (scpWikiData.getTitle() == null || scpWikiData.getContent().isEmpty() ||
                             scpWikiData.getContent().stream().anyMatch(ContentNode::isEmpty)) addEmptyTale(tale);
                     else addArticle(scpWikiData);
-                } catch (SCPWikiContentNotFound e) {
+                } catch (SCPWikiContentNotFoundException e) {
                     e.printStackTrace();
                 } catch (SCPWikiEmptyContentException e) {
                     addEmptyTale(tale);

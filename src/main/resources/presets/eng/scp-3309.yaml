@@ -1,5 +1,5 @@
 articleName: "scp-3309"
-scpBranch: "ENGLISH"
+branch: "ENGLISH"
 removalDefinitions:
   - ".code"
   - ".anchor + div"

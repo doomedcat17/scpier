@@ -9,7 +9,6 @@ import com.doomedcat17.scpier.exception.SCPierApiException;
 import com.doomedcat17.scpier.exception.SCPierApiInternalException;
 import com.doomedcat17.scpier.exception.SCPierResourcesInitializationException;
 import com.doomedcat17.scpier.exception.data.SCPWikiEmptyContentException;
-import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
 import com.doomedcat17.scpier.exception.page.html.document.revision.RevisionDateException;
 import com.doomedcat17.scpier.mapper.scp.DefaultScpWikiContentMapper;
 import com.doomedcat17.scpier.mapper.scp.ScpWikiContentMapper;

@@ -1,4 +1,4 @@
 articleName: "scp-5170"
-scpBranch: "ENGLISH"
+branch: "ENGLISH"
 removalDefinitions:
   - ".code"

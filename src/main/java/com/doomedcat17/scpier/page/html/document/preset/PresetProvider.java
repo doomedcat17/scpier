@@ -12,7 +12,7 @@ public class PresetProvider {
     public Preset getPresetByNameAndBranch(String name, SCPBranch scpBranch) throws WikiPresetNotFoundException {
        return presets.stream()
                 .filter(preset -> preset.getArticleName().equals(name))
-                .filter(preset -> preset.getScpBranch().equals(scpBranch))
+                .filter(preset -> preset.getBranch().equals(scpBranch))
                 .findFirst().orElseThrow(() -> new WikiPresetNotFoundException(name));
 
     }

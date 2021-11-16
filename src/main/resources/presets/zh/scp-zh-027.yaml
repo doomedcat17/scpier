@@ -1,4 +1,4 @@
 articleName: "scp-zh-027"
-scpBranch: "CHINESE_TRADITIONAL"
+branch: "CHINESE_TRADITIONAL"
 removalDefinitions:
   - ".code"

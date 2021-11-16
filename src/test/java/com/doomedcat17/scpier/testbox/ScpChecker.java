@@ -7,7 +7,7 @@ import com.doomedcat17.scpier.data.scp.SCPIdentifierPlacement;
 import com.doomedcat17.scpier.data.scp.SCPLanguage;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.doomedcat17.scpier.exception.data.SCPWikiEmptyContentException;
-import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
+import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFoundException;
 
 public class ScpChecker implements Runnable {
 
@@ -46,7 +46,7 @@ public class ScpChecker implements Runnable {
                 ScpWikiData scpWikiData = scpFoundationDataProvider.getScpWikiData(scpNumber.toString(), scpBranch, scpLanguage);
                 if (scpWikiData.getTitle() == null || scpWikiData.getContent().isEmpty() ||
                         scpWikiData.getContent().stream().anyMatch(ContentNode::isEmpty)) ScpCheck.addEmptyScp(scpNumber.toString());
-            } catch (SCPWikiContentNotFound e) {
+            } catch (SCPWikiContentNotFoundException e) {
                 e.printStackTrace();
                 notFoundCounter++;
             } catch (SCPWikiEmptyContentException e){

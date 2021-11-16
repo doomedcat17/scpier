@@ -1,4 +1,4 @@
 articleName: "scp-pl-181"
-scpBranch: "POLISH"
+branch: "POLISH"
 removalDefinitions:
   - ".code"

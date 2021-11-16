@@ -1,4 +1,4 @@
 articleName: "scp-879-jp"
-scpBranch: "JAPANESE"
+branch: "JAPANESE"
 removalDefinitions:
   - "#page1"

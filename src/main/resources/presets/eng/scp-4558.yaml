@@ -1,5 +1,5 @@
 articleName: "scp-4558" #makng this was pain ;-;
-scpBranch: "ENGLISH"
+branch: "ENGLISH"
 wikiElements:
   - selector: "a[onclick=\"collapsibleLink('block3');\"]"
     elementType: "BUTTON"

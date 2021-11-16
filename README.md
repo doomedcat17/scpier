@@ -11,7 +11,8 @@ SCPier itself is free to use for any pourpuse, if usage does not violate [Wikido
 - [How it works?](#how-it-works)
 - [Download](#download)
 - [Getting data](#getting-data)
-  - [SCPData](#scpwikidata)
+  - [ScpWikiDataProvider](#scpwikidataprovider)
+  - [ScpWikiData](#scpwikidata)
   - [SCPBranch and SCPTranslation](#scpbranch-and-scptranslation)
 - [Content data model](#content-data-model)
   - [Primary types of ContentNodes](#primary-types-of-contentnodes)
@@ -81,10 +82,36 @@ After this, just place the following into your POM's `<dependencies>` section:
  ```
 
 # Getting data
+### ScpWikiDataProvider
 
-To get data from Scp Wiki simply create instance of `ScpWikiDataProvider` class and call `getScpWikiContent()` method.
+It's a main class for getting content from the wiki. It has three constructors:
 
-It has three parameters:
+```java
+ScpWikiDataProvider();
+```
+Default constructor doesn't accept any parameter. It uses `NicelyLimitedWebClient` which limits **request rate to 240 per minute**.
+####Why request rate is limited by default?
+For safeness of SCP Wiki servers.
+
+But it has two additional constructors, if you don't like the limit.
+
+But keep in mind **it is NOT recommended exceeding defined request rate limit**.
+
+```java
+ScpWikiDataProvider(long timePeriod, long requestCap);
+```
+It accepts `timePeriod` in seconds and `requestCap`, which defines max number of requests in given time period.
+
+```java
+ScpWikiDataProvider(WebClient webclient);
+```
+It accepts HtmlUnit's `WebClient`, so you can provide your own implementation instead default one.
+
+####Getting wiki content
+
+To get data from Scp Wiki simply use `getScpWikiContent()` method.
+
+It accepts three parameters:
 
 `articleName` - name of the article.<br>
 SCPier puts it in the URL to search for desired article. If you want to get one of the SCPs, you have to provide its full name.
@@ -105,10 +132,9 @@ If you replace all special chars with `-`, it should work for ***most*** cases.
 `scpBranch` - `SCPBranch` enum of desired branch.
 Defines source branch of desired article.
 
-`scpLanguage` (Optional) - `SCPTranslation` enum of desired translation.
-Defines translation language of desired article.
-
-
+`scpLanguage` (Optional*) - `SCPLanguage` enum of desired language.
+Defines language of desired article. If not provided, returns article in its original language.  
+&ast; required for `NORDIC` branch, because it's multilingual.
 
 
 ```java
@@ -131,17 +157,19 @@ ScpWikiData object173 = scpWikiDataProvider
 ```
 Returns *SCP-PL-173* article in its original form.
 
-`getScpWikiContent()` throws `SCPierApiException` if any issue occurs.
+####Exceptions
+`SCPierApiException` is the class from which all other exceptions inherit.
+If article hasn't been found, the `SCPWikiContentNotFoundException` is thrown.
 
 ### ScpWikiData
 This object represents data retrieved form wiki. <br>
-It has the following variables
+It has the following variables:
 ```java
 String title;
 
-SCPBranch scpBranch;
+SCPBranch branch;
 
-SCPTranslation scpLanguage;
+SCPTranslation language;
 
 List<ContentNode<?>> content;
 
@@ -149,11 +177,13 @@ List<String> tags;
 
 Timestamp lastRevisionTimestamp;
 
+String author;
+
 String originalSource;
 
 String translationSource;
 ```
-`title` - title of the article from wiki.
+`title` - title of the article from the wiki.
 
 `scpBranch` - source branch of desired article.
 
@@ -163,7 +193,9 @@ String translationSource;
 
 `tags` - list of the article tags.
 
-`lastRevisionTimestamp` - unix time of last revision (UTC).
+`lastRevisionTimestamp` - unix time of the last revision (UTC).
+
+`author` - author's nickname. (page creator from the page's history)
 
 `originalSource` - URL of original article.
 
@@ -171,8 +203,8 @@ String translationSource;
 ```json
 {
   "title" : "SCP-006",
-  "scpBranch" : "ENGLISH",
-  "scpLanguage" : "ORIGINAL",
+  "branch" : "ENGLISH",
+  "language" : "ORIGINAL",
   "content" : [ {
     "contentNodeType" : "HEADING",
     "content" : [ {
@@ -290,17 +322,26 @@ String translationSource;
   } ],
   "tags" : [ "_cc", "_licensebox", "liquid", "location", "medical", "rewrite", "safe", "scp", "self-repairing" ],
   "lastRevisionTimestamp" : 1628542260000,
+  "author" : "Dr_Schubert",
   "originalSource" : "http://www.scp-wiki.wikidot.com/scp-006",
   "translationSource" : ""
 }
 ```
 ### SCPBranch and SCPTranslation
-They are enums, which define source branch and desired translation.
-**All official branches are supported. Translations are made by SCP community, SCPier does not translate anything by itself**
+They are enums, which define article's source branch and language.
+**All official branches are supported. Translations are made by SCP community, SCPier does not translate anything by itself**.
 
 
-List of SCP Wiki branches and translations:
+List of available SCP Wiki branches:
 
+```
+ENGLISH, POLISH, RUSSIAN, JAPANESE, CHINESE, CHINESE_TRADITIONAL,
+KOREAN, FRENCH, SPANISH, THAI, GERMAN, ITALIAN, UKRAINIAN,
+PORTUGUESE, CZECH, GREEK, INDONESIAN, ESTONIAN, TURKISH, VIETNAMESE, 
+ARABIAN, HUNGARIAN, ROMANIAN, SLOVENIAN, NORDIC
+````
+
+List of available languages:
 ```
 ENGLISH, POLISH, RUSSIAN, JAPANESE, CHINESE, CHINESE_TRADITIONAL,
 KOREAN, FRENCH, SPANISH, THAI, GERMAN, ITALIAN, UKRAINIAN,
@@ -319,8 +360,8 @@ ContentNodeType contentNodeType;
 T content;
 ```
 
-`ContentNodeType` is an enum that defines what type of content particular `ContentNode` holds. And content is
-content, as simple as that.
+`ContentNodeType` is an enum that defines what type of content particular `ContentNode` holds. And content defines
+its content, as simple as that.
 
 `ContentNode` has some child classes which have additional variables.
 
@@ -329,9 +370,9 @@ content, as simple as that.
 ### TEXT
 
 Defines ContentNode as TextNode. The `content` is of `String` type and it holds a piece of text.<br>
-It also has `styles` variable. It's a `Map` of CSS properties and its values applied to the `content`.
+It also has `styles` variable, which is a `Map` of CSS properties and its values applied to the `content`.
 
-**Only local HTML styles are applied!**
+**Only local styles are applied!**
 
 ```json
 {
@@ -355,7 +396,7 @@ Also, styles can be empty.
 
 ### HYPERLINK
 
-Defines `ContentNode` as `HyperlinkNode`. It corresponds to the `<a>` HTML tag.
+Defines `ContentNode` as `HyperlinkNode`. It corresponds to the `<a>` HTML element.
 It's subclass of `TextNode` with additional `href` variable of `String` type.
 
 ```json
@@ -372,8 +413,7 @@ It's subclass of `TextNode` with additional `href` variable of `String` type.
 ### IMAGE, VIDEO, AUDIO
 
 Defines `ContentNode` as `EmbedNode` that holds URL of resource as `String`. It also has a variable
-named `caption`, which is a `List` of TextNodes. It defines a description of given content. The description mainly
-applies for images.
+named `description`, which is a `List` of TextNodes. It defines a description of given content.
 
 `ImageNode`
 ```json
@@ -437,15 +477,15 @@ applies for images.
 
 ## ListNodes
 
-`ListNode` is subclass of `ContentNode` with list of ContentNodes as `content`.
+`ListNode` is subclass of `ContentNode` with list of ContentNodes as content.
 
 ### PARAGRAPH and HEADING
 
-`PARAGRAPH` defines `ContentNode` as `ParagraphNode`. It's subclass of `ListNode` and corresponds to `<p>` HTML tag.
+`PARAGRAPH` defines `ContentNode` as `ParagraphNode`. It's subclass of `ListNode` and corresponds to `<p>` HTML element.
 `HEADING` defines `ContentNode` as `HeadingNode` and it's subclass of `ParagraphNode`.
 They are identical, but  `HeadingNode` corresponds to ```<h1-h6>``` HTML tags.
 
-***They only holds TextNodes and its subclasses*** (like HyperlinkNodes).
+***They only hold TextNodes and its subclasses*** (like HyperlinkNodes).
 
 `ParagraphNode`
 
@@ -499,13 +539,13 @@ They are identical, but  `HeadingNode` corresponds to ```<h1-h6>``` HTML tags.
 
 ### DIV and BLOCKQUOTE
 
-These types are instances of `ListNode`. They correspond to `<div>` and  `<blockquote>` HTML tags.
+These types are instances of `ListNode`. They correspond to `<div>` and  `<blockquote>` HTML elements.
 Usually `<blockquote>` defines some type of note or document on wiki with dashed border and `<div>` is more like
 content box with solid border. 
 
 **They can hold all types of ContentNodes.**
 
-Blockquote
+`Blockquote`
 
 ```json
 {
@@ -549,7 +589,7 @@ Blockquote
 }
 ``` 
 
-Div
+`Div`
 
 ```json
 {
@@ -583,9 +623,8 @@ Div
 
 ### TABLE
 
-Corresponds to `<table>` HTML tag. It consists of ListNodes of `TABLE_ROW` type (`<tr>` HTML tag).
-Each `TABLE_ROW` can have multiple ListNodes of `TABLE_CELL` (`<td>` HTML tag)
-or `TABLE_HEADING_CELL` (`<th>` HTML tag) type.
+Corresponds to `<table>` HTML element. It consists of ListNodes of `TABLE_ROW` type.
+And, each `TABLE_ROW` can have multiple ListNodes of `TABLE_CELL`or `TABLE_HEADING_CELL` type.
 
 **```TABLE_CELL``` and ```TABLE_HEADING_CELL``` can hold all types of ContentNodes.**
 
@@ -670,9 +709,9 @@ or `TABLE_HEADING_CELL` (`<th>` HTML tag) type.
 
 ### LIST_OL, LIST_UL, LIST_DL
 
-Corresponds to HTML list tags (`<ol>`, `<ul>` and `<dl>`). Each od them consists of ListNodes of
-`LIST_ITEM` type (`<li>` HTML tag).<br>
-**They can hold all types of ContentNodes.**
+Corresponds to HTML list elements (`<ol>`, `<ul>` and `<dl>`). Each od them consists of ListNodes of
+`LIST_ITEM` type.  
+**List items can hold all types of ContentNodes.**
 
 ```json
 {
@@ -760,9 +799,9 @@ The most problematic case is usage of `code` class. It is mostly used for purely
 
 `Preset` consists of following properties:  
 
-`articleName`* - name of the article. **RESTFUL! Check [Getting data](#getting-data)**  
+`articleName`* - name of the article. **RESTFUL! Check [Getting data](#getting-data)**.  
 
-`scpBranch`* - wiki branch of the article.  
+`branch`* - wiki branch of the article.  
 
 `runtime` - number of milliseconds to wait after loading wiki page. Used when script is executed on page load. 
 

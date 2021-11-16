@@ -3,7 +3,7 @@ package com.doomedcat17.scpier.page;
 import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPLanguage;
-import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFound;
+import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFoundException;
 import com.doomedcat17.scpier.exception.page.html.document.preset.WikiPresetNotFoundException;
 import com.doomedcat17.scpier.exception.page.html.document.revision.RevisionDateException;
 import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter;
@@ -24,7 +24,7 @@ public class WikiContentProvider {
 
     private final PresetProvider presetProvider;
 
-    public WikiContent getPageContent(String name, SCPBranch scpBranch, SCPLanguage scpLanguage, WebClient webClient) throws SCPWikiContentNotFound, RevisionDateException {
+    public WikiContent getPageContent(String name, SCPBranch scpBranch, SCPLanguage scpLanguage, WebClient webClient) throws SCPWikiContentNotFoundException, RevisionDateException {
         try {
             WikiPageProvider wikiPageProvider = new DefaultWikiPageProvider();
             WikiPageInterpreter wikiPageInterpreter =
@@ -65,7 +65,7 @@ public class WikiContentProvider {
             }
             return wikiContent;
         } catch (IOException e) {
-            throw new SCPWikiContentNotFound("Wiki content has not been found: " + name + ", " + scpBranch + ", " + scpLanguage, e);
+            throw new SCPWikiContentNotFoundException("Wiki content has not been found: " + name + ", " + scpBranch + ", " + scpLanguage, e);
         }
     }
 
@@ -79,7 +79,7 @@ public class WikiContentProvider {
                 if (outerWikiContent.getLastRevisionTimestamp().after(wikiContent.getLastRevisionTimestamp())) {
                     wikiContent.setLastRevisionTimestamp(outerWikiContent.getLastRevisionTimestamp());
                 }
-            } catch (SCPWikiContentNotFound | RevisionDateException ignored) {
+            } catch (SCPWikiContentNotFoundException | RevisionDateException ignored) {
             }
         }
         outerContent.forEach(node -> wikiContent.getContent().appendChild(node));

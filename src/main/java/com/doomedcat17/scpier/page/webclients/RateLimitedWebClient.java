@@ -21,7 +21,7 @@ public class RateLimitedWebClient extends WebClient {
     private final long REQUEST_CAP;
 
     @Override
-    public <P extends Page> P getPage(String url) throws IOException, FailingHttpStatusCodeException, MalformedURLException {
+    public <P extends Page> P getPage(String url) throws IOException, FailingHttpStatusCodeException {
         if (startTime == null) startTime = LocalTime.now();
         if (endTime == null) endTime = startTime.plusSeconds(TIME_PERIOD);
         boolean reachedCap = LocalTime.now().isBefore(endTime) && requestCounter == REQUEST_CAP;

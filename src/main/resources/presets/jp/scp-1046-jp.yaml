@@ -1,5 +1,5 @@
 articleName: "scp-1046-jp"
-scpBranch: "JAPANESE"
+branch: "JAPANESE"
 removalDefinitions:
   - "#mailformdef-56648"
   - "#mailformdef-96899"

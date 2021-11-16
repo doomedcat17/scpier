@@ -1,5 +1,5 @@
 articleName: "scp-3959"
-scpBranch: "ENGLISH"
+branch: "ENGLISH"
 removalDefinitions:
   - "form"
 outerContentNames:
