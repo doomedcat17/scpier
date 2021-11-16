@@ -24,13 +24,13 @@ public class IframeContentProvider {
     public void provideIframesContent(WikiContent wikiContent, Preset preset) throws IframeContentProviderException {
         try {
             Elements iframes = wikiContent.getContent().getElementsByTag("iframe");
-            iframes.forEach(element -> replaceWithIframeContent(element, wikiContent.getContentSource(), wikiContent.getName(), wikiContent.getLangIdentifier(), preset));
+            iframes.forEach(element -> replaceWithIframeContent(element, wikiContent.getContentSource(), preset));
         } catch (Exception e) {
             throw new IframeContentProviderException(e);
         }
     }
 
-    private void replaceWithIframeContent(Element iframe, String pageSource, String title, String langIdentifier, Preset preset) {
+    private void replaceWithIframeContent(Element iframe, String pageSource, Preset preset) {
         String source = iframe.attr("src");
         if (isTrash(source)) {
             iframe.remove();

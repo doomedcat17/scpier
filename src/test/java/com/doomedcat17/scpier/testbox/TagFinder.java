@@ -35,7 +35,6 @@ public class TagFinder {
             Element content = document.selectFirst("#page-content");
             WikiContent wikiContent = new WikiContent();
             wikiContent.setOriginalSourceUrl(url + scpNumber);
-            wikiContent.setLangIdentifier("eng");
             wikiContent.setContent(content);
             ResourcesProvider.initResources();
             IframeContentProvider iframeContentProvider = new IframeContentProvider(

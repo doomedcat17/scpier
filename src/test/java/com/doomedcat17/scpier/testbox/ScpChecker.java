@@ -24,7 +24,8 @@ public class ScpChecker implements Runnable {
         System.out.println("Scp Checker +"+threadNum+" started");
         SCPBranch[] scpBranches = SCPBranch.values();
         for (SCPBranch scpBranch: scpBranches) {
-            checkScps(scpBranch , SCPLanguage.ORIGINAL);
+            if (scpBranch.equals(SCPBranch.NORDIC)) continue;
+            checkScps(scpBranch , SCPLanguage.getById(scpBranch.identifier));
         }
     }
 

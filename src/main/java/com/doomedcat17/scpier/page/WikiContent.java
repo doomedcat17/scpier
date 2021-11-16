@@ -13,10 +13,6 @@ public class WikiContent {
 
     private Element content;
 
-    private String translationIdentifier;
-
-    private String langIdentifier;
-
     private String originalSourceUrl;
 
     private String translationSourceUrl = "";
@@ -41,14 +37,6 @@ public class WikiContent {
 
     public void setTranslationSourceUrl(String translationSourceUrl) {
         this.translationSourceUrl = translationSourceUrl;
-    }
-
-    public String getTranslationIdentifier() {
-        return translationIdentifier;
-    }
-
-    public void setTranslationIdentifier(String translationIdentifier) {
-        this.translationIdentifier = translationIdentifier;
     }
 
     public String getName() {
@@ -85,14 +73,6 @@ public class WikiContent {
 
     public WikiContent(Element content) {
         this.content = content;
-    }
-
-    public String getLangIdentifier() {
-        return langIdentifier;
-    }
-
-    public void setLangIdentifier(String langIdentifier) {
-        this.langIdentifier = langIdentifier;
     }
 
     public Preset getPreset() {

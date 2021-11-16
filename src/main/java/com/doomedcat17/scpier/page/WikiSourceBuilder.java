@@ -20,7 +20,7 @@ public class WikiSourceBuilder {
                         .replace(3, 3, "-"+scpBranch.identifier);
             }
         }
-        if (scpLanguage.url.equals("")) {
+        if (scpLanguage.identifier.equals(scpBranch.identifier)) {
             sourceBuilder.insert(0, scpBranch.url);
         } else sourceBuilder.insert(0, scpLanguage.url);
         return sourceBuilder.toString();

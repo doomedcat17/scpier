@@ -4,6 +4,7 @@ import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPLanguage;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
+import com.doomedcat17.scpier.exception.MissingLanguageException;
 import com.doomedcat17.scpier.exception.SCPierApiException;
 import com.doomedcat17.scpier.exception.SCPierApiInternalException;
 import com.doomedcat17.scpier.exception.SCPierResourcesInitializationException;
@@ -24,12 +25,13 @@ public class ScpFoundationDataProvider {
     private final WebClient webClient;
 
     public ScpWikiData getScpWikiData(String articleName, SCPBranch scpBranch) throws SCPierApiException {
-        return getScpWikiData(articleName, scpBranch, SCPLanguage.ORIGINAL);
+        if (scpBranch.equals(SCPBranch.NORDIC)) throw new MissingLanguageException("SCPLanguage is required for Nordic Branch");
+        return getScpWikiData(articleName, scpBranch, SCPLanguage.getById(scpBranch.identifier));
     }
 
     public ScpWikiData getScpWikiData(String articleName, SCPBranch scpBranch, SCPLanguage scpLanguage) throws SCPierApiException {
         try {
-            WikiContent wikiContent = getPageContent(articleName, scpBranch, scpLanguage);
+            WikiContent wikiContent = wikiContentProvider.getPageContent(articleName, scpBranch, scpLanguage, webClient);
             return mapWikiContent(wikiContent, scpBranch, scpLanguage);
         } catch (RuntimeException | RevisionDateException e) {
             throw new SCPierApiInternalException(articleName, scpBranch, scpLanguage, e);
@@ -45,15 +47,6 @@ public class ScpFoundationDataProvider {
         scpWikiData.setBranch(scpBranch);
         scpWikiData.setLanguage(scpLanguage);
         return scpWikiData;
-    }
-
-
-    private WikiContent getPageContent(String name, SCPBranch scpBranch, SCPLanguage scpLanguage) throws SCPWikiContentNotFound, RevisionDateException {
-        WikiContent wikiContent = wikiContentProvider.getPageContent(name, scpBranch, scpLanguage, webClient);
-        if (scpLanguage.equals(SCPLanguage.ORIGINAL)) {
-            wikiContent.setTranslationIdentifier(scpBranch.identifier);
-        } else wikiContent.setTranslationIdentifier(scpLanguage.identifier);
-        return wikiContent;
     }
 
     public ScpFoundationDataProvider() {

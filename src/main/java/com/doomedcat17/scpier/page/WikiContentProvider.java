@@ -32,12 +32,11 @@ public class WikiContentProvider {
             String url = WikiSourceBuilder.buildSource(name.toLowerCase(), scpBranch, scpLanguage);
             name = url.substring(url.lastIndexOf('/') + 1);
             WikiContent wikiContent = wikiPageProvider.getWebpageContent(url);
-            if (scpLanguage != SCPLanguage.ORIGINAL) {
+            if (scpLanguage.identifier.equals(scpBranch.identifier)) {
                 wikiContent.setTranslationSourceUrl(url);
                 wikiContent.setOriginalSourceUrl(
-                        WikiSourceBuilder.buildSource(name.toLowerCase(), scpBranch, SCPLanguage.ORIGINAL)
+                        WikiSourceBuilder.buildSource(name.toLowerCase(), scpBranch, scpLanguage)
                 );
-                //
                 if (wikiContent.getOriginalSourceUrl().equals(wikiContent.getTranslationSourceUrl())) {
                     wikiContent.setTranslationSourceUrl("");
                 }
@@ -53,8 +52,6 @@ public class WikiContentProvider {
                             wikiContent.getContent()
                                     .selectFirst("#page-content")
                                     .appendChild(node));
-            wikiContent.setLangIdentifier(scpBranch.identifier);
-            wikiContent.setTranslationIdentifier(scpLanguage.identifier);
             Preset preset;
             try {
                 preset = presetProvider.getPresetByNameAndBranch(name, scpBranch);

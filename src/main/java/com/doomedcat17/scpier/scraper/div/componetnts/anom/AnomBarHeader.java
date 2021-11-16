@@ -29,12 +29,12 @@ public enum AnomBarHeader {
     TURKISH("tr", "Madde #:", "Nesne Sinifi:", "Ikinci sınıf:", "Sekte seviyesi:", "Risk seviyesi:"),
     CHINESE_TRADITIONAL("zh", "項目編號:", "收容等級：", "次要等級：", "瓦解等級：", "風險等級：");
 
-    public String langIdentifier;
-    public String itemName;
-    public String containClass;
-    public String secondClass;
-    public String disruptClass;
-    public String riskClass;
+    public final String langIdentifier;
+    public final String itemName;
+    public final String containClass;
+    public final String secondClass;
+    public final String disruptClass;
+    public final String riskClass;
 
     AnomBarHeader(String langIdentifier, String itemName, String containClass, String secondClass, String disruptClass, String riskClass) {
         this.langIdentifier = langIdentifier;
@@ -62,12 +62,7 @@ public enum AnomBarHeader {
 
     public static AnomBarHeader getAnomBarHeaderByUrl(String url) {
         SCPLanguage scpLanguage = SCPLanguage.getByUrl(url);
-        String langId = scpLanguage.identifier;
-        //nordic branch has multiple languages
-        if (langId.equals("nd")) {
-            langId = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf(':'));
-        }
-        return getAnomBarHeader(langId);
+        return getAnomBarHeader(scpLanguage.identifier);
     }
     public static AnomBarHeader getAnomBarHeader(String styleClasses) {
         return Arrays.stream(AnomBarHeader.values())
