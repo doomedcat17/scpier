@@ -9,7 +9,7 @@ import com.doomedcat17.scpier.exception.page.html.document.revision.RevisionDate
 import com.doomedcat17.scpier.page.html.document.interpreter.WikiPageInterpreter;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.PresetProvider;
-import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
+import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.offset.OffsetsProvider;
 import com.doomedcat17.scpier.page.html.document.revision.LastRevisionDateScraper;
@@ -26,7 +26,7 @@ public class WikiContentProvider {
 
     public WikiContent getPageContent(String name, SCPBranch scpBranch, SCPLanguage scpLanguage, WebClient webClient) throws SCPWikiContentNotFoundException, RevisionDateException {
         try {
-            WikiPageProvider wikiPageProvider = new DefaultWikiPageProvider();
+            WikiPageProvider wikiPageProvider = new ScriptedWikiPageProvider(webClient);
             WikiPageInterpreter wikiPageInterpreter =
                     new WikiPageInterpreter(webClient, wikiPageProvider);
             String url = WikiSourceBuilder.buildSource(name.toLowerCase(), scpBranch, scpLanguage);

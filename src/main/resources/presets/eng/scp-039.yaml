@@ -1,0 +1,4 @@
+articleName: "scp-039"
+branch: "ENGLISH"
+removalDefinitions:
+  - ".code"

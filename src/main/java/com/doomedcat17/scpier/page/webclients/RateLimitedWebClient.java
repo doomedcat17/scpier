@@ -3,7 +3,6 @@ package com.doomedcat17.scpier.page.webclients;
 import com.gargoylesoftware.htmlunit.*;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.time.LocalTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,6 +45,8 @@ public class RateLimitedWebClient extends WebClient {
         super.setAjaxController(new NicelyResynchronizingAjaxController());
         super.getOptions().setCssEnabled(false);
         super.setCssErrorHandler(new SilentCssErrorHandler());
-        Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
+        java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
+        java.util.logging.Logger.getLogger("org.apache.commons.httpclient").setLevel(Level.OFF);
+
     }
 }

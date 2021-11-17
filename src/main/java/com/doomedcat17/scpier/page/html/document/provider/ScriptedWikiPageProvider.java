@@ -21,7 +21,7 @@ public class ScriptedWikiPageProvider implements WikiPageProvider {
                 .toString();
         Document webpageContent = Jsoup.parse(htmlContent);
         WikiContent wikiContent = new WikiContent();
-        wikiContent.setContent(webpageContent.getElementsByTag("body").first());
+        wikiContent.setContent(webpageContent.selectFirst("body"));
         wikiContent.setOriginalSourceUrl(url);
         return wikiContent;
     }
