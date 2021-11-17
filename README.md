@@ -13,7 +13,7 @@ SCPier itself is free to use for any pourpuse, if usage does not violate [Wikido
 - [Getting data](#getting-data)
   - [ScpWikiDataProvider](#scpwikidataprovider)
   - [ScpWikiData](#scpwikidata)
-  - [SCPBranch and SCPTranslation](#scpbranch-and-scptranslation)
+  - [SCPBranch and SCPLanguage](#scpbranch-and-scplanguage)
 - [Content data model](#content-data-model)
   - [Primary types of ContentNodes](#primary-types-of-contentnodes)
     - [TEXT](#text)
@@ -204,7 +204,7 @@ String translationSource;
 {
   "title" : "SCP-006",
   "branch" : "ENGLISH",
-  "language" : "ORIGINAL",
+  "language" : "ENGLISH",
   "content" : [ {
     "contentNodeType" : "HEADING",
     "content" : [ {
@@ -327,8 +327,9 @@ String translationSource;
   "translationSource" : ""
 }
 ```
-### SCPBranch and SCPTranslation
+### SCPBranch and SCPLanguage
 They are enums, which define article's source branch and language.
+
 **All official branches are supported. Translations are made by SCP community, SCPier does not translate anything by itself**.
 
 
@@ -907,7 +908,7 @@ Although the current version is quite stable and safe to use.
 
 If you find any bugs or issues, please open new issues in [Issues](https://github.com/doomedcat17/scpier/issues).
 
-You can also contact me via [Telegram](https://t.me/doomedcat17).
+You can also contact me via [Telegram](https://t.me/doomedcat17) or email - doomedcat17@outlook.com.
 
 
 
