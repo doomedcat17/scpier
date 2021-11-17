@@ -4,25 +4,19 @@ import com.doomedcat17.scpier.exception.page.html.document.preset.PresetExecutor
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.webclients.NicelyLimitedWebClient;
-import com.doomedcat17.scpier.page.webclients.RateLimitedWebClient;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
-import com.gargoylesoftware.htmlunit.WebClient;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
-
 import java.io.File;
-import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PresetExecutorTest {
 
-    WebClient webClient = new NicelyLimitedWebClient();
-
     PresetExecutor presetExecutor = new PresetExecutor(new NicelyLimitedWebClient());
 
     @Test
-    void shouldWaitForJs() throws IOException, PresetExecutorException {
+    void shouldWaitForJs() throws PresetExecutorException {
         //given
         Preset preset = TestDataProvider.loadPresetFromYAML("src/test/resources/html/test_data/preset/input/shouldWaitForJs.yaml");
         File html = new File("src/test/resources/html/test_data/preset/input/shouldWaitForJs.html");
@@ -35,7 +29,7 @@ class PresetExecutorTest {
     }
 
     @Test
-    void shouldClickTheButton() throws IOException, PresetExecutorException {
+    void shouldClickTheButton() throws PresetExecutorException {
         //given
         Preset preset = TestDataProvider.loadPresetFromYAML("src/test/resources/html/test_data/preset/input/shouldClickTheButton.yaml");
         File html = new File("src/test/resources/html/test_data/preset/input/shouldClickTheButton.html");
@@ -48,7 +42,7 @@ class PresetExecutorTest {
     }
 
     @Test
-    void shouldClickMultipleButtons() throws IOException, PresetExecutorException {
+    void shouldClickMultipleButtons() throws PresetExecutorException {
         //given
         Preset preset = TestDataProvider.loadPresetFromYAML("src/test/resources/html/test_data/preset/input/shouldClickMultipleButtons.yaml");
         File html = new File("src/test/resources/html/test_data/preset/input/shouldClickMultipleButtons.html");
@@ -62,7 +56,7 @@ class PresetExecutorTest {
     }
 
     @Test
-    void shouldClickMultipleElements() throws IOException, PresetExecutorException {
+    void shouldClickMultipleElements() throws PresetExecutorException {
         //given
         Preset preset = TestDataProvider.loadPresetFromYAML("src/test/resources/html/test_data/preset/input/shouldClickMultipleElements.yaml");
         File html = new File("src/test/resources/html/test_data/preset/input/shouldClickMultipleElements.html");
@@ -76,7 +70,7 @@ class PresetExecutorTest {
     }
 
     @Test
-    void shouldHandleInput() throws IOException, PresetExecutorException {
+    void shouldHandleInput() throws PresetExecutorException {
         //given
         Preset preset = TestDataProvider.loadPresetFromYAML("src/test/resources/html/test_data/preset/input/shouldHandleInput.yaml");
         File html = new File("src/test/resources/html/test_data/preset/input/shouldHandleInput.html");
