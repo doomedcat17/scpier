@@ -43,12 +43,12 @@ What is scraped:
   - Links, images, videos and audio ([more info here](#image-video-audio))
   - Tags
   - Last revision time
+  - Author's nickname
 
 What is **NOT** scraped:
   - Animations and all interactive elements
   - CSS styling (classes, `<style>` tags etc.)
   - Forms and other inputs
-  - Authors info
 
 **Wait, why is the author’s info not provided?!** :c
 
@@ -106,6 +106,8 @@ It accepts `timePeriod` in seconds and `requestCap`, which defines max number of
 ScpWikiDataProvider(WebClient webclient);
 ```
 It accepts HtmlUnit's `WebClient`, so you can provide your own implementation instead default one.
+
+**ScpWikiDataProvider is not thread safe.** Use one instance per thread.
 
 ####Getting wiki content
 
