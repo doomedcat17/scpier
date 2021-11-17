@@ -31,31 +31,29 @@ SCPier itself is free to use for any pourpuse, if usage does not violate [Wikido
 
 # How it works?
 
-It's basically a webscraper. HTML elements are retrieved using [jsoup](https://jsoup.org/). If particular article uses JavaScript, 
-then the script is run by [HtmlUnit](https://htmlunit.sourceforge.io/) webclient.
-For more specific cases, it uses pre-defined [Presets](#listnodes). Retrieved
-HTML elements are scraped and interpreted by multiple ElementScrapers.
+It's basically a webscraper. Wiki content is retrived by [HtmlUnit's](https://htmlunit.sourceforge.io/) `Webclient`.
+It runs Wiki's Javascript (some pages use it) and provides page content.
+For more specific cases, pre-defined [Presets](#listnodes) are used for some additional operations before scraping phase. 
+Then, retrieved content is scraped by multiple element scrapers and mapped to set of objects.
 
 What is scraped:
   - All text data with its **local** styling
   - Tables
   - Lists
-  - Links, images, videos and audio ([more info here](#image-video-audio))
+  - Links
+  - Images, videos and audios sources ([more info here](#image-video-audio))
   - Tags
   - Last revision time
-  - Author's nickname
+  - Author's nickname (page crator from history section)
 
 What is **NOT** scraped:
   - Animations and all interactive elements
-  - CSS styling (classes, `<style>` tags etc.)
+  - CSS styling (classes, `<style>` elements etc.)
   - Forms and other inputs
+  - Scripts
+  - Any binary data
 
-**Wait, why is the author’s info not provided?!** :c
-
-Many articles don't have any info about the authors, and it's not very efficient to dig through the discuss section and other places on the wiki (it's very resource-consuming for the API and Wikidot).
-
-Check out [scpper](http://scpper.com/)
-
+**If you want retrieve more specific data form the wiki, check out [scpper](http://scpper.com/)**.
 # Download
 
 SCPier is available as a downloadable .jar java library. The current release version is 0.5.7.
