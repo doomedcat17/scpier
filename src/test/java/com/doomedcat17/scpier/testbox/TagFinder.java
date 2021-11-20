@@ -7,7 +7,7 @@ import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentClean
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
 import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
-import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
+import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.webclients.NicelyLimitedWebClient;
 import com.gargoylesoftware.htmlunit.WebClient;
 import org.jsoup.Connection;
@@ -38,7 +38,7 @@ public class TagFinder {
             wikiContent.setContent(content);
             ResourcesProvider.initResources();
             IframeContentProvider iframeContentProvider = new IframeContentProvider(
-                    new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()), new ScriptedWikiPageProvider(webClient), new PresetExecutor(webClient));
+                    new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()), new DefaultWikiPageProvider(webClient), new PresetExecutor(webClient));
             iframeContentProvider.provideIframesContent(wikiContent, new Preset());
             Elements elements = content.select(".anom-bar");
             if (!elements.isEmpty()) {

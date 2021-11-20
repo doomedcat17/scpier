@@ -15,7 +15,7 @@ public class PresetExecutor {
 
     private final WebClient webClient;
     public WikiContent execute(Preset preset, String src) throws PresetExecutorException {
-        try {
+        try (webClient) {
             HtmlPage page = webClient.getPage(src);
             for (WikiElement element : preset.getWikiElements()) {
                 try {

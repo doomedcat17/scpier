@@ -25,7 +25,6 @@ public class RecentChangesTitleFinder {
             } while (next(recentChangesPage));
 
         } catch (Exception e) {
-            System.out.println(scpBranch.url);
             e.printStackTrace();
         }
         return titles;

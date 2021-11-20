@@ -17,7 +17,7 @@ public class IframeContentProvider {
 
     private final WikiContentCleaner wikiContentCleaner;
 
-    private final ScriptedWikiPageProvider scriptedWikiPageProvider;
+    private final DefaultWikiPageProvider defaultWikiPageProvider;
 
     private final PresetExecutor presetExecutor;
 
@@ -56,9 +56,9 @@ public class IframeContentProvider {
                             webpageContent = presetExecutor.execute(preset, source);
                         } catch (NullPointerException e) {
                             // preset DOES NOT apply to all iframe elements, so default content is provided
-                            webpageContent = scriptedWikiPageProvider.getWebpageContent(source);
+                            webpageContent = defaultWikiPageProvider.getWebpageContent(source);
                         }
-                    } else webpageContent = scriptedWikiPageProvider.getWebpageContent(source);
+                    } else webpageContent = defaultWikiPageProvider.getWebpageContent(source);
                     if (webpageContent.getContent().children().isEmpty()) {
                         iframe.remove();
                     } else {
@@ -115,9 +115,9 @@ public class IframeContentProvider {
     }
 
 
-    public IframeContentProvider(WikiContentCleaner wikiContentCleaner, ScriptedWikiPageProvider scriptedWikiPageProvider, PresetExecutor presetExecutor) {
+    public IframeContentProvider(WikiContentCleaner wikiContentCleaner, DefaultWikiPageProvider defaultWikiPageProvider, PresetExecutor presetExecutor) {
         this.wikiContentCleaner = wikiContentCleaner;
-        this.scriptedWikiPageProvider = scriptedWikiPageProvider;
+        this.defaultWikiPageProvider = defaultWikiPageProvider;
         this.presetExecutor = presetExecutor;
     }
 }

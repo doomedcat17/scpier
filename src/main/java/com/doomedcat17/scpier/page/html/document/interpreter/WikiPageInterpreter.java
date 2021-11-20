@@ -11,7 +11,7 @@ import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
 import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
-import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
+import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
 import com.doomedcat17.scpier.page.html.document.revision.LastRevisionDateScraper;
@@ -67,7 +67,7 @@ public class WikiPageInterpreter {
     private void handleIframes(WikiContent wikiContent, Preset preset, WikiContentCleaner wikiContentCleaner) throws IframeContentProviderException {
         Elements iframes = wikiContent.getContent().select("iframe");
         if (!iframes.isEmpty()) {
-            IframeContentProvider iframeContentProvider = new IframeContentProvider(wikiContentCleaner, new ScriptedWikiPageProvider(webClient), new PresetExecutor(webClient));
+            IframeContentProvider iframeContentProvider = new IframeContentProvider(wikiContentCleaner, new DefaultWikiPageProvider(webClient), new PresetExecutor(webClient));
             iframeContentProvider.provideIframesContent(wikiContent, preset);
         }
     }

@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class AuthorScraper {
 
-    private WebClient webClient;
+    private final WebClient webClient;
     public String scrap(String source) throws IOException {
         try {
             Element element = getAuthorElement(source);
@@ -19,25 +19,28 @@ public class AuthorScraper {
     }
 
 
-    protected Element getAuthorElement(String source) throws IOException {;
-        HtmlPage page = webClient.getPage(source);
-        HtmlAnchor historyAnchor = (HtmlAnchor) page.getElementById("history-button");
-        historyAnchor.click();
-        webClient.waitForBackgroundJavaScript(1500);
-        HtmlSelect select = page.querySelector("#h-perpage");
-        HtmlOption option = select.getOptionByValue("200");
-        select.setSelectedAttribute(option, true);
-        HtmlInput refreshButton = page.querySelector(".buttons :first-child");
-        refreshButton.click();
-        webClient.waitForBackgroundJavaScript(1500);
-        HtmlAnchor nextButton = page.querySelector(".target:last-child > a");
-        while (nextButton != null) {
-            nextButton.click();
-            webClient.waitForBackgroundJavaScript(2000);
-            nextButton = page.querySelector(".target:last-child > a");
+    protected Element getAuthorElement(String source) throws IOException {
+        try (webClient) {
+            HtmlPage page = webClient.getPage(source);
+            HtmlAnchor historyAnchor = (HtmlAnchor) page.getElementById("history-button");
+            historyAnchor.click();
+            webClient.waitForBackgroundJavaScript(1500);
+            HtmlSelect select = page.querySelector("#h-perpage");
+            HtmlOption option = select.getOptionByValue("200");
+            select.setSelectedAttribute(option, true);
+            HtmlInput refreshButton = page.querySelector(".buttons :first-child");
+            refreshButton.click();
+            webClient.waitForBackgroundJavaScript(1500);
+            HtmlAnchor nextButton = page.querySelector(".target:last-child > a");
+            while (nextButton != null) {
+                nextButton.click();
+                webClient.waitForBackgroundJavaScript(2000);
+                nextButton = page.querySelector(".target:last-child > a");
+            }
+            HtmlElement htmlElement = page.querySelector(".page-history tbody  tr:last-child");
+            String html = htmlElement.asXml();
+            return Jsoup.parse(html);
         }
-        HtmlElement htmlElement = page.querySelector(".page-history tbody  tr:last-child");
-        return Jsoup.parse(htmlElement.asXml());
     }
 
     public AuthorScraper(WebClient webClient) {

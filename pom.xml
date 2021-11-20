@@ -5,7 +5,7 @@
 
     <groupId>com.doomedcat17</groupId>
     <artifactId>scpier</artifactId>
-    <version>0.5.7</version>
+    <version>0.5.8</version>
     <name>scpier</name>
     <description>SCPier</description>
     <packaging>jar</packaging>

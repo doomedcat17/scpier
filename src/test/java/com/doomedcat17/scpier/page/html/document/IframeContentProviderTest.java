@@ -7,7 +7,7 @@ import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentClean
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
 import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
-import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
+import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.webclients.NicelyLimitedWebClient;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class IframeContentProviderTest {
     @Mock
-    private ScriptedWikiPageProvider htmlDocumentProvider;
+    private DefaultWikiPageProvider htmlDocumentProvider;
 
     private IframeContentProvider iframeContentProvider;
 
