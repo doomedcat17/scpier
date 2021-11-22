@@ -27,7 +27,7 @@ public class LineScraper extends ElementScraper {
             //in few cases there are only empty chars and
             if (!element.wholeText().isBlank()) {
                 if (element.parent() != null) {
-                        List<TextNode> textNodes = TextScraper.scrapText(element, source);
+                        List<TextNode> textNodes = TextScraper.scrap(element, source);
                         if (textNodes.isEmpty()) return new ParagraphNode();
                         if (element.is("a")) return textNodes.get(0);
                         textNodes.get(textNodes.size() - 1).setContent(textNodes.get(textNodes.size() - 1).getContent().stripTrailing());

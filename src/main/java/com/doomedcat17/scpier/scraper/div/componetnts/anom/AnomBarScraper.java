@@ -30,7 +30,7 @@ public class AnomBarScraper extends DivScraper implements DivScraperComponent {
         Element itemHeaderElement = element.selectFirst(".item");
         //in some cases (SCP-PL-010) itemHeader is null
         if (itemHeaderElement != null && !itemHeaderElement.wholeText().isBlank()) {
-            TextNode itemHeader = TextScraper.scrapText(itemHeaderElement, source).get(0);
+            TextNode itemHeader = TextScraper.scrap(itemHeaderElement, source).get(0);
             if (!itemHeader.getContent().endsWith(" ")) itemHeader.setContent(itemHeader.getContent() + " ");
             if (!itemHeader.getStyles().containsKey("font-weight")) itemHeader.addStyle("font-weight", "bold");
             paragraph.addElement(itemHeader);
@@ -42,7 +42,7 @@ public class AnomBarScraper extends DivScraper implements DivScraperComponent {
             paragraph.addElement(generatedItemHeader);
         }
         Element itemNumberElement = element.selectFirst(".number");
-        TextNode itemName = TextScraper.scrapText(itemNumberElement, source).get(0);
+        TextNode itemName = TextScraper.scrap(itemNumberElement, source).get(0);
         if (!itemName.getContent().toLowerCase().startsWith("scp-"))
             itemName.setContent("SCP-" + itemName.getContent());
         paragraph.addElement(itemName);

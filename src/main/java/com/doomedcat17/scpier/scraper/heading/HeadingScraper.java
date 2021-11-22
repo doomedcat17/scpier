@@ -19,7 +19,7 @@ public class HeadingScraper extends ElementScraper {
     public ContentNode<?> scrapElement(Element element)  {
         try {
             HeadingNode headingNode = new HeadingNode();
-            List<TextNode> textNodes = TextScraper.scrapText(element, source);
+            List<TextNode> textNodes = TextScraper.scrap(element, source);
             headingNode.setContent(textNodes);
             return headingNode;
         } catch (Exception e) {

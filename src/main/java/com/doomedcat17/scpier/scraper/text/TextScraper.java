@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class TextScraper {
 
-    public static List<TextNode> scrapText(Element textElement, String sourceUrl) {
+    public static List<TextNode> scrap(Element textElement, String sourceUrl) {
         try {
             List<TextNode> textNodes = new ArrayList<>();
             if (textElement.is("br")) {
@@ -43,7 +43,7 @@ public class TextScraper {
                 } else {
                     if (innerElement.text().isBlank()) continue;
                     if (innerElement.childrenSize() != 0) {
-                        List<TextNode> innerTextNodes = scrapText(innerElement, sourceUrl);
+                        List<TextNode> innerTextNodes = scrap(innerElement, sourceUrl);
                         textNodes.addAll(innerTextNodes);
                     } else {
                         Map<String, String> innerElementStyling = StyleScraper.scrapStyles(innerElement);

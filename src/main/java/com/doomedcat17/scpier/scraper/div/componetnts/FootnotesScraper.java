@@ -26,7 +26,7 @@ public class FootnotesScraper extends DivScraper implements DivScraperComponent 
         Elements footnotes = element.select(".footnote-footer");
         for (Element footnote: footnotes) {
             ParagraphNode paragraph = new ParagraphNode();
-            paragraph.addElements(TextScraper.scrapText(footnote, source));
+            paragraph.addElements(TextScraper.scrap(footnote, source));
             contentNodes.add(paragraph);
         }
         return contentNodes;

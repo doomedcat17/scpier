@@ -61,7 +61,7 @@ public class ImageBlockScraper extends DivScraper implements DivScraperComponent
         if (captionElement != null && !captionElement.childNodes().isEmpty()) {
             for(Node node: captionElement.childNodes()) {
                 if (node instanceof Element) {
-                    textNodes.addAll(TextScraper.scrapText((Element) node, source));
+                    textNodes.addAll(TextScraper.scrap((Element) node, source));
                 } else {
                     String nodeText = node.toString().trim();
                     if (!nodeText.isEmpty()) textNodes.add(new TextNode(nodeText));
