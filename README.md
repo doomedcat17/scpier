@@ -56,8 +56,8 @@ What is **NOT** scraped:
 **If you want retrieve more specific data form the wiki, check out [scpper](http://scpper.com/)**.
 # Download
 
-SCPier is available as a downloadable .jar java library. The current release version is 0.5.7.
-[Download here](https://objects.githubusercontent.com/github-production-release-asset-2e65be/308120373/c3f78dac-3b54-4a9c-b748-46d5353abca8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20211104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211104T170146Z&X-Amz-Expires=300&X-Amz-Signature=f72e03b0a1d9961c39e5a63e5379723d44df77a14434702835bd39b9d0c26309&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=308120373&response-content-disposition=attachment%3B%20filename%3Dscpier-0.5.7.jar&response-content-type=application%2Foctet-stream).
+SCPier is available as a downloadable .jar java library.
+Download [here](https://objects.githubusercontent.com/github-production-release-asset-2e65be/308120373/c3f78dac-3b54-4a9c-b748-46d5353abca8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20211104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211104T170146Z&X-Amz-Expires=300&X-Amz-Signature=f72e03b0a1d9961c39e5a63e5379723d44df77a14434702835bd39b9d0c26309&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=308120373&response-content-disposition=attachment%3B%20filename%3Dscpier-0.5.7.jar&response-content-type=application%2Foctet-stream).
 
 ### Maven
 Package is hosted on [GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages).
@@ -75,7 +75,7 @@ After this, just place the following into your POM's `<dependencies>` section:
   <dependency>
     <groupId>com.doomedcat17</groupId>
     <artifactId>scpier</artifactId>
-    <version>0.5.7</version>
+    <version>0.5.8</version>
   </dependency>
  ```
 
@@ -88,20 +88,22 @@ It's a main class for getting content from the wiki. It has three constructors:
 ScpWikiDataProvider();
 ```
 Default constructor doesn't accept any parameter. It uses `NicelyLimitedWebClient` which limits **request rate to 240 per minute**.
-####Why request rate is limited by default?
-For safeness of SCP Wiki servers.
 
-But it has two additional constructors, if you don't like the limit.
+**Why request rate is limited by default?**
+
+For safety of SCP Wiki servers.
+
+But it has two additional methods providing custom ScpWikiDataProvider, if you don't like the limit.
 
 But keep in mind **it is NOT recommended exceeding defined request rate limit**.
 
 ```java
-ScpWikiDataProvider(long timePeriod, long requestCap);
+ScpFoundationDataProvider.createWithCustomRequestRateLimit(long timePeriod, long requestCap);
 ```
 It accepts `timePeriod` in seconds and `requestCap`, which defines max number of requests in given time period.
 
 ```java
-ScpWikiDataProvider(WebClient webclient);
+ScpFoundationDataProvider.createWithCustomWebClient(WebClient webClient);
 ```
 It accepts HtmlUnit's `WebClient`, so you can provide your own implementation instead default one.
 

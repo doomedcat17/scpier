@@ -89,12 +89,12 @@ public class ScpFoundationDataProvider {
     /**
      * Creates an instance of {@link com.doomedcat17.scpier.ScpFoundationDataProvider} with custom request rate limiter.
      *
-     * @param  timePeriod  a time period in which requests will be limited.
+     * @param  timePeriod  a time period (in seconds) in which requests will be limited.
      * @param  requestCap a max number of requests in timePeriod.
      * @return an instance of {@link com.doomedcat17.scpier.ScpFoundationDataProvider} with defined request rate limitation.
      */
 
-    public static ScpFoundationDataProvider createWithRequestRateLimited(long timePeriod, long requestCap) {
+    public static ScpFoundationDataProvider createWithCustomRequestRateLimit(long timePeriod, long requestCap) {
         return new ScpFoundationDataProvider(timePeriod, requestCap);
     }
     private ScpFoundationDataProvider(long timePeriod, long requestCap) {
