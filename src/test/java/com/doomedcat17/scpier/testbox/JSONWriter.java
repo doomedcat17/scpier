@@ -13,7 +13,7 @@ public class JSONWriter {
         ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("scp-asdasdads", SCPBranch.ENGLISH, SCPLanguage.ENGLISH);
+            ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("scp-173", SCPBranch.ENGLISH, SCPLanguage.ENGLISH);
             System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(scp));
 
         } catch (Exception e) {
