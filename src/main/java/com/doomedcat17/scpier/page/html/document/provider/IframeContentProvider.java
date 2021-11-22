@@ -21,7 +21,7 @@ public class IframeContentProvider {
 
     private final PresetExecutor presetExecutor;
 
-    public void provideIframesContent(WikiContent wikiContent, Preset preset) throws IframeContentProviderException {
+    public void includeIframesContent(WikiContent wikiContent, Preset preset) throws IframeContentProviderException {
         try {
             Elements iframes = wikiContent.getContent().getElementsByTag("iframe");
             iframes.forEach(element -> replaceWithIframeContent(element, wikiContent.getContentSource(), preset));
@@ -62,7 +62,7 @@ public class IframeContentProvider {
                     if (webpageContent.getContent().children().isEmpty()) {
                         iframe.remove();
                     } else {
-                        provideIframesContent(webpageContent, preset);
+                        includeIframesContent(webpageContent, preset);
                         iframeContent = webpageContent.getContent();
                         wikiContentCleaner.removeTrashNodes(iframeContent);
                         replaceIframeWithItsContent(iframe, iframeContent);

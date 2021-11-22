@@ -39,7 +39,7 @@ public class TagFinder {
             ResourcesProvider.initResources();
             IframeContentProvider iframeContentProvider = new IframeContentProvider(
                     new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()), new DefaultWikiPageProvider(webClient), new PresetExecutor(webClient));
-            iframeContentProvider.provideIframesContent(wikiContent, new Preset());
+            iframeContentProvider.includeIframesContent(wikiContent, new Preset());
             Elements elements = content.select(".anom-bar");
             if (!elements.isEmpty()) {
                 System.out.println(scpNumber);

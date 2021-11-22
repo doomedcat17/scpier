@@ -1,6 +1,8 @@
 package com.doomedcat17.scpier.data.scp;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 
 @SuppressWarnings("HttpUrlsUsage")
 public enum SCPLanguage {
@@ -48,6 +50,10 @@ public enum SCPLanguage {
         return Arrays.stream(SCPLanguage.values())
                 .filter(scpTranslation -> url.contains(scpTranslation.url))
                 .findFirst().orElseThrow(NullPointerException::new);
+    }
+
+    public static Set<SCPLanguage> getNordicLanguages() {
+        return Set.of(SCPLanguage.NORWEGIAN, SCPLanguage.DANISH, SCPLanguage.FINNISH, SCPLanguage.SWEDISH);
     }
 
     public static SCPLanguage getById(String id) {

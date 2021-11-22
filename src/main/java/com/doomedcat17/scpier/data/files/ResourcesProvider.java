@@ -22,17 +22,19 @@ public class ResourcesProvider {
 
     private static Set<OffsetPattern> offsetPatterns;
 
-    private static boolean initialized = false;
+    private volatile static boolean initialized = false;
 
     public static synchronized void initResources() throws IOException, URISyntaxException {
-        presetProvider = new PresetProvider(PresetLoader.loadPresets());
-        RemovalDefinitionsLoader removalDefinitionsLoader = new RemovalDefinitionsLoader();
-        removalDefinitions = removalDefinitionsLoader.loadRemovalDefinitions();
-        RedirectionDefinitionsLoader redirectionDefinitionsLoader = new RedirectionDefinitionsLoader();
-        redirectionDefinitions = redirectionDefinitionsLoader.loadRedirectionDefinitions();
-        OffsetPatternsLoader offsetPatternsLoader = new OffsetPatternsLoader();
-        offsetPatterns = offsetPatternsLoader.loadOffsetPatterns();
-        initialized = true;
+        if (!initialized) {
+            presetProvider = new PresetProvider(PresetLoader.loadPresets());
+            RemovalDefinitionsLoader removalDefinitionsLoader = new RemovalDefinitionsLoader();
+            removalDefinitions = removalDefinitionsLoader.loadRemovalDefinitions();
+            RedirectionDefinitionsLoader redirectionDefinitionsLoader = new RedirectionDefinitionsLoader();
+            redirectionDefinitions = redirectionDefinitionsLoader.loadRedirectionDefinitions();
+            OffsetPatternsLoader offsetPatternsLoader = new OffsetPatternsLoader();
+            offsetPatterns = offsetPatternsLoader.loadOffsetPatterns();
+            initialized = true;
+        }
     }
 
     public static boolean isInitialized() {

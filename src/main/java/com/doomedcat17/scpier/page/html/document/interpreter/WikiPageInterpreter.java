@@ -68,7 +68,7 @@ public class WikiPageInterpreter {
         Elements iframes = wikiContent.getContent().select("iframe");
         if (!iframes.isEmpty()) {
             IframeContentProvider iframeContentProvider = new IframeContentProvider(wikiContentCleaner, new DefaultWikiPageProvider(webClient), new PresetExecutor(webClient));
-            iframeContentProvider.provideIframesContent(wikiContent, preset);
+            iframeContentProvider.includeIframesContent(wikiContent, preset);
         }
     }
 
