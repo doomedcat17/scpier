@@ -1,12 +1,8 @@
 package com.doomedcat17.scpier.data.content;
 
 import java.util.Map;
-
-/** Corresponds to <b style="color: aqua;">{@code <a> }</b> tag from HTML.
- * <p>The content is of {@link String} type and defines text of the hyperlink.</p>*/
 public class HyperlinkNode extends TextNode {
 
-    /** URL of hyperlink */
     private String href;
 
     public String getHref() {

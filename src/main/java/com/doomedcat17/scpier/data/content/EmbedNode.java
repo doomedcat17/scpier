@@ -6,15 +6,10 @@ import java.util.List;
 
 public class EmbedNode extends ContentNode<String> {
 
-    /** Caption of the image */
     private List<TextNode> description = new ArrayList<>();
 
     public List<TextNode> getDescription() {
         return description;
-    }
-
-    public void addTextNodeToDescription(TextNode textNode) {
-        description.add(textNode);
     }
 
     public void setDescription(List<TextNode> description) {
