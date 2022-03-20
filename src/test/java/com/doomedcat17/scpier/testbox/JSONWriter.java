@@ -8,11 +8,12 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JSONWriter {
+class JSONWriter {
     public static void main(String[] args) throws JsonProcessingException {
         ScpFoundationDataProvider scpFoundationDataProvider = new ScpFoundationDataProvider();
         try {
             ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.findAndRegisterModules();
             ScpWikiData scp = scpFoundationDataProvider.getScpWikiData("scp-173", SCPBranch.ENGLISH, SCPLanguage.ENGLISH);
             System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(scp));
 

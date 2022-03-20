@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.testbox.wiki;
+package com.doomedcat17.scpier.testbox;
 
 import com.doomedcat17.scpier.ScpFoundationDataProvider;
 import com.doomedcat17.scpier.data.content.ContentNode;
@@ -6,7 +6,7 @@ import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.doomedcat17.scpier.exception.data.SCPWikiEmptyContentException;
 import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFoundException;
-import com.doomedcat17.scpier.testbox.JSONWriter;
+import com.doomedcat17.scpier.testbox.wiki.Article;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

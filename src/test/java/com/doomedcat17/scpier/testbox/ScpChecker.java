@@ -9,11 +9,11 @@ import com.doomedcat17.scpier.data.scp.ScpWikiData;
 import com.doomedcat17.scpier.exception.data.SCPWikiEmptyContentException;
 import com.doomedcat17.scpier.exception.page.SCPWikiContentNotFoundException;
 
-public class ScpChecker implements Runnable {
+class ScpChecker implements Runnable {
 
     private static int threadCounter = 1;
 
-    private int threadNum;
+    private final int threadNum;
 
     private final int startNumber;
 

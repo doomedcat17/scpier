@@ -1,7 +1,6 @@
 package com.doomedcat17.scpier.data.scp;
 
 import java.util.Arrays;
-import java.util.Optional;
 
 @SuppressWarnings("HttpUrlsUsage")
 public enum SCPBranch {
@@ -45,10 +44,15 @@ public enum SCPBranch {
 
     public static SCPBranch getByUrl(String url) {
         if (url.equals("http://scp-int.wikidot.com/")) return SCPBranch.ENGLISH;
-        Optional<SCPBranch> foundScpBranch = Arrays.stream(SCPBranch.values())
-                .filter(scpBranch -> scpBranch.url.equals(url)).findFirst();
-        if (foundScpBranch.isPresent()) return foundScpBranch.get();
-        else throw new NullPointerException();
+        return Arrays.stream(SCPBranch.values())
+                .filter(scpBranch -> scpBranch.url.equals(url))
+                .findFirst().orElse(null);
+    }
+
+    public static SCPBranch getById(String langId) {
+        return Arrays.stream(SCPBranch.values())
+                .filter(scpBranch -> scpBranch.identifier.equals(langId))
+                .findFirst().orElse(null);
     }
 }
 

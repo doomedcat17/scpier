@@ -3,7 +3,6 @@ package com.doomedcat17.scpier.scrappers;
 
 import com.doomedcat17.scpier.data.content.*;
 import com.doomedcat17.scpier.scraper.table.TableScraper;
-import com.doomedcat17.scpier.testbox.JSONWriter;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.jsoup.nodes.Element;

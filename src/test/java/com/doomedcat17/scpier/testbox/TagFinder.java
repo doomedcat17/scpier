@@ -6,8 +6,8 @@ import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
-import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
+import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
 import com.doomedcat17.scpier.page.webclients.NicelyLimitedWebClient;
 import com.gargoylesoftware.htmlunit.WebClient;
 import org.jsoup.Connection;
@@ -19,8 +19,8 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class TagFinder {
-    private static WebClient webClient = new NicelyLimitedWebClient();
+class TagFinder {
+    private static final WebClient webClient = new NicelyLimitedWebClient();
 
     public static void main(String[] args) throws IOException, URISyntaxException, IframeContentProviderException {
         String url = "http://scp-ru.wikidot.com/";

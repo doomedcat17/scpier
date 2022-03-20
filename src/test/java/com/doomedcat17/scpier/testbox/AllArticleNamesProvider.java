@@ -1,7 +1,8 @@
-package com.doomedcat17.scpier.testbox.wiki;
+package com.doomedcat17.scpier.testbox;
 
 import com.doomedcat17.scpier.data.scp.SCPBranch;
-import com.doomedcat17.scpier.testbox.JSONWriter;
+import com.doomedcat17.scpier.testbox.wiki.Article;
+import com.doomedcat17.scpier.testbox.wiki.TitleFinder;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

@@ -177,7 +177,7 @@ List<ContentNode<?>> content;
 
 List<String> tags;
 
-Timestamp lastRevisionTimestamp;
+LocalDateTime lastRevisionTimestamp;
 
 String author;
 
@@ -195,13 +195,13 @@ String translationSource;
 
 `tags` - list of the article tags.
 
-`lastRevisionTimestamp` - unix time of the last revision (UTC).
+`lastRevisionTimestamp` - date and time of the last revision (UTC).
 
 `author` - author's nickname. (page creator from the page's history)
 
 `originalSource` - URL of original article.
 
-`translationSource` - URL of translated article (is blank if the article is not translated).
+`translationSource` - URL of translated article.
 ```json
 {
   "title" : "SCP-006",

@@ -15,10 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ListScrapperTest extends ScrapperTest {
 
     private final ListScraper listMapper = new ListScraper(SOURCE);
-
     private final Element sampleLists = TestDataProvider
             .getSampleElement("src/test/resources/html/test_data/lists/sample-lists-elements.html");
-
     private final Map<String, ContentNode<?>> expectedOutputs =
             getExpectedContentNodeOutputs("src/test/resources/html/test_data/lists/expected_outputs.json");
 
