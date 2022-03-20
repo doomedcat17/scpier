@@ -1,9 +1,7 @@
 package com.doomedcat17.scpier.testbox;
 
-import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
@@ -13,30 +11,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.File;
-import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class TestDataProvider {
-
-    private static Document sampleScpDocument;
-
-    private static final ObjectMapper objectMapper = new ObjectMapper();
-
-
-    public static Map<String, List<ContentNode<?>>> getSampleContentNodes(String path) {
-        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.EVERYTHING, JsonTypeInfo.As.WRAPPER_OBJECT);
-        try {
-            HashMap<String, List<ContentNode<?>>> outputs =
-                    objectMapper.readValue(new File(path), new TypeReference<HashMap<String, List<ContentNode<?>>>>(){});
-            return outputs;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     private static Element loadElementFromHTML(String path) {
         Element element = null;
@@ -81,7 +58,7 @@ public class TestDataProvider {
         WikiContent wikiContent = new WikiContent();
         wikiContent.setContent(scpDocument.getElementsByTag("body").first());
         wikiContent.setOriginalSourceUrl("url");
-        wikiContent.setLastRevisionTimestamp(LocalDateTime.now());
+        wikiContent.setLastRevisionDate(LocalDateTime.now());
         return wikiContent;
     }
 

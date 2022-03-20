@@ -4,7 +4,6 @@ import com.doomedcat17.scpier.ScpFoundationDataProvider;
 import com.doomedcat17.scpier.data.scp.SCPBranch;
 import com.doomedcat17.scpier.data.scp.SCPLanguage;
 import com.doomedcat17.scpier.data.scp.ScpWikiData;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -20,12 +19,6 @@ class JSONWriter {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static String asJSONString(Object obj) throws JsonProcessingException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.EVERYTHING, JsonTypeInfo.As.WRAPPER_OBJECT);
-        return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);
     }
 
 
