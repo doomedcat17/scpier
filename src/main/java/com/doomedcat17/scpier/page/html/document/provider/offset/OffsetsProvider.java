@@ -9,8 +9,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -37,12 +37,12 @@ public class OffsetsProvider {
                     offsetPattern.getPattern().replaceAll("<NUMBER>", String.valueOf(i));
             try {
                 WikiContent offsetWikiContent = wikiPageProvider.getWebpageContent(source);
-                Date lastRevisionTimestamp = lastRevisionDateScraper.scrapDate(offsetWikiContent.getContent());
+                LocalDateTime lastRevisionTimestamp = lastRevisionDateScraper.scrapDate(offsetWikiContent.getContent());
                 Element content = offsetWikiContent.getContent().selectFirst("#page-content");
                 if (previousContent.html().equals(content.html())) break;
                 offsetsContent.addAll(content.childNodes());
-                if (lastRevisionTimestamp.after(originalContent.getLastRevisionTimestamp())) {
-                    originalContent.setLastRevisionTimestamp(lastRevisionTimestamp);
+                if (lastRevisionTimestamp.isAfter(originalContent.getLastRevisionDate())) {
+                    originalContent.setLastRevisionDate(lastRevisionTimestamp);
                 }
                 previousContent = content;
             } catch (IOException | RevisionDateException e) {

@@ -3,30 +3,23 @@ package com.doomedcat17.scpier.page;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import org.jsoup.nodes.Element;
 
-import java.sql.Timestamp;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 public class WikiContent {
 
     private String name;
-
     private Element content;
-
     private String originalSourceUrl;
-
-    private String translationSourceUrl = "";
-
-    private Date lastRevisionTimestamp;
-
+    private String translationSourceUrl;
+    private LocalDateTime lastRevisionDate;
     private List<String> tags;
-
     private String author;
-
     private Preset preset;
 
     public String getContentSource() {
-        if (translationSourceUrl.isEmpty()) {
+        if (Objects.isNull(translationSourceUrl)) {
             return originalSourceUrl;
         } else return translationSourceUrl;
     }
@@ -83,12 +76,12 @@ public class WikiContent {
         this.preset = preset;
     }
 
-    public Date getLastRevisionTimestamp() {
-        return lastRevisionTimestamp;
+    public LocalDateTime getLastRevisionDate() {
+        return lastRevisionDate;
     }
 
-    public void setLastRevisionTimestamp(Date lastRevisionTimestamp) {
-        this.lastRevisionTimestamp = lastRevisionTimestamp;
+    public void setLastRevisionDate(LocalDateTime lastRevisionDate) {
+        this.lastRevisionDate = lastRevisionDate;
     }
 
     public String getAuthor() {

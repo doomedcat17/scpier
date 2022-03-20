@@ -42,7 +42,7 @@ public class WikiContentProvider {
                 }
             }
             LastRevisionDateScraper lastRevisionDateScraper = new LastRevisionDateScraper();
-            wikiContent.setLastRevisionTimestamp(
+            wikiContent.setLastRevisionDate(
                    lastRevisionDateScraper.scrapDate(wikiContent.getContent())
             );
             if (wikiContent.getContent().selectFirst("#page-content") == null) throw new IOException();
@@ -76,8 +76,8 @@ public class WikiContentProvider {
             try {
                 WikiContent outerWikiContent = getPageContent(outerContentName, branch, translation, webClient);
                 outerContent.addAll(outerWikiContent.getContent().childNodes());
-                if (outerWikiContent.getLastRevisionTimestamp().after(wikiContent.getLastRevisionTimestamp())) {
-                    wikiContent.setLastRevisionTimestamp(outerWikiContent.getLastRevisionTimestamp());
+                if (outerWikiContent.getLastRevisionDate().isAfter(wikiContent.getLastRevisionDate())) {
+                    wikiContent.setLastRevisionDate(outerWikiContent.getLastRevisionDate());
                 }
             } catch (SCPWikiContentNotFoundException | RevisionDateException ignored) {
             }

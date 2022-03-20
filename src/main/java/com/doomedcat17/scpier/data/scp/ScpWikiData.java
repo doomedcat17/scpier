@@ -3,28 +3,21 @@ package com.doomedcat17.scpier.data.scp;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 public class ScpWikiData {
 
     private String title;
-
     private SCPBranch branch;
-
     private SCPLanguage language;
-
     private List<ContentNode<?>> content;
-
     private List<String> tags;
-
-    private Date lastRevisionTimestamp;
-
+    private LocalDateTime lastRevisionDate;
     private String author;
-
     private String originalSource;
-
-    private String translationSource = "";
+    private String translationSource;
 
 
     public void getContent(ContentNode<?> content) {
@@ -53,7 +46,7 @@ public class ScpWikiData {
 
     @JsonIgnore
     public String getContentSource() {
-        if (translationSource.isEmpty()) {
+        if (Objects.isNull(translationSource)) {
             return originalSource;
         } else return translationSource;
     }
@@ -86,12 +79,12 @@ public class ScpWikiData {
         this.language = language;
     }
 
-    public Date getLastRevisionTimestamp() {
-        return lastRevisionTimestamp;
+    public LocalDateTime getLastRevisionDate() {
+        return lastRevisionDate;
     }
 
-    public void setLastRevisionTimestamp(Date lastRevisionTimestamp) {
-        this.lastRevisionTimestamp = lastRevisionTimestamp;
+    public void setLastRevisionDate(LocalDateTime lastRevisionDate) {
+        this.lastRevisionDate = lastRevisionDate;
     }
 
     public String getTranslationSource() {
@@ -122,7 +115,7 @@ public class ScpWikiData {
         if (language != that.language) return false;
         if (!content.equals(that.content)) return false;
         if (!tags.equals(that.tags)) return false;
-        if (!lastRevisionTimestamp.equals(that.lastRevisionTimestamp)) return false;
+        if (!lastRevisionDate.equals(that.lastRevisionDate)) return false;
         if (!author.equals(that.author)) return false;
         if (!originalSource.equals(that.originalSource)) return false;
         return translationSource.equals(that.translationSource);
@@ -135,7 +128,7 @@ public class ScpWikiData {
         result = 31 * result + language.hashCode();
         result = 31 * result + content.hashCode();
         result = 31 * result + tags.hashCode();
-        result = 31 * result + lastRevisionTimestamp.hashCode();
+        result = 31 * result + lastRevisionDate.hashCode();
         result = 31 * result + author.hashCode();
         result = 31 * result + originalSource.hashCode();
         result = 31 * result + translationSource.hashCode();

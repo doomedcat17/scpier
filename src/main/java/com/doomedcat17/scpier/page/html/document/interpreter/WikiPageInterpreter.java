@@ -10,8 +10,8 @@ import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentClean
 import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
-import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
+import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
 import com.doomedcat17.scpier.page.html.document.revision.LastRevisionDateScraper;
@@ -20,8 +20,9 @@ import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
 import com.gargoylesoftware.htmlunit.WebClient;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 import java.io.IOException;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -57,10 +58,10 @@ public class WikiPageInterpreter {
         if (redirectionElement.isPresent()) {
             content = wikiRedirectionHandler.getRedirectionContent(redirectionElement.get(), wikiContent.getContentSource());
             LastRevisionDateScraper lastRevisionDateScraper = new LastRevisionDateScraper();
-            Date lastRevision = lastRevisionDateScraper.scrapDate(content);
+            LocalDateTime lastRevision = lastRevisionDateScraper.scrapDate(content);
             wikiContent.setContent(content);
-            if (lastRevision.after(wikiContent.getLastRevisionTimestamp()))
-                wikiContent.setLastRevisionTimestamp(lastRevision);
+            if (lastRevision.isAfter(wikiContent.getLastRevisionDate()))
+                wikiContent.setLastRevisionDate(lastRevision);
         }
     }
 
