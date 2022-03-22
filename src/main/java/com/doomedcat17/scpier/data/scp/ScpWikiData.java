@@ -19,6 +19,20 @@ public class ScpWikiData {
     private String originalSource;
     private String translationSource;
 
+    public ScpWikiData(String title, SCPBranch branch, SCPLanguage language, List<ContentNode<?>> content, List<String> tags, LocalDateTime lastRevisionDate, String author, String originalSource, String translationSource) {
+        this.title = title;
+        this.branch = branch;
+        this.language = language;
+        this.content = content;
+        this.tags = tags;
+        this.lastRevisionDate = lastRevisionDate;
+        this.author = author;
+        this.originalSource = originalSource;
+        this.translationSource = translationSource;
+    }
+
+    public ScpWikiData() {
+    }
 
     public void getContent(ContentNode<?> content) {
         this.content.add(content);
