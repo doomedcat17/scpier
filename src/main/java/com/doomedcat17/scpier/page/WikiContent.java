@@ -15,8 +15,14 @@ public class WikiContent {
     private String translationSourceUrl;
     private LocalDateTime lastRevisionDate;
     private List<String> tags;
-    private String author;
     private Preset preset;
+
+    public WikiContent(Element content) {
+        this.content = content;
+    }
+
+    public WikiContent() {
+    }
 
     public String getContentSource() {
         if (Objects.isNull(translationSourceUrl)) {
@@ -64,10 +70,6 @@ public class WikiContent {
         this.tags = tags;
     }
 
-    public WikiContent(Element content) {
-        this.content = content;
-    }
-
     public Preset getPreset() {
         return preset;
     }
@@ -84,14 +86,4 @@ public class WikiContent {
         this.lastRevisionDate = lastRevisionDate;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public WikiContent() {
-    }
 }

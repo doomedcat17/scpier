@@ -5,7 +5,6 @@ import com.doomedcat17.scpier.exception.page.html.document.interpreter.WikiPageI
 import com.doomedcat17.scpier.exception.page.html.document.provider.IframeContentProviderException;
 import com.doomedcat17.scpier.exception.page.html.document.revision.RevisionDateException;
 import com.doomedcat17.scpier.page.WikiContent;
-import com.doomedcat17.scpier.page.html.document.author.AuthorScraper;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
@@ -42,7 +41,6 @@ public class WikiPageInterpreter {
             handleRedirections(wikiContent);
             setWikiContentTitle(wikiContent);
             setWikiContentTags(wikiContent);
-            setWikiContentAuthor(wikiContent);
             wikiContent.setContent(wikiContent.getContent().getElementById("page-content"));
             handleIframes(wikiContent, preset, wikiContentCleaner);
             wikiContentCleaner.removeTrashNodes(wikiContent.getContent());
@@ -84,12 +82,6 @@ public class WikiPageInterpreter {
         if (pageTitleElement != null) {
             wikiContent.setName(pageTitleElement.text());
         }
-    }
-
-    private void setWikiContentAuthor(WikiContent wikiContent) throws IOException {
-        AuthorScraper authorScraper = new AuthorScraper(webClient);
-        String authorName = authorScraper.scrap(wikiContent.getOriginalSourceUrl());
-        wikiContent.setAuthor(authorName);
     }
 
     public WikiPageInterpreter(WebClient webClient, WikiPageProvider wikiPageProvider) {

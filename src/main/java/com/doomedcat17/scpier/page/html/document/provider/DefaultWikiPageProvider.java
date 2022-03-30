@@ -16,7 +16,7 @@ public class DefaultWikiPageProvider implements WikiPageProvider {
     public WikiContent getWebpageContent(String url) throws IOException {
         try (webClient) {
             HtmlPage page = webClient.getPage(url);
-            webClient.waitForBackgroundJavaScript(500);
+            page.getEnclosingWindow().getJobManager().waitForJobs(500);
             String htmlContent = page.executeJavaScript("document.body.parentNode.outerHTML")
                     .getJavaScriptResult()
                     .toString();

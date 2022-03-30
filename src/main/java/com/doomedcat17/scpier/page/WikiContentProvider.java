@@ -37,9 +37,6 @@ public class WikiContentProvider {
                 wikiContent.setOriginalSourceUrl(
                         WikiSourceBuilder.buildSource(name.toLowerCase(), scpBranch, scpLanguage)
                 );
-                if (wikiContent.getOriginalSourceUrl().equals(wikiContent.getTranslationSourceUrl())) {
-                    wikiContent.setTranslationSourceUrl("");
-                }
             }
             LastRevisionDateScraper lastRevisionDateScraper = new LastRevisionDateScraper();
             wikiContent.setLastRevisionDate(

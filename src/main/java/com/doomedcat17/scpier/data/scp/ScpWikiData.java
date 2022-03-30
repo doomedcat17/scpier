@@ -15,18 +15,16 @@ public class ScpWikiData {
     private List<ContentNode<?>> content;
     private List<String> tags;
     private LocalDateTime lastRevisionDate;
-    private String author;
     private String originalSource;
     private String translationSource;
 
-    public ScpWikiData(String title, SCPBranch branch, SCPLanguage language, List<ContentNode<?>> content, List<String> tags, LocalDateTime lastRevisionDate, String author, String originalSource, String translationSource) {
+    public ScpWikiData(String title, SCPBranch branch, SCPLanguage language, List<ContentNode<?>> content, List<String> tags, LocalDateTime lastRevisionDate, String originalSource, String translationSource) {
         this.title = title;
         this.branch = branch;
         this.language = language;
         this.content = content;
         this.tags = tags;
         this.lastRevisionDate = lastRevisionDate;
-        this.author = author;
         this.originalSource = originalSource;
         this.translationSource = translationSource;
     }
@@ -109,43 +107,16 @@ public class ScpWikiData {
         this.translationSource = translationSource;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         ScpWikiData that = (ScpWikiData) o;
-
-        if (!title.equals(that.title)) return false;
-        if (branch != that.branch) return false;
-        if (language != that.language) return false;
-        if (!content.equals(that.content)) return false;
-        if (!tags.equals(that.tags)) return false;
-        if (!lastRevisionDate.equals(that.lastRevisionDate)) return false;
-        if (!author.equals(that.author)) return false;
-        if (!originalSource.equals(that.originalSource)) return false;
-        return translationSource.equals(that.translationSource);
+        return Objects.equals(title, that.title) && branch == that.branch && language == that.language && Objects.equals(content, that.content) && Objects.equals(tags, that.tags) && Objects.equals(lastRevisionDate, that.lastRevisionDate) && Objects.equals(originalSource, that.originalSource) && Objects.equals(translationSource, that.translationSource);
     }
 
     @Override
     public int hashCode() {
-        int result = title.hashCode();
-        result = 31 * result + branch.hashCode();
-        result = 31 * result + language.hashCode();
-        result = 31 * result + content.hashCode();
-        result = 31 * result + tags.hashCode();
-        result = 31 * result + lastRevisionDate.hashCode();
-        result = 31 * result + author.hashCode();
-        result = 31 * result + originalSource.hashCode();
-        result = 31 * result + translationSource.hashCode();
-        return result;
+        return Objects.hash(title, branch, language, content, tags, lastRevisionDate, originalSource, translationSource);
     }
 }

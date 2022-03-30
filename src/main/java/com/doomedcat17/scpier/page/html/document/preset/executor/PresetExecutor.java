@@ -25,7 +25,7 @@ public class PresetExecutor {
                 }
                 webClient.waitForBackgroundJavaScript(element.getRuntime());
             }
-            webClient.waitForBackgroundJavaScript(preset.getRuntime());
+            page.getEnclosingWindow().getJobManager().waitForJobs(preset.getRuntime());
             String html = page.executeJavaScript("document.body.parentNode.outerHTML")
                     .getJavaScriptResult()
                     .toString();

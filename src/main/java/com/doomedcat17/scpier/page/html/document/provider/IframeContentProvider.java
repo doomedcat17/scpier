@@ -74,8 +74,9 @@ public class IframeContentProvider {
         }
     }
 
+    //TODO to file
     private boolean isTrash(String src) {
-        return src.contains("/common--javascript/resize-iframe.html");
+        return src.contains("/common--javascript/resize-iframe.html") || src.contains("//interwiki.scpwiki.com/styleFrame.html");
     }
 
     private void provideYtVideo(Element iframeContent, String source) {
