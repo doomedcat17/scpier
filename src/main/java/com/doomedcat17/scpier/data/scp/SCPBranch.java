@@ -1,5 +1,7 @@
 package com.doomedcat17.scpier.data.scp;
 
+import com.doomedcat17.scpier.exception.data.ScpBranchNotFound;
+
 import java.util.Arrays;
 
 @SuppressWarnings("HttpUrlsUsage")
@@ -49,10 +51,10 @@ public enum SCPBranch {
                 .findFirst().orElse(null);
     }
 
-    public static SCPBranch getById(String langId) {
+    public static SCPBranch getById(String branchId) {
         return Arrays.stream(SCPBranch.values())
-                .filter(scpBranch -> scpBranch.identifier.equals(langId))
-                .findFirst().orElse(null);
+                .filter(scpBranch -> scpBranch.identifier.equals(branchId))
+                .findFirst().orElseThrow(() -> new ScpBranchNotFound(branchId));
     }
 }
 

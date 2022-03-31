@@ -1,5 +1,7 @@
 package com.doomedcat17.scpier.data.scp;
 
+import com.doomedcat17.scpier.exception.data.ScpLanguageNotFound;
+
 import java.util.Arrays;
 import java.util.Set;
 
@@ -55,9 +57,9 @@ public enum SCPLanguage {
         return Set.of(SCPLanguage.NORWEGIAN, SCPLanguage.DANISH, SCPLanguage.FINNISH, SCPLanguage.SWEDISH);
     }
 
-    public static SCPLanguage getById(String id) {
+    public static SCPLanguage getById(String langId) {
         return Arrays.stream(SCPLanguage.values())
-                .filter(scpTranslation -> scpTranslation.identifier.equals(id))
-                .findFirst().orElseThrow(NullPointerException::new);
+                .filter(scpTranslation -> scpTranslation.identifier.equals(langId))
+                .findFirst().orElseThrow(() -> new ScpLanguageNotFound(langId));
     }
 }
