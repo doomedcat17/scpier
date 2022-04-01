@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.data.scp;
 
-import com.doomedcat17.scpier.exception.data.ScpBranchNotFound;
+import com.doomedcat17.scpier.exception.data.ScpBranchNotFoundException;
 
 import java.util.Arrays;
 
@@ -54,7 +54,7 @@ public enum SCPBranch {
     public static SCPBranch getById(String branchId) {
         return Arrays.stream(SCPBranch.values())
                 .filter(scpBranch -> scpBranch.identifier.equals(branchId))
-                .findFirst().orElseThrow(() -> new ScpBranchNotFound(branchId));
+                .findFirst().orElseThrow(() -> new ScpBranchNotFoundException(branchId));
     }
 }
 

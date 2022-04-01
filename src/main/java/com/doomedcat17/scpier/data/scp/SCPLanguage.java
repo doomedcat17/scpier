@@ -1,6 +1,6 @@
 package com.doomedcat17.scpier.data.scp;
 
-import com.doomedcat17.scpier.exception.data.ScpLanguageNotFound;
+import com.doomedcat17.scpier.exception.data.ScpLanguageNotFoundException;
 
 import java.util.Arrays;
 import java.util.Set;
@@ -60,6 +60,6 @@ public enum SCPLanguage {
     public static SCPLanguage getById(String langId) {
         return Arrays.stream(SCPLanguage.values())
                 .filter(scpTranslation -> scpTranslation.identifier.equals(langId))
-                .findFirst().orElseThrow(() -> new ScpLanguageNotFound(langId));
+                .findFirst().orElseThrow(() -> new ScpLanguageNotFoundException(langId));
     }
 }
