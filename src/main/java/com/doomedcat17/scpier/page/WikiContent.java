@@ -25,7 +25,7 @@ public class WikiContent {
     }
 
     public String getContentSource() {
-        if (Objects.isNull(translationSourceUrl)) {
+        if (Objects.isNull(translationSourceUrl) || translationSourceUrl.isBlank()) {
             return originalSourceUrl;
         } else return translationSourceUrl;
     }
