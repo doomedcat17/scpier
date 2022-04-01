@@ -32,12 +32,12 @@ public class WikiContentProvider {
             String url = WikiSourceBuilder.buildSource(name.toLowerCase(), scpBranch, scpLanguage);
             name = url.substring(url.lastIndexOf('/') + 1);
             WikiContent wikiContent = wikiPageProvider.getWebpageContent(url);
-            if (scpLanguage.identifier.equals(scpBranch.identifier)) {
+            if (!scpLanguage.identifier.equals(scpBranch.identifier)) {
                 wikiContent.setTranslationSourceUrl(url);
                 wikiContent.setOriginalSourceUrl(
-                        WikiSourceBuilder.buildSource(name.toLowerCase(), scpBranch, scpLanguage)
+                        WikiSourceBuilder.buildSource(name.toLowerCase(), scpBranch)
                 );
-            }
+            } else wikiContent.setTranslationSourceUrl("");
             LastRevisionDateScraper lastRevisionDateScraper = new LastRevisionDateScraper();
             wikiContent.setLastRevisionDate(
                    lastRevisionDateScraper.scrapDate(wikiContent.getContent())
