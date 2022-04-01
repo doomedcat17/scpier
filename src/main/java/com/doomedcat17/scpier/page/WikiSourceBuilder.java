@@ -9,20 +9,36 @@ import java.util.Locale;
 public class WikiSourceBuilder {
 
     public static String buildSource(String articleName, SCPBranch scpBranch, SCPLanguage scpLanguage) {
-        StringBuilder sourceBuilder = new StringBuilder(articleName.toLowerCase(Locale.ROOT));
-        if (articleName.startsWith("scp") && (scpBranch != SCPBranch.ENGLISH && !articleName.contains(scpBranch.identifier))) {
-            if (scpBranch.scpIdentifierPlacement == SCPIdentifierPlacement.ENDING) {
-                sourceBuilder
-                        .append("-")
-                        .append(scpBranch.identifier);
-            } else if (scpBranch.scpIdentifierPlacement == SCPIdentifierPlacement.MIDDLE) {
-                sourceBuilder
-                        .replace(3, 3, "-"+scpBranch.identifier);
-            }
+        if (isValidForLocalization(articleName, scpBranch)) {
+            articleName = localizeScpName(articleName, scpBranch);
         }
-        if (scpLanguage.identifier.equals(scpBranch.identifier)) {
-            sourceBuilder.insert(0, scpBranch.url);
-        } else sourceBuilder.insert(0, scpLanguage.url);
-        return sourceBuilder.toString();
+        String url;
+        if (scpLanguage.identifier.equals(scpBranch.identifier)) url = scpBranch.url;
+        else url = scpLanguage.url;
+        return url + articleName;
+    }
+
+    public static String buildSource(String articleName, SCPBranch scpBranch) {
+        if (isValidForLocalization(articleName, scpBranch)) {
+            articleName = localizeScpName(articleName, scpBranch);
+        }
+        return scpBranch.url + articleName;
+    }
+
+    private static boolean isValidForLocalization(String articleName, SCPBranch scpBranch) {
+        return articleName.startsWith("scp") && (scpBranch != SCPBranch.ENGLISH && !articleName.contains(scpBranch.identifier));
+    }
+
+    private static String localizeScpName(String articleName, SCPBranch scpBranch) {
+        StringBuilder articleNameBuilder = new StringBuilder(articleName.toLowerCase(Locale.ENGLISH));
+        if (scpBranch.scpIdentifierPlacement == SCPIdentifierPlacement.ENDING) {
+            articleNameBuilder
+                    .append("-")
+                    .append(scpBranch.identifier);
+        } else if (scpBranch.scpIdentifierPlacement == SCPIdentifierPlacement.MIDDLE) {
+            articleNameBuilder
+                    .replace(3, 3, "-" + scpBranch.identifier);
+        }
+        return articleNameBuilder.toString();
     }
 }
