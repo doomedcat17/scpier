@@ -43,6 +43,7 @@ public class RateLimitedWebClient extends WebClient {
     public RateLimitedWebClient(long timePeriod, long requestCap) {
         super(BrowserVersion.CHROME);
         super.getOptions().setFetchPolyfillEnabled(true);
+        super.getCache().setMaxSize(0);
         TIME_PERIOD = timePeriod;
         REQUEST_CAP = requestCap;
         super.getOptions().setJavaScriptEnabled(true);
