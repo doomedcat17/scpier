@@ -10,6 +10,7 @@ import java.util.Objects;
 public class WikiContent {
 
     private String name;
+    private String title;
     private Element content;
     private String originalSourceUrl;
     private String translationSourceUrl;
@@ -44,6 +45,14 @@ public class WikiContent {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Element getContent() {

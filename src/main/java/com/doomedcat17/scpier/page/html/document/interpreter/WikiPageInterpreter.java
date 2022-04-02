@@ -80,7 +80,7 @@ public class WikiPageInterpreter {
     private void setWikiContentTitle(WikiContent wikiContent) {
         Element pageTitleElement = wikiContent.getContent().getElementById("page-title");
         if (pageTitleElement != null) {
-            wikiContent.setName(pageTitleElement.text());
+            wikiContent.setTitle(pageTitleElement.text());
         }
     }
 

@@ -9,25 +9,15 @@ import java.util.Objects;
 
 public class ScpWikiData {
 
+    private String name;
     private String title;
     private SCPBranch branch;
     private SCPLanguage language;
-    private List<ContentNode<?>> content;
     private List<String> tags;
     private LocalDateTime lastRevisionDate;
     private String originalSource;
     private String translationSource;
-
-    public ScpWikiData(String title, SCPBranch branch, SCPLanguage language, List<ContentNode<?>> content, List<String> tags, LocalDateTime lastRevisionDate, String originalSource, String translationSource) {
-        this.title = title;
-        this.branch = branch;
-        this.language = language;
-        this.content = content;
-        this.tags = tags;
-        this.lastRevisionDate = lastRevisionDate;
-        this.originalSource = originalSource;
-        this.translationSource = translationSource;
-    }
+    private List<ContentNode<?>> content;
 
     public ScpWikiData() {
     }
@@ -101,6 +91,14 @@ public class ScpWikiData {
 
     public String getTranslationSource() {
         return translationSource;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setTranslationSource(String translationSource) {
