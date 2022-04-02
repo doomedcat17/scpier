@@ -1,4 +1,0 @@
-articleName: "scp-pl-010"
-branch: "POLISH"
-removalDefinitions:
-  - "div[id=\"page-content\"] > div[style=\"display: none\"]"
