@@ -1,13 +1,14 @@
 package com.doomedcat17.scpier.page;
 
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
-public class WikiContent {
+public class WikiContent{
 
     private String name;
     private String title;
@@ -24,6 +25,20 @@ public class WikiContent {
 
     public WikiContent() {
     }
+
+    public WikiContent(WikiContent wikiContent) {
+        this.name = wikiContent.getName();
+        this.title = wikiContent.getTitle();
+        this.originalSourceUrl = wikiContent.getOriginalSourceUrl();
+        this.translationSourceUrl = wikiContent.getTranslationSourceUrl();
+        this.lastRevisionDate = wikiContent.getLastRevisionDate();
+        this.preset = wikiContent.getPreset();
+        if (Objects.nonNull(wikiContent.getTags()))
+            this.tags = List.copyOf(wikiContent.getTags());
+        if (Objects.nonNull(wikiContent.getContent()))
+            this.content = Jsoup.parse(wikiContent.getContent().outerHtml());
+    }
+
 
     public String getContentSource() {
         if (Objects.isNull(translationSourceUrl) || translationSourceUrl.isBlank()) {
