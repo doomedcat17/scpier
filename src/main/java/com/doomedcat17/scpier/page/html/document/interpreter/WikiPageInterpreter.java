@@ -10,8 +10,8 @@ import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
-import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
+import com.doomedcat17.scpier.page.html.document.provider.iframe.IframeContentProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
 import com.doomedcat17.scpier.page.html.document.revision.LastRevisionDateScraper;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapper;
@@ -37,12 +37,12 @@ public class WikiPageInterpreter {
             if (wikiContent.getPreset() != null) {
                 preset = wikiContent.getPreset();
                 wikiContentCleaner.additionalRemovalDefinitions(preset.getRemovalDefinitions());
-            } else preset = new Preset();
+            }
             handleRedirections(wikiContent);
             setWikiContentTitle(wikiContent);
             setWikiContentTags(wikiContent);
             wikiContent.setContent(wikiContent.getContent().getElementById("page-content"));
-            handleIframes(wikiContent, preset, wikiContentCleaner);
+            handleIframes(wikiContent, wikiContentCleaner);
             wikiContentCleaner.removeTrashNodes(wikiContent.getContent());
         } catch (Exception e) {
             throw new WikiPageInterpreterException(e);
@@ -63,11 +63,11 @@ public class WikiPageInterpreter {
         }
     }
 
-    private void handleIframes(WikiContent wikiContent, Preset preset, WikiContentCleaner wikiContentCleaner) throws IframeContentProviderException {
+    private void handleIframes(WikiContent wikiContent, WikiContentCleaner wikiContentCleaner) throws IframeContentProviderException {
         Elements iframes = wikiContent.getContent().select("iframe");
         if (!iframes.isEmpty()) {
             IframeContentProvider iframeContentProvider = new IframeContentProvider(wikiContentCleaner, new DefaultWikiPageProvider(webClient), new PresetExecutor(webClient));
-            iframeContentProvider.includeIframesContent(wikiContent, preset);
+            iframeContentProvider.includeIframesContent(wikiContent);
         }
     }
 
