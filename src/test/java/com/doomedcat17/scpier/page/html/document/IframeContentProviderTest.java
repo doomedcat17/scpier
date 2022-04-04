@@ -6,8 +6,8 @@ import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
-import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
+import com.doomedcat17.scpier.page.html.document.provider.iframe.IframeContentProvider;
 import com.doomedcat17.scpier.page.webclients.NicelyLimitedWebClient;
 import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
@@ -67,7 +67,7 @@ class IframeContentProviderTest {
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-049-audio3.html")
                 );
         //when
-        iframeContentProvider.includeIframesContent(wikiContent, new Preset());
+        iframeContentProvider.includeIframesContent(wikiContent);
         //then
         assertEquals(3L, content.children().stream().filter(element -> element.is("audio")).count());
         assertEquals(89, content.childNodeSize());
@@ -84,7 +84,7 @@ class IframeContentProviderTest {
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-087-image1.html")
                 );
-        iframeContentProvider.includeIframesContent(wikiContent, new Preset());
+        iframeContentProvider.includeIframesContent(wikiContent);
         //then
         assertEquals(4, content.select("img").size());
         assertEquals(29, content.childNodeSize());
@@ -97,11 +97,12 @@ class IframeContentProviderTest {
         WikiContent wikiContent = new WikiContent();
         wikiContent.setContent(content);
         wikiContent.setOriginalSourceUrl("http://www.scpwiki.com/scp-139");
+        wikiContent.setPreset(new Preset());
         Mockito.when(htmlDocumentProvider.getWebpageContent("http://www.scpwiki.com/scp-139/html/995a854d7cadae48a0af18803de323f18334cd32-1586188541109417535"))
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-139-divs.html")
                 );
-        iframeContentProvider.includeIframesContent(wikiContent, new Preset());
+        iframeContentProvider.includeIframesContent(wikiContent);
         //then
         assertNotNull(content.getElementById("firstText"));
         assertNotNull(content.getElementById("firstCollapsible"));
@@ -140,7 +141,7 @@ class IframeContentProviderTest {
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-474-divs6.html")
                 );
         //when
-        iframeContentProvider.includeIframesContent(wikiContent, new Preset());
+        iframeContentProvider.includeIframesContent(wikiContent);
         //then
         assertEquals(6, content.select("audio-player").size());
     }
@@ -153,7 +154,7 @@ class IframeContentProviderTest {
         wikiContent.setContent(content);
         wikiContent.setOriginalSourceUrl("http://www.scpwiki.com/scp-506");
         //when
-        iframeContentProvider.includeIframesContent(wikiContent, new Preset());
+        iframeContentProvider.includeIframesContent(wikiContent);
         //then
         assertEquals(1, content.select("video").size());
     }
@@ -170,7 +171,7 @@ class IframeContentProviderTest {
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-720-video.html")
                 );
         //when
-        iframeContentProvider.includeIframesContent(wikiContent, new Preset());
+        iframeContentProvider.includeIframesContent(wikiContent);
         //then
         assertEquals(1, content.select("video").size());
     }
