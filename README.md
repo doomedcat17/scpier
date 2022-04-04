@@ -9,7 +9,7 @@ if you consider commercial use.
 SCPier itself is free to use for any pourpuse, if usage does not violate [Wikidot's Terms Of Service](https://www.wikidot.com/legal:terms-of-service).
 
 - [How it works?](#how-it-works)
-- [Download](#download)
+- [Installation](#installation)
 - [Getting data](#getting-data)
   - [ScpWikiDataProvider](#scpwikidataprovider)
   - [ScpWikiData](#scpwikidata)
@@ -44,9 +44,9 @@ What is scraped:
   - Images, videos and audios sources ([more info here](#image-video-audio))
   - Tags
   - Last revision time
-  - Author's nickname (page crator from history section)
 
 What is **NOT** scraped:
+  - Author's data (planned for future, problems with htmlunit's webclient)
   - Animations and all interactive elements
   - CSS styling (classes, `<style>` elements etc.)
   - Forms and other inputs
@@ -54,7 +54,7 @@ What is **NOT** scraped:
   - Any binary data
 
 **If you want retrieve more specific data form the wiki, check out [scpper](http://scpper.com/)**.
-# Download
+# Installation
 
 SCPier is available as a downloadable .jar java library.
 Download [here](https://objects.githubusercontent.com/github-production-release-asset-2e65be/308120373/c3f78dac-3b54-4a9c-b748-46d5353abca8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20211104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211104T170146Z&X-Amz-Expires=300&X-Amz-Signature=f72e03b0a1d9961c39e5a63e5379723d44df77a14434702835bd39b9d0c26309&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=308120373&response-content-disposition=attachment%3B%20filename%3Dscpier-0.5.7.jar&response-content-type=application%2Foctet-stream).
@@ -134,7 +134,7 @@ If you replace all special chars with `-`, it should work for ***most*** cases.
 `scpBranch` - `SCPBranch` enum of desired branch.
 Defines source branch of desired article.
 
-`scpLanguage` (Optional*) - `SCPLanguage` enum of desired language.
+`scpLanguage` (**Optional***) - `SCPLanguage` enum of desired language.
 Defines language of desired article. If not provided, returns article in its original language.  
 &ast; required for `NORDIC` branch, because it's multilingual.
 
@@ -167,31 +167,24 @@ If article hasn't been found, the `SCPWikiContentNotFoundException` is thrown.
 This object represents data retrieved form wiki. <br>
 It has the following variables:
 ```java
+String name;
 String title;
-
 SCPBranch branch;
-
 SCPTranslation language;
-
-List<ContentNode<?>> content;
-
 List<String> tags;
-
 LocalDateTime lastRevisionTimestamp;
-
 String author;
-
 String originalSource;
-
 String translationSource;
+List<ContentNode<?>> content;
 ```
-`title` - title of the article from the wiki.
+`name` - name of the article.
+
+`title` - title of the article from the wiki page.
 
 `scpBranch` - source branch of desired article.
 
 `scpLanguage` - translation language of desired article.
-
-`content` - content of the article.
 
 `tags` - list of the article tags.
 
@@ -201,20 +194,29 @@ String translationSource;
 
 `originalSource` - URL of original article.
 
-`translationSource` - URL of translated article.
+`translationSource` - URL of translated article. **Nullable**
+
+`content` - content of the article.
+
+Example, SCP-006 as JSON:
 ```json
 {
+  "name" : "scp-006",
   "title" : "SCP-006",
   "branch" : "ENGLISH",
   "language" : "ENGLISH",
+  "tags" : [ "_cc", "_licensebox", "liquid", "location", "medical", "rewrite", "safe", "scp", "self-repairing" ],
+  "lastRevisionDate" : [ 2021, 8, 9, 20, 51, 34 ],
+  "originalSource" : "http://www.scp-wiki.wikidot.com/scp-006",
+  "translationSource" : null,
   "content" : [ {
     "contentNodeType" : "HEADING",
     "content" : [ {
       "contentNodeType" : "TEXT",
       "content" : "Under direct orders of the founder, access is limited to those with Overseer clearance.",
       "styles" : {
-        "font-size" : "1.5em",
-        "font-weight" : "bold"
+        "font-weight" : "bold",
+        "font-size" : "1.5em"
       }
     } ]
   }, {
@@ -228,7 +230,7 @@ String translationSource;
     } ]
   }, {
     "contentNodeType" : "IMAGE",
-    "content" : "http://scp-wiki.wdfiles.com/local--files/scp-006/SCP006_stream-new.jpg",
+    "content" : "https://scp-wiki.wdfiles.com/local--files/scp-006/SCP006_stream-new.jpg",
     "description" : [ {
       "contentNodeType" : "TEXT",
       "content" : "SCP-006",
@@ -321,12 +323,235 @@ String translationSource;
       "content" : "Ingesting the liquid produces the following properties in human beings: the ability to regenerate DNA damaged by sufficient duplication, heightened excitement of cellular duplication, vastly improved abilities in the repair of damaged tissue, and a frightening increase in the effectiveness of the human immune system. Upon testing the liquid on animal subjects, hostile bacteria and viral agents were destroyed immediately. Many reptiles and birds were unaffected, while higher primates experienced the same benefits as humans.",
       "styles" : { }
     } ]
-  } ],
-  "tags" : [ "_cc", "_licensebox", "liquid", "location", "medical", "rewrite", "safe", "scp", "self-repairing" ],
-  "lastRevisionTimestamp" : 1628542260000,
-  "author" : "Dr_Schubert",
-  "originalSource" : "http://www.scp-wiki.wikidot.com/scp-006",
-  "translationSource" : ""
+  }, {
+    "contentNodeType" : "HEADING",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "Under direct orders of the founder, access is limited to those with Overseer clearance.",
+      "styles" : {
+        "font-weight" : "bold",
+        "font-size" : "1.5em"
+      }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "Overseer Clearance Granted",
+      "styles" : {
+        "font-weight" : "bold"
+      }
+    } ]
+  }, {
+    "contentNodeType" : "IMAGE",
+    "content" : "https://scp-wiki.wdfiles.com/local--files/scp-006/SCP006_stream-new.jpg",
+    "description" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "SCP-006",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "Item #:",
+      "styles" : {
+        "font-weight" : "bold"
+      }
+    }, {
+      "contentNodeType" : "TEXT",
+      "content" : " SCP-006",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "Object Class:",
+      "styles" : {
+        "font-weight" : "bold"
+      }
+    }, {
+      "contentNodeType" : "TEXT",
+      "content" : " Safe",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "Special Containment Procedures:",
+      "styles" : {
+        "font-weight" : "bold"
+      }
+    }, {
+      "contentNodeType" : "TEXT",
+      "content" : " Whereas the nature of SCP-006 does not warrant any extensive containment, a certain level of secrecy is necessary regarding the object's existence and properties, for obvious reasons. The following procedures are required not for personnel safety, but to deny or hide knowledge of SCP-006's effects from the personnel who interact with it.",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "1: All personnel interacting with SCP-006 in any physical way are required to wear modified Class VI BNC suits. Before personnel are allowed to perform procedures, they must be briefed with Material SCP-006B or SCP-006C. SCP-006A Briefing is the correct one and is restricted to only those with O5 clearance. To ensure personnel are wearing suits properly, they are to be submerged into a pool of water. Any air bubbles spotted signify a leak in the suit.",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "2: Procedures with SCP-006 are to be carried out under extreme surveillance. In case of contact with SCP-006, the commander in charge will announce Procedure 006-Xi-12, which the personnel have been briefed to believe to mean high toxicity is present and they must evacuate.",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "3: Any procedure in which liquid is acquired from SCP-006 must be approved by three (3) O5 level personnel. The liquid is to be transferred in a Quad-Sealant Container and under armed guard.",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "4: If at any time personnel come into contact with SCP-006 or liquid from SCP-006, they are to be confined and terminated after sufficient studies are done. Due to the nature of SCP-006, the most effective termination method is incineration. (For full report, see file SCP006-TerO5)",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "Description:",
+      "styles" : {
+        "font-weight" : "bold"
+      }
+    }, {
+      "contentNodeType" : "TEXT",
+      "content" : " SCP-006 is a very small spring located 60&nbsp;km west of Astrakhan. Foundation Command was aware of its existence since the 19th century, but were unable to secure it until 1991 due to political reasons. On the spot of the spring, a chemical factory has been constructed as a disguise, with the majority of laborers under Foundation and/or Russian control. The liquid emitted from the spring has been chemically identified as simple mineral water in 1902, but has the unusual property of \"health\".",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "Ingesting the liquid produces the following properties in human beings: the ability to regenerate DNA damaged by sufficient duplication, heightened excitement of cellular duplication, vastly improved abilities in the repair of damaged tissue, and a frightening increase in the effectiveness of the human immune system. Upon testing the liquid on animal subjects, hostile bacteria and viral agents were destroyed immediately. Many reptiles and birds were unaffected, while higher primates experienced the same benefits as humans.",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "HEADING",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "Under direct orders of the founder, access is limited to those with Overseer clearance.",
+      "styles" : {
+        "font-weight" : "bold",
+        "font-size" : "1.5em"
+      }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "Overseer Clearance Granted",
+      "styles" : {
+        "font-weight" : "bold"
+      }
+    } ]
+  }, {
+    "contentNodeType" : "IMAGE",
+    "content" : "https://scp-wiki.wdfiles.com/local--files/scp-006/SCP006_stream-new.jpg",
+    "description" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "SCP-006",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "Item #:",
+      "styles" : {
+        "font-weight" : "bold"
+      }
+    }, {
+      "contentNodeType" : "TEXT",
+      "content" : " SCP-006",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "Object Class:",
+      "styles" : {
+        "font-weight" : "bold"
+      }
+    }, {
+      "contentNodeType" : "TEXT",
+      "content" : " Safe",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "Special Containment Procedures:",
+      "styles" : {
+        "font-weight" : "bold"
+      }
+    }, {
+      "contentNodeType" : "TEXT",
+      "content" : " Whereas the nature of SCP-006 does not warrant any extensive containment, a certain level of secrecy is necessary regarding the object's existence and properties, for obvious reasons. The following procedures are required not for personnel safety, but to deny or hide knowledge of SCP-006's effects from the personnel who interact with it.",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "1: All personnel interacting with SCP-006 in any physical way are required to wear modified Class VI BNC suits. Before personnel are allowed to perform procedures, they must be briefed with Material SCP-006B or SCP-006C. SCP-006A Briefing is the correct one and is restricted to only those with O5 clearance. To ensure personnel are wearing suits properly, they are to be submerged into a pool of water. Any air bubbles spotted signify a leak in the suit.",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "2: Procedures with SCP-006 are to be carried out under extreme surveillance. In case of contact with SCP-006, the commander in charge will announce Procedure 006-Xi-12, which the personnel have been briefed to believe to mean high toxicity is present and they must evacuate.",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "3: Any procedure in which liquid is acquired from SCP-006 must be approved by three (3) O5 level personnel. The liquid is to be transferred in a Quad-Sealant Container and under armed guard.",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "4: If at any time personnel come into contact with SCP-006 or liquid from SCP-006, they are to be confined and terminated after sufficient studies are done. Due to the nature of SCP-006, the most effective termination method is incineration. (For full report, see file SCP006-TerO5)",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "Description:",
+      "styles" : {
+        "font-weight" : "bold"
+      }
+    }, {
+      "contentNodeType" : "TEXT",
+      "content" : " SCP-006 is a very small spring located 60&nbsp;km west of Astrakhan. Foundation Command was aware of its existence since the 19th century, but were unable to secure it until 1991 due to political reasons. On the spot of the spring, a chemical factory has been constructed as a disguise, with the majority of laborers under Foundation and/or Russian control. The liquid emitted from the spring has been chemically identified as simple mineral water in 1902, but has the unusual property of \"health\".",
+      "styles" : { }
+    } ]
+  }, {
+    "contentNodeType" : "PARAGRAPH",
+    "content" : [ {
+      "contentNodeType" : "TEXT",
+      "content" : "Ingesting the liquid produces the following properties in human beings: the ability to regenerate DNA damaged by sufficient duplication, heightened excitement of cellular duplication, vastly improved abilities in the repair of damaged tissue, and a frightening increase in the effectiveness of the human immune system. Upon testing the liquid on animal subjects, hostile bacteria and viral agents were destroyed immediately. Many reptiles and birds were unaffected, while higher primates experienced the same benefits as humans.",
+      "styles" : { }
+    } ]
+  } ]
 }
 ```
 ### SCPBranch and SCPLanguage
