@@ -34,6 +34,7 @@ public class RateLimitedWebClient extends WebClient {
                 requestCounter = 0;
             }
             requestCounter++;
+            super.getCache().clear();
             return super.getPage(url);
         } catch (FailingHttpStatusCodeException e) {
             throw new IOException();
@@ -43,7 +44,9 @@ public class RateLimitedWebClient extends WebClient {
     public RateLimitedWebClient(long timePeriod, long requestCap) {
         super(BrowserVersion.CHROME);
         super.getOptions().setFetchPolyfillEnabled(true);
+        super.setFrameContentHandler(baseFrameElement -> false);
         super.getCache().setMaxSize(0);
+        super.getCache().clear();
         TIME_PERIOD = timePeriod;
         REQUEST_CAP = requestCap;
         super.getOptions().setJavaScriptEnabled(true);
@@ -51,6 +54,8 @@ public class RateLimitedWebClient extends WebClient {
         super.getOptions().setPrintContentOnFailingStatusCode(false);
         super.setAjaxController(new NicelyResynchronizingAjaxController());
         super.getOptions().setCssEnabled(false);
+        super.getOptions().setAppletEnabled(false);
+        super.getOptions().setDownloadImages(false);
         super.setCssErrorHandler(new SilentCssErrorHandler());
         super.setJavaScriptErrorListener(new SilentJavaScriptErrorListener());
         java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
