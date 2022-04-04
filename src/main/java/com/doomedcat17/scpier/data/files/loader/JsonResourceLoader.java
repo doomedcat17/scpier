@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Set;
 
-public class RedirectionDefinitionsLoader {
+public class JsonResourceLoader {
 
-    public Set<String> loadRedirectionDefinitions() throws IOException {
+    public Set<String> loadSet(String resourcePath) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("redirectionElementsDefinitions.json");
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resourcePath);
         byte[] file = inputStream.readAllBytes();
         inputStream.close();
         return objectMapper.readValue(
