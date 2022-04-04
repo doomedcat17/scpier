@@ -7,6 +7,8 @@ import com.doomedcat17.scpier.exception.scraper.ElementScraperException;
 import com.doomedcat17.scpier.scraper.ElementScraper;
 import org.jsoup.nodes.Element;
 
+import java.util.Objects;
+
 public class AudioScraper extends ElementScraper {
     public AudioScraper(String source) {
         super(source);
@@ -20,9 +22,7 @@ public class AudioScraper extends ElementScraper {
                 source = element.attr("file");
             } else {
                 Element sourceElement = element.selectFirst("source");
-                if (sourceElement != null) {
-                    source = sourceElement.attr("src");
-                } else source = element.attr("src");
+                source = Objects.requireNonNullElse(sourceElement, element).attr("src");
             }
             return new EmbedNode(ContentNodeType.AUDIO, source);
         } catch (Exception e) {
