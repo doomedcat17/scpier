@@ -43,12 +43,21 @@ public class RateLimitedWebClient extends WebClient {
 
     public RateLimitedWebClient(long timePeriod, long requestCap) {
         super(BrowserVersion.CHROME);
-        super.getOptions().setFetchPolyfillEnabled(true);
+        this.TIME_PERIOD = timePeriod;
+        this.REQUEST_CAP = requestCap;
+        configureOptions();
         super.setFrameContentHandler(baseFrameElement -> false);
         super.getCache().setMaxSize(0);
         super.getCache().clear();
-        TIME_PERIOD = timePeriod;
-        REQUEST_CAP = requestCap;
+        super.setCssErrorHandler(new SilentCssErrorHandler());
+        super.setJavaScriptErrorListener(new SilentJavaScriptErrorListener());
+        java.util.logging.Logger.getLogger("com.gargoylesoftware").setLevel(Level.OFF);
+        java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
+        java.util.logging.Logger.getLogger("org.apache.commons.httpclient").setLevel(Level.OFF);
+
+    }
+
+    private void configureOptions() {
         super.getOptions().setJavaScriptEnabled(true);
         super.getOptions().setThrowExceptionOnScriptError(false);
         super.getOptions().setPrintContentOnFailingStatusCode(false);
@@ -56,10 +65,6 @@ public class RateLimitedWebClient extends WebClient {
         super.getOptions().setCssEnabled(false);
         super.getOptions().setAppletEnabled(false);
         super.getOptions().setDownloadImages(false);
-        super.setCssErrorHandler(new SilentCssErrorHandler());
-        super.setJavaScriptErrorListener(new SilentJavaScriptErrorListener());
-        java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(Level.OFF);
-        java.util.logging.Logger.getLogger("org.apache.commons.httpclient").setLevel(Level.OFF);
-
+        super.getOptions().setFetchPolyfillEnabled(true);
     }
 }
