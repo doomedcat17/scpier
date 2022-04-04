@@ -9,17 +9,14 @@ import java.util.List;
 public class Preset {
 
     private String articleName;
-
     private SCPBranch branch;
-
     private int runtime = 0;
-
     private List<WikiElement> wikiElements = new ArrayList<>();
-
     private List<String> removalDefinitions = new ArrayList<>();
-
     private List<String> outerContentNames = new ArrayList<>();
 
+    public Preset() {
+    }
 
     public Preset(String articleName, SCPBranch branch, int runtime, List<WikiElement> wikiElements, List<String> removalDefinitions, List<String> outerContentNames) {
         this.articleName = articleName;
@@ -54,6 +51,4 @@ public class Preset {
         return outerContentNames;
     }
 
-    public Preset() {
-    }
 }
