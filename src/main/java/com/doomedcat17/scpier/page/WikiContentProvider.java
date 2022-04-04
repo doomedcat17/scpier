@@ -39,7 +39,7 @@ public class WikiContentProvider {
             Element content = wikiContent.getContent();
             OffsetsProvider.getOffsetsContent(wikiContent, wikiPageProvider)
                     .forEach(node ->
-                            content.selectFirst("#page-content")
+                            Objects.requireNonNull(content.selectFirst("#page-content"))
                                     .appendChild(node));
 
             Optional<Preset> foundPreset = presetProvider.getPresetByNameAndBranch(name, scpBranch);
@@ -82,16 +82,14 @@ public class WikiContentProvider {
     private void getOuterContent(WikiContent wikiContent, SCPBranch branch, SCPLanguage translation, WebClient webClient) {
         List<Node> outerContent = new ArrayList<>();
         Preset preset = wikiContent.getPreset();
-        for (String outerContentName : preset.getOuterContentNames()) {
+        for (String outerContentName : preset.getOuterContentNames())
             try {
                 WikiContent outerWikiContent = getPageContent(outerContentName, branch, translation, webClient);
                 outerContent.addAll(outerWikiContent.getContent().childNodes());
                 if (outerWikiContent.getLastRevisionDate().isAfter(wikiContent.getLastRevisionDate())) {
                     wikiContent.setLastRevisionDate(outerWikiContent.getLastRevisionDate());
                 }
-            } catch (SCPWikiContentNotFoundException | RevisionDateException ignored) {
-            }
-        }
+            } catch (SCPWikiContentNotFoundException | RevisionDateException ignored) {}
         outerContent.forEach(node -> wikiContent.getContent().appendChild(node));
     }
 
