@@ -21,7 +21,6 @@ public class DefaultWikiPageProvider implements WikiPageProvider {
                     .getJavaScriptResult()
                     .toString();
             Document webpageContent = Jsoup.parse(htmlContent);
-            webClient.close();
             WikiContent wikiContent = new WikiContent();
             wikiContent.setContent(webpageContent.selectFirst("body"));
             wikiContent.setOriginalSourceUrl(url);
