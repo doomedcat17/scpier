@@ -71,7 +71,7 @@ class WikiRedirectionHandlerTest {
     void shouldRedirect() throws IOException {
         //given
         Document document = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/document/redirectedScp.html");
-        Mockito.when(wikiPageProvider.getWebpageContent("http://www.scpwiki.com/adult:scp-597/noredirect/true"))
+        Mockito.when(wikiPageProvider.getWebpageContentWithoutRunningJs("http://www.scpwiki.com/adult:scp-597/noredirect/true"))
                 .thenReturn(new WikiContent(document.getElementsByTag("body").first()));
         Element content = TestDataProvider
                 .getSampleElement("src/test/resources/html/test_data/document/sampleScpWithRedirection.html")
