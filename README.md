@@ -36,8 +36,6 @@ It runs wiki's javascript (some pages use it) and provides page content.
 For more specific cases, pre-defined [Presets](#listnodes) are used for some additional operations before scraping phase. 
 Then, retrieved content is scraped by multiple element scrapers and mapped to set of objects.
 
-**Why is so slow?**
-
 
 What is scraped:
   - All text data with its **local** styling
