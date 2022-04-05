@@ -13,6 +13,6 @@ wikiElements:
     elementType: "BUTTON"
   - selector: "td.go-button"
     elementType: "BUTTON"
-    runtime: 1000
+    runtime: 2000
 removalDefinitions:
   - ".keypad"
