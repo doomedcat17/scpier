@@ -36,7 +36,7 @@ public class OffsetsProvider {
             String source = originalContent.getContentSource()+
                     offsetPattern.getPattern().replaceAll("<NUMBER>", String.valueOf(i));
             try {
-                WikiContent offsetWikiContent = wikiPageProvider.getWebpageContent(source);
+                WikiContent offsetWikiContent = wikiPageProvider.getWebpageContentWithoutRunningJs(source);
                 LocalDateTime lastRevisionTimestamp = lastRevisionDateScraper.scrapDate(offsetWikiContent.getContent());
                 Element content = offsetWikiContent.getContent().selectFirst("#page-content");
                 if (previousContent.html().equals(content.html())) break;

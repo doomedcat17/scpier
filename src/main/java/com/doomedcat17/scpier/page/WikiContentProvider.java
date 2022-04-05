@@ -59,7 +59,7 @@ public class WikiContentProvider {
         name = url.substring(url.lastIndexOf('/') + 1);
         WikiContent wikiContent;
         try {
-            wikiContent = wikiPageProvider.getWebpageContent(url);
+            wikiContent = wikiPageProvider.getWebpageContentWithoutRunningJs(url);
         } catch (IOException e) {
             //sometimes eng translations are on main foundation page
             if (scpLanguage.equals(SCPLanguage.ENGLISH) && !scpBranch.equals(SCPBranch.ENGLISH)) {

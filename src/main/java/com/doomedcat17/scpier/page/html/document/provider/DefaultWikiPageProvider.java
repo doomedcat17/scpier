@@ -16,7 +16,7 @@ public class DefaultWikiPageProvider implements WikiPageProvider {
     public WikiContent getWebpageContent(String url) throws IOException {
         try (webClient) {
             HtmlPage page = webClient.getPage(url);
-            page.getEnclosingWindow().getJobManager().waitForJobs(500);
+            page.getEnclosingWindow().getJobManager().waitForJobs(1000);
             String htmlContent = page.executeJavaScript("document.body.parentNode.outerHTML")
                     .getJavaScriptResult()
                     .toString();
@@ -26,6 +26,15 @@ public class DefaultWikiPageProvider implements WikiPageProvider {
             wikiContent.setOriginalSourceUrl(url);
             return wikiContent;
         }
+    }
+
+    @Override
+    public WikiContent getWebpageContentWithoutRunningJs(String url) throws IOException {
+        Document webpageContent = Jsoup.connect(url).get();
+        WikiContent wikiContent = new WikiContent();
+        wikiContent.setContent(webpageContent.selectFirst("body"));
+        wikiContent.setOriginalSourceUrl(url);
+        return wikiContent;
     }
 
     public DefaultWikiPageProvider(WebClient webClient) {
