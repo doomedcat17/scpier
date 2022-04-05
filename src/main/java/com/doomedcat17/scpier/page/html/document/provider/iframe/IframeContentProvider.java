@@ -11,6 +11,7 @@ import com.doomedcat17.scpier.page.html.document.provider.iframe.mapper.IframeMa
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -49,7 +50,6 @@ public class IframeContentProvider {
                 WikiContent iframeWikiContent = new WikiContent(wikiContent);
                 iframeWikiContent.setContent(iframeContent);
                 includeIframesContent(iframeWikiContent);
-                iframeContent = iframeWikiContent.getContent();
                 wikiContentCleaner.removeTrashNodes(iframeContent);
                 replaceIframeWithItsContent(iframe, iframeContent);
             }
@@ -67,11 +67,19 @@ public class IframeContentProvider {
 
     private void replaceIframeWithItsContent(Element iframe, Element iframeContent) {
         if (iframe.parent().childrenSize() == 1) {
-            iframeContent.children().forEach(element -> iframe.parent().after(element));
+            placeAfterElement(iframe.parent(), iframeContent.children());
             iframe.parent().remove();
         } else {
-            iframeContent.children().forEach(iframe::after);
+            placeAfterElement(iframe, iframeContent.children());
             iframe.remove();
+        }
+    }
+
+    private void placeAfterElement(Element elementToPlaceAfter, List<Element> elements) {
+        Element lastElement = elementToPlaceAfter;
+        for (Element child: elements) {
+            lastElement.after(child);
+            lastElement = child;
         }
     }
 

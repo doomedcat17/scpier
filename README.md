@@ -31,10 +31,13 @@ SCPier itself is free to use for any pourpuse, if usage does not violate [Wikido
 
 # How it works?
 
-It's basically a webscraper. Wiki content is retrived by [HtmlUnit's](https://htmlunit.sourceforge.io/) `Webclient`.
-It runs Wiki's Javascript (some pages use it) and provides page content.
+It's basically a webscraper. Wiki content is retrived by [HtmlUnit's](https://htmlunit.sourceforge.io/) webclient.
+It runs wiki's javascript (some pages use it) and provides page content.
 For more specific cases, pre-defined [Presets](#listnodes) are used for some additional operations before scraping phase. 
 Then, retrieved content is scraped by multiple element scrapers and mapped to set of objects.
+
+**Why is so slow?**
+
 
 What is scraped:
   - All text data with its **local** styling
