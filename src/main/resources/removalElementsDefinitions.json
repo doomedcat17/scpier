@@ -34,5 +34,5 @@
   "dr",
   "title",
   ".circle-1",
-  "div[style~=none]:has(div[class=code] div[class=hl-main])"
+  "div[class=code]:has(div[class=hl-main])"
 ]
