@@ -61,14 +61,22 @@ SCPier is available as a downloadable .jar java library.
 Download [here](https://objects.githubusercontent.com/github-production-release-asset-2e65be/308120373/c3f78dac-3b54-4a9c-b748-46d5353abca8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20211104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211104T170146Z&X-Amz-Expires=300&X-Amz-Signature=f72e03b0a1d9961c39e5a63e5379723d44df77a14434702835bd39b9d0c26309&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=308120373&response-content-disposition=attachment%3B%20filename%3Dscpier-0.5.7.jar&response-content-type=application%2Foctet-stream).
 
 ### Maven
-Package is hosted on [GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages).
-If you want to install a package, you need to authorize yourself by access token. More info [here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry).
-
-If you don't want to mess with Github Packages, you are free to build from the source. Make sure you have [git](https://git-scm.com/) installed on your machine:
+Make sure you have [git](https://git-scm.com/) installed on your machine.  
+Clone repository:
 ```
 git clone https://github.com/doomedcat17/scpier.git
+```
+Then enter scpier folder:
+```
 cd scpier
+```
+And install using [maven](https://maven.apache.org/):
+```
 mvn install
+```
+If you don't have maven installed, you can use maven wrapper instead (it's included in repo):
+```
+./mvnw install
 ```
 
 After this, just place the following into your POM's `<dependencies>` section:
