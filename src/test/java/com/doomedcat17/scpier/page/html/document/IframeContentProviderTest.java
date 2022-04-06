@@ -5,7 +5,6 @@ import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.exception.page.html.document.provider.IframeContentProviderException;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
-import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.iframe.IframeContentProvider;
@@ -97,7 +96,6 @@ class IframeContentProviderTest {
         WikiContent wikiContent = new WikiContent();
         wikiContent.setContent(content);
         wikiContent.setOriginalSourceUrl("http://www.scpwiki.com/scp-139");
-        wikiContent.setPreset(new Preset());
         Mockito.when(htmlDocumentProvider.getWebpageContent("http://www.scpwiki.com/scp-139/html/995a854d7cadae48a0af18803de323f18334cd32-1586188541109417535"))
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-139-divs.html")
