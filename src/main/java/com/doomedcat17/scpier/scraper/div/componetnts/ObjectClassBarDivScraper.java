@@ -34,7 +34,7 @@ public class ObjectClassBarDivScraper extends DivScraper implements DivScraperCo
     }
 
     private ParagraphNode scrapLine(Element lineElement) {
-        List<TextNode> textNodes = TextScraper.scrapText(lineElement, source);
+        List<TextNode> textNodes = TextScraper.scrap(lineElement, source);
         textNodes.get(0).addStyle("font-weight", "bold");
         if (!textNodes.get(0).getContent().endsWith(" ")) textNodes.get(0).setContent(textNodes.get(0).getContent()+" ");
         return new ParagraphNode(textNodes);

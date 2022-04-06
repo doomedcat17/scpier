@@ -4,13 +4,11 @@ import com.doomedcat17.scpier.data.content.*;
 import com.doomedcat17.scpier.exception.scraper.ElementScraperException;
 import com.doomedcat17.scpier.scraper.ElementContentScraper;
 import com.doomedcat17.scpier.scraper.ElementScraper;
-import org.jsoup.Connection;
+import com.doomedcat17.scpier.scraper.text.TextScraper;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class TableScraper extends ElementScraper {
     public TableScraper(String source) {
@@ -48,7 +46,6 @@ public class TableScraper extends ElementScraper {
     }
 
 
-
     private ListNode<ListNode<?>> scrapDefaultTable(Element element) {
         List<ListNode<?>> tableRows = new ArrayList<>();
         for (Element tableRow : element.children()) {
@@ -61,10 +58,10 @@ public class TableScraper extends ElementScraper {
     private ContentNode<?> getImageFromTable(ListNode<ListNode<?>> table) {
         EmbedNode embedNode = null;
         ParagraphNode caption = null;
-        for (ListNode<?> row: table.getContent()) {
+        for (ListNode<?> row : table.getContent()) {
             if (row instanceof ParagraphNode) continue;
             List<ContentNode<?>> cells = (List<ContentNode<?>>) row.getContent();
-            for (ContentNode<?> cell: cells) {
+            for (ContentNode<?> cell : cells) {
                 if (cell instanceof ListNode) {
                     ListNode<?> cellNode = (ListNode<?>) cell;
                     EmbedNode foundImage = (EmbedNode) cellNode.getContent().stream()
@@ -93,13 +90,40 @@ public class TableScraper extends ElementScraper {
         ListNode<ListNode<?>> paragraphs = new ListNode<>(ContentNodeType.PARAGRAPHS);
         for (Element itemElement : itemHeaders.children()) {
             ParagraphNode paragraph = new ParagraphNode();
-            String[] splitElements = itemElement.text().split(": ");
-            TextNode strongNode = new TextNode(splitElements[0].trim() + ": ");
-            strongNode.addStyle("font-weight", "bold");
-            strongNode.setContent(strongNode.getContent());
-            paragraph.addElement(strongNode);
-            paragraph.addElement(new TextNode(splitElements[1].trim()));
-            paragraphs.addElement(paragraph);
+            List<TextNode> textNodes;
+            ///itemElement has one child element in most cases
+            if (itemElement.children().size() == 1) {
+                Element childElement = itemElement.child(0);
+                if (childElement.children().isEmpty()) {
+                    String text = itemElement.text();
+                    //typical wiki stylization applying
+                    if (text.contains(":")) {
+                        String[] splitElements = itemElement.text().split(": ");
+                        TextNode strongNode = new TextNode(splitElements[0].trim() + ": ");
+                        strongNode.addStyle("font-weight", "bold");
+                        strongNode.setContent(strongNode.getContent());
+                        textNodes = List.of(strongNode, new TextNode(splitElements[1].trim()));
+                    } else {
+                        textNodes = List.of(new TextNode(childElement.text()));
+                    }
+                } else {
+                    textNodes = TextScraper.scrap(childElement, source);
+                }
+            } else {
+                textNodes = TextScraper.scrap(itemElement, source);
+                textNodes.get(0).addStyle("font-weight", "bold");
+            }
+
+            //for one text node, append to last paragraph and prepend with space
+            if (textNodes.size() == 1 && !paragraphs.isEmpty()) {
+                TextNode textNode = textNodes.get(0);
+                textNode.setContent(" "+textNode.getContent());
+                ParagraphNode lastParagraph = (ParagraphNode) paragraphs.getLastElement();
+                lastParagraph.addElements(textNodes);
+            } else {
+                paragraph.addElements(textNodes);
+                paragraphs.addElement(paragraph);
+            }
         }
         return paragraphs;
     }

@@ -1,5 +1,5 @@
 articleName: "scp-410-jp"
-scpBranch: "JAPANESE"
+branch: "JAPANESE"
 wikiElements:
   - selector: "#incident > a"
     elementType: "BUTTON"

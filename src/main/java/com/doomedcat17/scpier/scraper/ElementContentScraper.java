@@ -4,6 +4,7 @@ import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.content.ContentNodeType;
 import com.doomedcat17.scpier.data.content.ParagraphNode;
 import com.doomedcat17.scpier.data.content.TextNode;
+import org.jsoup.nodes.Comment;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 
@@ -26,6 +27,7 @@ public class ElementContentScraper {
                     } else contentNodes.add(contentNode);
                 }
             } else {
+                if (node instanceof Comment) continue;
                 String text = node.toString();
                 if (!text.isBlank()) {
                     if (!contentNodes.isEmpty()) {

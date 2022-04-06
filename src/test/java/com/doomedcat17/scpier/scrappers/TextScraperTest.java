@@ -1,9 +1,9 @@
 package com.doomedcat17.scpier.scrappers;
 
+import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.content.HyperlinkNode;
 import com.doomedcat17.scpier.data.content.TextNode;
 import com.doomedcat17.scpier.scraper.text.TextScraper;
-import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
@@ -36,7 +36,7 @@ class TextScraperTest extends ScrapperTest {
         //given
         Element textElement = sampleLines.getElementById("shouldScrapSimpleText");
         //when
-        List<TextNode> contentNodes = TextScraper.scrapText(textElement, SOURCE);
+        List<TextNode> contentNodes = TextScraper.scrap(textElement, SOURCE);
         //then
         assertEquals(expectedOutputs.get("shouldScrapSimpleText"), contentNodes);
         assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapSimpleText"), contentNodes));
@@ -47,7 +47,7 @@ class TextScraperTest extends ScrapperTest {
         //given
         Element textElement = sampleLines.getElementById("shouldScrapSimpleText2");
         //when
-        List<TextNode> contentNodes = TextScraper.scrapText(textElement, SOURCE);
+        List<TextNode> contentNodes = TextScraper.scrap(textElement, SOURCE);
         //then
         assertEquals(expectedOutputs.get("shouldScrapSimpleText2"), contentNodes);
         assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapSimpleText2"), contentNodes));
@@ -58,7 +58,7 @@ class TextScraperTest extends ScrapperTest {
         //given
         Element textElement = sampleLines.getElementById("shouldScrapTextWithStyling1");
         //when
-        List<TextNode> contentNodes = TextScraper.scrapText(textElement, SOURCE);
+        List<TextNode> contentNodes = TextScraper.scrap(textElement, SOURCE);
         //then
         assertEquals(expectedOutputs.get("shouldScrapTextWithStyling1"), contentNodes);
         assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapTextWithStyling1"), contentNodes));
@@ -70,7 +70,7 @@ class TextScraperTest extends ScrapperTest {
         //given
         Element textElement = sampleLines.getElementById("shouldScrapTextWithStyling2");
         //when
-        List<TextNode> contentNodes = TextScraper.scrapText(textElement, SOURCE);
+        List<TextNode> contentNodes = TextScraper.scrap(textElement, SOURCE);
         //then
         assertEquals(expectedOutputs.get("shouldScrapTextWithStyling2"), contentNodes);
         assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapTextWithStyling2"), contentNodes));
@@ -82,7 +82,7 @@ class TextScraperTest extends ScrapperTest {
         //given
         Element textElement = sampleLines.getElementById("shouldScrapTextWithStyling3");
         //when
-        List<TextNode> contentNodes = TextScraper.scrapText(textElement, SOURCE);
+        List<TextNode> contentNodes = TextScraper.scrap(textElement, SOURCE);
         //then
         assertEquals(expectedOutputs.get("shouldScrapTextWithStyling3"), contentNodes);
         assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapTextWithStyling3"), contentNodes));
@@ -93,7 +93,7 @@ class TextScraperTest extends ScrapperTest {
         //given
         Element textElement = sampleLines.getElementById("shouldScrapTextWithStyling4");
         //when
-        List<TextNode> contentNodes = TextScraper.scrapText(textElement, SOURCE);
+        List<TextNode> contentNodes = TextScraper.scrap(textElement, SOURCE);
         //then
         assertEquals(expectedOutputs.get("shouldScrapTextWithStyling4"), contentNodes);
         assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapTextWithStyling4"), contentNodes));
@@ -104,7 +104,7 @@ class TextScraperTest extends ScrapperTest {
         //given
         Element textElement = sampleLines.getElementById("shouldScrapTextWithStyling5");
         //when
-        List<TextNode> contentNodes = TextScraper.scrapText(textElement, SOURCE);
+        List<TextNode> contentNodes = TextScraper.scrap(textElement, SOURCE);
         //then
         assertEquals(expectedOutputs.get("shouldScrapTextWithStyling5"), contentNodes);
         assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapTextWithStyling5"), contentNodes));
@@ -115,7 +115,7 @@ class TextScraperTest extends ScrapperTest {
         //given
         Element textElement = sampleLines.getElementById("shouldScrapTextWithStyling6");
         //when
-        List<TextNode> contentNodes = TextScraper.scrapText(textElement, SOURCE);
+        List<TextNode> contentNodes = TextScraper.scrap(textElement, SOURCE);
         //then
         assertEquals(expectedOutputs.get("shouldScrapTextWithStyling6"), contentNodes);
         assertTrue(areTextNodesStylesAreEqual(expectedOutputs.get("shouldScrapTextWithStyling6"), contentNodes));
@@ -126,7 +126,7 @@ class TextScraperTest extends ScrapperTest {
         //given
         Element textElement = sampleLines.getElementById("shouldScrapTextAsLink");
         //when
-        List<TextNode> contentNodes = TextScraper.scrapText(textElement, SOURCE);
+        List<TextNode> contentNodes = TextScraper.scrap(textElement, SOURCE);
         TextNode textNode = contentNodes.get(0);
         //then
         assertTrue(textNode instanceof HyperlinkNode);
@@ -137,7 +137,7 @@ class TextScraperTest extends ScrapperTest {
         //given
         Element textElement = sampleLines.getElementById("shouldNOTScrapTextAsLink");
         //when
-        List<TextNode> contentNodes = TextScraper.scrapText(textElement, SOURCE);
+        List<TextNode> contentNodes = TextScraper.scrap(textElement, SOURCE);
         TextNode textNode = contentNodes.get(0);
         //then
         assertFalse(textNode instanceof HyperlinkNode);
@@ -149,7 +149,7 @@ class TextScraperTest extends ScrapperTest {
         //given
         Element textElement = sampleLines.getElementById("shouldNOTScrapTextAsLink2");
         //when
-        List<TextNode> contentNodes = TextScraper.scrapText(textElement, SOURCE);
+        List<TextNode> contentNodes = TextScraper.scrap(textElement, SOURCE);
         TextNode textNode = contentNodes.get(0);
         //then
         assertFalse(textNode instanceof HyperlinkNode);

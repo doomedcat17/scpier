@@ -1,5 +1,5 @@
 articleName: "scp-3211"
-scpBranch: "ENGLISH"
+branch: "ENGLISH"
 wikiElements:
   - selector: "#proceed"
     elementType: "BUTTON"

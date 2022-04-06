@@ -1,5 +1,5 @@
 articleName: "TEST"
-scpBranch: "ENGLISH"
+branch: "ENGLISH"
 wikiElements:
   - selector: "#first"
     elementType: "BUTTON"

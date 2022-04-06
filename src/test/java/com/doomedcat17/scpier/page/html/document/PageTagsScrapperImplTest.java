@@ -1,8 +1,8 @@
 package com.doomedcat17.scpier.page.html.document;
 
+import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapper;
 import com.doomedcat17.scpier.page.html.document.tags.PageTagsScrapperImpl;
-import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.Test;
 

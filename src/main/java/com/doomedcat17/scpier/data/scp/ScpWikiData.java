@@ -3,27 +3,36 @@ package com.doomedcat17.scpier.data.scp;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 public class ScpWikiData {
 
+    private String name;
     private String title;
-
-    private SCPBranch scpBranch;
-
-    private SCPTranslation scpTranslation;
-
+    private SCPBranch branch;
+    private SCPLanguage language;
+    private List<String> tags;
+    private LocalDateTime lastRevisionDate;
+    private String originalSource;
+    private String translationSource;
     private List<ContentNode<?>> content;
 
-    private List<String> tags;
+    public ScpWikiData() {
+    }
 
-    private Timestamp lastRevisionTimestamp;
-
-    private String originalSource;
-
-    private String translationSource = "";
-
+    public ScpWikiData(String name, String title, SCPBranch branch, SCPLanguage language, List<String> tags, LocalDateTime lastRevisionDate, String originalSource, String translationSource, List<ContentNode<?>> content) {
+        this.name = name;
+        this.title = title;
+        this.branch = branch;
+        this.language = language;
+        this.tags = tags;
+        this.lastRevisionDate = lastRevisionDate;
+        this.originalSource = originalSource;
+        this.translationSource = translationSource;
+        this.content = content;
+    }
 
     public void getContent(ContentNode<?> content) {
         this.content.add(content);
@@ -51,7 +60,7 @@ public class ScpWikiData {
 
     @JsonIgnore
     public String getContentSource() {
-        if (translationSource.isEmpty()) {
+        if (Objects.isNull(translationSource)) {
             return originalSource;
         } else return translationSource;
     }
@@ -68,32 +77,40 @@ public class ScpWikiData {
         this.tags = tags;
     }
 
-    public SCPBranch getScpBranch() {
-        return scpBranch;
+    public SCPBranch getBranch() {
+        return branch;
     }
 
-    public void setScpBranch(SCPBranch scpBranch) {
-        this.scpBranch = scpBranch;
+    public void setBranch(SCPBranch branch) {
+        this.branch = branch;
     }
 
-    public SCPTranslation getScpTranslation() {
-        return scpTranslation;
+    public SCPLanguage getLanguage() {
+        return language;
     }
 
-    public void setScpTranslation(SCPTranslation scpTranslation) {
-        this.scpTranslation = scpTranslation;
+    public void setLanguage(SCPLanguage language) {
+        this.language = language;
     }
 
-    public Timestamp getLastRevisionTimestamp() {
-        return lastRevisionTimestamp;
+    public LocalDateTime getLastRevisionDate() {
+        return lastRevisionDate;
     }
 
-    public void setLastRevisionTimestamp(Timestamp lastRevisionTimestamp) {
-        this.lastRevisionTimestamp = lastRevisionTimestamp;
+    public void setLastRevisionDate(LocalDateTime lastRevisionDate) {
+        this.lastRevisionDate = lastRevisionDate;
     }
 
     public String getTranslationSource() {
         return translationSource;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setTranslationSource(String translationSource) {
@@ -103,29 +120,13 @@ public class ScpWikiData {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ScpWikiData)) return false;
-
-        ScpWikiData wikiData = (ScpWikiData) o;
-
-        if (title != null ? !title.equals(wikiData.title) : wikiData.title != null) return false;
-        if (scpBranch != wikiData.scpBranch) return false;
-        if (scpTranslation != wikiData.scpTranslation) return false;
-        if (content != null ? !content.equals(wikiData.content) : wikiData.content != null) return false;
-        if (tags != null ? !tags.equals(wikiData.tags) : wikiData.tags != null) return false;
-        if (lastRevisionTimestamp != null ? !lastRevisionTimestamp.equals(wikiData.lastRevisionTimestamp) : wikiData.lastRevisionTimestamp != null)
-            return false;
-        return originalSource != null ? originalSource.equals(wikiData.originalSource) : wikiData.originalSource == null;
+        if (o == null || getClass() != o.getClass()) return false;
+        ScpWikiData that = (ScpWikiData) o;
+        return Objects.equals(title, that.title) && branch == that.branch && language == that.language && Objects.equals(content, that.content) && Objects.equals(tags, that.tags) && Objects.equals(lastRevisionDate, that.lastRevisionDate) && Objects.equals(originalSource, that.originalSource) && Objects.equals(translationSource, that.translationSource);
     }
 
     @Override
     public int hashCode() {
-        int result = title != null ? title.hashCode() : 0;
-        result = 31 * result + (scpBranch != null ? scpBranch.hashCode() : 0);
-        result = 31 * result + (scpTranslation != null ? scpTranslation.hashCode() : 0);
-        result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + (tags != null ? tags.hashCode() : 0);
-        result = 31 * result + (lastRevisionTimestamp != null ? lastRevisionTimestamp.hashCode() : 0);
-        result = 31 * result + (originalSource != null ? originalSource.hashCode() : 0);
-        return result;
+        return Objects.hash(title, branch, language, content, tags, lastRevisionDate, originalSource, translationSource);
     }
 }

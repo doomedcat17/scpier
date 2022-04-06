@@ -1,13 +1,14 @@
 package com.doomedcat17.scpier.page.html.document;
 
+import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.exception.page.html.document.provider.IframeContentProviderException;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
-import com.doomedcat17.scpier.page.html.document.preset.Preset;
-import com.doomedcat17.scpier.page.html.document.provider.IframeContentProvider;
-import com.doomedcat17.scpier.page.html.document.provider.ScriptedWikiPageProvider;
-import com.doomedcat17.scpier.testbox.TestDataProvider;
+import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
+import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
+import com.doomedcat17.scpier.page.html.document.provider.iframe.IframeContentProvider;
+import com.doomedcat17.scpier.page.webclients.NicelyLimitedWebClient;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class IframeContentProviderTest {
     @Mock
-    private ScriptedWikiPageProvider htmlDocumentProvider;
+    private DefaultWikiPageProvider htmlDocumentProvider;
 
     private IframeContentProvider iframeContentProvider;
 
@@ -38,7 +39,7 @@ class IframeContentProviderTest {
     @BeforeEach
     void init() {
         MockitoAnnotations.initMocks(this);
-        iframeContentProvider = new IframeContentProvider(htmlDocumentProvider, new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()));
+        iframeContentProvider = new IframeContentProvider(new DefaultWikiContentCleaner(ResourcesProvider.getRemovalDefinitions()), htmlDocumentProvider, new PresetExecutor(new NicelyLimitedWebClient()));
     }
 
     @Test
@@ -65,7 +66,7 @@ class IframeContentProviderTest {
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-049-audio3.html")
                 );
         //when
-        iframeContentProvider.provideIframesContent(wikiContent, new Preset());
+        iframeContentProvider.includeIframesContent(wikiContent);
         //then
         assertEquals(3L, content.children().stream().filter(element -> element.is("audio")).count());
         assertEquals(89, content.childNodeSize());
@@ -82,7 +83,7 @@ class IframeContentProviderTest {
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-087-image1.html")
                 );
-        iframeContentProvider.provideIframesContent(wikiContent, new Preset());
+        iframeContentProvider.includeIframesContent(wikiContent);
         //then
         assertEquals(4, content.select("img").size());
         assertEquals(29, content.childNodeSize());
@@ -99,7 +100,7 @@ class IframeContentProviderTest {
                 .thenReturn(TestDataProvider
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-139-divs.html")
                 );
-        iframeContentProvider.provideIframesContent(wikiContent, new Preset());
+        iframeContentProvider.includeIframesContent(wikiContent);
         //then
         assertNotNull(content.getElementById("firstText"));
         assertNotNull(content.getElementById("firstCollapsible"));
@@ -138,7 +139,7 @@ class IframeContentProviderTest {
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-474-divs6.html")
                 );
         //when
-        iframeContentProvider.provideIframesContent(wikiContent, new Preset());
+        iframeContentProvider.includeIframesContent(wikiContent);
         //then
         assertEquals(6, content.select("audio-player").size());
     }
@@ -151,7 +152,7 @@ class IframeContentProviderTest {
         wikiContent.setContent(content);
         wikiContent.setOriginalSourceUrl("http://www.scpwiki.com/scp-506");
         //when
-        iframeContentProvider.provideIframesContent(wikiContent, new Preset());
+        iframeContentProvider.includeIframesContent(wikiContent);
         //then
         assertEquals(1, content.select("video").size());
     }
@@ -168,7 +169,7 @@ class IframeContentProviderTest {
                         .getPageContent("src/test/resources/html/test_data/document/iframe/scp-720-video.html")
                 );
         //when
-        iframeContentProvider.provideIframesContent(wikiContent, new Preset());
+        iframeContentProvider.includeIframesContent(wikiContent);
         //then
         assertEquals(1, content.select("video").size());
     }

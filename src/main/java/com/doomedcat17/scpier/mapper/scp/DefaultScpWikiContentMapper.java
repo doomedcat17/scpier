@@ -17,10 +17,11 @@ public class DefaultScpWikiContentMapper implements ScpWikiContentMapper {
     public ScpWikiData mapWikiContent(WikiContent wikiContent)  {
         try {
             ScpWikiData scpWikiData = new ScpWikiData();
-            scpWikiData.setTitle(wikiContent.getName());
+            scpWikiData.setName(wikiContent.getName());
+            scpWikiData.setTitle(wikiContent.getTitle());
             scpWikiData.setOriginalSource(wikiContent.getOriginalSourceUrl());
             scpWikiData.setTranslationSource(wikiContent.getTranslationSourceUrl());
-            scpWikiData.setLastRevisionTimestamp(wikiContent.getLastRevisionTimestamp());
+            scpWikiData.setLastRevisionDate(wikiContent.getLastRevisionDate());
             mapScp(scpWikiData, wikiContent.getContent());
             unpackDivs(scpWikiData);
             return scpWikiData;

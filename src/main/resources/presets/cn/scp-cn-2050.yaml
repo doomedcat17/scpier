@@ -1,5 +1,5 @@
 articleName: "scp-cn-2050"
-scpBranch: "CHINESE"
+branch: "CHINESE"
 removalDefinitions:
   - ".code"
   - "div[id=\"page-content\"] > div[style=\"display: none\"]"

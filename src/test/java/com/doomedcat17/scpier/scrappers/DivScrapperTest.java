@@ -1,9 +1,8 @@
 package com.doomedcat17.scpier.scrappers;
 
+import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.content.*;
 import com.doomedcat17.scpier.scraper.div.DivScraper;
-import com.doomedcat17.scpier.testbox.TestDataProvider;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
@@ -553,7 +552,7 @@ class DivScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapAnomWithContentInsideStyling() throws JsonProcessingException {
+    void shouldScrapAnomWithContentInsideStyling() {
         //given
         DivScraper divScraper = new DivScraper("http://scp-zh-tr.wikidot.com/");
         Element anomDiv = sampleDivs.getElementById("shouldScrapAnomWithContentInsideStyling");
@@ -564,7 +563,7 @@ class DivScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapAnomWithContentInsideStyling2() throws JsonProcessingException {
+    void shouldScrapAnomWithContentInsideStyling2() {
         //given
         DivScraper divScraper = new DivScraper("http://scp-zh-tr.wikidot.com/");
         Element anomDiv = sampleDivs.getElementById("shouldScrapAnomWithContentInsideStyling2");

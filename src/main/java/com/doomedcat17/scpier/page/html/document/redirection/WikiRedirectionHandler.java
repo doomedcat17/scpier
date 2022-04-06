@@ -20,7 +20,7 @@ public class WikiRedirectionHandler {
             int charPosition = scpUrl.lastIndexOf('/');
             redirectionLink = scpUrl.substring(0, charPosition) + redirectionLink;
         }
-        WikiContent webpageContent = wikiPageProvider.getWebpageContent(redirectionLink);
+        WikiContent webpageContent = wikiPageProvider.getWebpageContentWithoutRunningJs(redirectionLink);
         return webpageContent.getContent();
     }
 

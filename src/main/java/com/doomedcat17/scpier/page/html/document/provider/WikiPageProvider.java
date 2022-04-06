@@ -7,4 +7,6 @@ import java.io.IOException;
 public interface WikiPageProvider {
 
     WikiContent getWebpageContent(String url) throws IOException;
+
+    WikiContent getWebpageContentWithoutRunningJs(String url) throws IOException;
 }

@@ -1,10 +1,10 @@
 package com.doomedcat17.scpier.page.html.document;
 
+import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
-import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.BeforeAll;
@@ -71,7 +71,7 @@ class WikiRedirectionHandlerTest {
     void shouldRedirect() throws IOException {
         //given
         Document document = TestDataProvider.loadDocumentFormHTML("src/test/resources/html/test_data/document/redirectedScp.html");
-        Mockito.when(wikiPageProvider.getWebpageContent("http://www.scpwiki.com/adult:scp-597/noredirect/true"))
+        Mockito.when(wikiPageProvider.getWebpageContentWithoutRunningJs("http://www.scpwiki.com/adult:scp-597/noredirect/true"))
                 .thenReturn(new WikiContent(document.getElementsByTag("body").first()));
         Element content = TestDataProvider
                 .getSampleElement("src/test/resources/html/test_data/document/sampleScpWithRedirection.html")

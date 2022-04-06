@@ -13,8 +13,9 @@ import java.io.IOException;
 
 public class PresetExecutor {
 
-    public static WikiContent execute(WebClient webClient, Preset preset, String src) throws PresetExecutorException {
-        try {
+    private final WebClient webClient;
+    public WikiContent execute(Preset preset, String src) throws PresetExecutorException {
+        try (webClient) {
             HtmlPage page = webClient.getPage(src);
             for (WikiElement element : preset.getWikiElements()) {
                 try {
@@ -24,7 +25,7 @@ public class PresetExecutor {
                 }
                 webClient.waitForBackgroundJavaScript(element.getRuntime());
             }
-            webClient.waitForBackgroundJavaScript(preset.getRuntime());
+            page.getEnclosingWindow().getJobManager().waitForJobs(preset.getRuntime());
             String html = page.executeJavaScript("document.body.parentNode.outerHTML")
                     .getJavaScriptResult()
                     .toString();
@@ -37,4 +38,7 @@ public class PresetExecutor {
         }
     }
 
+    public PresetExecutor(WebClient webClient) {
+        this.webClient = webClient;
+    }
 }

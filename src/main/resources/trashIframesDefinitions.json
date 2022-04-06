@@ -1,0 +1,5 @@
+[
+  "iframe[src*=\"/common--javascript/resize-iframe.html\"]",
+  "iframe[src*=\"interwiki.scpwiki.com\"]",
+  "iframe[src*=\"interwiki.scpdb.org\"]"
+]

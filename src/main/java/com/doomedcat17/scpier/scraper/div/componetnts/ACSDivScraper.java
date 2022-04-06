@@ -26,7 +26,7 @@ public class ACSDivScraper extends DivScraper implements DivScraperComponent {
     }
 
     private ContentNode<List<TextNode>> scrapItemName(Element element)  {
-        List<TextNode> item = TextScraper.scrapText(element.selectFirst(".acs-item"), source);
+        List<TextNode> item = TextScraper.scrap(element.selectFirst(".acs-item"), source);
         TextNode itemHeading = item.get(0);
         TextNode itemName = item.get(1);
         if (itemHeading.getContent().charAt(itemHeading.getContent().length()-1) != ' ') itemHeading.setContent(itemHeading.getContent()+" ");
@@ -49,7 +49,7 @@ public class ACSDivScraper extends DivScraper implements DivScraperComponent {
 
     public ParagraphNode scrapScpClass(Element scpClassElement) {
         Element textElement = scpClassElement.selectFirst(".acs-text");
-        List<TextNode> textNodes = TextScraper.scrapText(textElement, source);
+        List<TextNode> textNodes = TextScraper.scrap(textElement, source);
         if (textNodes.size() > 2) {
             //removes trash nodes with only one char
             textNodes.removeIf(textNode -> textNode.getContent().length() == 1);

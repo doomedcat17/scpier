@@ -1,13 +1,12 @@
 package com.doomedcat17.scpier.scrappers;
 
+import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.content.ListNode;
 import com.doomedcat17.scpier.scraper.list.ListScraper;
-import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,16 +14,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ListScrapperTest extends ScrapperTest {
 
     private final ListScraper listMapper = new ListScraper(SOURCE);
-
     private final Element sampleLists = TestDataProvider
             .getSampleElement("src/test/resources/html/test_data/lists/sample-lists-elements.html");
-
     private final Map<String, ContentNode<?>> expectedOutputs =
             getExpectedContentNodeOutputs("src/test/resources/html/test_data/lists/expected_outputs.json");
 
 
     @Test
-    void shouldScrapSimpleUnorderedList() throws IOException {
+    void shouldScrapSimpleUnorderedList()  {
         //given
         Element simpleUnorderedList = sampleLists.getElementById("shouldMapSimpleUnorderedList");
         //when
@@ -153,7 +150,7 @@ class ListScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapSimpleOrderedListWithStrongElements() throws IOException {
+    void shouldScrapSimpleOrderedListWithStrongElements()  {
         //given
         Element list = sampleLists.getElementById("shouldScrapSimpleOrderedListWithStrongElements");
         //when
@@ -163,7 +160,7 @@ class ListScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldIgnoreBlankRow() throws IOException {
+    void shouldIgnoreBlankRow()  {
         //given
         Element list = sampleLists.getElementById("shouldIgnoreBlankRow");
         //when
@@ -173,7 +170,7 @@ class ListScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapStrangeULList() throws IOException {
+    void shouldScrapStrangeULList()  {
         //given
         Element list = sampleLists.getElementById("shouldScrapStrangeULList");
         //when
@@ -183,7 +180,7 @@ class ListScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapStrangeULList2() throws IOException {
+    void shouldScrapStrangeULList2()  {
         //given
         Element list = sampleLists.getElementById("shouldScrapStrangeULList2");
         //when

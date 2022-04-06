@@ -1,8 +1,10 @@
 package com.doomedcat17.scpier.data.scp;
 
-import java.util.Arrays;
-import java.util.Optional;
+import com.doomedcat17.scpier.exception.data.ScpBranchNotFoundException;
 
+import java.util.Arrays;
+
+@SuppressWarnings("HttpUrlsUsage")
 public enum SCPBranch {
     ENGLISH("eng", "http://www.scp-wiki.wikidot.com/", SCPIdentifierPlacement.NONE),
     POLISH("pl", "http://scp-pl.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
@@ -20,10 +22,7 @@ public enum SCPBranch {
     CZECH("cs", "http://scp-cs.wikidot.com/", SCPIdentifierPlacement.ENDING),
     GREEK("el","http://scp-el.wikidot.com/", SCPIdentifierPlacement.ENDING),
     INDONESIAN("idn","http://scp-idn.wikidot.com/", SCPIdentifierPlacement.ENDING),
-    DANISH("nd","http://scp-nd.wikidot.com/da:", SCPIdentifierPlacement.ENDING),
-    FINNISH("nd","http://scp-nd.wikidot.com/fo:", SCPIdentifierPlacement.ENDING),
-    NORWEGIAN("nd","http://scp-nd.wikidot.com/no:", SCPIdentifierPlacement.ENDING),
-    SWEDISH("nd","http://scp-nd.wikidot.com/sv:", SCPIdentifierPlacement.ENDING),
+    NORDIC("nd","http://scp-nd.wikidot.com/", SCPIdentifierPlacement.ENDING),
     TURKISH("tr","http://scpvakfi.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
     VIETNAMESE("vn","http://scp-vn.wikidot.com/", SCPIdentifierPlacement.ENDING),
     CHINESE_TRADITIONAL("zh","http://scp-zh-tr.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
@@ -33,11 +32,11 @@ public enum SCPBranch {
     ROMANIAN("ro", "http://scp-ro.wikidot.com/", SCPIdentifierPlacement.MIDDLE),
     SLOVENIAN("sl", "http://scp-slovenija.wikidot.com/", SCPIdentifierPlacement.ENDING);
 
-    public String identifier;
+    public final String identifier;
 
-    public String url;
+    public final String url;
 
-    public SCPIdentifierPlacement scpIdentifierPlacement;
+    public final SCPIdentifierPlacement scpIdentifierPlacement;
 
     SCPBranch(String identifier, String url, SCPIdentifierPlacement scpIdentifierPlacement) {
         this.identifier = identifier;
@@ -47,10 +46,15 @@ public enum SCPBranch {
 
     public static SCPBranch getByUrl(String url) {
         if (url.equals("http://scp-int.wikidot.com/")) return SCPBranch.ENGLISH;
-        Optional<SCPBranch> foundScpBranch = Arrays.stream(SCPBranch.values())
-                .filter(scpBranch -> scpBranch.url.equals(url)).findFirst();
-        if (foundScpBranch.isPresent()) return foundScpBranch.get();
-        else throw new NullPointerException();
+        return Arrays.stream(SCPBranch.values())
+                .filter(scpBranch -> scpBranch.url.equals(url))
+                .findFirst().orElse(null);
+    }
+
+    public static SCPBranch getById(String branchId) {
+        return Arrays.stream(SCPBranch.values())
+                .filter(scpBranch -> scpBranch.identifier.equals(branchId))
+                .findFirst().orElseThrow(() -> new ScpBranchNotFoundException(branchId));
     }
 }
 

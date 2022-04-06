@@ -1,5 +1,5 @@
 articleName: "scp-438-jp"
-scpBranch: "JAPANESE"
+branch: "JAPANESE"
 wikiElements:
   - selector: "#btn2"
     elementType: "BUTTON"

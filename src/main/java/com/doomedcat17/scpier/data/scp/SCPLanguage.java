@@ -1,10 +1,12 @@
 package com.doomedcat17.scpier.data.scp;
 
-import java.util.Arrays;
-import java.util.Optional;
+import com.doomedcat17.scpier.exception.data.ScpLanguageNotFoundException;
 
-public enum SCPTranslation {
-    ORIGINAL("", ""),
+import java.util.Arrays;
+import java.util.Set;
+
+@SuppressWarnings("HttpUrlsUsage")
+public enum SCPLanguage {
     ENGLISH("eng", "http://scp-int.wikidot.com/"),
     POLISH("pl", "http://scp-pl.wikidot.com/"),
     RUSSIAN("ru", "http://scp-ru.wikidot.com/"),
@@ -35,21 +37,29 @@ public enum SCPTranslation {
     SLOVENIAN("sl", "http://scp-slovenija.wikidot.com/");
 
 
-    public String identifier;
-    public String url;
+    public final String identifier;
+    public final String url;
 
-    SCPTranslation(String identifier, String url) {
+    SCPLanguage(String identifier, String url) {
         this.identifier = identifier;
         this.url = url;
     }
 
     //ignores article name
-    public static SCPTranslation getByUrl(String url) {
-        if (url.contains("http://www.scp-wiki.wikidot.com/")) return SCPTranslation.ENGLISH;
-        Optional<SCPTranslation> foundScpTranslation = Arrays.stream(SCPTranslation.values())
-                .filter(scpTranslation -> !scpTranslation.url.isEmpty())
-                .filter(scpTranslation -> url.contains(scpTranslation.url)).findFirst();
-        if (foundScpTranslation.isPresent()) return foundScpTranslation.get();
-        else throw new NullPointerException();
+    public static SCPLanguage getByUrl(String url) {
+        if (url.contains("http://www.scp-wiki.wikidot.com/")) return SCPLanguage.ENGLISH;
+        return Arrays.stream(SCPLanguage.values())
+                .filter(scpTranslation -> url.contains(scpTranslation.url))
+                .findFirst().orElseThrow(NullPointerException::new);
+    }
+
+    public static Set<SCPLanguage> getNordicLanguages() {
+        return Set.of(SCPLanguage.NORWEGIAN, SCPLanguage.DANISH, SCPLanguage.FINNISH, SCPLanguage.SWEDISH);
+    }
+
+    public static SCPLanguage getById(String langId) {
+        return Arrays.stream(SCPLanguage.values())
+                .filter(scpTranslation -> scpTranslation.identifier.equals(langId))
+                .findFirst().orElseThrow(() -> new ScpLanguageNotFoundException(langId));
     }
 }
