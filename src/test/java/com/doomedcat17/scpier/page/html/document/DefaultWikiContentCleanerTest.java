@@ -1,9 +1,9 @@
 package com.doomedcat17.scpier.page.html.document;
 
+import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.page.html.document.cleaner.DefaultWikiContentCleaner;
 import com.doomedcat17.scpier.page.html.document.cleaner.WikiContentCleaner;
-import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

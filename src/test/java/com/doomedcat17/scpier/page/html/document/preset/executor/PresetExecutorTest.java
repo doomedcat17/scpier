@@ -1,12 +1,13 @@
 package com.doomedcat17.scpier.page.html.document.preset.executor;
 
+import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.exception.page.html.document.preset.PresetExecutorException;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
 import com.doomedcat17.scpier.page.webclients.NicelyLimitedWebClient;
-import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
+
 import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.*;

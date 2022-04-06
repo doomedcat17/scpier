@@ -1,10 +1,10 @@
 package com.doomedcat17.scpier.page.html.document;
 
+import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.provider.WikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.redirection.WikiRedirectionHandler;
-import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.BeforeAll;

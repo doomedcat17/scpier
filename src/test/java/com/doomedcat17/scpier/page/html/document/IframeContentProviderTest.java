@@ -1,5 +1,6 @@
 package com.doomedcat17.scpier.page.html.document;
 
+import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.files.ResourcesProvider;
 import com.doomedcat17.scpier.exception.page.html.document.provider.IframeContentProviderException;
 import com.doomedcat17.scpier.page.WikiContent;
@@ -9,7 +10,6 @@ import com.doomedcat17.scpier.page.html.document.preset.executor.PresetExecutor;
 import com.doomedcat17.scpier.page.html.document.provider.DefaultWikiPageProvider;
 import com.doomedcat17.scpier.page.html.document.provider.iframe.IframeContentProvider;
 import com.doomedcat17.scpier.page.webclients.NicelyLimitedWebClient;
-import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;

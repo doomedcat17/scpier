@@ -1,10 +1,9 @@
 package com.doomedcat17.scpier.scrappers;
 
 
+import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.content.*;
 import com.doomedcat17.scpier.scraper.table.TableScraper;
-import com.doomedcat17.scpier.testbox.TestDataProvider;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
@@ -25,7 +24,7 @@ class TableScrapperTest extends ScrapperTest {
             getExpectedContentNodeOutputs("src/test/resources/html/test_data/tables/expected_outputs.json");
 
     @Test
-    void shouldScrapSimpleTable()  {
+    void shouldScrapSimpleTable() {
         //given
         Element table = sampleTables.getElementById("shouldScrapSimpleTable");
         //when
@@ -35,7 +34,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapSimpleTableWithoutTbody()  {
+    void shouldScrapSimpleTableWithoutTbody() {
         //given
         Element table = sampleTables.getElementById("shouldScrapSimpleTableWithoutTbody");
         //when
@@ -43,8 +42,9 @@ class TableScrapperTest extends ScrapperTest {
         //then
         assertEquals(expectedOutputs.get("shouldScrapSimpleTable"), contentNode);
     }
+
     @Test
-    void shouldScrapSimpleTable2()  {
+    void shouldScrapSimpleTable2() {
         //given
         Element table = sampleTables.getElementById("shouldScrapSimpleTable2");
         //when
@@ -54,7 +54,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapEnBaseTable()  {
+    void shouldScrapEnBaseTable() {
         //given
         Element table = sampleTables.getElementById("shouldMapEnBaseTable");
         //when
@@ -70,7 +70,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldMapEnBaseTable2()  {
+    void shouldMapEnBaseTable2() {
         //given
         Element table = sampleTables.getElementById("shouldMapEnBaseTable2");
         //when
@@ -86,7 +86,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldMapEnBaseTable3()  {
+    void shouldMapEnBaseTable3() {
         //given
         Element table = sampleTables.getElementById("shouldMapEnBaseTable3");
         //when
@@ -102,7 +102,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapResponsiveTable() throws JsonProcessingException {
+    void shouldScrapResponsiveTable() {
         //given
         Element table = sampleTables.getElementById("shouldScrapResponsiveTable");
         //when
@@ -113,7 +113,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapOnlyImageFromTable() throws JsonProcessingException {
+    void shouldScrapOnlyImageFromTable() {
         //given
         Element table = sampleTables.getElementById("shouldScrapOnlyImageFromTable");
         //when
@@ -127,7 +127,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapOnlyImageFromTable2() throws JsonProcessingException {
+    void shouldScrapOnlyImageFromTable2() {
         //given
         Element table = sampleTables.getElementById("shouldScrapOnlyImageFromTable2");
         //when
@@ -141,7 +141,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldScrapOnlyImageFromTable3() throws JsonProcessingException {
+    void shouldScrapOnlyImageFromTable3() {
         //given
         Element table = sampleTables.getElementById("shouldScrapOnlyImageFromTable3");
         //when
@@ -153,7 +153,7 @@ class TableScrapperTest extends ScrapperTest {
     }
 
     @Test
-    void shouldReturnTable() throws JsonProcessingException {
+    void shouldReturnTable() {
         //given
         Element table = sampleTables.getElementById("shouldReturnTable");
         //when

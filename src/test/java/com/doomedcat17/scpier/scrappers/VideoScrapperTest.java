@@ -1,9 +1,9 @@
 package com.doomedcat17.scpier.scrappers;
 
+import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.data.content.EmbedNode;
 import com.doomedcat17.scpier.scraper.video.VideoScraper;
-import com.doomedcat17.scpier.testbox.TestDataProvider;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 

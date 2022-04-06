@@ -1,4 +1,4 @@
-package com.doomedcat17.scpier.testbox;
+package com.doomedcat17.scpier;
 
 import com.doomedcat17.scpier.page.WikiContent;
 import com.doomedcat17.scpier.page.html.document.preset.Preset;
@@ -46,7 +46,7 @@ public class TestDataProvider {
     public static Preset loadPresetFromYAML(String path) {
        ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory().disable(YAMLGenerator.Feature.USE_NATIVE_TYPE_ID));
        try {
-           return objectMapper.readValue(new File(path), new TypeReference<Preset>(){});
+           return objectMapper.readValue(new File(path), new TypeReference<>(){});
        } catch (Exception e) {
            e.printStackTrace();
        }

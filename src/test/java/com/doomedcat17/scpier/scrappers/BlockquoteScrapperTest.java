@@ -1,9 +1,8 @@
 package com.doomedcat17.scpier.scrappers;
 
+import com.doomedcat17.scpier.TestDataProvider;
 import com.doomedcat17.scpier.data.content.ContentNode;
 import com.doomedcat17.scpier.scraper.blockquote.BlockquoteScraper;
-import com.doomedcat17.scpier.testbox.TestDataProvider;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.jsoup.nodes.Element;
 import org.junit.jupiter.api.Test;
 
@@ -60,7 +59,7 @@ class BlockquoteScrapperTest extends ScrapperTest {
         assertEquals(expectedOutputs.get("shouldScrapBlockquoteWithDeletedContent"), contentNode);
     }
     @Test
-    void shouldScrapBlockquoteWithList() throws JsonProcessingException {
+    void shouldScrapBlockquoteWithList() {
         //given
         Element element = sampleLines.getElementById("shouldScrapBlockquoteWithList");
         //when
