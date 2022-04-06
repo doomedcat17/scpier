@@ -168,7 +168,7 @@ ScpWikiData object173 = scpWikiDataProvider
 ```
 Returns *SCP-PL-173* article in its original form.
 
-####Exceptions
+#### Exceptions
 `SCPierApiException` is the class from which all other exceptions inherit.
 If article hasn't been found, the `SCPWikiContentNotFoundException` is thrown.
 
