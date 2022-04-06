@@ -6,7 +6,7 @@ SCPier is Java API for retrieving SCPs, Tales and other content directly from [S
 
 **I don't own any of the provided data**, so please check out [Licensing Guide](https://scp-wiki.wikidot.com/licensing-guide)
 if you consider commercial use.  
-SCPier itself is free to use for any pourpuse, if usage does not violate [Wikidot's Terms Of Service](https://www.wikidot.com/legal:terms-of-service).
+SCPier itself is free to use for any purpose, if usage does not violate [Wikidot's Terms Of Service](https://www.wikidot.com/legal:terms-of-service).
 
 - [How it works?](#how-it-works)
 - [Installation](#installation)
