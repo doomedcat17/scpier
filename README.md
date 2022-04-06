@@ -182,7 +182,6 @@ SCPBranch branch;
 SCPTranslation language;
 List<String> tags;
 LocalDateTime lastRevisionTimestamp;
-String author;
 String originalSource;
 String translationSource;
 List<ContentNode<?>> content;
@@ -199,11 +198,9 @@ List<ContentNode<?>> content;
 
 `lastRevisionTimestamp` - date and time of the last revision (UTC).
 
-`author` - author's nickname. (page creator from the page's history)
-
 `originalSource` - URL of original article.
 
-`translationSource` - URL of translated article. **Nullable**
+`translationSource` - URL of translated article.
 
 `content` - content of the article.
 
