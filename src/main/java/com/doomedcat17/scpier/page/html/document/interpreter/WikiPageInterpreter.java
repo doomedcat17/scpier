@@ -22,6 +22,7 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,7 +75,8 @@ public class WikiPageInterpreter {
     private void setWikiContentTags(WikiContent wikiContent) {
         PageTagsScrapper pageTagsScrapper = new PageTagsScrapperImpl();
         Optional<List<String>> tagNames = pageTagsScrapper.scrapPageTags(wikiContent.getContent());
-        tagNames.ifPresent(wikiContent::setTags);
+        if (tagNames.isPresent()) wikiContent.setTags(tagNames.get());
+        else wikiContent.setTags(new ArrayList<>());
     }
 
     private void setWikiContentTitle(WikiContent wikiContent) {
