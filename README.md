@@ -2,6 +2,8 @@
 
 **SCPier is still in development. Check [Status](#status).**
 
+**If you don't use Java, check out my [scpier-web-api](http://scpier-api.com/)!**
+
 SCPier is Java API for retrieving SCPs, Tales and other content directly from [SCP Foundation Wiki](http://www.scpwiki.com/)
 
 **I don't own any of the provided data**, so please check out [Licensing Guide](https://scp-wiki.wikidot.com/licensing-guide)
