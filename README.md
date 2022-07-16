@@ -120,7 +120,7 @@ It accepts HtmlUnit's `WebClient`, so you can provide your own implementation in
 
 **ScpWikiDataProvider is not thread safe.** Use one instance per thread.
 
-####Getting wiki content
+#### Getting wiki content
 
 To get data from Scp Wiki simply use `getScpWikiContent()` method.
 
@@ -1029,7 +1029,7 @@ Obviously SCPier can't handle them by itself, every case is different. So I came
 `Preset` is a YAML file with instructions for the SCPier how to handle specific cases (like inputs, getting additional content or removing some unwanted content).
 
 *How many articles need their own Preset?*  
-I don't really now, but I **assume** it's less than 10 percent of all articles.  
+I don't really know, but I **assume** it's less than 10 percent of all articles.  
 
 The most problematic case is usage of `code` class. It is mostly used for purely aesthetic purposes, which are not really important for scrapping, though there are times when custom code could possess some storytelling values
 
