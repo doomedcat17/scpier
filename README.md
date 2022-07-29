@@ -1,5 +1,7 @@
 # SCPier - SCP Wiki webscraper
 
+[![](https://jitpack.io/v/doomedcat17/scpier.svg)](https://jitpack.io/#doomedcat17/scpier)
+
 **SCPier is still in development. Check [Status](#status).**
 
 **If you don't use Java, check out my [scpier-web-api](http://scpier-api.com/)!**
@@ -62,7 +64,43 @@ What is **NOT** scraped:
 SCPier is available as a downloadable .jar java library.
 Download [here](https://objects.githubusercontent.com/github-production-release-asset-2e65be/308120373/c3f78dac-3b54-4a9c-b748-46d5353abca8?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20211104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211104T170146Z&X-Amz-Expires=300&X-Amz-Signature=f72e03b0a1d9961c39e5a63e5379723d44df77a14434702835bd39b9d0c26309&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=308120373&response-content-disposition=attachment%3B%20filename%3Dscpier-0.5.7.jar&response-content-type=application%2Foctet-stream).
 
-### Maven
+### JitPack
+#### Gradle
+Add JitPack repository to your project:
+
+```gradle
+allprojects {
+  repositories {
+    maven { url 'https://jitpack.io' }
+  }
+}
+ ```
+And then add scpier dependency:
+```gradle
+dependencies {
+  implementation 'com.github.doomedcat17:scpier:0.5.8'
+}
+ ```
+#### Maven
+Add JitPack repository to your project:
+```xml
+<repositories>
+  <repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+  </repository>
+</repositories>
+ ```
+And then add scpier dependency:
+```xml
+<dependency>
+  <groupId>com.github.doomedcat17</groupId>
+  <artifactId>scpier</artifactId>
+  <version>0.5.8</version>
+</dependency>
+ ```
+
+#### Manual 
 Make sure you have [git](https://git-scm.com/) installed on your machine.  
 Clone repository:
 ```
